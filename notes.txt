@@ -127,7 +127,7 @@ https://www.youtube.com/watch?v=vyJU9efvUtQ - Material UI React Tutorial - 42m !
 
 https://www.youtube.com/watch?v=Oe421EPjeBE - Node.js and Express.js - Full Course - 8h16m !
 
-https://www.youtube.com/watch?v=qw--VYLpxG4 - PostgreSQL full course - 4h20m
+https://www.youtube.com/watch?v=qw--VYLpxG4 - PostgreSQL full course - 4h20m |(1h52m)
 
 personal project:
 Latin vocabulary exerciser.
