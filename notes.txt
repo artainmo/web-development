@@ -129,11 +129,8 @@ https://www.youtube.com/watch?v=Oe421EPjeBE - Node.js and Express.js - Full Cour
 
 https://www.youtube.com/watch?v=qw--VYLpxG4 - PostgreSQL full course - 4h20m !
 
-personal project:
-Latin vocabulary exerciser.
-
 Courses;
-https://www.codecademy.com/learn/learn-html - 9h
+https://www.codecademy.com/learn/learn-html - 9h !
 https://www.codecademy.com/learn/learn-css - 10h
 https://www.codecademy.com/learn/introduction-to-javascript - 20h
 https://www.codecademy.com/learn/learn-intermediate-javascript - 10h
@@ -148,6 +145,98 @@ Shared Slack links;
 https://www.sitepoint.com/react-with-typescript-best-practices/
 https://dev.to/mychal/protected-routes-with-react-function-components-dh
 https://www.infoq.com/articles/typescript-mysql/
+
+====
+HTML
+====
+Consists of elements
+Elements consist of one opening and one closing tag and content between the tags like this "<p>Hello World</p>"
+Child/nested elements are elements inside elements, they can inherit styling from their parent elements. 
+One element per line and nested elements should be indented once compared to their direct parent element for readable code.
+Attributes are content added to the opening tag of an element, it has a name and is equal to a value. One common attribute is id to identify your elements.
+
+HTML files should have the .html extension and start with <!DOCTYPE html>. A
+All the code should be in between <html></html>.
+The <header></header> tags should follow and they allow metadata (info that does not get displayed). As nested element it can contain the <title> element which will give a title on browser tab, the header element should come before the body element.
+
+All content between body tags get displayed on screen "<body></body>".
+Different heading types exist <h1> for the main heading and for subheadings: <h2> <h3> <h4> <h5> <h6>.
+The div tag is used to group content together or divide the content "<div></div>", the <p> and <span> tags too.
+The <em> tag allows for italic text and <strong> tag for bold text.
+The <br> tag has no closing tag and refers to a line break.
+The <ul> or <ol> nested with <li> tags allow for the creation of a bullet-pointed-list or numbered-list.
+
+The <img /> is a self-closing tag used to display images, it must contain an src attribute with the value containing the path/link towards the image, the alt attribute can be used to add a description, this can be positive for blind people, SEO or browsers that cannot render the image.
+The <video></video> tags are used to display videos, in between tags a text for when the video cannot be displayed, in opening tag src attribute should link to video. Control attribute can be used to include basic video controls like pause...
+For audio use <source src=linkToAudio type=audioType controls>
+
+To link/hyperlink(same) to other webpages you can use an anchor element like this <a href=hyperlink/relativePath>text/image/buttton..</a>, by using the target attribute as such target="_blank" the pages will be opened in a new window. 
+Linking to same page is possible with href="#idOfElement".
+
+Comments begin with <!-- and end with -->.
+
+Inside <table></table> tags a table can be created. By using <tr></tr> you can define rows wherein you can define columns/fill-data with <td><td>. 
+With <th></th> table headings can be defined with attribute scope one can choose 'col' or 'row'. 
+Attribute rowspan and colspan can be used to span one block over multiple rows/columns. <tbody>, <thead> and <tfoot> are used to separate table's body, header, footer.
+
+To create a form use <form></form> that can have attribute action (where the information is sent) and method (POST).
+In between tags can contain text and  must contain an input element, the input element must take as attribute type(text,password,number,checkbox) and name(id) and potentially value(default text).
+Labels are used to give description to form, their advantage is that when clicking on them they focus on the form, they go as follows <label for=idInput></label>.
+Step attribute in input with type number allows to increment, decrement the number with arrows.
+For input slider set type attribute to range, min and max can be used as attributes to be more specific.
+For radio buttons, which allow to choose one option between multiple checkboxes, set type attribute to radio.
+For a drop-down menu use the select tags that contain option tags.
+A datalist is an input wherein you can write and an appropriate drop-down will follow, this is possible using the datalist tags containing the option tags.
+<textarea></textarea> can be used to take larger text input.
+A form element must always end with a submit button this can be created with an input element containing the type attribute equaling submit.
+When a <form> is submitted, the name of the fields that accept input and the value of those fields are sent as name=value pairs.
+
+The required attribute in an input element can force the filling of that form.
+The min/minlength and max/maxlength attributes in an input element can force the number-or-range/text to be in between certain values / to have a certain length.
+The patern element can indicate what chars can be used or not.
+
+For more readable, SEO-friendly, blind-people-friendly code instead of divs use:
+Nav tag can be used to indicate the navigation links section.
+main tag can be used to indicate content of page.
+footer tag can be used to indicate the footer part of the page.
+section tags can encapsulate elements with the same theme.
+aside tags are used to indicate extra information of an article or section.
+figure tag is used to encapsulate media, the media post can receive a description with figcaption, audio can be encapsulated with audio tag.
+
+===
+CSS
+===
+Used to style HTML.
+
+SYNTAX
+CSS declarations contain a property (ex. color) and a value (ex. blue), example color: blue;
+CSS selectors consist of a tag (ex. p, also called the type selector) followed by braces like a function ({}) filled with declarations, to define a style for a particular tag.
+
+The usual syntax for CSS is external stylesheet, consisting of selectors inside a .css file, to style an HTML based on that css file, use the element <link href=pathCSS rel="stylesheet"> with rel for relationship.
+But inline and internal stylesheet also exist.
+In HTML elements can have the attribute style, that can directly be set with a css declaration (inline).
+In the header element of an HTML file, style element can be created which will contain selectors like in a .css, applicable for the elements in the .HTML file.
+
+SELECTORS
+Type selectors refer to HTML tags, multiple can be used on one selector and the universal type selector (*) refers to all the tags.
+CSS classes can also be made, HTML elements must use the class attribute to use them and can use multiple simultaneously, CSS classes have a type selector = .name.
+CSS ids can also be made those are classes that each only style one HTML element by using the id attribute, their type selector = #name.
+You can also create selectors based on HTML element attributes, if an element contains an attribute ([attribute]) or if an element contains an attribute that is-equal-to/contains a value ([attribute*=value]) or an element containing a tag/type and attribute (type[attribute]).
+To target an HTML element of a particular type with a particular class create a selector with type.className.
+Pseudo-class selectors are added to the selector type (ex. p:focus) and allow to change styling during an action on the site here are some of them :focus, :visited, :disabled, and :active.
+Descendants are child elements a parent element can style its child elements with a class attribute and selector .className descendantType or without a class attribute parentType childType.
+
+If mutliple css selectors are applicable on an HTML element the most specific one receives priority, id is more specific than class which is more specific than type.
+
+CSS VISUAL RULES
+As a declaration property font-family can be used to indicate typeface/font family.
+To change size of text use font-size.
+To change how bold or thin text appears use font-weight.
+text-align can be used to position text relative to its parent HTML element.
+color indicates the text color, background-color and background-image are self-explanatory.
+opacity can be used to indicate the transparancy of the text.
+!important can be used at end of declaration to automatically make it the most specific one (priority), but its use is considerd bad practice.
+
 
 ==========
 JAVASCRIPT
