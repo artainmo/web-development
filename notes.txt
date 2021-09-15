@@ -58,14 +58,10 @@ Back-end acts as web-server(answer HTTP request) and data-base-manager.
 Front-end refers to the pages send by web-server to client-server, that the client's web browser will visually display, creating an user interface (UI). 
 Different programming languages can be used for the back-end and front-end development.
 
----------
-FRONT-END
----------
 
-HTML & CSS
-The HyperText Markup Language, or HTML is the standard markup language for documents designed to be displayed in a web browser. 
-CSS describes how HTML elements should be displayed and is thus a styling language.
-Those are the only languages a web browser can display.
+--------------------
+FRONT-END & BACK-END
+--------------------
 
 JAVASCRIPT
 Is a high-level-language used both for front-end and back-end.
@@ -77,6 +73,15 @@ The web browser has to first transform javascript to HTML/CSS before display, it
 TYPESCRIPT
 It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.
 By making use of static typing it makes the code more readable and allows compile-time-errors..
+
+---------
+FRONT-END
+---------
+
+HTML & CSS
+The HyperText Markup Language, or HTML is the standard markup language for documents designed to be displayed in a web browser. 
+CSS describes how HTML elements should be displayed and is thus a styling language.
+Those are the only languages a web browser can display.
 
 REACT
 React is a free and open-source front-end JavaScript library for building user interfaces or UI components. 
@@ -131,7 +136,7 @@ https://www.youtube.com/watch?v=qw--VYLpxG4 - PostgreSQL full course - 4h20m !
 
 Courses;
 https://www.codecademy.com/learn/learn-html - 9h !
-https://www.codecademy.com/learn/learn-css - 10h
+https://www.codecademy.com/learn/learn-css - 10h !
 https://www.codecademy.com/learn/introduction-to-javascript - 20h
 https://www.codecademy.com/learn/learn-intermediate-javascript - 10h
 https://www.codecademy.com/learn/learn-typescript - 10h
@@ -166,7 +171,7 @@ The <em> tag allows for italic text and <strong> tag for bold text.
 The <br> tag has no closing tag and refers to a line break.
 The <ul> or <ol> nested with <li> tags allow for the creation of a bullet-pointed-list or numbered-list.
 
-The <img /> is a self-closing tag used to display images, it must contain an src attribute with the value containing the path/link towards the image, the alt attribute can be used to add a description, this can be positive for blind people, SEO or browsers that cannot render the image.
+The <img /> is a self-closing tag used to display images, it must contain an src attribute with the value containing the path/link towards the image, the alt attribute can be used to add a description, this can be positive for blind people, SEO or browsers that cannot render the image. (graphic images can be made using Canva)
 The <video></video> tags are used to display videos, in between tags a text for when the video cannot be displayed, in opening tag src attribute should link to video. Control attribute can be used to include basic video controls like pause...
 For audio use <source src=linkToAudio type=audioType controls>
 
@@ -219,14 +224,15 @@ In the header element of an HTML file, style element can be created which will c
 
 SELECTORS
 Type selectors refer to HTML tags, multiple can be used on one selector and the universal type selector (*) refers to all the tags.
-CSS classes can also be made, HTML elements must use the class attribute to use them and can use multiple simultaneously, CSS classes have a type selector = .name.
+CSS classes can also be made, HTML elements must use the class attribute to use them, CSS classes have a type selector = .name.
 CSS ids can also be made those are classes that each only style one HTML element by using the id attribute, their type selector = #name.
 You can also create selectors based on HTML element attributes, if an element contains an attribute ([attribute]) or if an element contains an attribute that is-equal-to/contains a value ([attribute*=value]) or an element containing a tag/type and attribute (type[attribute]).
 To target an HTML element of a particular type with a particular class create a selector with type.className.
-Pseudo-class selectors are added to the selector type (ex. p:focus) and allow to change styling during an action on the site here are some of them :focus, :visited, :disabled, and :active.
 Descendants are child elements a parent element can style its child elements with a class attribute and selector .className descendantType or without a class attribute parentType childType.
+Pseudo-class selectors are added to the selector type (ex. p:focus) and allow to change styling during an action on the site here are some of them :focus, :visited, :disabled, and :active.
 
-If mutliple css selectors are applicable on an HTML element the most specific one receives priority, id is more specific than class which is more specific than type.
+If mutliple css selectors are applicable on an HTML element the most specific one receives priority, id is more specific than class which is more specific than type. 
+Good practice when writing a .css is to write the file from lowest priority selectors to highest priority selectors.
 
 CSS VISUAL RULES
 As a declaration property font-family can be used to indicate typeface/font family.
@@ -237,13 +243,197 @@ color indicates the text color, background-color and background-image are self-e
 opacity can be used to indicate the transparancy of the text.
 !important can be used at end of declaration to automatically make it the most specific one (priority), but its use is considerd bad practice.
 
+BOX MODEL
+Defines set of properties that defines how much space an HTML element takes.
+Height and width properties are self-explanatory.
+The border property can receive three values one for the border width, style and color.
+border-radius property can be used to make the square border less square.
+The space between the borders of the box and its content is known as padding, even specifying it for one side of the box is possible.
+Margin property refers to the space outside of the box, whereby each side's margin can be specified individually, usually pixels are used as value but auto value can center the element in its containing element automatically.
+Margin collapse is a concept whereby horizontal(side-by-side elements) margin between two HTML elements logically add up but vertical(up-under elements) margins do not, horizontal margins become the biggest margin between the two.
+Different screen sizes can narrow or widen elements, limiting this is possible with min-width, min-height, max-width, max-height.
+Overflow occurs when child element takes more space than parent element (this can happen when screensize is limited), the overflow property can be used by the parent to decide how to handle it, values are hide (hide everything that overflows) scroll (scroll bar to display whole) or show.
+The visibility of an HTML element can be set to hidden, so that it takes the place without displaying its contents.
 
-==========
-JAVASCRIPT
-==========
-OFFICIAL DOCUMENTATION
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+In all (*), margin and padding is set to 0. This is often first selector of an external stylesheet it resets the default values a browser has.
 
+A default box-model is used but it can be modified with * { border-size: border-box }. The border-box model is not affected by border thickness or padding.
+
+Google Chrome devTools can be used to view and adjust box dimensions from the browser.
+
+DISPLAY AND POSITIONING
+Use the position property with static, relative, absolute, fixed, sticky
+Static is default value leading to regular left-alignment.
+Relative leads to regular left-alignment but allows the use of offset properties and z-index, relative to default position.
+Absolute leads to an element ignored by others thus element overlap can happen, it sits relative to closest parent element.
+When an element is set to fixed it will stay at least on top of screen when scrolling down or at least bottom screen when scrolling up.
+When an element is set to sticky it will keep its perfect position relative to the screen when scrolling, if the postion has been set with offset properties.
+
+Offset properties can also be used to precisely position elements, those are top, bottom, right, left, they can be used to move the position x pixels from the property.
+z-index describes the depth of elements, thus which elements come above other ones, with a higher z-index leading to a more forward sitting element.
+float property can be set to right or left and simply places the element against the left or right side of the screeen. If elements bump into each other as a consequence of float, clear property (right, left, both values) can be used to avoid them bumping on one side or both sides.
+
+The display property indicates if elements are horizontally positioned. 
+The inline value is the default one, here the next element comes horizontally next to the prior element, but height and width properties cannot be used.
+The block value indicates the next element comes vertically next to the prior element and takes whole screen width.
+The inline-block value allows to have the next element horizontally next to the prior element, while being able to specify the height and width properties.
+
+COLOR
+color property refers to color of text and backgroud-color to color of background.
+
+Pre-made colors can be used by indicating their name for example, brown, sienna... Here is the list https://developer.mozilla.org/en-US/docs/Web/CSS/color_value 
+
+Custom colors can be created using hexadecimal, use an online hexadecimal generator for the wanted hexadecimal code.
+Another way to create custom colors is with the RGB system as value use rgb(R, G, B) with a value for red, green and blue between 0-250.
+The HSL or hue-saturation-lightness color scheme is another alternative for custom colors, it consist of the hue value between 0-360 (360degree color circle), the saturation and lightness as percentages, as value use hsl(H, S, L).
+
+Opacity also called alpha can be added onto all custom color representations, with for example rgba(R, G, B, A), hsla(H, S, L, A) (A = 0 - 1) or adding two digits to hexadecimal with 6digits and one digit to hexadecimal with 3digits.
+
+TYPOGRAPHY
+The property font-family can be used to set fonts to text.
+Here is a list of safe fonts https://www.cssfontstack.com/, safe meaning they will appear the same on all browsers. They can be used as fall-back fonts if favorite font not available, indicated by 'font-family: font1, font2(fallbackfont)'.
+Fonts can also be imported and used safely. Services like 'google fonts' can be used for example.
+To import the 'link HTML element' can be used inside the header element, with the font's link generated by google fonts.
+To import from the css file use @font-face with inside it the font-family name, and 'src: url('localPathToFont') format(format);', by downloading the font on local computer from google fonts, and ideally download and import the TTF, WOFF and WOFF2 formats for multi-browser compatibility.
+
+font-weight controls bold-thin spectrum and can take values: bold, bolder, lighter, normal or 1 - 1000.
+font-style can be set to normal or italic.
+The text-transform property can be set to uppercase or lowercase.
+Letter-spacing, word-spacing, line-height and text-align can also be described, as value pixels can be used or em which is relative to font.
+
+=====================
+JAVASCRIPT CODECADEMY
+=====================
+INTRODUCTION
+ES6 is the latest highly compatible version of javascript.
+Console displays messages for web developers and is accessible from browser's developer tools.
+Console is an object in javascript, it contains the method (function on object) .log(), this allows us to write to the console.
+
+It is always recommmended even if not mandatory to end lines with ;.
+Single lines comments are possible with // and multi-line comments with /* */.
+
+Types are different kinds of values hold by variables in computer memory.
+Different primitive types: number, string, boolean, null, undefined, object, array, Function, symbol.
+
+Arithmetic can be done between number types;
++ - / % *
++= -= /= %= *=  ++ -- -> operator on self
+++ or -- before the variable name executes it before it executes the whole line and after the variable name executes it after executing the whole line.
+
+Strings are encapsulated by '' or "" or ``, if you want to use '' or "" inside string `` can be used to encapsulate it.
+Using the + operator on strings concatenates them.
+String interpolation brings strings inside other string easily by putting whole string between `` (backticks) and the variables between ${}.
+string objects contain the .length attribute(variable of a class) that returns the length of the string.
+All methods of string objects can be found here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String.
+
+All built-in objects in javascript https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects, examples of other objects are Math and Date.
+Math.random() generates random number between 0-1 to make it between 0-100 simply multiply it with 100.
+
+VARIABLES
+A variable hols a value in computer memory.
+var is the keyword used to declare a variable, it is followed by a variable's name.
+Initializing a variable consists of attributing it a first value with =, as long as a variable is not initialized its value is set to undefined.
+
+var keyword indicates simple variable, available in function scope or as global variable.
+let keyword declares variable solely in block scope, block scope can be an if statement scope for example.
+const keyword creates constant variables, meaning their value cannot change, available in block scope only.
+
+The typeof keyword returns in string format the type name of following variable.
+
+CONDITIONS
+if statement executes code in following block(code between {}) if its statement is true.
+else if statement executes code in following block if prior statements were false and its statement is true.
+else statement executes code in following block if all prior statements were false.
+Statements with value false, 0, '', null, undefined, NaN are all considered false.
+switch statement replaces all the above, its use is only considered good practice for huge else if structures.
+
+Comparison operators can be used inside conditions.
+Comparison operators without type coercion; ===(equal) <==(smaller than or equal) >==(bigger than or equal) !==(not equal) <(smaller than) >(bigger than)
+Type coercion is not recommended and means for example "0" == false -> true
+
+Logical operators can be used to add multiple conditions to one statement.
+Logical operators: &&(and) ||(or) !(statement)(not)
+() parentheses can be used to make multiple conditions independent of the others and group them.
+
+Short-circuit evaluation consist of "X = Y || Z" whereby X equals Y if it is true and equals Z if Y is false.
+
+Ternary operators allow a short-cut for if-else statements and consist of "statement ? action1 : action2" whereby action is executed if statement is true else action2 is executed.
+
+FUNCTIONS
+Functions allow grouping code together and associating it with one task, making it reusable and more readable.
+
+Function declaration consist of function keyword followed by functionName and () containing function parameters and {} containing code action.
+Another way to declare a function, called function expression, goes as follows 'const functionName = function(parameters) {code};'
+Another way to declare a function is called arrow function, goes as follows 'const functionName = (parameters) => {code};' or if only one parameter "const functionName = parameter => codeThatReturnsWithoutUseOfReturnStatement"
+To declare a function without assigning it a name, both function expression and arrow function can be used by not making it equal to a variable, this can be useful when declaring a small function as callback function.
+
+Functions are called with 'functionName(functionParameters)'.
+Parameters can contain default values, meaning a value is given if not defined when calling, by making 'parameter=defaultValue'. If a parameter is not defined and default value neither it will be equal to undefined..
+Functions return a value that you can define, if no return statement is specified 'undefined' is returned.
+
+Functions can be viewed as objects too, they can be assigned to other variables like function pointers, they have the 'name' property the toString() method (to transform its code into a string),...
+Functions can also become parameters of another function and be called inside that other function, this is called a callback function.
+
+SCOPE
+A scope defines where variables are accessible.
+Blocks group code between {} but also defines scopes.
+
+Glabal variables are variables declared outside of any block and are as a result accessible in all scopes. They are considered bad practice, if still used best to start its name with g_.
+If a variable is declared inside a function it is tied to the scope of that function block and is called local variable.
+let and const declared variables contrary to var, can be limited to an if scope if declared in it, while var would be accessible in whole function scope if declared inside an if scope.
+
+ARRAYS
+Allow for storing multiple elements into one variable.
+Declared as such "variable = [x, y, z, ...];".
+
+Elements in array can be accessed using an index like so "arrayName[0]", here the 0 index indicates the first element, index 1 the second element and so forth.. Trying to access an out of range element returns 'undefined'.
+const arrays cannot be reassigned a new array but the elements inside the initial array can be transformed.
+
+The .length property returns the number of elements in the array.
+The .push(element) method allows you to add elements at the end of the array.
+The .pop() method allows you to delete the last element at the end of the array.
+Other methods available are .join()(array into one string), .slice()(returns part of the string), .shift()(remove first element), .unshift()(add new first element)....
+All methods can be found here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+Arrays are passed-by-reference as function parameters, meaning that if functions transform an array passed as argument that array will also have changed outside of the function.
+Arrays can contain as element other arrays this is called nested arrays.
+
+LOOPS & ITERATORS
+A loop does an action until a condition is met.
+The syntax of for loop goes as follows "for (variable-declaration; condition-check-at-each-round; single-line-action-executed-at-each-round) { actions }", usually used to loop over arrays whereby the declared variable is an index that gets incremented during the single-line-action until it gets to the array length.
+The syntax for a while loop is simply "while (condition-checked-at-each-round) {actions} ".
+The do-while loop does the actions at east one time even if the condition is instantly not met, its syntax goes as follows "do { actions } while (condition)".
+The break keyword allows to exit a loop.
+
+Iterators are array methods that enable looping over the array.
+The .forEach(callbackFunction) method returns undefined, takes a callbackFunction with one parameter (arrow function is great in this case), this callbackFunction will be executed onto each array element.
+The .map(callbackFunction) method returns a new array whereby the callbackFunction made changes for each array element.
+The .filter(callbackFunction) method returns a new array, must take a callbackFunction that returns true or false, this function will be called on each array element, if the function return false it filters the element out of the function.
+The .findIndex(callbackFunction) method returns the index for the first element the callbackFunction returns true on.
+The .indexOf(value) method returns the index of first encountered array element equal to parameter value.
+The .reduce(callbackFunction) method returns one value. The callbackFunction takes two parameters(accumulator, currentValue), initially the first value and second value of the array or a default starting value (indicated as second argument of reduce) and the first value of the array, the callbackFunction will return a value, this value will be the accumulator value of next iteration together with the next element, until arriving to the last element whereby .reduce() returns the final accumulator value.
+The .some(callbackFunction) returns true if at least one of the array's elements passes through the callbackFunction with true returned. 
+The .every(callbackFunction) returns true if all of the array's elements passes through the callbackFunction with true returned. 
+Other iteration methods can be found here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Iteration_methods.
+
+To loop over object use for...in statement like this "for (variableName in object) {actions}" whereby the variableNames equal the keys inside the object.
+
+OBJECTS
+Objects allow to accomodate and manipulate related data, like a real life object it has attributes/properties(variables) and maybe actions(methods/functions).
+
+The variables contained in an object are defined as key-value pairs separated by commas "key : value", the key can be used like an index "object.key" or "object[key]"(useful when key is a string) to access the variable value inside the object.
+To add a new attribute assign a value to a new key "object.newKey = value;". To delete an attribute use the delete keyword like this "delete object.key;".
+
+Methods/functions-inside-an-object are created like this "name(parameters) {actions}" and separated by commas.
+
+Objects are passed-by-reference as function parameters, meaning that if functions transform an object passed as argument that object will also have changed outside of the function.
+Objects can contain as property other objects.
+const objects cannot be reassigned new attributes but the existing attributes are mutable.
+
+
+=======================
+JAVASCRIPT FREE COURSES
+=======================
 LINES & COMMENTS
 ; -> at end of line indicates the end but is not mandatory
 // -> single line
