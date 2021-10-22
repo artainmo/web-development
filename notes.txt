@@ -137,7 +137,7 @@ https://www.youtube.com/watch?v=qw--VYLpxG4 - PostgreSQL full course - 4h20m !
 Courses;
 https://www.codecademy.com/learn/learn-html - 9h !
 https://www.codecademy.com/learn/learn-css - 10h !
-https://www.codecademy.com/learn/introduction-to-javascript - 20h
+https://www.codecademy.com/learn/introduction-to-javascript - 20h !
 https://www.codecademy.com/learn/learn-intermediate-javascript - 10h
 https://www.codecademy.com/learn/learn-typescript - 10h
 https://www.codecademy.com/learn/react-101 - 20h
@@ -424,12 +424,22 @@ Objects allow to accomodate and manipulate related data, like a real life object
 The variables contained in an object are defined as key-value pairs separated by commas "key : value", the key can be used like an index "object.key" or "object[key]"(useful when key is a string) to access the variable value inside the object.
 To add a new attribute assign a value to a new key "object.newKey = value;". To delete an attribute use the delete keyword like this "delete object.key;".
 
-Methods/functions-inside-an-object are created like this "name(parameters) {actions}" and separated by commas.
+Methods/functions-inside-an-object are created like this "name(parameters) {actions}" and separated by commas, avoid using arrow functions as those do not work with the 'this' keyword.
 
 Objects are passed-by-reference as function parameters, meaning that if functions transform an object passed as argument that object will also have changed outside of the function.
 Objects can contain as property other objects.
 const objects cannot be reassigned new attributes but the existing attributes are mutable.
 
+To use the object attributes or methods inside an object method use the 'this' keyword like this "this.attributeName" or "this.methodName()".
+
+Private attributes and methods do not exist in Javascript, though it is possible to use the naming convention whereby the attribute/method name starts with '_' to indicate it is intended to be private.
+Attributes that are intended to be provate can have set and get methods to set them a value and get their value, javascript has the 'set' and 'get' keyowrds to create those methods. The convention is to have a private attribute like this '_attribute' and set/get method 'set attribute() {}' or 'get attribute() {}', to call those methods object.attribute. Those set and get methods allow making checks before performing the wanted action.
+
+To make an object reusable we create a factory-function, a factory-function returns an object and can contain parameters that will set attributes inside the returned object if the keys inside the object have the same names as the function parameters (this is called property value shorthand).
+
+Destructured assignment extracts the value of one or more object attributes like this "var { attribute1, attribute2 } = object", whereby attribute1 and attribute2 contain the associated values and can be used as variables.
+
+Objects also have built-in methods, such as .keys(), .entries(), .assign() that can be found here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods.
 
 =======================
 JAVASCRIPT FREE COURSES
