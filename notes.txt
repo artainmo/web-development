@@ -39,7 +39,7 @@ Body: Content of the response
 
 The different HTTP methods for requests are:
 GET: requests representation of specified resource, specified resource is indicated by URL.
-HEAD: The HEAD method asks for a response identical to that of a GET request, but without the response body, is used to verify if any erros.
+HEAD: The HEAD method asks for a response identical to that of a GET request, but without the response body, is used to verify if any errors.
 POST: used to submit an entity to the specified resource, often causing a change in state on the server.
 PUT: replaces all current representations of the specified resource with the submitted request entity.
 DELETE: deletes the specified resource.
@@ -55,9 +55,8 @@ The different status codes for responses are:
 WEB PLATFORM
 A web platform consists of a back-end and front-end. 
 Back-end acts as web-server(answer HTTP request) and data-base-manager.
-Front-end refers to the pages send by web-server to client-server, that the client's web browser will visually display, creating an user interface (UI). 
+Front-end refers to the pages send by web-server to client-server, that the client's web browser will visually display, creating an user interface (UI).
 Different programming languages can be used for the back-end and front-end development.
-
 
 --------------------
 FRONT-END & BACK-END
@@ -68,11 +67,11 @@ Is a high-level-language used both for front-end and back-end.
 The most often used frameowrks in front-end are react and angular and in back-end is nodejs.
 Front-end javascript allows for dynamic webpages, plus is more easy to write than HTML/CSS code.
 Through API, front-end javascript can contact the back-end for data-base-infomation leading to dynamic pages.
-The web browser has to first transform javascript to HTML/CSS before display, it gets called from an HTML with the script tag, javascript can be viewed as a high-level-language for dynamic HTML/CSS code generation.
+The web browser has to first transform javascript to HTML/CSS before display, it gets called from an HTML document with the script tag, javascript can be viewed as a high-level-language for dynamic HTML/CSS code generation.
 
 TYPESCRIPT
 It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.
-By making use of static typing it makes the code more readable and allows compile-time-errors..
+By making use of static typing it makes the code more readable and allows compile-time-errors.
 
 ---------
 FRONT-END
@@ -95,7 +94,7 @@ NODEJS
 Node.js is a back-end JavaScript runtime environment that executes JavaScript code outside a web browser.
 
 EXPRESS
-Express.js, or simply Express, is a back end web application framework for Node.js. It is designed for building web applications and APIs way faster.
+Express.js, or simply Express, is a back-end web application framework for Node.js. It is designed for building web applications and APIs way faster.
 
 POSTGRESQL
 PostgreSQL is a commonly used and advanced database-management-system, used to store and retrieve data. 
@@ -151,16 +150,20 @@ https://www.sitepoint.com/react-with-typescript-best-practices/
 https://dev.to/mychal/protected-routes-with-react-function-components-dh
 https://www.infoq.com/articles/typescript-mysql/
 
-====
+==================
+CODECADEMY COURSES
+==================
+
+----
 HTML
-====
+----
 Consists of elements
 Elements consist of one opening and one closing tag and content between the tags like this "<p>Hello World</p>"
 Child/nested elements are elements inside elements, they can inherit styling from their parent elements. 
 One element per line and nested elements should be indented once compared to their direct parent element for readable code.
 Attributes are content added to the opening tag of an element, it has a name and is equal to a value. One common attribute is id to identify your elements.
 
-HTML files should have the .html extension and start with <!DOCTYPE html>. A
+HTML files should have the .html extension and start with <!DOCTYPE html>.
 All the code should be in between <html></html>.
 The <header></header> tags should follow and they allow metadata (info that does not get displayed). As nested element it can contain the <title> element which will give a title on browser tab, the header element should come before the body element.
 
@@ -185,7 +188,7 @@ With <th></th> table headings can be defined with attribute scope one can choose
 Attribute rowspan and colspan can be used to span one block over multiple rows/columns. <tbody>, <thead> and <tfoot> are used to separate table's body, header, footer.
 
 To create a form use <form></form> that can have attribute action (where the information is sent) and method (POST).
-In between tags can contain text and  must contain an input element, the input element must take as attribute type(text,password,number,checkbox) and name(id) and potentially value(default text).
+In between tags can contain text and must contain an input element, the input element must take as attribute type(text,password,number,checkbox) and name(id) and potentially value(default text).
 Labels are used to give description to form, their advantage is that when clicking on them they focus on the form, they go as follows <label for=idInput></label>.
 Step attribute in input with type number allows to increment, decrement the number with arrows.
 For input slider set type attribute to range, min and max can be used as attributes to be more specific.
@@ -208,9 +211,9 @@ section tags can encapsulate elements with the same theme.
 aside tags are used to indicate extra information of an article or section.
 figure tag is used to encapsulate media, the media post can receive a description with figcaption, audio can be encapsulated with audio tag.
 
-===
+---
 CSS
-===
+---
 Used to style HTML.
 
 SYNTAX
@@ -262,7 +265,7 @@ A default box-model is used but it can be modified with * { border-size: border-
 Google Chrome devTools can be used to view and adjust box dimensions from the browser.
 
 DISPLAY AND POSITIONING
-Use the position property with static, relative, absolute, fixed, sticky
+Use the position property with static, relative, absolute, fixed, sticky.
 Static is default value leading to regular left-alignment.
 Relative leads to regular left-alignment but allows the use of offset properties and z-index, relative to default position.
 Absolute leads to an element ignored by others thus element overlap can happen, it sits relative to closest parent element.
@@ -273,7 +276,7 @@ Offset properties can also be used to precisely position elements, those are top
 z-index describes the depth of elements, thus which elements come above other ones, with a higher z-index leading to a more forward sitting element.
 float property can be set to right or left and simply places the element against the left or right side of the screeen. If elements bump into each other as a consequence of float, clear property (right, left, both values) can be used to avoid them bumping on one side or both sides.
 
-The display property indicates if elements are horizontally positioned. 
+The display property indicates if elements are horizontally positioned.
 The inline value is the default one, here the next element comes horizontally next to the prior element, but height and width properties cannot be used.
 The block value indicates the next element comes vertically next to the prior element and takes whole screen width.
 The inline-block value allows to have the next element horizontally next to the prior element, while being able to specify the height and width properties.
@@ -301,9 +304,10 @@ font-style can be set to normal or italic.
 The text-transform property can be set to uppercase or lowercase.
 Letter-spacing, word-spacing, line-height and text-align can also be described, as value pixels can be used or em which is relative to font.
 
-=====================
-JAVASCRIPT CODECADEMY
-=====================
+----------
+JAVASCRIPT
+----------
+
 INTRODUCTION
 ES6 is the latest highly compatible version of javascript.
 Console displays messages for web developers and is accessible from browser's developer tools.
@@ -338,7 +342,7 @@ var keyword indicates simple variable, available in function scope or as global 
 let keyword declares variable solely in block scope, block scope can be an if statement scope for example.
 const keyword creates constant variables, meaning their value cannot change, available in block scope only.
 
-The typeof keyword returns in string format the type name of following variable.
+The typeof keyword returns in string format the type name of following.
 
 CONDITIONS
 if statement executes code in following block(code between {}) if its statement is true.
@@ -433,7 +437,7 @@ const objects cannot be reassigned new attributes but the existing attributes ar
 To use the object attributes or methods inside an object method use the 'this' keyword like this "this.attributeName" or "this.methodName()".
 
 Private attributes and methods do not exist in Javascript, though it is possible to use the naming convention whereby the attribute/method name starts with '_' to indicate it is intended to be private.
-Attributes that are intended to be provate can have set and get methods to set them a value and get their value, javascript has the 'set' and 'get' keyowrds to create those methods. The convention is to have a private attribute like this '_attribute' and set/get method 'set attribute() {}' or 'get attribute() {}', to call those methods object.attribute. Those set and get methods allow making checks before performing the wanted action.
+Attributes that are intended to be private can have set and get methods to set them a value and get their value, javascript has the 'set' and 'get' keyowrds to create those methods. The convention is to have a private attribute like this '_attribute' and set/get method 'set attribute() {}' or 'get attribute() {}', to call those methods object.attribute. Those set and get methods allow making checks before performing the wanted action.
 
 To make an object reusable we create a factory-function, a factory-function returns an object and can contain parameters that will set attributes inside the returned object if the keys inside the object have the same names as the function parameters (this is called property value shorthand).
 
@@ -441,9 +445,14 @@ Destructured assignment extracts the value of one or more object attributes like
 
 Objects also have built-in methods, such as .keys(), .entries(), .assign() that can be found here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods.
 
-=======================
-JAVASCRIPT FREE COURSES
-=======================
+
+============
+FREE COURSES
+============
+
+----------
+JAVASCRIPT
+----------
 LINES & COMMENTS
 ; -> at end of line indicates the end but is not mandatory
 // -> single line
@@ -470,7 +479,7 @@ Object.freeze(objectname) can be used to make the variables inside the object co
 Classes contain variables and methods (functions that use those variables, to access those variables this keyowrd is used), a constructor also exist that is called at construction and can take parameter values. 
 With extend keyword classes, heritage from another class is possible, to call the parent class contructor use super().
 
-Spread operator consist of ...variable as keyword, it allows the extract the inside of string/array/object. 
+Spread operator consist of ...variable as keyword, it allows to extract the inside of string/array/object. 
 If string to array [..variable, ...variable2] it will transform each letter of the string into strings inside an array. 
 If array to array [..variable, ...variable2] it extraxts each element in the array into elements in the new array.
 If object to object {..object1, ...object2} it extracts each variable in the object into new object.
@@ -543,9 +552,10 @@ To view the json body of the response we call response.json() which also returns
 
 Try-catch statement can be used to catch errors. Whereby if a code gets generated inside the try scope, code inside the catch scope gets executed.
 
-==========
+----------
 TYPESCRIPT
-==========
+----------
+
 ENVIRONMENT
 -----------
 npm is a package manager for the JavaScript programming language nodejs framework, also called node package manager.
@@ -622,9 +632,10 @@ Namespces are used to group code together inside it, and avoids problem of overw
 
 Generics are like c++ templates whereby function parameters or classes take a to-be-declared-type, by using it in combination with the extend keyword, you can limit the number of types that can be choosen from.
 
-=====
+-----
 REACT
-=====
+-----
+
 SETUP
 -----
 npx executes npm(javascript nodejs package manager) binaries.
@@ -733,9 +744,10 @@ To create an app-bar:
 "import MenuIcon from '@material-ui/icons/MenuIcons'"
 The MenuIcon must come inside an IconButton, which has to come inside a ToolBar, which has to come inside an AppBar.
 
-======
+------
 NODEJS
-======
+------
+
 SETUP
 -----
 Install nodejs from the web or with brew on mac. To verify it exists type node --version in terminal.
@@ -780,9 +792,10 @@ fs module, short for file system, this module enables to handle files, like read
 FileSync is used to access whole file at once and does not work well on large files.
 Streams are used to read large files and allow more customization. ReadStream, WriteStream, DuplexStream exist.
 
-=======
-EXPRESS 
-=======
+-------
+EXPRESS
+-------
+
 SETUP
 -----
 Has to be used on a nodejs environment as it is a nodejs framework.
@@ -818,9 +831,10 @@ For use and get to take multiple middleware functions those have to be set in an
 
 express's route method allow for the creation of a router object. ???
 
-==========
+----------
 POSTGRESQL
-==========
+----------
+
 UNDERSTAND
 ----------
 Is a database-management-system, it uses SQL as its main query language.
