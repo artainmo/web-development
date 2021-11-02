@@ -14,10 +14,23 @@ World Wide Web (www), grouping of all documents on the web accessible through UR
 
 A server is a computer connected to the www, it contains an IP address to identify itself, this IP address can be associated with an URL, which is a non-random name for easier identification.
 
-Web browser, is a software application that allows access to the world wide web via URLs. The web browser transforms the URL into an IP address using the DNS (domain name system), it sends http requests towards that ip address to receive the requested content.
+Web browser, is a software application that allows access to the world wide web via URLs. The web browser transforms the URL into an IP address using the DNS (domain name system), it creates a connection and sends http requests towards that ip address to receive the requested content.
 
-Webservers serve an application/platform/website on the web. They receive web browser requests and send back responses. They often run on an external server, which is a computer with no visual display that runs 24/7, waiting for client-servers to make requests.
+Webservers serve an application/platform/website on the web. They let clients(browsers) connect to allow HTTP communication, receive web browser requests and send back responses. 
+They often run on an external server, which is a computer with no visual display that runs 24/7, waiting for client-servers to make requests.
+
+A web platform consists of a back-end and front-end. 
+Back-end acts as web-server(answer HTTP request) and data-base-manager.
+Front-end refers to the pages send by web-server to client-server, that the client's web browser will visually display, creating an user interface (UI).
+Different programming languages can be used for the back-end and front-end development.
+
 Cloud computing is the on-demand availability of computer-system-resources, especially data-storage and computing-power. Large clouds consist of multiple servers connected/working together.
+
+TCP & UDP 
+Transmission control protocol (TCP) enables the transmission of resources, it is used to manage many types of internet connections and allows HTTP communication.
+User diagram protocol (UDP) is a communication protocol used across the internet, especially for the transmission of time-sensitive information.
+
+Both are internet communication protocols, the main difference between them is that TCP is more reliable but slower, while UDP is less reliable but faster and enables broadcasting.
 
 HTTP
 The language used between servers to communicate.
@@ -51,12 +64,6 @@ The different status codes for responses are:
 404: Not found, the URL is not recognized
 405: Not allowed, the resource does not accept the method
 500: Internal server error, situation the server does not know how to handle
-
-WEB PLATFORM
-A web platform consists of a back-end and front-end. 
-Back-end acts as web-server(answer HTTP request) and data-base-manager.
-Front-end refers to the pages send by web-server to client-server, that the client's web browser will visually display, creating an user interface (UI).
-Different programming languages can be used for the back-end and front-end development.
 
 --------------------
 FRONT-END & BACK-END
@@ -137,8 +144,8 @@ Courses;
 https://www.codecademy.com/learn/learn-html - 9h !
 https://www.codecademy.com/learn/learn-css - 10h !
 https://www.codecademy.com/learn/introduction-to-javascript - 20h !
-https://www.codecademy.com/learn/learn-intermediate-javascript - 10h
-https://www.codecademy.com/learn/learn-typescript - 10h
+https://www.codecademy.com/learn/learn-intermediate-javascript - 10h !
+https://www.codecademy.com/learn/learn-typescript - 10h !
 https://www.codecademy.com/learn/react-101 - 20h
 https://www.codecademy.com/learn/learn-node-js - 7h
 https://www.codecademy.com/learn/learn-express - 4h
@@ -445,6 +452,211 @@ Destructured assignment extracts the value of one or more object attributes like
 
 Objects also have built-in methods, such as .keys(), .entries(), .assign() that can be found here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#Methods.
 
+CLASSES
+Classes allow the creation of object templates, thus being able to assign a default object to multiple variables, while the creation of one object is only assigned to one variable.
+
+Classes have a constructor function, which usually instantiates its attributes and is called each time it creates a new instance/object of its class.
+When instantiating a class to a variable, the new keyword has to be used with class and its constructor arguments.
+
+Similarly as with object for private attributes start them with _ and use get/set functions to access them.
+
+Classes can heritate from other classes meaning, it the child class heritates all the parents class's attributes/methods, this can be done with the extends keyword and calling first in constructor of child class the parent constructor with super(args).
+
+Static methods are like private methods, they are indicated by the keyword static and are only available inside the class never outside the class.
+
+RUNTIME ENVIRONMENT
+Is the environment the program will be executed, often nodejs and chrome are used.
+For javascript front-end applications, chrome or other browsers can be used.
+For javascript back-end applications, nodejs is used.
+Full-stack applications use both nodejs and a browser.
+
+To compile in nodejs environment use "node file.js".
+
+MODULES
+Modules consist of .js files with javascript code(functions/variables) that can be exported to other files, so those other files can import and use the imported code. This is usual to make code readable through its separation/categorization.
+Depending on runtime environment modules are exported/imported differently.
+When using modules in .HTML script tag have an additional attribute set to module.
+
+Modules in nodejs:
+To create a module, have a file with functions, the functions you want to export have to become attributes of the module.exports object.
+To import a module instantiate a variable, that will hold all the exported functions as attributes, with require(pathToModule).
+Object destructuring can be used to selectively import from a module, like this "const { selectifFunctionToBeImported1, selectifFunctionToBeImported2, ... } = require(pathToModule)"
+
+Modules in ES6:
+To export use the export keyword before the function's name you want to export or like this "export { function1, function2, ... }".
+To import use the import keyword like this "import { function1, function2, ... } from pathToModule".
+Importing functions with same name from different modules lead to a problem that can be resolved by renaming the function like this "export { function1 as newName  }".
+"export default function/variable" is used to export one function/variable, this can be an object containing multiple of them, when importing, it can have a name of choice and thus not necessitate object destructuring.
+
+PROMISES
+Making network or database requests can be time consuming, a solution to this is to do other things while waiting. 
+Asynchronousity like multiple threads allow doing just that and in javascript this is possible through promise objects.
+
+A promise is an object that represents the potential outcome of an asynchronous operation. 
+A promise can hold different states; 
+* pending (waiting for the operation to terminate)
+* settled (not pending anymore), can be segregated into two states: 
+	* fulfilled (the operation has terminated successfully and the promise holds a resolved value)
+	* rejected (the operation has failed and the promise holds the reason of failure)
+
+For asynchronous code.
+Usually a function is made that returns a promise object.
+Promise objects hold one executor function.
+An executor function contains two function parameters (resolve and reject, each has one parameter and are not self-made), herein the time consuming operation is made.
+As the name implies resolve function is usually called inside the executor function if promise becomes fulfilled and reject if promise becomes rejected.
+The promise object contains the .then method, this method contains two function parameters (onFulfilled and onRejected, each contain one parameter and are self-made thus can have random name).
+As the name implies onFulfiled is called when resolve is called and onRejected when reject is called inside the executor function, onFulfilled/onRejected reveive the resolve/reject parameter as parameter.
+While the promise is pending, following code operations continue asynchronously, once promise is settled onFulfilled/onRejected function gets executed and afterwards code executor goes back where it left off.
+Another syntax for similar behavior is to use .then method with only one parameter, namely onFulfilled function, and use a second method .catch that contains the onRejected function.
+
+Chaining multiple promises is called composition. This can be done having onFulfilled/onRejected function return another promise. The .then method calls can be done continuously on the first promise object, thus they should not be nested which makes the code more readable.
+Promise.all() takes as argument an array of promises, allowing to associate one then method to all of them, leading to fulfillment if all promises fulfill and rejection if at least one promise rejects.
+
+ASYNC AWAIT
+Is syntax for handling asynchronous actions. It does not provide new functionality but more readable code it is syntactic sugar.
+
+async keyword can be used in front of function declaration, this function will return a promise, if in function a simple value is returned this value will be considered the resolved value of the promise.
+Inside an async function the await keyword can be used, this is used in front of promise call and makes sure the program halts inside this function while the promise is pending, once the promise is resolved it returns it and the resolved value can be used inside that function.
+An async function allows asynchronous code not only through a promise but a whole function that can make multiple promise calls and wait for them inside the function with await keyword, this allows for way more readable code than chaining .then methods.
+To catch an error the .catch method can be used on returned promise or try-catch-block can be used.
+If we are having multiple independent promises in one async function multiple solutions exist:
+	* the await should not be used in front of the promise call, which lead to the assigned variable equaling a pending promise, but later in the program call in front of that variable await when necessary to get the resolved value.
+	* do not use await but use .then
+	* use await Promise.all()
+
+REQUESTS
+Requests consists of communicating with a server, is done through HTTP, the most used requests are GET, POST, HEAD, PUT, DELETE.
+AJAX stands for asynchronous javascript and XML, it enables HTTP request asynchronously in javascript.
+Else promises, async-await and fetch() function can be used for asynchronous HTTP requests.
+
+The object XMLHttpRequest can be used to make requests. 
+It has to be given a response type which is usually JSON "xhr.responseType = 'json'".
+It has to be given a function that handles the response "xhr.onreadystatechange = () => { if (xhr.readyState === xhr.DONE) return xhr.response }".
+The request has to be opened "xhr.open('GET', url)".
+The request has to be send "xhr.send(HTTPMessageBody);".
+Properly writing requests depends on the API you are using.
+
+URL query strings provide more information surrounding the request.
+To add a query string to a url, use ? and include parameters (key-value-pairs joined by = and separated with & for multiple of them).
+
+Requests with promises and fetch in ES6:
+The function fetch takes an url/api-endpoint and body specifying request method, body...
+The fetch function sends a request and returns a promise.
+The .then method can be used to act on the resolved or rejected promise, usually the resolved promise  converts response object to JSON.
+Converting to json with .json(), returns a promise, which can be captured by a second .then, that takes the json-reponse and handles it.
+
+Requests using async-await, try-catch in ES8:
+Create an async function that contains a try and catch statement.
+Inside the try statement await for a fetch() request returning a promise, to send the request.
+After await for response conversion to json with the .json() function. 
+After return and handle the json response.
+
+CURRYING
+Currying is not unique to javascript.
+In mathematics and computer science, currying is the technique of converting a function that takes multiple arguments into a sequence of functions that each takes a single argument.
+The point of currying is that if you don't provide all the parameters for a function, it returns a function that tells you what's left in the list. In a way, it is a checking method to make sure that you've got everything you need before you proceed.
+A missing parameter function ends up equaling undefined, this could be checked with a single if statement thus I personally do not really understand the utility of currying in javascript.
+
+HOISTING
+JavaScript Hoisting refers to the process whereby the interpreter allocates memory for variable and function declarations prior to execution of the code. 
+Declarations that are made using var are initialized with a default value of undefined. Declarations made using let and const are not initialized as part of hoisting.
+
+CONCURRENCY AND EVENT LOOP
+Thanks to the event loop, JavaScript is a single-threaded, event-driven language that can run non-blocking code asynchronously. 
+The Event Loop can be summarized as: when code is executed, it is handled by the heap and call stack, which interact with Node and Web APIs.
+Those APIs enable concurrency and pass asynchronous messages back to the stack via an event queue. 
+The event queue’s interaction with the call stack is managed by an event loop. All together, those parts maintain the order of code execution when we run asynchronous functions.
+
+----------
+TYPESCRIPT
+----------
+It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.
+By making use of static typing it makes the code more readable and allows compile-time-errors.
+
+Typescript is written in .ts files, with "tsc file.ts" a file can be transcompiled to a .js file, during the transcompilation error checking will be done, the final .js file can be executed for the final result.
+
+The tsconfig.json files allows the customization of the tsc transompiler. 
+This can be useful to remove some default rules and choose on what files those rules are applicable. 
+Here is its documentation https://www.typescriptlang.org/docs/handbook/compiler-options.html.
+
+TYPES
+Typescript recognizes the following types: boolean, number, null, string, undefined. A variable assigned a certain type cannot be assigned a different type later on and cannot access unappropriate methods/attributes..
+The "any" type is a special type that can take in any type and change type later on.
+Those types are objects and using their constructor can transform a type into another one for example "Number(stringVariable)" this will transform a string into a number.
+
+Type annotation explicitly associates a variable to a specific type like this "let variable: string".
+While implicit type annotation is also possible like this "let variable = 'helloWorld'", by making it equal to a string it gets associated with the string type implicitly, if equaling nothing it will be associated with "any".
+
+FUNCTIONS
+Functions take parameters, instead of verifying if the given parameters are of correct type with "if (typeof variable == 'number')", in typescript the parameters can impose a type like this "function(param1: string, param2: number)".
+
+In javascript if one parameter is not specified it will equal undefined, typesript would give an error, to neglect that typescript error a ? can be indicated after parameter.
+Default parameters are indicated "parameter=value", the parameter receives the default value if it received no value.
+
+One can make return types explicit like this "function(params): string", in this example the funtion must return a parameter.
+By using void like this "function(params): void" one can indicate no return of the function.
+
+In javascript singl-line-comments "//comment" or multiple-line-comments "/* comment */" exist, in typescript a third type of comment exist.
+A documentation comment is used above a function to describe it like this:
+/**
+ * function description
+ * @param paramName - this is the first parameter explained
+ * @param paramName - this is the second parameter explained
+ * @returns this is the return explained
+ */
+
+COMPLEX TYPES
+Array elements can contain different types or contain all the same type. Typescript can assign a certain "array type" meaning an array with elements all of the same type.
+This can be done in two ways ": sting[]" or ": Array<string>", in this example arrays containing string types were declared.
+For multi-dimensional-arrays this would be their associated type for example "string[][]" or "number[][][]"..
+
+Arrays with values of different types are called tupples in typescript, they have fixed sizes after annoting them a type, but when concatenating them with .concat() an array with variable length is returned..
+This is an example "tup: [number, string, number, number, string] = [23, 'he', 21, 45, 'vf']".
+An array of tuples, enums or objects also exists like this "tup: [number, string][]".
+
+Rest parameters are indicated like this "function(param1, ...restParam)", it allows to take as many parameters as wanted into the function they will be inside the restParam dynamic array, this array can receive an array  type annotation too.
+
+Spread syntax can be used when all elements from an object or array need to be included in a list of some kind. 
+This is also possible when all elements inside a tuple have to become a function parameter for example take the function "function(param1, param2, param3, param4)" and tuple "tup = [param1, param2, param3, param4]" the function can be called like this "function(...tup)" instead of this "function(tup[0], tup[1], tup[2], tup[3])".
+
+Custom-made-types can be used similarly as standard types, they simply have to be defined first.
+
+Enums are used to enumerate all the possible values a variable could have, they can only contain numeric or string values, if someone tries to call a value the enum variable does not contain, an error is thrown.
+
+Type annotation of object types go like this "{ attribute1: type, attribute2: type }".
+
+Type aliases allow to change a type's name to another one for example "type car = [string, number, boolean]".
+
+Function types are practical for parameter functions (also called callback functions), they are indicated like this for example "(param1: number, param2: number) => numer".
+
+Generics allow the creation of types that contain a variable type inside them for example "type Family<T> = { parents: [T, T], mate: T, children: T[] };" with T that can take any other type.
+
+UNION TYPES
+Allows a compromise between specifically annotating one type and not specifying any type, it allows to annotate multiple types.
+Union types are indicated like this for example "variable: string | number", but can also be used on function parameters or returns...
+Union types can also be used in arrays like this for example "(string | number)[]" whereby the array can contain elements of type string or number.
+
+Different types have different methods/attributes, a variable annotated with an union type will only be able to use the methods/attributes that all types of the union contain.
+
+Unions can also eqaul literal types, for example "type Color = 'green' | 'orange' | 'brown';", whereby a variable with the Color type can ony equal 'green', 'orange' or 'brown' and no other values.
+
+TYPE NARROWING
+Type narrowing consist of checking the type of a variable with an if (also called type guard) and handle that type uniquely compared to the other types inside that if statement.
+
+The in operator can be used, whereby you can check if a type/variable contains a specific attribute/method like this "if ('function1' in variable)".
+
+ADVANCED OBJECT TYPES
+Both 'type' anf 'interface' are keywords able to create object types, type is not only able to create object types while interface is. 
+Thus interface does not bring new functionality but using it for objects is convention and makes code more readable.
+The interface keyword can be used to add types to a class with the 'implements' keyword like this "class myClass implements myInterface", all the attribute/method types inside the interface will have to exist in the class or a compilation error will occur, it forces the class to at least follow the interface convention, the class can also have its own attributes/methods.
+
+Nested objects can become difficult to read, to solve this typescript allows the creation of multiple types that can be referenced inside each other.
+Different types can also inherit from themselves with the 'extends' keyword, adding all the methods/attributes of one type to another.
+
+Sometimes someone knowns properties will exist in a type object but does not know the properties names beforehand, this is especially the case with APIs returning data.
+In that case index signatures can be used like this for example "[category: string]: boolean", whereby category can take any variable  name as string and the value it holds must be a boolean, it can take multiple of them if multiple exist of same types.
+
+Interfaces or object types can also contain optional attributes/methods this is indicated with a ? like this for example "attribute1?: string".
 
 ============
 FREE COURSES
@@ -724,7 +936,7 @@ To access them for example use "import DeleteIcon from @material-ui/icons/Delete
 To create own styles "import { makeStyles } from '@material-ui/styles'".
 Use the makseStyles function that returns a function and takes in an object with the different style parameters.
 Indicate inside a compenent's className parameter the style to style the component.
-To access colors "import { orange } from '@material-ui/styles'.
+To access colors "import { orange } from '@material-ui/styles'".
 
 To create own themes "import { ThemeProvider, createMuiTheme } from '@material-ui/styles'".
 Use createMuiTheme to create a theme by giving it an object with theme specifications.
@@ -775,7 +987,7 @@ path module, helps work with paths.
 
 The http module enables us to create a server, with createServer and listen functions. 
 The createServer function takes a function that will loop indefinitively waiting for requests and responding, this function takes two parameters the request and response objects to access/enable requests/responses.
-The response object can fill header and status code of reponse with .writeHeader, fillbody of reponse with .write and end the communication with .end.
+The response object can fill header and status code of reponse with .writeHeader, fill body of reponse with .write and end the communication with .end.
 From the request object access .method, .url...
 
 Javascript is synchronous and single threaded.
@@ -889,7 +1101,7 @@ A foreign key is a column that references a primary key in another table. To cre
 Inner joins allows us to join two tables that are connected through a foreign key with "SELECT * FROM table1 JOIN table2 ON table1.foreignKey = table2.primaryKey;".
 Not all columns contain foreign keys, left joins allow us to also take them in account in the final output with "LEFT JOIN" instead of "JOIN".
 
-Constraints can also be added, a constraint is for example, all the values inside the email column have to be unique, this would be indicated with "ALTER TABLE tableName ADD CONSTRAINT nameConstraint UNIQUE (columnName);" this constraint caan be removed with "ALTER TABLE tableName DROP CONSTRAINT nameConstraint;". With the use of CHECK (condition) instead of UNIQUE, you can choose own condition.
+Constraints can also be added, a constraint is for example, all the values inside the email column have to be unique, this would be indicated with "ALTER TABLE tableName ADD CONSTRAINT nameConstraint UNIQUE (columnName);" this constraint can be removed with "ALTER TABLE tableName DROP CONSTRAINT nameConstraint;". With the use of CHECK (condition) instead of UNIQUE, you can choose own condition.
 If the constraint condition is met a conflict occurs which will block the action from taking place, to make an exception add at end of insert command "ON CONFLICT constraintName DO UPDATE SET columnName = EXCLUDED.columnName;".
 
 Columns can also contain as value a sequence. This is a type that yields ever increasing values, the value can be reset and increases each time it is selected with SELECT. It gets indicated when creating a table with the BIGSERIAL type, it can be used for the primary-key/id column.
