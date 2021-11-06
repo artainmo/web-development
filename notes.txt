@@ -357,6 +357,7 @@ else if statement executes code in following block if prior statements were fals
 else statement executes code in following block if all prior statements were false.
 Statements with value false, 0, '', null, undefined, NaN are all considered false.
 switch statement replaces all the above, its use is only considered good practice for huge else if structures.
+if, else if and else statements always need a following {} even if only one following line.
 
 Comparison operators can be used inside conditions.
 Comparison operators without type coercion; ===(equal) <==(smaller than or equal) >==(bigger than or equal) !==(not equal) <(smaller than) >(bigger than)
@@ -657,6 +658,107 @@ Sometimes someone knowns properties will exist in a type object but does not kno
 In that case index signatures can be used like this for example "[category: string]: boolean", whereby category can take any variable  name as string and the value it holds must be a boolean, it can take multiple of them if multiple exist of same types.
 
 Interfaces or object types can also contain optional attributes/methods this is indicated with a ? like this for example "attribute1?: string".
+
+-----
+REACT
+-----
+React is a front-end javascript library developed by facebook that allows the creation of UI components which leads to modular code.
+React is fast and clean, clean code makes the code more maintainable thus more scalable/flexible.
+
+START REACT APP
+Node package manager or npm has to be installed on computer this can be checked with node -v.
+Node is a javascript runtime environment outside of the browser.
+Download Node here: https://nodejs.org/en/download/ or on mac with brew install.
+
+To start a boilerplate react app, use in command line "npx create-react-app nameAppWithoutCapitals".
+This react boilerplate uses a tool called webpack to transform the files in static assets.
+A .gitignore is created even though a git repository is not.
+package.json determines all the settings for the react app, learn more about the settings here https://www.codecademy.com/courses/react-101/articles/how-to-create-a-react-app.
+The node_modules directory contains dependencies of packages used by the current react app.
+package-lock.json, contains the exact dependency tree found in node_modules, plus a history of changes to the package.json file.
+public directory contains the app entrypoint index.html and a file that configures the web app for android called manifest.json, other files are not necessary and contain assets for the app initial starting page.
+src directory contains the javascript code that will be processed by webpack, the registerServiceWorker.js file takes care of caching and updating files for the end-user.
+
+To start the development server "npm start" in app directory.
+
+Before using react import the appropriate libraries to a .js file:
+"import React from 'react';"
+"import ReactDOM from 'react-dom';"
+
+To debug:
+Install React Developer Tools as a chrome extension.
+On Chrome devtools (View > Developer > Developer Tools). On the same banner as Elements, Sources, Console, etc., there will be two new React tabs: Components and Profiler.
+In components tab interesting information is to be found about the components their props and states...
+Learn more here: https://www.codecademy.com/courses/react-101/informationals/ready-react-developer-tools
+
+"npm run build" is used to bundle the app into static files for production.
+
+DOM
+Refers to document object model, is a platform and language-neutral interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document/front-end-web-page.
+It allows javascript to create dynamic HTML pages by manipulating the DOM.
+
+To make DOM updates faster, react uses a virtual DOM.
+The virtual DOM is a light-weight DOM that updates way faster after JSX gets rendered.
+By comparing changes to the virtual DOM with the actual DOM react only updates in the DOM the elements that have changed in the virtual DOM instead of all the elements.
+
+JSX
+React contains JSX (javascript XML) which is a syntax extension of javascript available in react that resembles HTML, it allows writing HTML-like-code in javascript.
+JSX is not readable by browsers, it has to be compiled to javascript.
+JSX is treated as a javascript expression, thus can be stored in a variable, array, object, be returned... 
+
+JSX elements like in HTML can have attributes, those attributes are indicated by a name, followed by an equal sign and a value.
+Multi-line JSX must be between ( ) and all JSX elements must be inside one JSX element this can be the neutral <div></div> element.
+
+To render JSX, the function ReactDOM.render() is used, the first argument contains the actual JSX code and the second argument consist of the function document.getElementById() with one argument being the id attribute inside an element in the actual HTML file whereby you would like to insert the JSX code.
+By rendering, through the virtual DOM, react only updates DOM elements that have changed making it faster.
+
+In HTML the attribute class can indicate a CSS style, in JSX the attribute is not named class but className.
+In JSX self-closing tags must always end with />.
+In JSX regular javascript code can be indicated in between {}.
+
+Event listeners, wait for an interaction from user with an HTML element on the webpage.
+Event listeners can be indicated in JSX by giving the appropriate HTML element the appropriate event-related-attribute.
+onClick is for example such an attribute other are found here https://reactjs.org/docs/events.html#supported-events.
+Its associated value should equal a javascript function with one parameter the event, that takes the element as an object with its attributes as the object attributes.
+To create a change from the event function call "document.getElementById(idValue) = JSXcode" with "idValue" being a value associated to an id attribute inside one element, which will insert the new "JSXcode".
+
+If statements cannot be used in JSX between {}, but ternary operators can.
+The && operator can also be used to write one line conditionals in react, "true && <p>Hello World<p>" if expression1/true is true expression2/JSX will be rendered.
+The || operator allows directly choosing between two values the non-empty/non-false one for example "{'' || 'hello'}" whereby 'hello will be chosen and displayed.
+
+The .map is often used to create HTML lists of arrays contents like this "['exercise1', 'exercise2', 'exercise3'].map(ex => <li>{ex}</li>)".
+Lists elements can necessitate the attribute key when a specific order should be followed or if each list element contains a toggle that can be activated or deactivated, either way it never hurts to always include the key attribute.
+
+React.createElement() allows for an JSX alternative that isn't usually used, but when compiling JSX gets transformed into this form.
+
+COMPONENTS
+Is a small reusable chunk of code which renders HTML code.
+Components can be defined with javascript classes or functions.
+
+All class components have some methods in common, those can be added to the class component with "extends React.Component".
+Class component names must always start with a capital letter.
+Class components must contain one method called render() that returns JSX code.
+To create an instance of a component, in JSX create a self-closing-element that contains the component's name.
+Attributes can be added to component classes, with "get attribute() { return 'x' }", in render function this.attribute can be called to get the value.
+Event listeners can be used inside components, the element's event-attribute (for example onClick) can equal a method inside the component class with this.method().
+Components can return in their JSX other components, this can also be called nested components.
+
+Component classes contain the this.props attribute, this object contains the attributes passed to the component istance. 
+Thus if we create for example the following component instance "<Profile name="add" age=45 />" inside the component class this.props.name will contain the value "add" and this.props.age will contain the value 45.
+Thus props allow a functionality similar to parameters in functions.
+Functions and event-handler-functions are often passed as props to components.
+To create an instance of a component self-closing tags are usually used but don't have to, all between the opening and closing tags of the component will be accessible inside the component with this.props.children.
+When an attribute is not given to a component class it will output nothing, default values can be given to those attributes like this "component.defaultProps = { attribute: drfaultValue }"
+
+State can be used next to props for dynamic content. To setup state in a component class, setup a constructor with argument props that calls super(props) and finally declare this.state and initialize it with an object.
+To get a component's state use this.state.nameOfProperty.
+To change a value of state use the function this.setState() with as argument an object that contains the properties that need to change with a new value.
+A change of state is often made in a separate method (event-function) of the component class dedicated to it.
+Methods different than the constructor or render method inside component classes do not have access to the this keyword unless in constructor you bind it like this "this.eventMethod = this.eventMethod.bind(this)".
+this.setState changes a state inside a component but also calls render() so that the change gets rendered, that is why it cannot be called from a render() method else an infinfinite loop would occur.
+
+COMPONENT LIFECYCLE
+
 
 ============
 FREE COURSES
