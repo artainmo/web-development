@@ -146,7 +146,7 @@ https://www.codecademy.com/learn/learn-css - 10h !
 https://www.codecademy.com/learn/introduction-to-javascript - 20h !
 https://www.codecademy.com/learn/learn-intermediate-javascript - 10h !
 https://www.codecademy.com/learn/learn-typescript - 10h !
-https://www.codecademy.com/learn/react-101 - 20h
+https://www.codecademy.com/learn/react-101 - 20h !
 https://www.codecademy.com/learn/learn-node-js - 7h
 https://www.codecademy.com/learn/learn-express - 4h
 https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h
@@ -758,7 +758,72 @@ Methods different than the constructor or render method inside component classes
 this.setState changes a state inside a component but also calls render() so that the change gets rendered, that is why it cannot be called from a render() method else an infinfinite loop would occur.
 
 COMPONENT LIFECYCLE
+Components can get created, rendered, added to the DOM, updated and removed.
+We make distinction between three lifecycles:
+1. Mounting, when the component is added to the DOM for first time.
+2. Updating, when a component gets updated due to a props or state change.
+3. Unmounting, when a component gets removed from the DOM.
+During mounting in the following order the component constructor, render and finally componentDidMount methods are called.
+componentDidMount can be used to call asynchronous tasks affecting the component also called side-effects.
+During the unmounting phase the componentWillUnmount method is called, herein component asynchronous-tasks running in componentDidMount can be cleared.
+When updating, a change occurs in props or state, followed by calls to the following component methods in order, render, componentDidUpdate.
+ComponentDidUpdate contains the parameter prevProps which contains the props of previous render.
 
+HOOKS
+Component functions also exist instead of component classes, the function return should equal the render method return and props should be the function argument.
+Component functions can access the same functionalities as component classes through the use of hooks.
+Hooks are functions that manage the internal state of function components and their post-rendering side-effects.
+The use of component functions + hooks should be simpler than the use of component classes but do not add new functionalities.
+Different built-in hooks already exist such as useState, useEffect and others https://reactjs.org/docs/hooks-reference.html.
+
+useState is the most often used hook, it enables the manipulation of states in function components.
+It is initialized like this "const [myState, setMyState] = useState(initialStateValue)" whereby myState holds the state value and setMyState is a function that changes the state value and renders, initialStateValue is an optional parameter that gives an initial value to myState, if it is not defined myState initial value will equal undefined.
+It can be used through events like this for example "<button onClick={()=>setMyState(newValue)}></button>". 
+The event function can contain the optional 'event' parameter that contains the target property which holds the user input if any with event.target.value.
+Instead of holding one objects with all the states of a component, we can call useState for every state and thus separate them.
+It is best to use the setter function with a callback function that takes prior state as parameter for example "setMyState((prev)=>[newValue, ...prev])" whereby a newValue is added to a string.
+
+useEffect is a hook that enables side-effects (asynchronous tasks affecting the component).
+useEffect takes as argument a callback funtion, that is called after the component has rendered.
+Some effects such as event listeners require cleanup to avoid memory leaks, to resolve this problem the argument-function of useEffects can return a cleanup function, this function will be called after unmounting and can be used to clean prior asynchronous tasks.
+useEffect can take a second argument called the dependency array, which indicates after which renders the callback function has to be called. 
+Passing no second argument leads to the callback function being called after each render, passing an empty array as second argument leads to the callback funtion being called only after the first render.
+Variables set in the array that change between renders lead to the callback function being called again.
+When using multiple hooks they often each are associated with one state, ideally at top of function, each state should be declared directly followed by its associated event hook.
+
+STATEFUL COMPONENTS CALLING STATELESS COMPONENTS (CONVENTIONS)
+Conventions in writing components serve in making the code more readable and thus more manageable.
+
+A react component should use props to store information that can only be changed by another component.
+A react component should use states to store information that can be changed inside the component itself.
+
+A component can call other components, lets make distinction between parent and child components based on this. 
+How would a child component update his parent component?
+A parent component can define a method whereby a change in state happens (event-handler), it can pass this method as callback-function-props of child components, enabling the child components to make a state change of parent component by calling this callback-function.
+
+Each component should only have one job.
+Child components can also update their sibling components.
+When parent components send event-handlers as props to one child component, this child component calls the event-handler, the event-handler calls sibling components with other props.
+
+A pattern that is often found in react is the following;
+A stateful component renders (also called container component), calls stateless child component one with its state as props that displays the parent's state (also called representational component), and calls stateless component child two with an event-function as props who displays a way to change the state.
+
+ADVANCED REACT
+An inline style consists of a component having the style attribute equal to an oject that defines a style and is defined inside the component instantiation.
+Creating a separate style object variable is preferred when the style object is large.
+In react for example this "{ marginTop: '100px' }" is considered the same as "{ marginTop: 100 }".
+To re-use particular styles those can be declared in a separate file and be exported for use.
+
+propTypes can be useful to receive a warning when they are not properly used and through its documentation by comments making the code cleaner.
+When a component expects a certain prop, propTypes can be used, first import the associated library "import PropTypes from 'prop-types'".
+To define propTypes "componentName.propTypes = { expectedProp: PropTypes.type.isRequired }" whereby multiple props could be expected and type can mean string or number...
+
+In react when creating forms, state can be used to be aware of every change that occurs inside an input-element before the form gets submitted.
+
+An uncontrolled component is a component that maintains its own internal state. A controlled component is a component that does not maintain any internal state. Since a controlled component has no state, it must be controlled by someone else.
+To create an uncontrolled component, we begin by creating a ref using the React.createRef() method. This method returns an object with a .current property that refers to the DOM node it is bound to. This ref object is bound to a form element using the ref attribute and whenever the value of that form element needs to be retrieved, simply refer back to the ref object’s .current property.
+There is one situation in which uncontrolled components must always be used: <input> form elements with the type="file" attribute. The value for this type of <input> form element can only be set by a user, and not programmatically, and therefore the only way to retrieve this value is through a ref.
+Uncontrolled components are also useful when the value of the form is only necessary after submitting.
 
 ============
 FREE COURSES
