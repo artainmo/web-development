@@ -41,7 +41,7 @@ Functions take parameters, instead of verifying if the given parameters are of c
 In javascript if one parameter is not specified it will equal undefined, typesript would give an error, to neglect that typescript error a ? can be indicated after parameter.<br>
 Default parameters are indicated "parameter=value", the parameter receives the default value if it received no value.
 
-One can make return types explicit like this "function(params): string", in this example the funtion must return a parameter.<br>
+One can make return types explicit like this "function(params): string", in this example the funtion must return a string.<br>
 By using void like this "function(params): void" one can indicate no return of the function.
 
 In javascript singl-line-comments "//comment" or multiple-line-comments "/* comment */" exist, in typescript a third type of comment exist.<br>
