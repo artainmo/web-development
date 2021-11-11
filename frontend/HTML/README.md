@@ -13,7 +13,7 @@ The `<header></header>` tags should follow and they allow metadata (info that do
 All content between body tags get displayed on screen `<body></body>`.<br>
 Different heading types exist `<h1>` for the main heading and for subheadings: `<h2> <h3> <h4> <h5> <h6>`.<br>
 The div tag is used to group content together or divide the content `<div></div>`, the `<p>` and `<span>` tags too.<br>
-The `<em>` tag allows for italic text and <strong> tag for bold text.<br>
+The `<em>` tag allows for italic text and '<strong>' tag for bold text.<br>
 The `<br>` tag has no closing tag and refers to a line break.<br>
 The `<ul>` or `<ol>` nested with `<li>` tags allow for the creation of a bullet-pointed-list or numbered-list.
 
