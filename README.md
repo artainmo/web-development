@@ -12,13 +12,13 @@ A **server** is a computer connected to the www, it contains an IP address to id
 
 **Web browser**, is a software application that allows access to the world wide web via URLs. The web browser transforms the URL into an IP address using the DNS (domain name system), it creates a connection and sends http requests towards that ip address to receive the requested content.
 
-**Webservers** serve an application/platform/website on the web. They let clients(browsers) connect to allow HTTP communication, receive web browser requests and send back responses.
+**Webservers** serve an application/platform/website on the web. They let clients(browsers) connect to allow HTTP communication, receive web browser requests and send back responses.<br>
 They often run on an external server, which is a computer with no visual display that runs 24/7, waiting for client-servers to make requests.
 
-A **web platform** consists of a back-end and front-end...
-Back-end acts as web-server(answer HTTP request) and data-base-manager.
-Front-end refers to the pages send by web-server to client-server, that the client's web browser will visually display, creating an user interface (UI).
-Different programming languages can be used for the back-end and front-end development.
+A **web platform** consists of a back-end and front-end.<br>
+Back-end acts as web-server(answer HTTP request) and data-base-manager.<br>
+Front-end refers to the pages send by web-server to client-server, that the client's web browser will visually display, creating an user interface (UI).<br>
+Different programming languages can be used for the back-end and front-end development.<br>
 
 **TCP & UDP**
 Transmission control protocol (TCP) enables the transmission of resources, it is used to manage many types of internet connections and allows HTTP communication.
