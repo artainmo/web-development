@@ -31,13 +31,12 @@ Types are different kinds of values hold by variables in computer memory.<br>
 Different primitive types: number, string, boolean, null, undefined, object, array, Function, symbol.
 
 Arithmetic can be done between number types;<br>
-``
-+ - / % *
+``+ - / % *
 
 += -= /= %= *=  ++ -- -> operator on self
 
-++ or -- before the variable name executes it before it executes the whole line and after the variable name executes it after executing the whole line.
-``
+++ or -- before the variable name executes it before it executes the whole line and after the variable name executes it after executing the whole line.``
+
 Strings are encapsulated by '' or "" or backtics , if you want to use '' or "" inside string backtics can be used to encapsulate it.<br>
 Using the + operator on strings concatenates them.<br>
 String interpolation brings strings inside other string easily by putting whole string between `` (backticks) and the variables between ${}.<br>
