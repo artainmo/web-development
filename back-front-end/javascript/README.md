@@ -284,100 +284,100 @@ The event queue’s interaction with the call stack is managed by an event loop.
 
 ## JAVASCRIPT FREE TUTORIALS
 ### LINES and COMMENTS
-; -> at end of line indicates the end but is not mandatory
-// -> single line
+; -> at end of line indicates the end but is not mandatory<br>
+// -> single line<br>
 /* */ -> multiple lines
 
 ### VARIABLE
-Variables can take any type as Javascript is loosely typed.
+Variables can take any type as Javascript is loosely typed.<br>
 Different primitive types: number, string, boolean, null, undefined, any, object, array, Function.
 
-var keyword is used in front of variable name at declaration to indicate simple variable, available in function scope or as global variable.
-let keyword declares variable solely in block scope.
+var keyword is used in front of variable name at declaration to indicate simple variable, available in function scope or as global variable.<br>
+let keyword declares variable solely in block scope.<br>
 const keyword creates constant variables, meaning their value cannot change, available in block scope.
 
-All types have access to different methods.
-Strings can be concatenated with +.
-Strings are immutable you can not change a single char inside it, only the whole string at once can be changed.
-Push and pop methods can make arrays dynamic.
-Date objects contain a number that represents miliseconds since 1 January 1970 UTC.
-Primitive values are passed by copy/value and objects by referene.
+All types have access to different methods.<br>
+Strings can be concatenated with +.<br>
+Strings are immutable you can not change a single char inside it, only the whole string at once can be changed.<br>
+Push and pop methods can make arrays dynamic.<br>
+Date objects contain a number that represents miliseconds since 1 January 1970 UTC.<br>
+Primitive values are passed by copy/value and objects by referene.<br>
 typeof keyword is used to receive the current type of a variable.
 
-Objects can also be created which are considered as one variable but contains multiple variables, they work like python dictionnaries..
-Object.freeze(objectname) can be used to make the variables inside the object constant.
-Classes contain variables and methods (functions that use those variables, to access those variables this keyowrd is used), a constructor also exist that is called at construction and can take parameter values. 
+Objects can also be created which are considered as one variable but contains multiple variables, they work like python dictionnaries..<br>
+Object.freeze(objectname) can be used to make the variables inside the object constant.<br>
+Classes contain variables and methods (functions that use those variables, to access those variables this keyowrd is used), a constructor also exist that is called at construction and can take parameter values.<br>
 With extend keyword classes, heritage from another class is possible, to call the parent class contructor use super().
 
-Spread operator consist of ...variable as keyword, it allows to extract the inside of string/array/object. 
-If string to array [..variable, ...variable2] it will transform each letter of the string into strings inside an array. 
-If array to array [..variable, ...variable2] it extraxts each element in the array into elements in the new array.
-If object to object {..object1, ...object2} it extracts each variable in the object into new object.
-One can also change a value that has just been spread from an object like this {..object1, objectVariable:newValue}. 
+Spread operator consist of ...variable as keyword, it allows to extract the inside of string/array/object.<br>
+If string to array [..variable, ...variable2] it will transform each letter of the string into strings inside an array.<br>
+If array to array [..variable, ...variable2] it extraxts each element in the array into elements in the new array.<br>
+If object to object {..object1, ...object2} it extracts each variable in the object into new object.<br>
+One can also change a value that has just been spread from an object like this {..object1, objectVariable:newValue}.<br>
 With ! you can call the opposite value of a variable like this {..object1, objectVariable:!objectVariableValue}
 
 ### ARITHMETIC
-+, -, /, %, *
++, -, /, %, *<br>
 +=, -=, /=, %=, *= -> operator on self
 
 ### FUNCTION
-Functions are indicated with function keyword, it can take parameters, perform actions with them and return a value, if it does not return a value, it returns undefined.
+Functions are indicated with function keyword, it can take parameters, perform actions with them and return a value, if it does not return a value, it returns undefined.<br>
 A lot of built-in functions and methods already exist.
 
-Map function on arrays, performs function on each element inside the array, transforming it.
-Filter takes function that returns a boolean and decides to remove elements from the array or not.
+Map function on arrays, performs function on each element inside the array, transforming it.<br>
+Filter takes function that returns a boolean and decides to remove elements from the array or not.<br>
 Reduce adds on all the elements in an array returning one.
 
-Functions can take other functions as parameters which is also called callbacks.
-Default parameters take in a default value with = operator.
+Functions can take other functions as parameters which is also called callbacks.<br>
+Default parameters take in a default value with = operator.<br>
 Rest operator consist of ...arg as function parameters and means undefined/unlimited number of parameters for the function.
 
-Anonyomous functions do not have a name but are given as value to a variable, the variable thus becomes the function and becomes like a function pointer, this is confusing but part of javascript.
+Anonyomous functions do not have a name but are given as value to a variable, the variable thus becomes the function and becomes like a function pointer, this is confusing but part of javascript.<br>
 Arrow and ternary functions allow for shorter syntax of functions and are useful for non-reusable-functions used as parameters.
 
-A generator function is indicated with the function* keyword.
-Generator functions yield values back, meaning it returns multiple times instead of one time. 
+A generator function is indicated with the function* keyword.<br>
+Generator functions yield values back, meaning it returns multiple times instead of one time. <br>
 A variable equaling a generator function, becomes a generator object, whereby the multiple variables inside the generator object can be accessed with next method until it equals undefined.
 
 ### LOOP and CONDITIONS and COMPARISON LOGICAL OPERATORS
-for can be used to loop over an array and can be used as usual with an index.
-while loop are also possible.
-do while loops allow you to use a while loop whereby the loop gets entered at least one time.
-break keyword breaks out of the loop and continue restarts the loop.
-if, else if, else conditions exist.
-Comparison operators without type coercion; === <== >== !== < >
-Type coercion is not recommended and means for example "0" == false -> true
+for can be used to loop over an array and can be used as usual with an index.<br>
+while loop are also possible.<br>
+do while loops allow you to use a while loop whereby the loop gets entered at least one time.<br>
+break keyword breaks out of the loop and continue restarts the loop.<br>
+if, else if, else conditions exist.<br>
+Comparison operators without type coercion; === <== >== !== < ><br>
+Type coercion is not recommended and means for example "0" == false -> true<br>
 Logical operators; && || !(statement)
 
 ### EXPORT IMPORT 
-export as keyword can be used in front of functions/variables that you want to use in another file.
-import keyword must than be used into this other file to import the "exported" functions/variables from the first file.
-You can import all or only certain functions/variables from that file. 
+export as keyword can be used in front of functions/variables that you want to use in another file.<br>
+import keyword must than be used into this other file to import the "exported" functions/variables from the first file.<br>
+You can import all or only certain functions/variables from that file. <br>
 You can also import as a certain name, meaning the imported functions can only be accesed through this name, avoiding function/variables with duplicate names.
 export default means you only export one element from the module.
 
 ### PROMISES and SYNC AWAIT and FETCH and ERRORS
 Javascript does not contain multiple-threads, but it can send an external request and while waiting for a response execute other code until the response arrives and the single thread comes back to it, this is called an event loop and makes us gain time.
 
-Promises are useful for external actions that take time, such as making a request to an API, the promise may hold a value at some point in time or not, it promises a value will come.
-A promise is an object, that takes one parameter, this parameter is a function, 
-this function takes two parameters (resolve and reject), this function performs an action that can succeed or fail, 
-if it succeeds the promise gets resolved else it gets rejected, this is indicated in code by using the parameter functions (resolve and reject) that can take an arbitrary number of parameters.
-The promise object has a then method that takes a function that gets executed if the promise got resolved, this function thus takes the same number of parameters as the resolve function did.
-The promise method also has a catch method that takes a function that gets executed if the promise got rejected, this function thus takes the same number of parameters as the resolve function did.
+Promises are useful for external actions that take time, such as making a request to an API, the promise may hold a value at some point in time or not, it promises a value will come.<br>
+A promise is an object, that takes one parameter, this parameter is a function, <br>
+this function takes two parameters (resolve and reject), this function performs an action that can succeed or fail, <br>
+if it succeeds the promise gets resolved else it gets rejected, this is indicated in code by using the parameter functions (resolve and reject) that can take an arbitrary number of parameters.<br>
+The promise object has a then method that takes a function that gets executed if the promise got resolved, this function thus takes the same number of parameters as the resolve function did.<br>
+The promise method also has a catch method that takes a function that gets executed if the promise got rejected, this function thus takes the same number of parameters as the resolve function did.<br>
 Promise.all function takes as argument an array of promises and calls all of them simultaneously, they will all have the same following then() and catch().
 
-Async keyword used in front of functions, indicates that the content of the function will contain the await keyword and needs to be handled asynchronously.
-Await keyword allows to wait for the promise to be returned, while it waits for the promise it continues to execute code outside of the asynchronous function, and once the promise has returned it comes back to the await keyword to take the final value of the promise and continue the asynchronous function. 
-Without the await keyord the promise without its final value is instantly returned.
+Async keyword used in front of functions, indicates that the content of the function will contain the await keyword and needs to be handled asynchronously.<br>
+Await keyword allows to wait for the promise to be returned, while it waits for the promise it continues to execute code outside of the asynchronous function, and once the promise has returned it comes back to the await keyword to take the final value of the promise and continue the asynchronous function. <br>
+Without the await keyord the promise without its final value is instantly returned.<br>
 If the promise gets rejected the error won't be catched, the solution is to use the try-catch statement inside the asynchronous function to catch the error in case of a rejected promise.
 
-The Fetch API provides an interface for fetching resources. The fetch method can send http requests to APIs for example.
-The first and only mandatory parameter of the fetch function is the URL to the resource you want to fetch, the second argument is by default an HTTP GET request. 
-The second argument is an object representing an HTTP request, whereby HTTP method, headers, body, ... can be adapted.
-When sending a body, set in headers: Content-Type: application/json, in body set an object that you transform into json with JSON.stringify function.
-Fetch will return a promise, if the promise got resolved a response object containing the HTTP response is returned. 
-To check if an HTTP error got returned the response.ok can be verified.
+The Fetch API provides an interface for fetching resources. The fetch method can send http requests to APIs for example.<br>
+The first and only mandatory parameter of the fetch function is the URL to the resource you want to fetch, the second argument is by default an HTTP GET request. <br>
+The second argument is an object representing an HTTP request, whereby HTTP method, headers, body, ... can be adapted.<br>
+When sending a body, set in headers: Content-Type: application/json, in body set an object that you transform into json with JSON.stringify function.<br>
+Fetch will return a promise, if the promise got resolved a response object containing the HTTP response is returned. <br>
+To check if an HTTP error got returned the response.ok can be verified.<br>
 To view the json body of the response we call response.json() which also returns as a promise if resolved the parsed JSON.
 
 Try-catch statement can be used to catch errors. Whereby if a code gets generated inside the try scope, code inside the catch scope gets executed.
