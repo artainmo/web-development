@@ -53,7 +53,7 @@ All built-in objects in javascript https://developer.mozilla.org/en-US/docs/Web/
 Math.random() generates random number between 0-1 to make it between 0-100 simply multiply it with 100.
 
 ### VARIABLES
-A variable hols a value in computer memory.<br>
+A variable holds a value in computer memory.<br>
 var is the keyword used to declare a variable, it is followed by a variable's name.<br>
 Initializing a variable consists of attributing it a first value with =, as long as a variable is not initialized its value is set to undefined.<br>
 
