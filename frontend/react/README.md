@@ -106,7 +106,7 @@ Thus if we create for example the following component instance `<Profile name="a
 Thus props allow a functionality similar to parameters in functions.<br>
 Functions and event-handler-functions are often passed as props to components.<br>
 To create an instance of a component self-closing tags are usually used but don't have to, all between the opening and closing tags of the component will be accessible inside the component with this.props.children.<br>
-When an attribute is not given to a component class it will output nothing, default values can be given to those attributes like this `component.defaultProps = { attribute: drfaultValue }`
+When an attribute is not given to a component class it will output nothing, default values can be given to those attributes like this `component.defaultProps = { attribute: defaultValue }`
 
 State can be used next to props for dynamic content. To setup state in a component class, setup a constructor with argument props that calls super(props) and finally declare this.state and initialize it with an object.<br>
 To get a component's state use this.state.nameOfProperty.<br>
