@@ -139,7 +139,7 @@ useState is the most often used hook, it enables the manipulation of states in f
 It is initialized like this `const [myState, setMyState] = useState(initialStateValue)` whereby myState holds the state value and setMyState is a function that changes the state value and renders, initialStateValue is an optional parameter that gives an initial value to myState, if it is not defined myState initial value will equal undefined.<br>
 It can be used through events like this for example `<button onClick={()=>setMyState(newValue)}></button>`.<br>
 The event function can contain the optional 'event' parameter that contains the target property which holds the user input if any with event.target.value.<br>
-Instead of holding one objects with all the states of a component, we can call useState for every state and thus separate them.<br>
+Instead of holding one object with all the states of a component, we can call useState for every state and thus separate them.<br>
 It is best to use the setter function with a callback function that takes prior state as parameter for example `setMyState((prev)=>[newValue, ...prev])` whereby a newValue is added to a string.
 
 useEffect is a hook that enables side-effects (asynchronous tasks affecting the component).<br>
