@@ -134,7 +134,7 @@ tsc --init will let you compile all files from root directory next time you use 
 A .json file will be created wherein compilation adjustments can be done.<br>
 In the .json files to compile can be excluded.<br>
 Target feature are used to indicate the javascript version to compile to, es5 is older more compatible version and es6 is newer version.<br>
-Lib feature is used to indate used libraries.
+Lib feature is used to indicate used libraries.
 
 ### Additions
 The following additions lead to more readable/ordered/shorter code and compile-time-error-detection, especially useful for large projets.<br>
