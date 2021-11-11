@@ -2,8 +2,8 @@
 
 ## Table of contents
 - [Basics](#Basics)
-- [Programming languages, frameworks and libraries](#Programming languages, frameworks and libraries)
-- [Learning materials](#Learning materials)
+- [Programming languages, frameworks and libraries](#Programming-languages,-frameworks-and-libraries)
+- [Learning materials](#Learning-materials)
 
 ## Basics
 **World Wide Web** (www), grouping of all documents on the web accessible through URLs(uniform resource locator)
