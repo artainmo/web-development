@@ -55,8 +55,8 @@ A documentation comment is used above a function to describe it like this:<br>
 
 ### Complex types
 Array elements can contain different types or contain all the same type. Typescript can assign a certain "array type" meaning an array with elements all of the same type.<br>
-This can be done in two ways ": sting[]" or ": Array<string>", in this example arrays containing string types were declared.<br>
-For multi-dimensional-arrays this would be their associated type for example "string[][]" or "number[][][]"..
+This can be done in two ways `: string[]` or `: Array<string>`, in those example arrays containing string types were declared.<br>
+For multi-dimensional-arrays this would be their associated type for example `string[][]` or `number[][][]`..
 
 Arrays with values of different types are called tupples in typescript, they have fixed sizes after annoting them a type, but when concatenating them with .concat() an array with variable length is returned..<br>
 This is an example "tup: [number, string, number, number, string] = [23, 'he', 21, 45, 'vf']".<br>
