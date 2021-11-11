@@ -233,9 +233,9 @@ Inside an async function the await keyword can be used, this is used in front of
 An async function allows asynchronous code not only through a promise but a whole function that can make multiple promise calls and wait for them inside the function with await keyword, this allows for way more readable code than chaining .then methods.<br>
 To catch an error the .catch method can be used on returned promise or try-catch-block can be used.<br>
 If we are having multiple independent promises in one async function multiple solutions exist:
-	* the await should not be used in front of the promise call, which lead to the assigned variable equaling a pending promise, but later in the program call in front of that variable await when necessary to get the resolved value.
-	* do not use await but use .then
-	* use await Promise.all()
+* the await should not be used in front of the promise call, which lead to the assigned variable equaling a pending promise, but later in the program call in front of that variable await when necessary to get the resolved value.
+* do not use await but use .then
+* use await Promise.all()
 
 ### REQUESTS
 Requests consists of communicating with a server, is done through HTTP, the most used requests are GET, POST, HEAD, PUT, DELETE.<br>
