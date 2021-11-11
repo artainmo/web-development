@@ -1,22 +1,22 @@
 # JAVASCRIPT
 
 ## Table of contents
-- [CODECADEMY COURSE](#CODECADEMY-COURSE)
-  - [INTRODUCTION](#INTRODUCTION)
-  - [VARIABLES](#VARIABLES)
-  - [CONDITIONS](#CONDITIONS)
-  - [FUNCTIONS](#FUNCTIONS)
-  - [SCOPE](#SCOPE)
-  - [ARRAYS](#ARRAYS)
-  - [LOOPS and ITERATORS](#LOOPS-and-ITERATORS)
-  - [OBJECTS](#OBJECTS)
-  - [CLASSES](#CLASSES)
-  - [RUNTIME ENVIRONMENTS](#RUNTIME-ENVIRONMENTS)
-  - [MODULES](#MODULES)
-  - [PROMISES](#PROMISES)
-  - [ASYNC AWAIT](#ASYNC-AWAIT)
-  - [REQUESTS](#REQUESTS)
-  - [OTHER](#OTHER)
+- [Codecademy course](#CODECADEMY-COURSE)
+  - [Introduction](#INTRODUCTION)
+  - [Variables](#VARIABLES)
+  - [Conditions](#CONDITIONS)
+  - [Functions](#FUNCTIONS)
+  - [Scope](#SCOPE)
+  - [Arrays](#ARRAYS)
+  - [Loops and Iterators](#LOOPS-and-ITERATORS)
+  - [Objects](#OBJECTS)
+  - [Classes](#CLASSES)
+  - [Runtime environment](#RUNTIME-ENVIRONMENTS)
+  - [Modules](#MODULES)
+  - [Promises](#PROMISES)
+  - [Async Await](#ASYNC-AWAIT)
+  - [Requests](#REQUESTS)
+  - [Other](#OTHER)
 
 ## CODECADEMY COURSE
 ### INTRODUCTION
