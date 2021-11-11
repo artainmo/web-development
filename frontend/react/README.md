@@ -8,7 +8,7 @@
   - [Components](#COMPONENTS)
   - [Component lifecycle](#COMPONENT-LIFECYCLE)
   - [Hooks](#HOOKS)
-  - [Stateful components calling stateless components (conventions)](#STATEFUL-COMPONENTS-CALLING-STATELESS-COMPONENTS-(CONVENTIONS))
+  - [Stateful components calling stateless components](#STATEFUL-COMPONENTS-CALLING-STATELESS-COMPONENTS)
   - [Advanced react](#ADVANCED-REACT)
 - [React free tutorials](#React-free-tutorials)
   - [Setup](#SETUP)
@@ -149,7 +149,7 @@ Passing no second argument leads to the callback function being called after eac
 Variables set in the array that change between renders lead to the callback function being called again.<br>
 When using multiple hooks they often each are associated with one state, ideally at top of function, each state should be declared directly followed by its associated event hook.
 
-### STATEFUL COMPONENTS CALLING STATELESS COMPONENTS (CONVENTIONS)
+### STATEFUL COMPONENTS CALLING STATELESS COMPONENTS
 Conventions in writing components serve in making the code more readable and thus more manageable. <br>
 
 A react component should use props to store information that can only be changed by another component. <br>
