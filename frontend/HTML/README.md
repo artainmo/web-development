@@ -1,7 +1,7 @@
 # HTML
 
 Consists of elements.<br>
-Elements consist of one opening and one closing tag and content between the tags like this "<p>Hello World</p>".<br>
+Elements consist of one opening and one closing tag and content between the tags like this `<p>Hello World</p>`.<br>
 Child/nested elements are elements inside elements, they can inherit styling from their parent elements.<br>
 One element per line and nested elements should be indented once compared to their direct parent element for readable code.<br>
 Attributes are content added to the opening tag of an element, it has a name and is equal to a value. One common attribute is id to identify your elements.
