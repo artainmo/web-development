@@ -11,7 +11,7 @@
   - [Loops and Iterators](#LOOPS-and-ITERATORS)
   - [Objects](#OBJECTS)
   - [Classes](#CLASSES)
-  - [Runtime environment](#RUNTIME-ENVIRONMENTS)
+  - [Runtime environment](#RUNTIME-ENVIRONMENT)
   - [Modules](#MODULES)
   - [Promises](#PROMISES)
   - [Async Await](#ASYNC-AWAIT)
