@@ -1,39 +1,27 @@
 # WebDevelopment
-================
-FT_TRANSCENDENCE
-================
 
----------
-COWORKING
----------
-Usage of Trello, github, slack and discord.
+# Basics
+**World Wide Web** (www), grouping of all documents on the web accessible through URLs(uniform resource locator)
 
----------------
-WEB DEVELOPMENT
----------------
-World Wide Web (www), grouping of all documents on the web accessible through URLs(uniform resource locator)
+A **server** is a computer connected to the www, it contains an IP address to identify itself, this IP address can be associated with an URL, which is a non-random name for easier identification.
 
-A server is a computer connected to the www, it contains an IP address to identify itself, this IP address can be associated with an URL, which is a non-random name for easier identification.
+**Web browser**, is a software application that allows access to the world wide web via URLs. The web browser transforms the URL into an IP address using the DNS (domain name system), it creates a connection and sends http requests towards that ip address to receive the requested content.
 
-Web browser, is a software application that allows access to the world wide web via URLs. The web browser transforms the URL into an IP address using the DNS (domain name system), it creates a connection and sends http requests towards that ip address to receive the requested content.
-
-Webservers serve an application/platform/website on the web. They let clients(browsers) connect to allow HTTP communication, receive web browser requests and send back responses. 
+**Webservers** serve an application/platform/website on the web. They let clients(browsers) connect to allow HTTP communication, receive web browser requests and send back responses. 
 They often run on an external server, which is a computer with no visual display that runs 24/7, waiting for client-servers to make requests.
 
-A web platform consists of a back-end and front-end. 
+A **web platform** consists of a back-end and front-end. 
 Back-end acts as web-server(answer HTTP request) and data-base-manager.
 Front-end refers to the pages send by web-server to client-server, that the client's web browser will visually display, creating an user interface (UI).
 Different programming languages can be used for the back-end and front-end development.
 
-Cloud computing is the on-demand availability of computer-system-resources, especially data-storage and computing-power. Large clouds consist of multiple servers connected/working together.
-
-TCP & UDP 
+**TCP & UDP**
 Transmission control protocol (TCP) enables the transmission of resources, it is used to manage many types of internet connections and allows HTTP communication.
 User diagram protocol (UDP) is a communication protocol used across the internet, especially for the transmission of time-sensitive information.
 
 Both are internet communication protocols, the main difference between them is that TCP is more reliable but slower, while UDP is less reliable but faster and enables broadcasting.
 
-HTTP
+**HTTP**
 The language used between servers to communicate.
 http requests are made by a web browser and follow a specific syntax, they can request content from the webserver or even post content on the webserver, allowing the client to interact with the webserver.
 http responses are made by the web server and follow a specific syntax, they can send HTML pages for the browser to display.
@@ -66,63 +54,63 @@ The different status codes for responses are:
 405: Not allowed, the resource does not accept the method
 500: Internal server error, situation the server does not know how to handle
 
-OTHER CONCEPTS
+**OTHER CONCEPTS**
+Cloud computing is the on-demand availability of computer-system-resources, especially data-storage and computing-power. Large clouds consist of multiple servers connected/working together.
+
 A single-page application (SPA) is a web application or website that interacts with the user by dynamically rewriting the current web page with new data from the web server, instead of the default method of a web browser loading entire new pages.
 
---------------------
-FRONT-END & BACK-END
---------------------
+# Programming languages, frameworks and libraries
+Programming languages allow to write human-readable-code that give instructions to a computer machine, different kinds exist.
+Both frameworks and libraries allow the addition of reusable-pre-written-code, frameworks do this at a higher magnitude, they can enable the creation of a whole application while libraries only serve for a more specific functionality.  
 
-JAVASCRIPT
+## FRONT-END & BACK-END
+
+### JAVASCRIPT
 Is a high-level-language used both for front-end and back-end.
 The most often used frameowrks in front-end are react and angular and in back-end is nodejs.
 Front-end javascript allows for dynamic webpages, plus is more easy to write than HTML/CSS code.
 Through API, front-end javascript can contact the back-end for data-base-infomation leading to dynamic pages.
 The web browser has to first transform javascript to HTML/CSS before display, it gets called from an HTML document with the script tag, javascript can be viewed as a high-level-language for dynamic HTML/CSS code generation.
 
-TYPESCRIPT
+### TYPESCRIPT
 It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.
 By making use of static typing it makes the code more readable and allows compile-time-errors.
 
----------
-FRONT-END
----------
 
-HTML & CSS
+## FRONT-END
+
+### HTML & CSS
 The HyperText Markup Language, or HTML is the standard markup language for documents designed to be displayed in a web browser. 
 CSS describes how HTML elements should be displayed and is thus a styling language.
 Those are the only languages a web browser can display.
 
-REACT
+### REACT
 React is a free and open-source front-end JavaScript library for building user interfaces or UI components. 
 Material-UI is a react framework that contains pre-made UI components.
 
---------
-BACK-END
---------
 
-NODEJS
+## BACK-END
+
+### NODEJS
 Node.js is a back-end JavaScript runtime environment that executes JavaScript code outside a web browser.
 
-EXPRESS
+### EXPRESS
 Express.js, or simply Express, is a back-end web application framework for Node.js. It is designed for building web applications and APIs way faster.
 
-POSTGRESQL
+### POSTGRESQL
 PostgreSQL is a commonly used and advanced database-management-system, used to store and retrieve data. 
 
-APIs
+### APIs
 An application programming interface is a connection between computers or between computer programs. It allows communication between the front-end and back-end, whereby the back-end gathers data from a data-base to produce dynamic front-end pages.
 
-==================
-LEARNING MATERIALS
-==================
+# LEARNING MATERIALS
 ! -> consumed
 | -> partly consumed
 
-Books;
+**Books**
 Javascript: The good parts - O'Reilly !
 
-Tutorials;
+**Tutorials**
 https://www.youtube.com/watch?v=ahCwqrYpIuM - Typescript - The Basics - 12m !
 https://www.youtube.com/watch?v=BwuLxPH8IDs - TypeScript Course for Beginners 2021 - 3h16m !
 https://www.youtube.com/watch?v=NjN00cM18Z4 - TypeScript for React - 51m !
@@ -144,7 +132,7 @@ https://www.youtube.com/watch?v=Oe421EPjeBE - Node.js and Express.js - Full Cour
 
 https://www.youtube.com/watch?v=qw--VYLpxG4 - PostgreSQL full course - 4h20m !
 
-Courses;
+**Courses**
 https://www.codecademy.com/learn/learn-html - 9h !
 https://www.codecademy.com/learn/learn-css - 10h !
 https://www.codecademy.com/learn/introduction-to-javascript - 20h !
@@ -155,11 +143,6 @@ https://www.codecademy.com/learn/learn-node-js - 7h
 https://www.codecademy.com/learn/learn-express - 4h
 https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h
 https://www.codecademy.com/learn/paths/full-stack-engineer-career-path - 6months
-
-Shared Slack links;
-https://www.sitepoint.com/react-with-typescript-best-practices/
-https://dev.to/mychal/protected-routes-with-react-function-components-dh
-https://www.infoq.com/articles/typescript-mysql/
 
 ==================
 CODECADEMY COURSES
