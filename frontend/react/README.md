@@ -277,7 +277,7 @@ To access colors `import { orange } from '@material-ui/styles'`.
 
 To create own themes `import { ThemeProvider, createMuiTheme } from '@material-ui/styles'`.<br>
 Use createMuiTheme to create a theme by giving it an object with theme specifications.<br>
-Wrap componenets around `<ThemeProvider theme="created-theme">components</ThemeProvider>`
+Wrap components around `<ThemeProvider theme="created-theme">components</ThemeProvider>`
 
 For typography  `import Typography from '@material-ui/core/Typography'`.<br>
 The Typography component can be used like this `<Typography parameters>TEXT</Typography>`, different parameter possibilities are for example: variant, size...
