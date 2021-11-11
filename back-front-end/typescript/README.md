@@ -167,7 +167,7 @@ Casting is called type assertion in typescript and is used to for example tell t
 
 #### New features
 Shape of object can be defined with an interface, wherein variables and their type are defined. An interface is like a structure in C it is an object declaration that can be re-used as a type.<br>
-Classes also exist and function like python classes, with access modifiers(private, public, protected) in front of declaration (no access modifier meaning public) and this, this.variable keyword, inheritance is possible with the extends keyword, it can inherit from other classes but also from interfaces, static keyword can be used on member variales...<br>
+Classes also exist with this, this.variable keyword, inheritance is possible with the extends keyword, it can inherit from other classes but also from interfaces.<br>
 Custom types need to be allocated memory with the new keyword and call to constructor at declaration for classes.
 
 Question mark in front of parameter variables, indicates that those parameters are optional, if not used it will become equal to undefined.<br>
