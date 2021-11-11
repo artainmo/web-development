@@ -299,4 +299,4 @@ Create boilerplate app with `create-react-app nameApp --typescript`
 Function component types equal React.FC and they return type JSX.element.<br>
 To indicate the props it takes for example `React.FC<{message: string, call: boolean}>`, alternatively you can define the props object as an interface and pass the interface between <>.
 
-useState can be used like this `[var, setVar] = useState<number | null>(null)', whereby the var variable gets initialize with null and can take a number later on.
+useState can be used like this `[var, setVar] = useState<number | null>(null)`, whereby the var variable gets initialize with null and can take a number later on.
