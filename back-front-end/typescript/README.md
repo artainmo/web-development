@@ -118,7 +118,6 @@ tsc will transform .ts to .js. As browsers and Node.js can only compile js.<br>
 tsconfig.json can be used to configure tsc.
 
 Most used front-end stack is typescript+react and back-end stack typescript+nodejs+express.js.<br>
-With react, nodejs and express.js being frameworks of javascript.
 
 VScode recommended extensions;<br>
 ESLint, for javascript code check.<br>
