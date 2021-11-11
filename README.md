@@ -1,5 +1,10 @@
 # WebDevelopment
 
+## Table of contents
+- [Basics](#Basics)
+- [Programming languages, frameworks and libraries](#Programming languages, frameworks and libraries)
+- [Learning materials](#Learning materials)
+
 ## Basics
 **World Wide Web** (www), grouping of all documents on the web accessible through URLs(uniform resource locator)
 
@@ -102,7 +107,7 @@ PostgreSQL is a commonly used and advanced database-management-system, used to s
 #### APIs
 An application programming interface is a connection between computers or between computer programs. It allows communication between the front-end and back-end, whereby the back-end gathers data from a data-base to produce dynamic front-end pages.
 
-## LEARNING MATERIALS
+## Learning materials
 ! -> consumed
 | -> partly consumed
 
