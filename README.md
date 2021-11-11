@@ -66,7 +66,7 @@ A single-page application (SPA) is a web application or website that interacts w
 ## Programming languages and frameworks and libraries
 Programming languages allow to write human-readable-code that give instructions to a computer machine, different kinds exist.
 Both frameworks and libraries allow the addition of reusable-pre-written-code, frameworks do this at a higher magnitude, they can enable the creation of a whole application while libraries only serve for a more specific functionality.  
----
+
 ### FRONT-END & BACK-END
 ---
 **JAVASCRIPT**
@@ -80,7 +80,7 @@ The web browser has to first transform javascript to HTML/CSS before display, it
 It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.
 By making use of static typing it makes the code more readable and allows compile-time-errors.
 
----
+
 ### FRONT-END
 ---
 **HTML & CSS**
@@ -92,7 +92,7 @@ Those are the only languages a web browser can display.
 React is a free and open-source front-end JavaScript library for building user interfaces or UI components. 
 Material-UI is a react framework that contains pre-made UI components.
 
----
+
 ### BACK-END
 ---
 **NODEJS**
