@@ -19,10 +19,10 @@
   - [Other](#OTHER)
 - [Javascript free tutorials](#JAVASCRIPT-FREE-TUTORIALS)
   - [Lines and comments](#LINES-and-COMMENTS)
-  - [Variables](#Variables)
+  - [Variables](#Variable)
   - [Arithmetic](#Arithmetic)
-  - [Functions](#Functions)
-  - [Loop and Conditions and Comparison/Logical operator](#LOOP-and-CONDITIONS-and-COMPARISON/LOGICAL-OPERATORS)
+  - [Functions](#Function)
+  - [Loop and Conditions and Comparison/Logical operator](#LOOP-and-CONDITIONS-and-COMPARISON-LOGICAL-OPERATORS)
   - [Export Import](#EXPORT-IMPORT)
   - [Promises and Synch Await and Fetch and Errors](#PROMISES-and-SYNC-AWAIT-and-FETCH-and-ERRORS)
 
@@ -288,7 +288,7 @@ The event queue’s interaction with the call stack is managed by an event loop.
 // -> single line
 /* */ -> multiple lines
 
-### VARIABLES
+### VARIABLE
 Variables can take any type as Javascript is loosely typed.
 Different primitive types: number, string, boolean, null, undefined, any, object, array, Function.
 
@@ -317,10 +317,10 @@ One can also change a value that has just been spread from an object like this {
 With ! you can call the opposite value of a variable like this {..object1, objectVariable:!objectVariableValue}
 
 ### ARITHMETIC
-+ - / % *
-+= -= /= %= *= -> operator on self
++, -, /, %, *
++=, -=, /=, %=, *= -> operator on self
 
-### FUNCTIONS
+### FUNCTION
 Functions are indicated with function keyword, it can take parameters, perform actions with them and return a value, if it does not return a value, it returns undefined.
 A lot of built-in functions and methods already exist.
 
@@ -339,7 +339,7 @@ A generator function is indicated with the function* keyword.
 Generator functions yield values back, meaning it returns multiple times instead of one time. 
 A variable equaling a generator function, becomes a generator object, whereby the multiple variables inside the generator object can be accessed with next method until it equals undefined.
 
-### LOOP and CONDITIONS and COMPARISON/LOGICAL OPERATORS
+### LOOP and CONDITIONS and COMPARISON LOGICAL OPERATORS
 for can be used to loop over an array and can be used as usual with an index.
 while loop are also possible.
 do while loops allow you to use a while loop whereby the loop gets entered at least one time.
