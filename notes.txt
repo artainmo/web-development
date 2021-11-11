@@ -1123,6 +1123,15 @@ To create an app-bar:
 "import MenuIcon from '@material-ui/icons/MenuIcons'"
 The MenuIcon must come inside an IconButton, which has to come inside a ToolBar, which has to come inside an AppBar.
 
+REACT WITH TYPESCRIPT
+---------------------
+Create boilerplate app with "create-react-app nameApp --typescript"
+
+Function component types equal "React.FC" and they return type JSX.element.
+To indicate the props it takes for example "React.FC<{message: string, call: boolean}>", alternatively you can define the props object as an interface and pass the interface between <>.
+
+useState can be used like this "[var, setVar] = useState<number | null>(null)", whereby the var variable gets initialize with null and can take a number later on.
+
 ------
 NODEJS
 ------
@@ -1138,6 +1147,8 @@ npm(nodejs-package-manager) command enables to install packages/modules/dependen
 Those packages can also be uninstalled.
 "npm init" creates a package.json file which stores important info about the package/project.
 npx(nodejs-package-execute), executes packages can start apps for example "npx create-react-app".
+
+VScode can be used to view implicit types.
 
 USE
 ---
