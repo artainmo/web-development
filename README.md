@@ -8,7 +8,7 @@
 ## Basics
 **World Wide Web** (www), grouping of all documents on the web accessible through URLs(uniform resource locator)
 
-A **server** is a computer connected to the www, it contains an IP address to identify itself, this IP address can be associated with an URL, which is a non-random name for easier identification.
+A **server** is a computer connected to the www, it contains an IP(Internet Protocol) address to identify itself, this IP address can be associated with an URL, which is a non-random name for easier identification.
 
 **Web browser**, is a software application that allows access to the world wide web via URLs. The web browser transforms the URL into an IP address using the DNS (domain name system), it creates a connection and sends http requests towards that ip address to receive the requested content.
 
