@@ -95,7 +95,7 @@ Type narrowing consist of checking the type of a variable with an if (also calle
 The in operator can be used, whereby you can check if a type/variable contains a specific attribute/method like this "if ('function1' in variable)".
 
 ### Advanced object types
-Both 'type' anf 'interface' are keywords able to create object types, type is not only able to create object types while interface is.<br>
+Both 'type' and 'interface' are keywords able to create object types, type is not only able to create object types while interface is.<br>
 Thus interface does not bring new functionality but using it for objects is convention and makes code more readable.<br>
 The interface keyword can be used to add types to a class with the 'implements' keyword like this "class myClass implements myInterface", all the attribute/method types inside the interface will have to exist in the class or a compilation error will occur, it forces the class to at least follow the interface convention, the class can also have its own attributes/methods.
 
@@ -103,10 +103,9 @@ Nested objects can become difficult to read, to solve this typescript allows the
 Different types can also inherit from themselves with the 'extends' keyword, adding all the methods/attributes of one type to another.
 
 Sometimes someone knowns properties will exist in a type object but does not know the properties names beforehand, this is especially the case with APIs returning data.<br>
-In that case index signatures can be used like this for example "[category: string]: boolean", whereby category can take any variable  name as string and the value it holds must be a boolean, it can take multiple of them if multiple exist of same types.
+In that case index signatures can be used like this for example "[category: string]: boolean", whereby category can take any variable name as string and the value it holds must be a boolean, it can take multiple of them if multiple exist of same types.
 
 Interfaces or object types can also contain optional attributes/methods this is indicated with a ? like this for example "attribute1?: string".
-
 
 ## Free tutorials
 
