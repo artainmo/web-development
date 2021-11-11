@@ -67,36 +67,36 @@ A single-page application (SPA) is a web application or website that interacts w
 Programming languages allow to write human-readable-code that give instructions to a computer machine, different kinds exist.
 Both frameworks and libraries allow the addition of reusable-pre-written-code, frameworks do this at a higher magnitude, they can enable the creation of a whole application while libraries only serve for a more specific functionality.  
 
-### FRONT-END & BACK-END
-**JAVASCRIPT**<br>
+### Frontend & backend
+**Javascript**<br>
 Is a high-level-language used both for front-end and back-end.<br>
 The most often used frameowrks in front-end are react and angular and in back-end is nodejs.<br>
 Front-end javascript allows for dynamic webpages, plus is more easy to write than HTML/CSS code.<br>
 Through API, front-end javascript can contact the back-end for data-base-infomation leading to dynamic pages.<br>
 The web browser has to first transform javascript to HTML/CSS before display, it gets called from an HTML document with the script tag, javascript can be viewed as a high-level-language for dynamic HTML/CSS code generation.
 
-**TYPESCRIPT**<br>
+**Typescript**<br>
 It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.<br>
 By making use of static typing it makes the code more readable and allows compile-time-errors.
 
-### FRONT-END
+### Frontend
 **HTML & CSS**<br>
 The HyperText Markup Language, or HTML is the standard markup language for documents designed to be displayed in a web browser.<br>
 CSS describes how HTML elements should be displayed and is thus a styling language.<br>
 Those are the only languages a web browser can display.
 
-**REACT**<br>
+**React**<br>
 React is a free and open-source front-end JavaScript library for building user interfaces or UI components.<br>
 Material-UI is a react framework that contains pre-made UI components.
 
-### BACK-END
-**NODEJS**<br>
+### Backend
+**nodeJS**<br>
 Node.js is a back-end JavaScript runtime environment that executes JavaScript code outside a web browser.
 
-**EXPRESS**<br>
+**Express**<br>
 Express.js, or simply Express, is a back-end web application framework for Node.js. It is designed for building web applications and APIs way faster.
 
-**POSTGRESQL**<br>
+**PostgreSQL**<br>
 PostgreSQL is a commonly used and advanced database-management-system, used to store and retrieve data. 
 
 **APIs**<br>
