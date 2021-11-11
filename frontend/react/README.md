@@ -118,9 +118,10 @@ this.setState changes a state inside a component but also calls render() so that
 ### COMPONENT LIFECYCLE
 Components can get created, rendered, added to the DOM, updated and removed.<br>
 We make distinction between three lifecycles:<br>
-1. Mounting, when the component is added to the DOM for first time.<br>
+1. Mounting, when the component is added to the DOM for first time.<br> 
 2. Updating, when a component gets updated due to a props or state change.<br>
-3. Unmounting, when a component gets removed from the DOM.<br>
+3. Unmounting, when a component gets removed from the DOM.
+
 During mounting in the following order the component constructor, render and finally componentDidMount methods are called.<br>
 componentDidMount can be used to call asynchronous tasks affecting the component also called side-effects.<br>
 During the unmounting phase the componentWillUnmount method is called, herein component asynchronous-tasks running in componentDidMount can be cleared.<br>
