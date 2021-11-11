@@ -219,9 +219,9 @@ A name between tags <name /> indicates a component and is thus used to reuse com
 Those components can take arguments like that <componentName argumentName=argumentValue/>.<br>
 
 Javascript array method map can be used to loop over all elements/components of an array, to return them all.<br>
-In both JSX and HTML ${} can be used to take expressions, for example do an if with a ternary operator.<br>
+In both JSX and HTML {} can be used to take expressions, for example do an if with a ternary operator.<br>
 
-css can be added inside tags allowing for styling with style= an objects and that can contain variables such as color, backgroundcolor, cursor... Such a css object can be created once and re-used.<br>
+css can be added inside tags allowing for styling with style= an objects and that can contain variables such as color, backgroundcolor, cursor... Such a css object can be created once and re-used.
 
 To create a button simply use `<button></button>`, in tag onClick={function} allows you to call a function once someone clicks the button, this is an example of an event.
 
