@@ -262,7 +262,7 @@ In the package.json file dependencies section the material-ui/core library will 
 #### USE
 https://material-ui.com/components/box/ -> documentation on all component and their parameters possibilities.
 
-To access a button component for example `import Button from '@material-ui/core/Button'`, afterwards Button can be ased as a component. <br>
+To access a button component for example `import Button from '@material-ui/core/Button'`, afterwards Button can be used as a component. <br>
 You can give it the variant, color, size parameter for styling for example.<br>
 style parameter can be used for even more customization.<br>
 Other parameters for functionality are for example href, onClick, disabled..
