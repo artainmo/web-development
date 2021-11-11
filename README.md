@@ -69,42 +69,42 @@ Both frameworks and libraries allow the addition of reusable-pre-written-code, f
 
 ### FRONT-END & BACK-END
 
-#### JAVASCRIPT
+**JAVASCRIPT**
 Is a high-level-language used both for front-end and back-end.
 The most often used frameowrks in front-end are react and angular and in back-end is nodejs.
 Front-end javascript allows for dynamic webpages, plus is more easy to write than HTML/CSS code.
 Through API, front-end javascript can contact the back-end for data-base-infomation leading to dynamic pages.
 The web browser has to first transform javascript to HTML/CSS before display, it gets called from an HTML document with the script tag, javascript can be viewed as a high-level-language for dynamic HTML/CSS code generation.
 
-#### TYPESCRIPT
+**TYPESCRIPT**
 It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.
 By making use of static typing it makes the code more readable and allows compile-time-errors.
 
 
 ### FRONT-END
 
-#### HTML & CSS
+**HTML & CSS**
 The HyperText Markup Language, or HTML is the standard markup language for documents designed to be displayed in a web browser. 
 CSS describes how HTML elements should be displayed and is thus a styling language.
 Those are the only languages a web browser can display.
 
-#### REACT
+**REACT**
 React is a free and open-source front-end JavaScript library for building user interfaces or UI components. 
 Material-UI is a react framework that contains pre-made UI components.
 
 
 ### BACK-END
 
-#### NODEJS
+**NODEJS**
 Node.js is a back-end JavaScript runtime environment that executes JavaScript code outside a web browser.
 
-#### EXPRESS
+**EXPRESS**
 Express.js, or simply Express, is a back-end web application framework for Node.js. It is designed for building web applications and APIs way faster.
 
-#### POSTGRESQL
+**POSTGRESQL**
 PostgreSQL is a commonly used and advanced database-management-system, used to store and retrieve data. 
 
-#### APIs
+**APIs**
 An application programming interface is a connection between computers or between computer programs. It allows communication between the front-end and back-end, whereby the back-end gathers data from a data-base to produce dynamic front-end pages.
 
 ## Learning materials
