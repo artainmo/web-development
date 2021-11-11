@@ -2,7 +2,7 @@
 
 ## Table of contents
 - [Basics](#Basics)
-- [Programming languages, frameworks and libraries](#Programming-languages,-frameworks-and-libraries)
+- [Programming languages and frameworks and libraries](#Programming-languages-and-frameworks-and-libraries)
 - [Learning materials](#Learning-materials)
 
 ## Basics
@@ -63,7 +63,7 @@ Cloud computing is the on-demand availability of computer-system-resources, espe
 
 A single-page application (SPA) is a web application or website that interacts with the user by dynamically rewriting the current web page with new data from the web server, instead of the default method of a web browser loading entire new pages.
 
-## Programming languages, frameworks and libraries
+## Programming languages and frameworks and libraries
 Programming languages allow to write human-readable-code that give instructions to a computer machine, different kinds exist.
 Both frameworks and libraries allow the addition of reusable-pre-written-code, frameworks do this at a higher magnitude, they can enable the creation of a whole application while libraries only serve for a more specific functionality.  
 
