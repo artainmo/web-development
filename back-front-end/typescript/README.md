@@ -77,7 +77,7 @@ Type aliases allow to change a type's name to another one for example "type car 
 
 Function types are practical for parameter functions (also called callback functions), they are indicated like this for example "(param1: number, param2: number) => numer".
 
-Generics allow the creation of types that contain a variable type inside them for example "type Family<T> = { parents: [T, T], mate: T, children: T[] };" with T that can take any other type.
+Generics allow the creation of types that contain a variable type inside them for example `type Family<T> = { parents: [T, T], mate: T, children: T[] };` with T that can take any other type.
 
 ### Union types
 Allows a compromise between specifically annotating one type and not specifying any type, it allows to annotate multiple types.<br>
