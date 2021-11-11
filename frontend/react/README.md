@@ -254,11 +254,11 @@ This is done by the hook useEffects(function, triggers[]), the function gets cal
 ### MATERIAL UI
 Material UI is a framework for react that contains pre-made components.
 
-####SETUP
+#### SETUP
 First install the library with `npm install @material-ui/core` after having started a react application.<br>
 In the package.json file dependencies section the material-ui/core library will become visisble.
 
-####USE
+#### USE
 https://material-ui.com/components/box/ -> documentation on all component and their parameters possibilities.
 
 To access a button component for example `import Button from '@material-ui/core/Button'`, afterwards Button can be ased as a component. <br>
