@@ -65,6 +65,9 @@ The different status codes for responses are:
 405: Not allowed, the resource does not accept the method
 500: Internal server error, situation the server does not know how to handle
 
+OTHER CONCEPTS
+A single-page application (SPA) is a web application or website that interacts with the user by dynamically rewriting the current web page with new data from the web server, instead of the default method of a web browser loading entire new pages.
+
 --------------------
 FRONT-END & BACK-END
 --------------------
@@ -1028,9 +1031,11 @@ Once the app is setup differt default files appeared;
 In public/index.html we can find the index file that contains one div tag named root wherein the whole react-generated-html will come. In src/index.js we can view that App.js gets rendered into the div tag root.
 In src/App.js a default react application is written inside the function app, this function/component will be the core of the app, like a main is to the c langauage.
 To prepare for writing own code, you can clean the default app by for example;
-All files in src/ besides index.js and App.js can be removed.
+All files in src/ besides index.js and App.js can be removed, App.test.tsx, reportWebVitals.ts, react-app-env.d.ts, setupTests.ts could have some utility and can be kept.
 Make the app function return null, remove the App.css and logo.svg imports in src/App.js.
 In src/index.js all serviceWorker code, index.css, serverWorker imports can be removed.
+In public/index.html the whole <head></head> element can be removed or changed.
+In public directory favicon.ico, logo192.png, logo512.png, files can all be removed.
 
 For "nmp run build" the webpack library is necessary to transform JSX/components into javascript and bundle the whole app into one file; bundle.js (that the browser can run).
 After bundling the application a build directory appears, that is ready for server deployment. 
