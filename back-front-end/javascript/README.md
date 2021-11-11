@@ -178,7 +178,7 @@ Classes can heritate from other classes meaning, it the child class heritates al
 Static methods are like private methods, they are indicated by the keyword static and are only available inside the class never outside the class.
 
 ### RUNTIME ENVIRONMENT
-Is the environment the program will be executed, often nodejs and chrome are used.<br>
+For the environment the program will be executed in, often nodejs and chrome are used.<br>
 For javascript front-end applications, chrome or other browsers can be used.<br>
 For javascript back-end applications, nodejs is used.<br>
 Full-stack applications use both nodejs and a browser.
