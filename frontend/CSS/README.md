@@ -20,7 +20,7 @@ In HTML elements can have the attribute style, that can directly be set with a c
 In the header element of an HTML file, style element can be created which will contain selectors like in a .css, applicable for the elements in the .HTML file.<br>
 
 ## Selector
-Type selectors refer to HTML tags, multiple can be used on one selector and the universal type selector (*) refers to all the tags.<br>
+Type selectors refer to HTML tags, multiple can be used on one selector and the universal type selector `(*)` refers to all the tags.<br>
 CSS classes can also be made, HTML elements must use the class attribute to use them, CSS classes have a type selector = .name.<br>
 CSS ids can also be made those are classes that each only style one HTML element by using the id attribute, their type selector = #name.<br>
 You can also create selectors based on HTML element attributes, if an element contains an attribute ([attribute]) or if an element contains an attribute that is-equal-to/contains a value ([attribute*=value]) or an element containing a tag/type and attribute (type[attribute]).<br>
