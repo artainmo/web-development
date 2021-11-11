@@ -2,13 +2,13 @@
 Used to style HTML.
 
 ## Table of contents
-  - (Syntax)[#Syntax]
-  - (Selector)[#Selector]
-  - (CSS visual rules)[#CSS-visual-rules]
-  - (Box model)[#Box-model]
-  - (Display and positioning)[#Display-and-positioning]
-  - (Color)[#Color]
-  - (Typography)[#Typography]
+  - [Syntax](#Syntax)
+  - [Selector](#Selector)
+  - [CSS visual rules](#CSS-visual-rules)
+  - [Box model](#Box-model)
+  - [Display and positioning](#Display-and-positioning)
+  - [Color](#Color)
+  - [Typography](#Typography)
 
 ## Syntax
 CSS declarations contain a property (ex. color) and a value (ex. blue), example color: blue;<br>
