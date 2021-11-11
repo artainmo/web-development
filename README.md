@@ -126,6 +126,7 @@ https://www.youtube.com/watch?v=hQAHSlTtcmY - Learn React In 30 Minutes - 27m |<
 https://www.youtube.com/watch?v=MRIMT0xPXFI - Learn React in 5min (2020) - 5m !<br>
 https://www.youtube.com/watch?v=w7ejDZ8SWv8 - React JS Crash Course 2021 - 1h48m !<br>
 https://www.youtube.com/watch?v=vyJU9efvUtQ - Material UI React Tutorial - 42m !<br>
+https://www.youtube.com/watch?v=Z5iWr6Srsj8 - React Typescript Tutorial - 23m ! <br>
 
 https://www.youtube.com/watch?v=Oe421EPjeBE - Node.js and Express.js - Full Course - 8h16m !<br>
 
