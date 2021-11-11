@@ -13,23 +13,23 @@ A **server** is a computer connected to the www, it contains an IP address to id
 **Web browser**, is a software application that allows access to the world wide web via URLs. The web browser transforms the URL into an IP address using the DNS (domain name system), it creates a connection and sends http requests towards that ip address to receive the requested content.
 
 **Webservers** serve an application/platform/website on the web. They let clients(browsers) connect to allow HTTP communication, receive web browser requests and send back responses.
-  They often run on an external server, which is a computer with no visual display that runs 24/7, waiting for client-servers to make requests.
+They often run on an external server, which is a computer with no visual display that runs 24/7, waiting for client-servers to make requests.
 
-A **web platform** consists of a back-end and front-end. 
-  Back-end acts as web-server(answer HTTP request) and data-base-manager.
-  Front-end refers to the pages send by web-server to client-server, that the client's web browser will visually display, creating an user interface (UI).
-  Different programming languages can be used for the back-end and front-end development.
+A **web platform** consists of a back-end and front-end...
+Back-end acts as web-server(answer HTTP request) and data-base-manager.
+Front-end refers to the pages send by web-server to client-server, that the client's web browser will visually display, creating an user interface (UI).
+Different programming languages can be used for the back-end and front-end development.
 
 **TCP & UDP**
 Transmission control protocol (TCP) enables the transmission of resources, it is used to manage many types of internet connections and allows HTTP communication.
-  User diagram protocol (UDP) is a communication protocol used across the internet, especially for the transmission of time-sensitive information.
-  Both are internet communication protocols, the main difference between them is that TCP is more reliable but slower, while UDP is less reliable but faster and enables broadcasting.
+User diagram protocol (UDP) is a communication protocol used across the internet, especially for the transmission of time-sensitive information.
+Both are internet communication protocols, the main difference between them is that TCP is more reliable but slower, while UDP is less reliable but faster and enables broadcasting.
 
 **HTTP**
 The language used between servers to communicate.
-  http requests are made by a web browser and follow a specific syntax, they can request content from the webserver or even post content on the webserver, allowing the client to interact with the webserver.
-  http responses are made by the web server and follow a specific syntax, they can send HTML pages for the browser to display.
-  http stands for hypertext transfer protocol, hypertext are documents that include links to other documents.
+http requests are made by a web browser and follow a specific syntax, they can request content from the webserver or even post content on the webserver, allowing the client to interact with the webserver.
+http responses are made by the web server and follow a specific syntax, they can send HTML pages for the browser to display.
+http stands for hypertext transfer protocol, hypertext are documents that include links to other documents.
 
 Structure of a request:
 First line: method + request targer (URL) + HTTP version (HTTP/1.1)
@@ -68,7 +68,6 @@ Programming languages allow to write human-readable-code that give instructions 
 Both frameworks and libraries allow the addition of reusable-pre-written-code, frameworks do this at a higher magnitude, they can enable the creation of a whole application while libraries only serve for a more specific functionality.  
 
 ### FRONT-END & BACK-END
----
 **JAVASCRIPT**
 Is a high-level-language used both for front-end and back-end.
 The most often used frameowrks in front-end are react and angular and in back-end is nodejs.
@@ -80,9 +79,7 @@ The web browser has to first transform javascript to HTML/CSS before display, it
 It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.
 By making use of static typing it makes the code more readable and allows compile-time-errors.
 
-
 ### FRONT-END
----
 **HTML & CSS**
 The HyperText Markup Language, or HTML is the standard markup language for documents designed to be displayed in a web browser. 
 CSS describes how HTML elements should be displayed and is thus a styling language.
@@ -92,9 +89,7 @@ Those are the only languages a web browser can display.
 React is a free and open-source front-end JavaScript library for building user interfaces or UI components. 
 Material-UI is a react framework that contains pre-made UI components.
 
-
 ### BACK-END
----
 **NODEJS**
 Node.js is a back-end JavaScript runtime environment that executes JavaScript code outside a web browser.
 
