@@ -65,7 +65,7 @@ JSX is not readable by browsers, it has to be compiled to javascript.<br>
 JSX is treated as a javascript expression, thus can be stored in a variable, array, object, be returned... 
 
 JSX elements like in HTML can have attributes, those attributes are indicated by a name, followed by an equal sign and a value.<br>
-Multi-line JSX must be between ( ) and all JSX elements must be inside one JSX element this can be the neutral <div></div> element.
+Multi-line JSX must be between ( ) and all JSX elements must be inside one JSX element this can be the neutral `<div></div>` element.
 
 To render JSX, the function ReactDOM.render() is used, the first argument contains the actual JSX code and the second argument consist of the function document.getElementById() with one argument being the id attribute inside an element in the actual HTML file whereby you would like to insert the JSX code.<br>
 By rendering, through the virtual DOM, react only updates DOM elements that have changed making it faster.
