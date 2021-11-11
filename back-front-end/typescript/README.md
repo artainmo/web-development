@@ -4,6 +4,7 @@
 - [Codecademy course](#Codecademy-course)
   - [Types](#Types)
   - [Functions](#Functions)
+  - [Complex types](#Complex-types)
   - [Union types](#Union-types)
   - [Type narrowing](#Type-narrowing)
   - [Advanced object types](#Advanced-object-types)
