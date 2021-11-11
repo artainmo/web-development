@@ -22,7 +22,7 @@
   - [Variables](#Variables)
   - [Arithmetic](#Arithmetic)
   - [Functions](#Functions)
-  - [Loop and Conditions and Comparison/Logical operator](#LOOP and CONDITIONS and COMPARISON/LOGICAL OPERATORS)
+  - [Loop and Conditions and Comparison/Logical operator](#LOOP-and-CONDITIONS-and-COMPARISON/LOGICAL-OPERATORS)
   - [Export Import](#EXPORT-IMPORT)
   - [Promises and Synch Await and Fetch and Errors](#PROMISES-and-SYNC-AWAIT-and-FETCH-and-ERRORS)
 
