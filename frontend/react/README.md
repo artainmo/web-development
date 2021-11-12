@@ -45,9 +45,11 @@ Before using react import the appropriate libraries to a .js file:<br>
 
 To debug:
 Install React Developer Tools as a chrome extension.<br>
-On Chrome devtools (View > Developer > Developer Tools). On the same banner as Elements, Sources, Console, etc., there will be two new React tabs: Components and Profiler.<br>
+On Chrome developer tools (View > Developer > Developer Tools)(or on mac Command+Option+i). On the same banner as Elements, Sources, Console, etc., there will be two new React tabs: Components and Profiler.<br>
 In components tab interesting information is to be found about the components their props and states...<br>
-Learn more here: https://www.codecademy.com/courses/react-101/informationals/ready-react-developer-tools
+But in the console and elements tab interesting information is also to be found.
+If it does not work look here https://github.com/facebook/react/tree/main/packages/react-devtools#the-react-tab-doesnt-show-up.
+Learn more here: https://www.codecademy.com/courses/react-101/informationals/ready-react-developer-tools.
 
 `npm run build` is used to bundle the app into static files for production.
 
@@ -298,6 +300,7 @@ Create boilerplate app with `create-react-app nameApp --typescript`
 
 Function component types equal React.FC and they return type JSX.Element.<br>
 To indicate the props it takes for example `React.FC<{message: string, call: boolean}>`, alternatively you can define the props object as an interface and pass the interface between <>.<br>
-Usually in react + typescript components are creates with arrow functions as follows, `const arrowFunctionName:React.FC<{message: string, call: boolean}> = (props) => {};`. When exporting arrow functions they have to be exported on another line not directly from the function declaration.
+Usually in react + typescript components are creates with arrow functions as follows, `const arrowFunctionName:React.FC<{message: string, call: boolean}> = (props) => {};`, props could also be replaced with a destructor operator '{ message, call }'. <br>
+When exporting arrow functions they have to be exported on another line not directly from the function declaration.
 
 useState can be used like this `[var, setVar] = useState<number | null>(null)`, whereby the var variable gets initialize with null and can take a number later on.
