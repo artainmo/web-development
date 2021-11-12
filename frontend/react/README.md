@@ -43,7 +43,7 @@ Before using react import the appropriate libraries to a .js file:<br>
 `import React from 'react';`<br>
 `import ReactDOM from 'react-dom';`
 
-To debug:
+To debug:<br>
 Install React Developer Tools as a chrome extension.<br>
 On Chrome developer tools (View > Developer > Developer Tools)(or on mac Command+Option+i). On the same banner as Elements, Sources, Console, etc., there will be two new React tabs: Components and Profiler.<br>
 In components tab interesting information is to be found about the components their props and states...<br>
