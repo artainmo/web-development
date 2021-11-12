@@ -47,8 +47,8 @@ To debug:<br>
 Install React Developer Tools as a chrome extension.<br>
 On Chrome developer tools (View > Developer > Developer Tools)(or on mac Command+Option+i). On the same banner as Elements, Sources, Console, etc., there will be two new React tabs: Components and Profiler.<br>
 In components tab interesting information is to be found about the components their props and states...<br>
-But in the console and elements tab interesting information is also to be found.
-If it does not work look here https://github.com/facebook/react/tree/main/packages/react-devtools#the-react-tab-doesnt-show-up.
+But in the console and elements tab interesting information is also to be found.<br>
+If it does not work look here https://github.com/facebook/react/tree/main/packages/react-devtools#the-react-tab-doesnt-show-up.<br>
 Learn more here: https://www.codecademy.com/courses/react-101/informationals/ready-react-developer-tools.
 
 `npm run build` is used to bundle the app into static files for production.
