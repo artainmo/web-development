@@ -298,6 +298,6 @@ Create boilerplate app with `create-react-app nameApp --typescript`
 
 Function component types equal React.FC and they return type JSX.Element.<br>
 To indicate the props it takes for example `React.FC<{message: string, call: boolean}>`, alternatively you can define the props object as an interface and pass the interface between <>.<br>
-Usually in react + typescript components are creates with arrow functions as follows, `const arrowFunctionName:React.FC<{message: string, call: boolean}> = (props) => {};`
+Usually in react + typescript components are creates with arrow functions as follows, `const arrowFunctionName:React.FC<{message: string, call: boolean}> = (props) => {};`. When exporting arrow functions they have to be exported on another line not directly from the function declaration.
 
 useState can be used like this `[var, setVar] = useState<number | null>(null)`, whereby the var variable gets initialize with null and can take a number later on.
