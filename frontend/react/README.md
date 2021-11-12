@@ -296,7 +296,7 @@ The MenuIcon must come inside an IconButton, which has to come inside a ToolBar,
 ### REACT WITH TYPESCRIPT
 Create boilerplate app with `create-react-app nameApp --typescript`
 
-Function component types equal React.FC and they return type JSX.element.<br>
+Function component types equal React.FC and they return type JSX.Element.<br>
 To indicate the props it takes for example `React.FC<{message: string, call: boolean}>`, alternatively you can define the props object as an interface and pass the interface between <>.<br>
 Usually in react + typescript components are creates with arrow functions as follows, `const arrowFunctionName:React.FC<{message: string, call: boolean}> = (props) => {};`
 
