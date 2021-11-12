@@ -76,7 +76,7 @@ Type annotation of object types go like this "{ attribute1: type, attribute2: ty
 
 Type aliases allow to change a type's name to another one for example "type car = [string, number, boolean]".
 
-Function types are practical for parameter functions (also called callback functions), they are indicated like this for example "(param1: number, param2: number) => numer".
+Function types are practical for parameter functions (also called callback functions), they are indicated like this for example "(param1: number, param2: number) => number".
 
 Generics allow the creation of types that contain a variable type inside them for example `type Family<T> = { parents: [T, T], mate: T, children: T[] };` with T that can take any other type.
 
