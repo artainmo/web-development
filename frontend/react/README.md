@@ -73,7 +73,7 @@ To render JSX, the function ReactDOM.render() is used, the first argument contai
 By rendering, through the virtual DOM, react only updates DOM elements that have changed making it faster.
 
 In HTML the attribute class can indicate a CSS style, in JSX the attribute is not named class but className.<br>
-In JSX self-closing tags must always end with /> thus `<br> becomes <br/>`.<br>
+In JSX self-closing tags must always end with /> thus `<br>` becomes `<br/>`.<br>
 In JSX regular javascript code can be indicated in between {}.
 
 Event listeners, wait for an interaction from user with an HTML element on the webpage.<br>
