@@ -79,7 +79,7 @@ In JSX regular javascript code can be indicated in between {}.
 Event listeners, wait for an interaction from user with an HTML element on the webpage.<br>
 Event listeners can be indicated in JSX by giving the appropriate HTML element the appropriate event-related-attribute.<br>
 onClick is for example such an attribute other are found here https://reactjs.org/docs/events.html#supported-events.<br>
-Its associated value should equal a javascript function with one parameter the event, that takes the element as an object with its attributes as the object attributes.<br>
+Its associated value should equal a javascript function with zero or one parameter the event, that takes the element as an object with its attributes as the object attributes, to get the value of a form for example use event.target.value.<br>
 To create a change from the event function call `document.getElementById(idValue) = JSXcode` with "idValue" being a value associated to an id attribute inside one element, which will insert the new "JSXcode".
 
 If statements cannot be used in JSX between {}, but ternary operators can.<br>
@@ -100,7 +100,7 @@ Class component names must always start with a capital letter.<br>
 Class components must contain one method called render() that returns JSX code.<br>
 To create an instance of a component, in JSX create a self-closing-element that contains the component's name.<br>
 Attributes can be added to component classes, with `get attribute() { return 'x' }`, in render function this.attribute can be called to get the value.<br>
-Event listeners can be used inside components, the element's event-attribute (for example onClick) can equal a method inside the component class with this.method().<br>
+Event listeners can be used inside components, the element's event-attribute (for example onClick) can equal a method inside the component class with this.method(event).<br>
 Components can return in their JSX other components, this can also be called nested components.
 
 Component classes contain the this.props attribute, this object contains the attributes passed to the component istance.<br>
@@ -225,7 +225,7 @@ In both JSX and HTML {} can be used to take expressions, for example do an if wi
 
 css can be added inside tags allowing for styling with style= an objects and that can contain variables such as color, backgroundcolor, cursor... Such a css object can be created once and re-used.
 
-To create a button simply use `<button></button>`, in tag onClick={function} allows you to call a function once someone clicks the button, this is an example of an event.
+To create a button simply use `<button></button>`, in tag onClick={function(eventObject)} allows you to call a function once someone clicks the button, this is an example of an event.
 
 To use icons, download them like this `npm install react-icons`.<br>
 Now you can import components from react-icons library, those components/icons can be added in the JSX like you would add any other component.
