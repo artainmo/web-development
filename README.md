@@ -59,6 +59,9 @@ The different status codes for responses are:<br>
 500: Internal server error, situation the server does not know how to handle<br>
 
 **OTHER CONCEPTS**<br>
+APIs<br>
+An application programming interface is a connection between computers or between computer programs. It allows communication between the front-end and back-end, whereby the back-end gathers data from a data-base to produce dynamic front-end pages.
+
 Cloud computing is the on-demand availability of computer-system-resources, especially data-storage and computing-power. Large clouds consist of multiple servers connected/working together.
 
 A single-page application (SPA) is a web application or website that interacts with the user by dynamically rewriting the current web page with new data from the web server, instead of the default method of a web browser loading entire new pages.
@@ -96,11 +99,14 @@ Node.js is a back-end JavaScript runtime environment that executes JavaScript co
 **Express**<br>
 Express.js, or simply Express, is a back-end web application framework for Node.js. It is designed for building web applications and APIs way faster.
 
+**Nest.js**<br>
+Nest (NestJS) is a framework for building efficient, scalable Node.js server-side applications. It uses progressive JavaScript, is built with and fully supports TypeScript  and combines elements of OOP (Object Oriented Programming), FP (Functional Programming), and FRP (Functional Reactive Programming).
+Under the hood, Nest makes use of robust HTTP Server frameworks like Express (the default) and optionally can be configured to use Fastify as well.
+Nest provides a level of abstraction above these common Node.js frameworks (Express/Fastify), but also exposes their APIs directly to the developer. This gives developers the freedom to use the myriad of third-party modules which are available for the underlying platform.
+Nest provides an out-of-the-box application architecture which allows developers and teams to create highly testable, scalable, loosely coupled, and easily maintainable applications. The architecture is heavily inspired by Angular.
+
 **PostgreSQL**<br>
 PostgreSQL is a commonly used and advanced database-management-system, used to store and retrieve data. 
-
-**APIs**<br>
-An application programming interface is a connection between computers or between computer programs. It allows communication between the front-end and back-end, whereby the back-end gathers data from a data-base to produce dynamic front-end pages.
 
 ## Learning materials
 ! -> consumed<br>
