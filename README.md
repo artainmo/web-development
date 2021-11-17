@@ -100,10 +100,7 @@ Node.js is a back-end JavaScript runtime environment that executes JavaScript co
 Express.js, or simply Express, is a back-end web application framework for Node.js. It is designed for building web applications and APIs way faster.
 
 **Nest.js**<br>
-Nest (NestJS) is a framework for building efficient, scalable Node.js server-side applications. It uses progressive JavaScript, is built with and fully supports TypeScript  and combines elements of OOP (Object Oriented Programming), FP (Functional Programming), and FRP (Functional Reactive Programming).
-Under the hood, Nest makes use of robust HTTP Server frameworks like Express (the default) and optionally can be configured to use Fastify as well.
-Nest provides a level of abstraction above these common Node.js frameworks (Express/Fastify), but also exposes their APIs directly to the developer. This gives developers the freedom to use the myriad of third-party modules which are available for the underlying platform.
-Nest provides an out-of-the-box application architecture which allows developers and teams to create highly testable, scalable, loosely coupled, and easily maintainable applications. The architecture is heavily inspired by Angular.
+Nest.js is a Node.js framework built on top of express.js and TypeScript that comes with a strong opinion on how API's should be built. Since it is very opinionated it provides a structure, a CLI, and lots of tools that let you create professional APIs fast.
 
 **PostgreSQL**<br>
 PostgreSQL is a commonly used and advanced database-management-system, used to store and retrieve data. 
