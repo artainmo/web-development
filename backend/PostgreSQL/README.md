@@ -4,10 +4,12 @@
 
 ### UNDERSTAND
 Is a database-management-system, it uses SQL as its main query language.<br>
-A database is used to store, update and retrieve data.<br>
+A database is used to store, update and retrieve data, throughout user sessions (it avoids user data is lost after its session closes).<br>
 SQL is a programming language to communicate with databases that is widely used.
 
 Data is stored in tables that consist of rows and columns.
+
+Such databases are called relational databases, non-relational databases also exist and they consist of huge JSON-like objects, those are simpler and faster.
 
 ### SETUP
 Has to be downloaded as an app from the web.<br>
