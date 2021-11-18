@@ -41,7 +41,6 @@ Is a language/format that all different programming languages can understand tha
 It is similar to javascript objects in appearance, the only difference is that names of properties of object must be in between "".
 
 ### Introduction
-
 Prior to nodejs browsers were the only place javscript could be executed, thus it was only used for front-end.</br>
 Nodejs allows javascript execution outside of the browser and thus its use for backend.</br>
 Nodejs is often combined with the express.js framework for the backend.
@@ -71,7 +70,6 @@ To install a package locally(only in current node project) `npm install packageN
 A package can also be installed globally with the -g flag, this leads to the package being available over whole os, this is not recommended.
 
 ### Essentials
-
 The event module allows the creation of an event class that can be given a callback function and name with .on(), the callback function can be called when necessary with .emit().
 
 `process.stdin.on(EventName, callbackFunction)` with the callback function taking input from terminal, can be used to take input from a user inside a terminal.
@@ -86,8 +84,36 @@ The fs module stands for file system and can be used to read and write to files.
 The global time module can be used to handle code execution at specific times. 
 
 ### HTTP server setup
-
 HTTP, short for Hypertext Transfer Protocol, is a request-response protocol that serves as the foundation of data exchange and communication within the client-server computing model.
+
+Nodejs contains a HTTP module.<br>
+With `const server = http.createServer((req, res)=>{})` a server can be created, it takes as argument a callback function that holds the request and response objects, who can manage the HTTP communication.<br>
+This can be followed by `server.listen(port)` for the server to listen at a certain port, it can also take a second argument, a callback function that is called once as the server is launched.
+
+A URL can provide a great deal of information about a request and how it is expected to behave.
+* It starts with a protocol, for example `https://`
+* It is followed by a domain, for example `github.com`
+* It can be followed by a path, for example `/artainmo`
+* It can be followed by a query, for exaple `?key=value&key2=value2`, a query starts with ? and is followed by value=key pairs, often used to be selective with get requests.
+
+To easily parse URLs the NodeJS module url exists, it uses the url class that takes a url as parameter and builds the following properties hostname, pathName and searchParams.<br>
+For parsing the searchParams (query) of an url, the querystring module can be used.
+
+The process of handling requests in specific ways based on the information provided within the request is known as routing.<br>
+
+The request object in the callback function in the http.createServer function, contains for example the HTTP method or pathname like this req.HTTP req.pathname.<br>
+The response object contains for example the status code like this res.statusCode and sends the response with res.end().
+
+Server often make requests to a databse (possible with HTTP.request()) before sending back a response to client, but they can also make requests to external APIs.<br>
+HTTP.request() takes two arguments, an object with details about the request and a callback function to handle the response.<br>
+HTTP.get() directly makes requests with the HTTP method GET.<br>
+The fact that servers can make HTTP requests to other services opens up possibilities for different architecture designs for back-ends. One example of an architecture made possible by this ability is microservice architectures. Microservice architectures divide needs into separate lightweight services that communicate via HTTP over a network.
+
+REST, or REpresentational State Transfer, is an architectural style for providing standards between computer systems on the web, making it easier for systems to communicate with each other.<br>
+In the REST architectural style, the implementation of the client and the implementation of the server can be done independently. As long as each side knows what format of messages to send to the other, they can be kept modular and separate. <br>
+Systems that follow the REST paradigm are stateless, meaning that the server does not need to know anything about what state the client is in and vice versa.<br>
+REST APIs must be able to Create(POST), Read(GET), Update(PUT), and Delete(DELETE) resources (CRUD).<br>
+In simple terms REST APIs are APIs that follow certain conventions for easier/more-efficient communication between systems.
 
 ## Free tutorials
 
