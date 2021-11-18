@@ -85,6 +85,10 @@ The fs module stands for file system and can be used to read and write to files.
 
 The global time module can be used to handle code execution at specific times. 
 
+### HTTP server setup
+
+HTTP, short for Hypertext Transfer Protocol, is a request-response protocol that serves as the foundation of data exchange and communication within the client-server computing model.
+
 ## Free tutorials
 
 ### SETUP
