@@ -87,7 +87,7 @@ The global time module can be used to handle code execution at specific times.
 HTTP, short for Hypertext Transfer Protocol, is a request-response protocol that serves as the foundation of data exchange and communication within the client-server computing model.
 
 Nodejs contains a HTTP module.<br>
-With `const server = http.createServer((req, res)=>{})` a server can be created, it takes as argument a callback function that holds the request and response objects, who can manage the HTTP communication.<br>
+With `const server = http.createServer((req, res)=>{})` a server can be created, it takes as argument a callback function that holds the request and response objects, who can manage the HTTP communication and terminates with response.end() to send the response.<br>
 This can be followed by `server.listen(port)` for the server to listen at a certain port, it can also take a second argument, a callback function that is called once as the server is launched.
 
 A URL can provide a great deal of information about a request and how it is expected to behave.
