@@ -20,11 +20,6 @@ Back-end acts as web-server(answer HTTP request) and data-base-manager.<br>
 Front-end refers to the pages send by web-server to client-server, that the client's web browser will visually display, creating an user interface (UI).<br>
 Different programming languages can be used for the back-end and front-end development.
 
-**TCP & UDP**<br>
-Transmission control protocol (TCP) enables the transmission of resources, it is used to manage many types of internet connections and allows HTTP communication.<br>
-User diagram protocol (UDP) is a communication protocol used across the internet, especially for the transmission of time-sensitive information.<br>
-Both are internet communication protocols, the main difference between them is that TCP is more reliable but slower, while UDP is less reliable but faster and enables broadcasting.
-
 **HTTP**<br>
 The language used between servers to communicate.<br>
 http requests are made by a web browser and follow a specific syntax, they can request content from the webserver or even post content on the webserver, allowing the client to interact with the webserver.<br>
@@ -57,6 +52,16 @@ The different status codes for responses are:<br>
 404: Not found, the URL is not recognized<br>
 405: Not allowed, the resource does not accept the method<br>
 500: Internal server error, situation the server does not know how to handle<br>
+
+**TCP, UDP & TLS**<br>
+Those are protocols that enable the transmission of HTTP responses/requests.
+
+Transmission control protocol (TCP) enables the transmission of resources, it is used to manage many types of internet connections and allows HTTP communication.
+<br>
+User diagram protocol (UDP) is a communication protocol used across the internet, especially for the transmission of time-sensitive information.<br>
+Both are internet communication protocols, the main difference between them is that TCP is more reliable but slower, while UDP is less reliable but faster and enables broadcasting.
+
+TLS, also known as Transport Layer Security, is a widely adopted security protocol designed to facilitate secure data transmission via encryption. Using TLS with HTTP will allow you to use HTTPS (Hypertext Transfer Protocol Secure), which helps denote the presence of the extra security.
 
 **OTHER CONCEPTS**<br>
 APIs<br>
