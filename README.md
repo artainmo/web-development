@@ -147,7 +147,7 @@ https://www.codecademy.com/learn/introduction-to-javascript - 20h !<br>
 https://www.codecademy.com/learn/learn-intermediate-javascript - 10h !<br>
 https://www.codecademy.com/learn/learn-typescript - 10h !<br>
 https://www.codecademy.com/learn/react-101 - 20h !<br>
-https://www.codecademy.com/learn/learn-node-js - 7h<br>
+https://www.codecademy.com/learn/learn-node-js - 7h !<br>
 https://www.codecademy.com/learn/learn-express - 4h<br>
 https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h<br>
 https://www.codecademy.com/learn/paths/full-stack-engineer-career-path - 6months<br>
