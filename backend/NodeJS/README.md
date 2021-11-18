@@ -161,7 +161,7 @@ Event loops are asynchronous and take a function/callback that makes an external
 
 Events occur from users for example clikcing on a button, then an event/function will be called.<br>
 The 'events' module element 'EventEmitter' has to be imported, it will allow use to create an EventEmitter object.<br>
-This object has the 'on' function that takes a keyword and function, it also has an emit function that takes a keyowrd and optionally parameter values for the function it will end up calling.<br>
+This object has the 'on' function that takes a keyword and function, it also has an emit function that takes a keyword and optionally parameter values for the function it will end up calling.<br>
 If the 'emit' function calls a keyowrd, the function given as argument to the 'on' function with same keyword will be called.<br>
 http module has own event functions.
 
