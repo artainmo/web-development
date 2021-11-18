@@ -34,6 +34,7 @@ API stands for application program interface and refers to a connection between 
 A web API is often used to interact with the database.</br>
 Some web APIs are open to the public while others are only used for internal application development.
 
+#### Authentification
 Authentification of a user can be done internally by verifying the user's login and password in database but can also be done externaly with Facebook for exaple. </br>
 This is followed by authorization whereby through dynamic content the user's content is personalized.
 
@@ -62,7 +63,7 @@ Modules can be imported like this `const moduleName = require('moduleName')`.</b
 Nodejs contains core modules.</br>
 The console module used for console.log (log in the terminal in nodejs, in ES6 log in browser console) is a global module and thus does not have to be imported.</br>
 The process module used to access information about the environment, memory used and program arguments is a global module and does not have to be imported.</br>
-The os module has to be imported and provides imformation about operating system.</br>
+The os module has to be imported and provides information about operating system.</br>
 The util module has to be imorted and contains various utility functions.
 
 The regular ES6 browser javascript imports and exports modules with the import/export syntax.</br>
