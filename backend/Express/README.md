@@ -29,9 +29,16 @@ To separate the routes, routers can be used, they allow to handle requests that 
 `const app = express(); const startPathRouter = epress.Router(); app.use('startPath', startPathRouter); startPathRouter.get('/', (req,res,next)=>{})`<br>
 Whereby the startPathRouter.get() will handle all the startPath with get method requests.
 
-If multiple routes are possible for a request the ones that come first will be used.
-
 ### Middleware
+Middleware is used for cleaner code, by avoiding code replication.<br>
+Avoiding code replication is usually done by usage of functions.<br>
+Middleware is able to avoid code replication and is code that executes between a server receiving a request and sending a response.<br>
+
+`app.use((req,res,next)=>{})` app.use can take a callback-function that will be called once any request is received, this is called a middleware function because it executes after receiving a request and before sending a response.<br>
+All functions with argument next are middleware functions.
+
+If multiple routes are possible for a request (this includes the .use that is applicabale to all requests) the one that comes in the code first will be used.<br>
+Though by calling the next() function at end of middleware function it will execute the next possible middleware function.
 
 
 ## Free tutorials
