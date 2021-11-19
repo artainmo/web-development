@@ -1,5 +1,30 @@
 # EXPRESS
 
+## Table of contents
+- [Codecademy course](#Codecademy-course)
+- [Free tutorials](#Free-tutorials)
+  - [Setup](#SETUP)
+  - [Use](#USE)
+
+## Codecademy course
+
+Express is a framework for the creation of web servers and APIs.
+
+### Routes
+To use express it first has to be imported like this `const express = require('express')`.<br>
+Then we have to invoke an express application instance to a variable `const app = express()`.<br>
+To start the server (to enable accepting requests and sendig responses to clients) we have to listen on a port `app.listen(portNumber, ()=>{console.log('server started!')}`.
+
+Routes define how to handle requests based on the HTTP request method and path.<br>
+Web servers and APIs should be able to handle CRUD (create, read, update, and delete) or their associated HTTP methods POST, GET, PUT, DELETE.<br>
+Express contains associated functions .get(), .post(), .put(), .delete(), their first argument equals a path and second argument a callback function, this allows a function to be called each time a certain method and path is requested.<br>
+The callback function has a request, response and next object, to send back a response the .send() method on the response object is used or .json() to send json (javascript will be transformed into json).<br>
+If no route matches or no response is send back, express will automatically send a 404 error back.<br>
+res.send automatically sets the status code of the response to 200, but to choose it yourself res.status() can be used.
+
+Parameters are route path segments that begin with : in their Express route definitions. They act as wildcards, matching any text at that path segment. For example /monsters/:id will match both /monsters/1 and /monsters/45. req.params contains as keys, paramameters and as value its actual path segment value. <br>
+In req.query the query string of the request url can be found.<br>
+
 ## Free tutorials
 
 ### SETUP
