@@ -23,7 +23,16 @@ If no route matches or no response is send back, express will automatically send
 res.send automatically sets the status code of the response to 200, but to choose it yourself res.status() can be used.
 
 Parameters are route path segments that begin with : in their Express route definitions. They act as wildcards, matching any text at that path segment. For example /monsters/:id will match both /monsters/1 and /monsters/45. req.params contains as keys, paramameters and as value its actual path segment value. <br>
-In req.query the query string of the request url can be found.<br>
+In req.query the query string of the request url can be found.
+
+To separate the routes, routers can be used, they allow to handle requests that start with a certain path, each router usually sits in a different file.<br>
+`const app = express(); const startPathRouter = epress.Router(); app.use('startPath', startPathRouter); startPathRouter.get('/', (req,res,next)=>{})`<br>
+Whereby the startPathRouter.get() will handle all the startPath with get method requests.
+
+If multiple routes are possible for a request the ones that come first will be used.
+
+### Middleware
+
 
 ## Free tutorials
 
