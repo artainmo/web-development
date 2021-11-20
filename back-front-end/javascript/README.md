@@ -281,8 +281,8 @@ The Event Loop can be summarized as: when code is executed, it is handled by the
 Those APIs enable concurrency and pass asynchronous messages back to the stack via an event queue. <br>
 The event queue’s interaction with the call stack is managed by an event loop. All together, those parts maintain the order of code execution when we run asynchronous functions.
 
-MEMORY IN JAVASCRIPT
-Javascript has two data structures for memory, the heap and the stack.
+MEMORY IN JAVASCRIPT<br>
+Javascript has two data structures for memory, the heap and the stack.<br>
 * The stack is used for static memory storage
 * The heap is used for dynamic memory storage, variables referenced in heap make use of pointers (pointers hold as static value a dynamic memory address in the heap)
 
@@ -291,8 +291,8 @@ A memory leak occurs when memory does not get deallocated when it should, and ca
 Memory leaks can occur in javascript for example when calling timers or event listeners and not stopping them when they are not necessary anymore or when writing all code in same scope.<br>
 Different tools already in browsers exist to assist in finding memory leaks.
 
-DESIGN PATTERNS
-Benefits of clean code:
+DESIGN PATTERNS<br>
+Benefits of clean code:<br>
 * DRY (Don’t repeat yourself) 
 * Modular
 * Reusable
