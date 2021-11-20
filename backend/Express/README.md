@@ -2,9 +2,11 @@
 
 ## Table of contents
 - [Codecademy course](#Codecademy-course)
+  - [Routes](#Routes)
+  - [Middleware](#Middleware)
 - [Free tutorials](#Free-tutorials)
-  - [Setup](#SETUP)
-  - [Use](#USE)
+  - [Setup](#Setup)
+  - [Use](#Use)
 
 ## Codecademy course
 
@@ -34,22 +36,35 @@ Middleware is used for cleaner code, by avoiding code replication.<br>
 Avoiding code replication is usually done by usage of functions.<br>
 Middleware is able to avoid code replication and is code that executes between a server receiving a request and sending a response.<br>
 
-`app.use((req,res,next)=>{})` app.use can take a callback-function that will be called once any request is received, this is called a middleware function because it executes after receiving a request and before sending a response.<br>
 All functions with argument next are middleware functions.
+`app.use((req,res,next)=>{})` app.use can take as first argument a path an array of paths or no path and as second/first argument a callback-function, it is applicable to all HTTP methods but paths can be specified. 
 
-If multiple routes are possible for a request (this includes the .use that is applicabale to all requests) the one that comes in the code first will be used.<br>
+If multiple routes are possible for a request the one that comes in the code first will be used.<br>
 Though by calling the next() function at end of middleware function it will execute the next possible middleware function.
 
+.use, .post, .get, .delete and .put can all take an infinite amount of callback functions, the first one would be called first and if it calls next(), the next one would be called and so forth...
+
+Javascript packages with express middleware functions exists, those can be used to resolve common programming challenges.<br>
+To parse the request body, body-parser is a good package.
+
+Error middleware functions exist, they are always called last thus should come at end of file, they have one extra parameter in front of the others called err, they usually send and log the error with err.status and err.message.<br>
+Prior middleware that wants to call the error middleware has to create an instance of Error object fill it and give it as argument to next():<br>
+`const err = new Error(errorMessage); err.status = 404; return next(err);`
+
+Middleware functions can also be used to set params in the req object for following middleware functions like this:<br>
+`app.param('nameId', (req,res,next,id)=> {if (req.id exists) req.nameId = id; else Error})`, whereby all paths with :nameId will first pass through this middleware function.
+
+Routers can be nested inside each other a nested router is indicated with `Router({mergeParams:true})`.
 
 ## Free tutorials
 
-### SETUP
+### Setup
 Has to be used on a nodejs environment as it is a nodejs framework.<br>
 For installation use node-package-manager "npm install express".
 
 import it with "const express = require('express');".
 
-### USE
+### Use
 The express() function creates an app object.<br>
 The app object has the following methods: .get, .post, .put, .delete, .all, .use, .listen.<br>
 Listen takes port as first parameter and a callback function called once function is created as second parameter.<br>
@@ -63,15 +78,3 @@ Data is send with JSON (JavaScript Object Notation). <br>
 JSON uses human-readable text to store and transmit data objects consisting of attribute–value pairs and arrays.<br>
 With the above mentionned response and request objects the json method can be used to transform arrays of objects into json.<br>
 To setup an API use .get method of express with as first parameter the api path/url, in the callback function return the JSON content, the JSON content will be accessible for the front-end by fetching the specified path/url.
-
-Static assets are files that the server does not need to change.???<br>
-An url ending with a '?' is followed by parameters with values that the server can use, this is called a query string and can be accessed with the request object's query method.
-
-Why is middleware useful???<br>
-Middleware refers to code between server request and response.<br>
-The .get method normally has first parameter path and second parameter callback function, it can also have three parameters with as second parameter the middleware function and last parameter the callback function.<br>
-This middleware function takes request, response and next object, the next parameter is used to indicate the end of the middleware function and go to the next middleware function or to the final callback function.<br>
-Express's use method takes a middleware function and invokes it for any path/url/route, besides if you add a second argument path, than the middleware function will be invoked for all the urls/paths coming from this path.<br>
-For use and get to take multiple middleware functions those have to be set in an array.
-
-express's route method allow for the creation of a router object. ???
