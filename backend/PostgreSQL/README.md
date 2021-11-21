@@ -1,5 +1,26 @@
 # POSTGRESQL
 
+## Table of contents
+
+## Codecademy course
+
+Glossary of commonly used SQL commands: https://www.codecademy.com/articles/sql-commands
+
+### What is a database?
+
+PostgreSQL is a relational database management system, meaning it stores data in tables and makes use of the SQL language.<br>
+SQL (Structured Query Language) is a programming language used to communicate with data stored in a relational database management system.<br>
+Other relational databases are mySQL, SQLite, SQL server, Oracle DB....<br> 
+Because all use SQL or slight variations of it, learing to use one relational database also opens doors to other relational databases.<br>
+Distinction can be made between relational databases with file extensions, PostgreSQL uses .sql as file extension, but also with data types and access to built-in-tables.
+
+A relational database can consist of one or more tables, tables consist of rows and columns that contain datas.<br>
+Datas can be of different types;
+* INTEGER(whole number)
+* TEXT(text string)
+* DATE(date formatted as YYYY-MM-DD)
+* REAL(decimal).<br>
+
 ## Free tutorials
 
 ### UNDERSTAND
