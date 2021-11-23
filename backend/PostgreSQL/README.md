@@ -36,7 +36,9 @@ UNIQUE, makes sure all row values are unique but can be used multiple times.<br>
 DEFAULT value1, gives a default value when no value is given.<br>
 NOT NULL, makes sure all rows have a value.
 
-
+In order to run and use Postgres on your own computer, you will need to set up both a Postgres server and a client.<br>
+How to do this depends on os system.<br>
+Once it is locally installed, it will run on a port (usually 5432), it can be manipulated through the command line interface with psql or through a UI that has to be installed.
 
 ## Free tutorials
 
