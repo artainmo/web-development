@@ -21,6 +21,23 @@ Datas can be of different types;
 * DATE(date formatted as YYYY-MM-DD)
 * REAL(decimal).<br>
 
+Commands are used to manage the database, they can be written on multiple lines and must end with a semi-colon.
+
+`CREATE TABLE table_name (column_1 data_type, column_2 data_type, column_3 data_type);` is used to create a new table in a database.<br>
+`INSERT INTO tableName (columnName1, columnName2, columnName3) VALUES (value1, value2, value3)` is used to insert rows inside a table.<br>
+`SELECT columnName FROM tableName` is used to get all the data from a certain row in a table, or * would indicate all rows.<br>
+`ALTER TABLE tableName ADD COLUMN rowName dataType;` is used to add a column to a table.<br>
+`UPDATE tableName SET columnName1 = value1 WHERE columnName2 = value2` is used to make updates in a table, whereby for column2 often the id column is used if it exists.<br>
+`DELETE FROM tableName WHERE columnName IS NULL` is used to delete the rows that have no value in a certain column.
+
+When creating new columns the data type of the column has to be declared, constraints can also be added, the database will reject data that does not conform with the rows constraints.<br>
+PRIMARY KEY, can only be used once and makes sure all row values are different.<br>
+UNIQUE, makes sure all row values are unique but can be used multiple times.<br>
+DEFAULT value1, gives a default value when no value is given.<br>
+NOT NULL, makes sure all rows have a value.
+
+
+
 ## Free tutorials
 
 ### UNDERSTAND
