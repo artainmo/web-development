@@ -6,8 +6,7 @@
 
 Glossary of commonly used SQL commands: https://www.codecademy.com/articles/sql-commands
 
-### What is a database?
-
+### Basics
 PostgreSQL is a relational database management system, meaning it stores data in tables and makes use of the SQL language.<br>
 SQL (Structured Query Language) is a programming language used to communicate with data stored in a relational database management system.<br>
 Other relational databases are mySQL, SQLite, SQL server, Oracle DB....<br> 
@@ -25,7 +24,7 @@ Commands are used to manage the database, they can be written on multiple lines 
 
 `CREATE TABLE table_name (column_1 data_type, column_2 data_type, column_3 data_type);` is used to create a new table in a database.<br>
 `INSERT INTO tableName (columnName1, columnName2, columnName3) VALUES (value1, value2, value3)` is used to insert rows inside a table.<br>
-`SELECT columnName FROM tableName` is used to get all the data from a certain row in a table, or * would indicate all rows.<br>
+`SELECT columnName FROM tableName` is used to get all the data from a certain column in a table, or * would indicate all columns.<br>
 `ALTER TABLE tableName ADD COLUMN rowName dataType;` is used to add a column to a table.<br>
 `UPDATE tableName SET columnName1 = value1 WHERE columnName2 = value2` is used to make updates in a table, whereby for column2 often the id column is used if it exists.<br>
 `DELETE FROM tableName WHERE columnName IS NULL` is used to delete the rows that have no value in a certain column.
@@ -39,6 +38,32 @@ NOT NULL, makes sure all rows have a value.
 In order to run and use Postgres on your own computer, you will need to set up both a Postgres server and a client.<br>
 How to do this depends on os system.<br>
 Once it is locally installed, it will run on a port (usually 5432), it can be manipulated through the command line interface with psql or through a UI that has to be installed.
+
+### Queries
+
+`SELECT columnName FROM tableName` is used to get all the data from a certain column in a table, or * would indicate all columns.<br>
+`SELECT columnName1, columnName1, columnName3 FROM tableName` is used to get data from multiple columns.<br>
+`SELECT columnName AS 'newColumnName' FROM tableName` is used to change the column name in returned data only.<br>
+`SELECT DISTINCT columnName FROM tableName` is used to return all unique values in a certain column.<br>
+`SELECT * FROM tableName WHERE columnName > 5` is used to return data that passes a certain condition coming after WHERE (> < >= <= != = all those conditional operators can be used).<br>
+`SELECT FROM tableName WHERE columnName LIKE 'example_example';` LIKE is used to find certain patterns in a column's datas, in this example all values that start and end with example while having one letter in between will be returned.<br>
+`SELECT FROM tableName WHERE columnName LIKE '%man';` in this example LIKE is used to find patterns that end with man, for patterns that start with man 'man%' and for patterns that contain man '%man%'.<br>
+`SELECT columnName FROM tableName WHERE columnName IS NULL;` is used to return a column that contains empty datas in the same or another column with IS NULL, the inverse would be to use IS NOT NULL.<br>
+`SELECT columnName FROM tableName WHERE columnName BETWEEN 19 AND 42;` BETWEEN is used to return rows in a certain column with values between two values, for text datatype the values have to start with letters between two letters in the alphabet.<br>
+`SELECT columnName FROM tableName WHERE condition1 AND condition2` AND can be used to specify multiple conditions the returned data has to to comply with.<br>
+`OR` similarly to the AND operator the OR operator can be used to chain conditions, but with OR only one of the conditions has to be true on the returned data.<br>
+`SELECT columnName FROM tableName ORDER BY columnName DESC` ORDER BY can be used to order rows based on datas in a column, DESC indicates that you want to order in descending order instead of ascending order.<br>
+`LIMIT 10` can be used to only return the first 10 demanded data.<br>
+<pre>SELECT columnName1,
+  CASE
+   WHERE columnName = value THEN newValue
+   WHERE columnName = value2 THEN newValue2
+   ELSE value3
+  END AS 'nameNewColumn'
+ FROM tableName</pre>
+ This would create a new column that generates its values based on values from other columns, only in the returned table.
+ 
+ 
 
 ## Free tutorials
 
