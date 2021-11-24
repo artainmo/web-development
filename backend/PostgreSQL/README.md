@@ -77,6 +77,39 @@ Aggregates are calculations done on multiple rows of a table.
 `SELECT columnName1, columnName2, aggregateFunctionExression FROM tableName GROUP BY 1, 2` this will apply the aggregate function not on whole column but on each group (determined by distinct values) inside the column 1 and 2 those are the columnName1 and columnName2, this is a shorter syntax.<br>
 `SELECT columnName, aggregateFunctionExression FROM tableName GROUP BY columnName HAVING COUNT(columnName) > 10` similar to WHERE, HAVING defines a following condition, the difference is that HAVING is used to filter groups not rows, in the prior example the condition states only groups with more than 10 rows will be returned.
 
+### Multiple tables
+
+Using multiple tables is useful to divide data logically.<br>
+Different tables can be linked together this is called joining.<br>
+Each table can have a primary key, by using the primary keys of for example table2 and table3 into table1, those tables will be joined, leading to rows in one table to be associated with rows in another table.<br>
+Primary keys of one table in another table are called foreign keys.
+
+When tables are joined we can query data from both tables together easily, returning one table, like this:
+<pre>SELECT * FROM tableName1
+JOIN tableName2
+ON tableName1.columnName = tableName2.columnName;</pre>
+
+If some values in the same columns in different tables that could be joined are different, instead of using JOIN, LEFT JOIN can be used.<br>
+Left join will make the joinColumn(similar column between tables) keep the values of the first table and not the second table if differences exist when joining the tables.<br>
+Adding this condition at end makes sure the overwrite only occurs on empty values `WHERE tableName2.columnName IS NULL;`
+
+CROSS JOINS allow to simply join together two tables who do not have an associated column like this:<br>
+`SELECT * FROM tableName1 CROSS JOIN tableName2;` or `SELECT tableName1.columnName, tableName2.columnName FROM tableName1 CROSS JOIN tableName2;`
+
+If two tables are similar in terms of columns their rows could be stacked up with UNION:<br>
+`SELECT * FROM tableName1 UNION SELECT * FROM tableName2;`
+
+Sometimes we want to join a temporary tableX that first has to be created from one tableY with another tableZ, this is possible like this:<br>
+<pre>WITH tableX AS (
+SELECT columnName FROM tableY
+WHERE conditions...
+)
+SELECT * FROM tableX
+JOIN tableZ
+ON tableX.columnName = tableZ.columnName;</pre>
+
+
+
 ## Free tutorials
 
 ### UNDERSTAND
