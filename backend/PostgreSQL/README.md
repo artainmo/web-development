@@ -20,7 +20,8 @@ Datas can be of different types;
 * DATE(date formatted as YYYY-MM-DD)
 * REAL(decimal).<br>
 
-Commands are used to manage the database, they can be written on multiple lines and must end with a semi-colon.
+Commands are used to manage the database, they can be written on multiple lines and must end with a semi-colon.<br>
+-- starts a single line comment.
 
 `CREATE TABLE table_name (column_1 data_type, column_2 data_type, column_3 data_type);` is used to create a new table in a database.<br>
 `INSERT INTO tableName (columnName1, columnName2, columnName3) VALUES (value1, value2, value3)` is used to insert rows inside a table.<br>
@@ -50,20 +51,31 @@ Once it is locally installed, it will run on a port (usually 5432), it can be ma
 `SELECT FROM tableName WHERE columnName LIKE '%man';` in this example LIKE is used to find patterns that end with man, for patterns that start with man 'man%' and for patterns that contain man '%man%'.<br>
 `SELECT columnName FROM tableName WHERE columnName IS NULL;` is used to return a column that contains empty datas in the same or another column with IS NULL, the inverse would be to use IS NOT NULL.<br>
 `SELECT columnName FROM tableName WHERE columnName BETWEEN 19 AND 42;` BETWEEN is used to return rows in a certain column with values between two values, for text datatype the values have to start with letters between two letters in the alphabet.<br>
-`SELECT columnName FROM tableName WHERE condition1 AND condition2` AND can be used to specify multiple conditions the returned data has to to comply with.<br>
+`SELECT columnName FROM tableName WHERE condition1 AND condition2;` AND can be used to specify multiple conditions the returned data has to to comply with.<br>
 `OR` similarly to the AND operator the OR operator can be used to chain conditions, but with OR only one of the conditions has to be true on the returned data.<br>
-`SELECT columnName FROM tableName ORDER BY columnName DESC` ORDER BY can be used to order rows based on datas in a column, DESC indicates that you want to order in descending order instead of ascending order.<br>
+`SELECT columnName FROM tableName ORDER BY columnName DESC;` ORDER BY can be used to order rows based on datas in a column, DESC indicates that you want to order in descending order instead of ascending order.<br>
 `LIMIT 10` can be used to only return the first 10 demanded data.<br>
 <pre>SELECT columnName1,
   CASE
-   WHERE columnName = value THEN newValue
-   WHERE columnName = value2 THEN newValue2
+   WHEN columnName = value THEN newValue
+   WHEN columnName = value2 THEN newValue2
    ELSE value3
   END AS 'nameNewColumn'
- FROM tableName</pre>
+ FROM tableName;</pre>
  This would create a new column that generates its values based on values from other columns, only in the returned table.
  
- 
+### Aggregate functions
+
+Aggregates are calculations done on multiple rows of a table.
+
+`SELECT COUNT(*) FROM tableName WHERE condition;` here the number of rows that comply with the condition will be returned.<br>
+`SELECT SUM(columnName) FROM tableName;` here the sum of all values in a column will be returned.<br>
+`SELECT MAX(columnName) FROM tableName;` here the highest value in a column will be returned using MAX(), MIN() can be used for lowest value.<br>
+`SELECT AVG(columnName) FROM tableName` here the average value of a column is returned.<br>
+`SELECT name, ROUND(AVG(columnName), 2) FROM tableName` here round is used to round a REAL datatype with 2 decimal values, we also show that multiple columns can still be selected and that aggregate functions can be nested.<br>
+`SELECT columnName, aggregateFunctionExression FROM tableName GROUP BY columnName` this will apply the aggregate function not on whole column but on each group (determined by distinct values) inside a column.<br>
+`SELECT columnName1, columnName2, aggregateFunctionExression FROM tableName GROUP BY 1, 2` this will apply the aggregate function not on whole column but on each group (determined by distinct values) inside the column 1 and 2 those are the columnName1 and columnName2, this is a shorter syntax.<br>
+`SELECT columnName, aggregateFunctionExression FROM tableName GROUP BY columnName HAVING COUNT(columnName) > 10` similar to WHERE, HAVING defines a following condition, the difference is that HAVING is used to filter groups not rows, in the prior example the condition states only groups with more than 10 rows will be returned.
 
 ## Free tutorials
 
