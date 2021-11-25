@@ -142,7 +142,7 @@ Tables can still be related to each other.
 
 Keys enable to place constraints on the data in a column, different types of keys exist.
 
-For example, a primary key will ensure that each row in a table is unique and can be used as an index to access the data.<br>
+For example, a primary key will ensure that each row in a table is unique and can thus be used as an index to access the data.<br>
 It is declared like this when creating a table and defining the columns: `columnName dataType PRIMARY KEY`.
 
 Constraints and keys on columns can be visualized through the information schema which is a database containing meta information about objects in the database including tables, columns and constraints.<br>
