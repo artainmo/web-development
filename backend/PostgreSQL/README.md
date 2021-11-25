@@ -139,10 +139,9 @@ Information that can be classified into different categories are best separated 
 Tables can still be related to each other.
 
 #### Database keys
-
 Keys enable to place constraints on the data in a column, different types of keys exist.
 
-For example, a primary key will ensure that each row in a table is unique and can thus be used as an index to access the data.<br>
+For example, a primary key will ensure that each row in a table is unique and can thus be used as a unique identifier to access the data.<br>
 It is declared like this when creating a table and defining the columns: `columnName dataType PRIMARY KEY`.
 
 Constraints and keys on columns can be visualized through the information schema which is a database containing meta information about objects in the database including tables, columns and constraints.<br>
@@ -163,7 +162,6 @@ A foreign key is a key that references a primary key column in another table and
 REFERENCES is used to indicate foreign keys at table creation like this: `columnName dataType REFERENCES tableName2(columnName)`.
 
 #### Database relationships
-
 A one-to-one relationship between tables consist of each parent-table-row having only one associated child-table-row.<br>
 An example is a human having only one nose.<br>
 The parent-table primary key becomes a foreign key in the child-table, because only one association is possible per row, all foreign keys have to be unique.<br>
@@ -176,6 +174,9 @@ The parent-table primary key becomes a foreign key in the child-table, because m
 A many-to-many relationship between tables consist of each table1-row having one or more associated table2-rows and each table2-row having one or more associated table1-rows.<br>
 An example is a class that can have multiple students and students that can have multiple classes.<br>
 In this scenario a third table is created (called cross reference table), it takes the primary keys of table1 and table2 as foreign keys and uses a composite primary key consisting of those foreign keys.
+
+#### Constraints
+
 
 ## Free tutorials
 
