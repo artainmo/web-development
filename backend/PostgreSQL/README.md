@@ -8,6 +8,7 @@ Glossary of commonly used SQL commands: https://www.codecademy.com/articles/sql-
 
 ### Basics
 PostgreSQL is a relational database management system, meaning it stores data in tables and makes use of the SQL language.<br>
+PostgreSQL stores information on a dedicated database server instead of on a local file system.<br>
 SQL (Structured Query Language) is a programming language used to communicate with data stored in a relational database management system.<br>
 Other relational databases are mySQL, SQLite, SQL server, Oracle DB....<br> 
 Because all use SQL or slight variations of it, learing to use one relational database also opens doors to other relational databases.<br>
@@ -26,7 +27,8 @@ Commands are used to manage the database, they can be written on multiple lines 
 `CREATE TABLE table_name (column_1 data_type, column_2 data_type, column_3 data_type);` is used to create a new table in a database.<br>
 `INSERT INTO tableName (columnName1, columnName2, columnName3) VALUES (value1, value2, value3)` is used to insert rows inside a table.<br>
 `SELECT columnName FROM tableName` is used to get all the data from a certain column in a table, or * would indicate all columns.<br>
-`ALTER TABLE tableName ADD COLUMN rowName dataType;` is used to add a column to a table.<br>
+`ALTER TABLE tableName ADD COLUMN columnName dataType;` is used to add a column to a table.<br>
+`ALTER TABLE tableName DROP COLUMN columnName dataType;` is used to remove a column from a table.<br>
 `UPDATE tableName SET columnName1 = value1 WHERE columnName2 = value2` is used to make updates in a table, whereby for column2 often the id column is used if it exists.<br>
 `DELETE FROM tableName WHERE columnName IS NULL` is used to delete the rows that have no value in a certain column.
 
@@ -64,7 +66,7 @@ Once it is locally installed, it will run on a port (usually 5432), it can be ma
  FROM tableName;</pre>
  This would create a new column that generates its values based on values from other columns, only in the returned table.
  
-### Aggregate functions
+#### Aggregate functions
 
 Aggregates are calculations done on multiple rows of a table.
 
@@ -77,7 +79,7 @@ Aggregates are calculations done on multiple rows of a table.
 `SELECT columnName1, columnName2, aggregateFunctionExression FROM tableName GROUP BY 1, 2` this will apply the aggregate function not on whole column but on each group (determined by distinct values) inside the column 1 and 2 those are the columnName1 and columnName2, this is a shorter syntax.<br>
 `SELECT columnName, aggregateFunctionExression FROM tableName GROUP BY columnName HAVING COUNT(columnName) > 10` similar to WHERE, HAVING defines a following condition, the difference is that HAVING is used to filter groups not rows, in the prior example the condition states only groups with more than 10 rows will be returned.
 
-### Multiple tables
+#### Multiple tables
 
 Using multiple tables is useful to divide data logically.<br>
 Different tables can be linked together this is called joining.<br>
@@ -88,12 +90,16 @@ When tables are joined we can query data from both tables together easily, retur
 <pre>SELECT * FROM tableName1
 JOIN tableName2
 ON tableName1.columnName = tableName2.columnName;</pre>
+or
+<pre>SELECT * FROM tableName1, tableName2
+WHERE tableName1.columnName = tableName2.columnName;</pre>
+Whereby tableName1.columnName is table1's primary key and tableName2.columnName is table2's foreign key referencing towards the table1 primary key.
 
 If some values in the same columns in different tables that could be joined are different, instead of using JOIN, LEFT JOIN can be used.<br>
 Left join will make the joinColumn(similar column between tables) keep the values of the first table and not the second table if differences exist when joining the tables.<br>
 Adding this condition at end makes sure the overwrite only occurs on empty values `WHERE tableName2.columnName IS NULL;`
 
-CROSS JOINS allow to simply join together two tables who do not have an associated column like this:<br>
+CROSS JOINS allow to simply join together two tables who do not have a relationship like this:<br>
 `SELECT * FROM tableName1 CROSS JOIN tableName2;` or `SELECT tableName1.columnName, tableName2.columnName FROM tableName1 CROSS JOIN tableName2;`
 
 If two tables are similar in terms of columns their rows could be stacked up with UNION:<br>
@@ -108,7 +114,68 @@ SELECT * FROM tableX
 JOIN tableZ
 ON tableX.columnName = tableZ.columnName;</pre>
 
+### Design a database
+A database shema is documentation surrounding a database.<br>
+It can be done by hand or with a software program such as DbDiagram.io and should contain the following:<br>
+* table names
+* column names per table
+* column types per table
+* constraints per table, if any
+* relationships between tables, if any
 
+Tables are created like this `CREATE TABLE table_name (column_1 data_type, column_2 data_type, column_3 data_type);`<br>
+`INSERT INTO tableName (columnName1, columnName2, columnName3) VALUES (value1, value2, value3)` is used to insert rows inside a table.
+
+Common datatypes:
+* integer: whole number
+* decimal: floating-point number
+* money: fixed floating-point number with 2 decimal places
+* boolean: TRUE or FALSE
+* char(n): fixed-length string denoted by n, removes trailing blanks
+* varchar(n): variable-length string with maximum length denoted by n
+* text:	unlimited-length string<br>
+
+Information that can be classified into different categories are best separated in different tables.
+Tables can still be related to each other.
+
+#### Database keys
+
+Keys enable to place constraints on the data in a column, different types of keys exist.
+
+For example, a primary key will ensure that each row in a table is unique and can be used as an index to access the data.<br>
+It is declared like this when creating a table and defining the columns: `columnName dataType PRIMARY KEY`.
+
+Constraints and keys on columns can be visualized through the information schema which is a database containing meta information about objects in the database including tables, columns and constraints.<br>
+It can be called like this, whereby 'tableName' should be the table you want to visualize:<br>
+<pre>SELECT
+  constraint_name, table_name, column_name
+FROM
+  information_schema.key_column_usage
+WHERE
+  table_name = 'tableName';</pre>
+In output pkey refers to a primary key constraint, while fkey refers to a foreign key constraint.
+
+Sometimes no columns consisting of unique values exist in a table but a combination of multiple columns must be unique.<br>
+A composite primary key is a primary key consisting of multiple columns, leading to unique combinations, enabling an index.<br>
+They are declared like this during the creation of a table: `PRIMARY KEY (columnName1, columnName2)`.
+
+A foreign key is a key that references a primary key column in another table and enables relationship between tables.<br>
+REFERENCES is used to indicate foreign keys at table creation like this: `columnName dataType REFERENCES tableName2(columnName)`.
+
+#### Database relationships
+
+A one-to-one relationship between tables consist of each parent-table-row having only one associated child-table-row.<br>
+An example is a human having only one nose.<br>
+The parent-table primary key becomes a foreign key in the child-table, because only one association is possible per row, all foreign keys have to be unique.<br>
+UNIQUE is used when declaring the foreign key: `columnName dataType REFERENCES tableName2(columnName) UNIQUE;`.
+
+A one-to-many relationship between tables consist of each parent-table-row having one or more associated child-table-rows.<br>
+An example is a book having multiple chapters.<br>
+The parent-table primary key becomes a foreign key in the child-table, because multiple rows in the child-table can be associated with the same parent-table-row, the foreign key values must not be unique and thus UNIQUE is not used.
+
+A many-to-many relationship between tables consist of each table1-row having one or more associated table2-rows and each table2-row having one or more associated table1-rows.<br>
+An example is a class that can have multiple students and students that can have multiple classes.<br>
+In this scenario a third table is created (called cross reference table), it takes the primary keys of table1 and table2 as foreign keys and uses a composite primary key consisting of those foreign keys.
 
 ## Free tutorials
 
