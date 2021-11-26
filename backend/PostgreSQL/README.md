@@ -199,7 +199,41 @@ Foreign keys prevent adding data that does not exist in relational table first o
 To be able to delete a data from one table and automatically delete associated data from relational table a constraint can be added like this on the foreign key:<br>
 `columnName dataType REFERENCES tableName2(columnName) ON DELETE CASCADE`.
 
+### Database optimization
 
+Optimizing a database allows for speed which is important when making requests to a database.<br>
+The proper use of indexes and the use of normalization can optimize a database.
+
+#### Indexes
+
+An index allows organization of the data in a table to help with performance when searching and filtering records.<br>
+One or multiple indexes can exist in one table, indexes can of course improve performance but they can also have a cost, thus they should not always be used.<br>
+
+Indexes of a table, cannot be found between the usual column names, but can be viewed with this command: `SELECT * FROM pg_Indexes WHERE tablename = 'tableName';`.
+
+Imagine a table with 1000 rows has a column of score with values between 0-100 and we ask to find the rows with score of 100.<br>
+Without an appropriate index each row should be read to hope to find a row with value 100, thus 1000 rows could be read to finally find the one.<br>
+The appropriate index would be an index based on the score column, this index will pre-order the rows based on the score column.<br>
+Now we can start searching in the middle of the rows, thus at the median value possibly score 50, because 100 is above we will go to the median between 50 and 100 possible 75, because 100 is above we will go to the median between 75 and 100 possible 88, and we continue like that until we find 100.<br>
+An index will thus pre-order the data based on a column and while without an index a search would last max theNumberOfRowsInTable with an index it would last max root of theNumberOfRowsInTable.
+
+An index on a column in a table can be created like this: `CREATE INDEX indexName ON tableName (columnName);`.
+
+A multicolumn index, is an index on multiple columns instead of one. This can be useful when certain columns are associated together and searches are made on both of them simultaneously like this `WHERE columnName1 = x AND columnName2 = y`.<br>
+A multicolumn index is created like this `CREATE INDEX indexName ON tableName (columnName1, columnName2);` and the order of column1 and column2 matters.<br>
+First the values of columnName1 would be searched and only after the values of columnName2.<br>
+Imagine this search condition `WHERE lastName = 'Smith' AND firstName = 'Marc' OR firstName = 'Jen' OR firstName = 'Ben'`, because lastName is only based on one condition it would make sense to first index the lastName and only after the matching firstName thus when creating a multicolumn index the order would be (lastName, firstName).
+
+Indexes speed up searching and filtering, however, they slow down insert, update, and delete statements, because each time values are changed in a table, the indexes related to those tables have to re-ordered.<br>
+If doing a large amount of inserts/updates it might be worth considering removing indexes before doing the changes then putting the indexes back in once you are done.<br>
+Indexes also use extra memory storage, an index data structure can take as much space as the table itself.<br>
+Size of a table can be viewed with: `SELECT pg_size_pretty (pg_total_relation_size('tableName'));`.
+
+To decide to add an index or not the benefits have to be weighted against the risks, how much will the database be searched vs changed?<br>
+Using an index is also way more useful when the search should return few rows than if it should return lots of rows.
+
+When the cost of an index is greater than its benefit it should be removed, this is possible with this command:<br>
+`DROP INDEX IF EXISTS indexName` whereby IF EXISTS can be added to avoid errors in the case the index does not exist.
 
 ## Free tutorials
 
