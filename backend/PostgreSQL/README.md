@@ -93,11 +93,8 @@ ON tableName1.columnName = tableName2.columnName;</pre>
 or
 <pre>SELECT * FROM tableName1, tableName2
 WHERE tableName1.columnName = tableName2.columnName;</pre>
-Whereby tableName1.columnName is table1's primary key and tableName2.columnName is table2's foreign key referencing towards the table1 primary key.
-
-If some values in the same columns in different tables that could be joined are different, instead of using JOIN, LEFT JOIN can be used.<br>
-Left join will make the joinColumn(similar column between tables) keep the values of the first table and not the second table if differences exist when joining the tables.<br>
-Adding this condition at end makes sure the overwrite only occurs on empty values `WHERE tableName2.columnName IS NULL;`
+Whereby tableName1.columnName is table1's primary key and tableName2.columnName is table2's foreign key referencing towards the table1 primary key, they thus must be similar for the join to happen, as the left table will be kept and righ table removed when joining.<br>
+If they are not similar LEFT JOIN can be used, whereby the values that are different will be set to NULL while the others will keep the left table values.
 
 CROSS JOINS allow to simply join together two tables who do not have a relationship like this:<br>
 `SELECT * FROM tableName1 CROSS JOIN tableName2;` or `SELECT tableName1.columnName, tableName2.columnName FROM tableName1 CROSS JOIN tableName2;`
