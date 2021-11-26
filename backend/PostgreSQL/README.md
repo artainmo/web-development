@@ -173,6 +173,32 @@ An example is a class that can have multiple students and students that can have
 In this scenario a third table is created (called cross reference table), it takes the primary keys of table1 and table2 as foreign keys and uses a composite primary key consisting of those foreign keys.
 
 #### Constraints
+Constraints are rules applicable to certain columns against invalid data, raising errors when necessary.<br>
+Datatypes are for example constraints as they only allow data of a certain type.<br>
+Primary keys too as they only allow unique data and no null values.
+
+NULL values can be inserted like this:<br>
+`INSERT INTO tableName (columnName1, columnName3) VALUES (value1, value3);`, whereby column 2 is not indicated and will equal NULL.<br>
+With constraint NOT NULL indicated when creating a table after dataType declaration of a column, can indicate if a column can take NULL values or not.
+
+A constraint can also be added later on like this: `ALTER TABLE tableName ALTER COLUMN columnName SET NOT NULL;`.<br>
+Or removed like this:  `ALTER TABLE tableName ALTER COLUMN columnName DROP NOT NULL;`.<br>
+If for example we try to set a NON NULL constraint on a column that already contains NULLs we first have to remove those NULLs.<br>
+Backfilling refers to updating a database values, to remove nulls we can update the database like this: <br>
+`UPDATE tableName SET columnName = defaultValue WHERE columnName IS NULL;`
+
+Multiple constraints can be specified the one after the other.
+
+The CHECK constraint is able to take a condition that results in true or false like this for example:<br>
+`ALTER TABLE tableName ADD CHECK (columnName < 100 AND columnName > 0);`. or `ALTER TABLE tableName ADD CHECK (columnName1 + columnName2 = columnName3);`.
+
+The UNIQUE constraint makes sure a column or combination of columns is unique, this can be indicated when creating a table by adding UNIQUE after datatype declaration or for a unique combination of columns like this: `UNIQUE (column1, column2)`.<br>
+Post table declaration like this: `ALTER TABLE tableName ADD UNIQUE (columnName)`.
+
+Foreign keys prevent adding data that does not exist in relational table first or deleting data that still exists in relational table.<br>
+To be able to delete a data from one table and automatically delete associated data from relational table a constraint can be added like this on the foreign key:<br>
+`columnName dataType REFERENCES tableName2(columnName) ON DELETE CASCADE`.
+
 
 
 ## Free tutorials
