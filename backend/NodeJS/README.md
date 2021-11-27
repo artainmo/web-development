@@ -7,8 +7,8 @@
   - [Essentials](#Essentials)
   - [HTTP server setup](#HTTP-server-setup)
 - [Free tutorials](#Free-tutorials)
-  - [Setup](#SETUP)
-  - [Use](#USE)
+  - [Setup](#Setup)
+  - [Use](#Use)
 
 ## Codecademy course
 
@@ -125,7 +125,7 @@ In simple terms REST APIs are APIs that follow certain conventions for easier/mo
 
 ## Free tutorials
 
-### SETUP
+### Setup
 Install nodejs from the web or with brew on mac. To verify it exists type node --version in terminal.
 
 The node command will compile and execute javascript in the terminal instead of in the browser, by using console.log() you write into the terminal.<br>
@@ -138,7 +138,7 @@ npx(nodejs-package-execute), executes packages can start apps for example "npx c
 
 VScode can be used to view implicit types.
 
-### USE
+### Use
 Default global variables; __dirname, __filename, require(imports), module(info module), process (info env).
 
 To export code go to the module and make the variable 'module.exports' equal to what you want to export, if multiple exports set them in an object or make multiple 'module.exports.NameExport'.<br>
