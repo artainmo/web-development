@@ -265,6 +265,26 @@ When setting the UNIQUE constraint on a column 'Ride' will be considered differe
 Because the results of the expression are stored in the index, it saves the search function from having to perform it on every row on future searches.<br>
 Thus indexes based on expressions can fasten search times but also can also slow down update, inserts and delete.
 
+#### Normalization
+
+Normalization consists of restructuring a database, different levels of normalization exist namely first, second and third normal form.<br>
+
+When columns of a database table do not depend on the primary key, the same data may be duplicated in multiple places.<br>
+Duplicated data is a poblem when having to update it and also takes more memory than necessary.<br>
+For example a student table with advisor columns, different students may have the same advisor, the advisor columns should appear in a separate relational table to avoid duplicates.<br>
+Another problem with everything in same table would be that maybe we want to add an advisor but without students yet, this will create an error if the student columns cannot be NULL.
+
+To restructure tables a new table can be created from columns of an already existing one, followed by removing the copied columns from already existing table.<br>
+<pre>CREATE TABLE newTableName AS
+SELECT distinct columnName1 columnName2 
+FROM tableName;
+
+ALTER TABLE tableName
+DROP COLUMN columnName1,
+DROP COLUMN columnName2;</pre>
+After the two tables have to become relational through foreign keys and/or cross-reference-tables.<br>
+Finally in new tables applicable constraints can be set.
+
 ## Free tutorials
 
 ### UNDERSTAND
