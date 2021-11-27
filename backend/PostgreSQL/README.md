@@ -1,6 +1,22 @@
 # POSTGRESQL
 
 ## Table of contents
+- [Codecademy course](#Codecademy-course)
+  - [Basics](#Basics)
+  - [Queries](#Queries)
+  	- [Aggregate functions](#Aggregate-functions)
+  	- [Multiple tables](#Multiple-tables)
+  - [Design a database](#Design-a-database)
+  	- [Database keys](#Database-keys)
+  	- [Database relationships](#Database-relationships)
+  	- [Constraints](#Constraints)
+  - [Database optimization](#Database-optimization)
+  	- [Indexes](#Indexes)
+  	- [Normalization](#Normalization) 
+- [Free tutorials](#Free-tutorials)
+  - [Understand](#understand) 
+  - [Setup](#Setup)
+  - [Use](#Use)
 
 ## Codecademy course
 
@@ -290,7 +306,7 @@ But normalization (thus separating data in multiple tables) can come at the cost
 
 ## Free tutorials
 
-### UNDERSTAND
+### Understand
 Is a database-management-system, it uses SQL as its main query language.<br>
 A database is used to store, update and retrieve data, throughout user sessions (it avoids user data is lost after its session closes).<br>
 SQL is a programming language to communicate with databases that is widely used.
@@ -299,7 +315,7 @@ Data is stored in tables that consist of rows and columns.
 
 Such databases are called relational databases, non-relational databases also exist and they consist of huge JSON-like objects, those are simpler and faster.
 
-### SETUP
+### Setup
 Has to be downloaded as an app from the web.<br>
 For access to the terminal command psql set in .zshrc "export PATH=$PATH:/pathFoundInPostgresqlApp"<br>
 Or use brew install.
@@ -307,7 +323,7 @@ Or use brew install.
 When launching psql, you can start launching psql commands in the terminal with /? you can view the usage guide and with /l you can list the whole database.<br>
 Inside .sql files you can write SQL scripts. Execute them with /i.
 
-### USE
+### Use
 To create a new database use "CREATE DATABASE name;".<br>
 To connect to the database use "psql -h ipAddress -p port nameDatabase" or "\c nameDatabase".<br>
 To delete a database use "DROP DATABASE name;".<br>
