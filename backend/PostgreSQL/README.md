@@ -285,6 +285,8 @@ DROP COLUMN columnName2;</pre>
 After the two tables have to become relational through foreign keys and/or cross-reference-tables.<br>
 Finally in new tables applicable constraints can be set.
 
+But normalization (thus separating data in multiple tables) can come at the cost of queries necessitating joins, making them more complex.
+
 ## Free tutorials
 
 ### UNDERSTAND
