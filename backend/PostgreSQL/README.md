@@ -211,6 +211,8 @@ One or multiple indexes can exist in one table, indexes can of course improve pe
 
 Indexes of a table, cannot be found between the usual column names, but can be viewed with this command: `SELECT * FROM pg_Indexes WHERE tablename = 'tableName';`.
 
+When testing the efficacy of indexes a SELECT query can be precipated with EXPLAIN ANALYZE so that execution time is returned.
+
 Imagine a table with 1000 rows has a column of score with values between 0-100 and we ask to find the rows with score of 100.<br>
 Without an appropriate index each row should be read to hope to find a row with value 100, thus 1000 rows could be read to finally find the one.<br>
 The appropriate index would be an index based on the score column, this index will pre-order the rows based on the score column.<br>
