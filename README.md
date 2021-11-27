@@ -148,7 +148,7 @@ https://www.codecademy.com/learn/learn-intermediate-javascript - 10h !<br>
 https://www.codecademy.com/learn/learn-typescript - 10h !<br>
 https://www.codecademy.com/learn/react-101 - 20h !<br>
 https://www.codecademy.com/learn/learn-node-js - 7h !<br>
-https://www.codecademy.com/learn/learn-express - 4h ! <br>
-https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h<br> !
+https://www.codecademy.com/learn/learn-express - 4h !<br>
+https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h !<br>
 https://www.codecademy.com/learn/connecting-front-end-to-back-end?utm_source=iterable&utm_medium=email&utm_content=noti_bell - 2h<br>
 https://www.codecademy.com/learn/paths/full-stack-engineer-career-path - 6months<br>
