@@ -121,7 +121,7 @@ It can be done by hand or with a software program such as DbDiagram.io and shoul
 * relationships between tables, if any
 
 Tables are created like this `CREATE TABLE table_name (column_1 data_type, column_2 data_type, column_3 data_type);`<br>
-`INSERT INTO tableName (columnName1, columnName2, columnName3) VALUES (value1, value2, value3)` is used to insert rows inside a table.
+`INSERT INTO tableName (columnName1, columnName2, columnName3) VALUES (value1, value2, value3), (value1, value2, value3)` is used to insert rows inside a table.
 
 Common datatypes:
 * integer: whole number
@@ -234,6 +234,34 @@ Using an index is also way more useful when the search should return few rows th
 
 When the cost of an index is greater than its benefit it should be removed, this is possible with this command:<br>
 `DROP INDEX IF EXISTS indexName` whereby IF EXISTS can be added to avoid errors in the case the index does not exist.
+
+Sometimes in one large table distinction can be made between different categorical data and we often want to query solely one of those categories, for example in a customers table we can make distinction between child, teenage and adult customers.<br>
+We can create a partial index on the teenagers if we want to query all the teenagers faster like this:<br>
+`CREATE INDEX indexName ON tableName (columnName) WHERE condition;`, whereby the condition would be for example `age BETWEEN 13 AND 19`.
+
+If queries are always done with a specific column in descending order, you can indicate this when creating an index so that it will already be sorted as wanted, fastening the query.<br>
+`CREATE INDEX indexName ON tableName (columnName DESC);`.
+
+PostgreSQL automatically creates a unique index on any primary key or column with unique constraint in your tables.
+	
+Indexes can be clustered or non-clustered. Only one index can be clustered in a table, usually the primary key of a table is set to be the clustered index.<br>
+Cluster indexes allow faster search time in a table by reorganizing the table rows in some way, like a dictionnary would.<br>
+PostgreSQL contrary to other SQL systems does not recluster automatically after, insert, update or delete, thus those commands can run faster but to maintain the cluster index one has to manually call cluster again.<br>
+An already existing index gets declared to be the cluster index like this `CLUSTER tableName USING indexName;`.<br>
+To recluster the cluster of a particular table simply use `CLUSTER tableName;` or to recluster the cluster of all tables `CLUSTER;`.
+
+A cluster index will reorganize the whole table, meaning all the columns based on the associated index.<br>
+A non-cluster index will create a separate table that simply holds the associated index column and a pointer to the complete row in actual table.<br>
+Thus a non-cluster index is slower in that it has to call a pointer before accessing the whole row data while a cluster index does not.<br>
+But if only the index column itself is queried, a non-cluster index is not slower as it does not have to get the additional data through calling the pointer.<br>
+This is where multicolumn indexes become useful, if only the columns inside the multicolumn index are queried, calling the pointer is not necessary again.<br>
+But if only searching one column, a simple index will be faster than a multicolumn index.
+
+Indexes can be based on expressions too, not solely column references.<br>
+When setting the UNIQUE constraint on a column 'Ride' will be considered different than 'ride' for example.<br>
+`CREATE UNIQUE INDEX indexName ON tableName(LOWER(columnName))` adding a unique index that makes use of the lower function will ensure 'ride' to be considered equal to 'Ride'.<br>
+Because the results of the expression are stored in the index, it saves the search function from having to perform it on every row on future searches.<br>
+Thus indexes based on expressions can fasten search times but also can also slow down update, inserts and delete.
 
 ## Free tutorials
 
