@@ -65,7 +65,7 @@ TLS, also known as Transport Layer Security, is a widely adopted security protoc
 
 **OTHER CONCEPTS**<br>
 APIs<br>
-An application programming interface is a connection between computers or between computer programs. It allows communication between the front-end and back-end, whereby the back-end gathers data from a data-base to produce dynamic front-end pages.
+An application programming interface is a connection between computers or between computer programs. It for example enables communication between the front-end and back-end, whereby the back-end gathers data from a data-base to produce dynamic front-end pages.
 
 Cloud computing is the on-demand availability of computer-system-resources, especially data-storage and computing-power. Large clouds consist of multiple servers connected/working together.
 
