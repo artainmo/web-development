@@ -38,11 +38,9 @@ REST APIs must be able to Create(POST), Read(GET), Update(PUT), and Delete(DELET
 REST APIs are usually more on the light-weight side.
 
 Both front-end and back-end have to be run separately, first back-end has to be launched followed by front-end.<br>
-In frontend/src/api/fileName async-await functions using fetch can be made to interact with back-end API, those can be imported for use on other front-end files.<br>
-In backend/routes/fileName API endpoints can be defined using Express.
 
 Front-end and back-end communication can be summarized as follows:
 * API calls are initiated by the front-end components found in frontend/src/components.
-* API calls to the back-end are defined inside of frontend/src/api.
-* The routers in backend/routes handle API calls and send an appropriate response to the front-end.
+* API calls to the back-end are defined inside of frontend/src/api, often with async-await fetch containing functions.
+* The routers in backend/routes handle API calls and send an appropriate response to the front-end, usually with Express.
 
