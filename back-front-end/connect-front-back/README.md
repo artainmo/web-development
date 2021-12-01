@@ -7,6 +7,8 @@
 
 To create a full-stack application, the back-end and front-end have to be connected.<br>
 
+To connect an app together let the front-end, back-end and database run independently (on different servers or ports of the same server) and connect/communicate between each other using APIs. 
+
 ### Rendering and code generation
 Rendering is the aspect of web development concerned with translating code into a visual and interactive website.<br>
 We can make distinction between client-side, server-side and hybrid rendering.<br>
@@ -50,3 +52,26 @@ PostgreSQL tables can be made from the platform.<br>
 The external API will have an URL and secret code, in the backend a file .env is created with variables APIName_URL and APIName_secret that takes those values.<br>
 .env is set inside .gitignore to avoid making it public.<br>
 In backend provider/supabase.js is filled with commands to connect to supabase and export connected supabase object, to be used in backend routes for database calls.
+
+### How to structure apps
+
+Model view controller (MVC) is a popular app architectural pattern, wherein components are categorized by their functionality.<br>
+MVC pattern organizes a system into three types of components: Model, View, and Controller.
+
+The Model is made up of the data storage, as well as any classes that represent that data as it moves around the application.<br>
+The View component consists of the purely visual frontend classes.<br>
+The Controller defines the behaviors that our system will accomplish using the Model and View.<br>
+The Controller is responsible for receiving events from the View and processing them to make responses by gathering data from the Model.
+
+The primary advantage of the MVC pattern is the separation of the data representation, logical, and presentational layers.<br>
+By separating the Controller from the View, we can create multiple ways of viewing our application. For example, an application can have the web and mobile Views interact with the same Controller.<br>
+The main drawback of MVC is that it can introduce unneeded complexity to a simple application.
+
+A PostgreSQL database can also be created locally on mac with Postgres.app and to access it with a UI such as Postbird.<br>
+You will have to create a .env at root of project (set inside .gitignore to keep private) with those variables:
+* DB_USER= username
+* DB_PASSWORD= password
+* DB_HOST=localhost
+* DB_POST=5432
+* DB_DATABASE=TableName
+* PORT=8000
