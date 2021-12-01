@@ -150,5 +150,7 @@ https://www.codecademy.com/learn/react-101 - 20h !<br>
 https://www.codecademy.com/learn/learn-node-js - 7h !<br>
 https://www.codecademy.com/learn/learn-express - 4h !<br>
 https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h !<br>
-https://www.codecademy.com/learn/connecting-front-end-to-back-end - 2h<br>
+https://www.codecademy.com/learn/connecting-front-end-to-back-end - 2h !<br>
+https://www.codecademy.com/learn/learn-websockets - 2h <br>
+https://www.codecademy.com/learn/learn-build-tools - 4h <br>
 https://www.codecademy.com/learn/paths/full-stack-engineer-career-path - 6months<br>
