@@ -153,4 +153,5 @@ https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h !<
 https://www.codecademy.com/learn/connecting-front-end-to-back-end - 2h !<br>
 https://www.codecademy.com/learn/learn-websockets - 2h <br>
 https://www.codecademy.com/learn/learn-build-tools - 4h <br>
+Also learn nestjs and docker...
 https://www.codecademy.com/learn/paths/full-stack-engineer-career-path - 6months<br>
