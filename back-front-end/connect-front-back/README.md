@@ -78,3 +78,5 @@ You will have to create a .env at root of project (set inside .gitignore to keep
 * DB_POST=5432
 * DB_DATABASE=TableName
 * PORT=8000
+
+In to-do-list project one can better visualize the whole MVC structure and how the back and front connect..
