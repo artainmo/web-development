@@ -44,3 +44,9 @@ Front-end and back-end communication can be summarized as follows:
 * API calls to the back-end are defined inside of frontend/src/api, often with async-await fetch containing functions.
 * The routers in backend/routes handle API calls and send an appropriate response to the front-end, usually with Express.
 
+The back-end may have to connect with an external API representing the database or other.<br>
+Supabase is an opensource PostgreSQL database management platform that provides an instant RESTful API.<br>
+PostgreSQL tables can be made from the platform.<br>
+The external API will have an URL and secret code, in the backend a file .env is created with variables APIName_URL and APIName_secret that takes those values.<br>
+.env is set inside .gitignore to avoid making it public.<br>
+In backend provider/supabase.js is filled with commands to connect to supabase and export connected supabase object, to be used in backend routes for database calls.
