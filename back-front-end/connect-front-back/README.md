@@ -2,6 +2,9 @@
 
 ## Table of contents
 - [Codecademy course](#Codecademy-course)
+  - [Rendering and code generation](#Rendering-and-code-generation) 
+  - [REST APIs](#REST-APIs)
+  - [How-to-structure-apps](#How-to-structure-apps)
 
 ## Codecademy course
 
