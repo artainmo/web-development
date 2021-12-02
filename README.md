@@ -152,6 +152,6 @@ https://www.codecademy.com/learn/learn-express - 4h !<br>
 https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h !<br>
 https://www.codecademy.com/learn/connecting-front-end-to-back-end - 2h !<br>
 https://www.codecademy.com/learn/learn-websockets - 2h <br>
-https://www.codecademy.com/learn/learn-build-tools - 4h <br>
-Also learn nestjs and docker... https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de <br>
+Also learn nestjs <br>
+Also learn docker-compose... https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de <br>
 https://www.codecademy.com/learn/paths/full-stack-engineer-career-path - 6months<br>
