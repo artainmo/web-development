@@ -15,4 +15,4 @@ Once a websocket connection is established, communication can be done without HT
 If the handshake is done over HTTPS instead of HTTP, TLS will also be used for the websocket, making it more secure, and it will become wss:// instead of ws.
 
 
-
+See chat-websockets project to learn how to use the javascript ws package to create websockets.
