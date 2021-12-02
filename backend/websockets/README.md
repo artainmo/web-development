@@ -14,4 +14,5 @@ In the header of the HTTP request, the client must communicate to the server tha
 Once a websocket connection is established, communication can be done without HTTP headers and the need for a new TCP connection.
 If the handshake is done over HTTPS instead of HTTP, TLS will also be used for the websocket, making it more secure, and it will become wss:// instead of ws.
 
-# Exercise Notes
+
+
