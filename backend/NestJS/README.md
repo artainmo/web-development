@@ -52,6 +52,17 @@ class StudentController {
 </pre>
 The route syntax is similar as in Express<br>
 The param decorator is able to extract certain params from the HTTP query-params and the body decorator from the HTTP body.<br>
+This example is missing the correct function returns of course and type specification of the body and function returns... Because those are cutom types or classes, usually declared in a routeName.dto.ts file.<br>
+DTO stands for data transfer object, and practically refers to custum types declared as classes, they define for API users how requests (for example the body) should look like, but also how the response will look like.
+
+## Providers
+The responses send from the controllers are not manufactured inside the controllers but instead inside the providers.<br>
+Thus providers create responses for the controllers to send back.<br>
+
+Providers encapsulate many basic Nest classes such as services, repositories, factories, helpers...<br>
+The main idea of a provider is that it can be injected as dependency; this means objects can create various relationships with each other, and the function of "wiring up" instances of objects can largely be delegated to the Nest runtime system.
+
+`nest -g service serviceName --no-spec`can be used to generate a service boilerplate. 
 
 
 ## Launch NestJS application
