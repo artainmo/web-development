@@ -14,3 +14,5 @@ A WebSockets application demo.
 ## About code
 
 In server.js the server websocket is created and in public/index.html the client websocket.
+
+To run this application use node server.js
