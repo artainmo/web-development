@@ -146,6 +146,8 @@ https://docs.nestjs.com/controllers !<br>
 
 Also learn docker-compose??... https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de <br>
 
+Also learn how to connect a postgresql database to NestJS????
+
 **Courses**<br>
 https://www.codecademy.com/learn/learn-html - 9h !<br>
 https://www.codecademy.com/learn/learn-css - 10h !<br>
