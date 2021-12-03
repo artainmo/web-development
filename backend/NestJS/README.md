@@ -11,7 +11,7 @@ Decorators are often used, are indicated by @ and simply is code wrapped up arou
 
 More information on nestjs: docs.nestjs.com.
 
-View a complete example in NestJS-example.
+View a complete example in NestJS-exercise/src.
 
 ## Init NestJS application
 
