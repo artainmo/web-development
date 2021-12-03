@@ -153,9 +153,9 @@ https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h !<
 https://www.codecademy.com/learn/connecting-front-end-to-back-end - 2h !<br>
 https://www.codecademy.com/learn/learn-websockets - 2h !<br>
 Also learn nestjs <br>
-https://www.youtube.com/watch?v=0M8AYU_hPas 2min <br>
-https://progressivecoder.com/nestjs-providers-with-examples-learn-nestjs-series-part-3/ <br>
 https://www.youtube.com/watch?v=S0R82Osg-Mk 2h15min <br>
+https://progressivecoder.com/nestjs-providers-with-examples-learn-nestjs-series-part-3/ <br>
+https://docs.nestjs.com/controllers <br>
 https://www.youtube.com/watch?v=wqhNoDE6pb4 1h <br>
 Also learn axios??
 Also learn docker-compose??... https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de <br>
