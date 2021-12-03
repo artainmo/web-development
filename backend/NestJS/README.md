@@ -1,5 +1,15 @@
 # NestJS
 
+## Table of contents
+- [Free tutorials](#Free-tutorials)
+  - [Init and launch NestJS application](#Init-and-launch-NestJS-application)
+  - [Controllers](#Controllers)
+  - [Providers](#Providers)
+  - [Modules](#Modules)
+  - [Pipes](#Pipes)
+  - [Middleware](#Middleware)
+
+# Free tutorials 
 Nest.js is a Node.js scalable framework built on top of express.js and TypeScript that comes with a strong opinion on how API's should be built.<br>
 Since it is very opinionated it provides a structure, a CLI, and lots of tools that let you create professional APIs fast.
 
@@ -10,7 +20,7 @@ More information on nestjs: docs.nestjs.com.
 
 View a complete example in NestJS-exercise/src.
 
-## Init NestJS application
+## Init and launch NestJS application
 
 `npm install @nestjs/cli` is used to install the nest command line interface.<br>
 `nest -v` can be used to view nest version installed.<br>
@@ -120,7 +130,7 @@ export class AppModule {}
 Ideally each component should be able to function on their own but if one component is necesary in another one they can be exported-imported.<br>
 By using the export array in the module that has to be exported filling it with demanded provider/controller and using the import array in the module that has to import filling it with the module that has to be exported.
 
-## Pipes and middleware
+## Pipes
 A pipe can be used to validate or transform data and comes in the form of a class, different pipes/classes exist.<br>
 Validation consists of evaluating data, if valid passing through else throwing an exception, for example validating if a value is a valid uuid.<br>
 Transforming consists of changing type, for example string to integer.
@@ -140,6 +150,8 @@ async findOne(@Param('uuid', new ParseUUIDPipe()) uuid: string) {
   return this.catsService.findOne(uuid);
 }
 </pre>
+
+## Middleware
 
 Middleware is a function which is called before the route handler.<br>
 Middleware can transform or validate incoming data, they are somewhat like custom pipes.<br>
@@ -185,7 +197,3 @@ For being more specific in terms of routes:
 * routes can be excluded in .excude()
 * multiple middleware can be specified: `consumer.apply(cors(), helmet(), logger)`
 * Middleware for the whole application is also possible with .use() 
-
-## Launch NestJS application
-
-`npm run start:dev` can be used to launch the application in watch mode, watch meaning each time a change is made in the code the app relaunches accordingly.
