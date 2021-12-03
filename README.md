@@ -140,6 +140,12 @@ https://www.youtube.com/watch?v=Oe421EPjeBE - Node.js and Express.js - Full Cour
 
 https://www.youtube.com/watch?v=qw--VYLpxG4 - PostgreSQL full course - 4h20m !<br>
 
+https://www.youtube.com/watch?v=S0R82Osg-Mk 2h15min !<br>
+https://progressivecoder.com/nestjs-providers-with-examples-learn-nestjs-series-part-3/ !<br>
+https://docs.nestjs.com/controllers !<br>
+
+Also learn docker-compose??... https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de <br>
+
 **Courses**<br>
 https://www.codecademy.com/learn/learn-html - 9h !<br>
 https://www.codecademy.com/learn/learn-css - 10h !<br>
@@ -152,11 +158,4 @@ https://www.codecademy.com/learn/learn-express - 4h !<br>
 https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h !<br>
 https://www.codecademy.com/learn/connecting-front-end-to-back-end - 2h !<br>
 https://www.codecademy.com/learn/learn-websockets - 2h !<br>
-Also learn nestjs <br>
-https://www.youtube.com/watch?v=S0R82Osg-Mk 2h15min <br>
-https://progressivecoder.com/nestjs-providers-with-examples-learn-nestjs-series-part-3/ <br>
-https://docs.nestjs.com/controllers <br>
-https://www.youtube.com/watch?v=wqhNoDE6pb4 1h <br>
-Also learn axios??
-Also learn docker-compose??... https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de <br>
 https://www.codecademy.com/learn/paths/full-stack-engineer-career-path - 6months<br>
