@@ -9,7 +9,9 @@ It supports REST APIs and contains modules to handle databases, security, stream
 `nest new` allows for base code generation for a nestjs backend, src/controller.ts is responsible for handling incoming HTTP requests.<br>
 Decorators are often used, are indicated by @ and simply is code wrapped up around another code.
 
-More information on nestjs: docs.nestjs.com
+More information on nestjs: docs.nestjs.com.
+
+View a complete example in NestJS-example.
 
 ## Init NestJS application
 
@@ -56,17 +58,41 @@ This example is missing the correct function returns of course and type specific
 DTO stands for data transfer object, and practically refers to custum types declared as classes, they define for API users how requests (for example the body) should look like, but also how the response will look like.
 
 ## Providers
-The responses send from the controllers are not manufactured inside the controllers but instead inside the providers.<br>
-Thus providers create responses for the controllers to send back.<br>
-
-Providers encapsulate many basic Nest classes such as services, repositories, factories, helpers...<br>
-The main idea of a provider is that it can be injected as dependency; this means objects can create various relationships with each other, and the function of "wiring up" instances of objects can largely be delegated to the Nest runtime system.
+Typically a controller should only handle the HTTP requests and should delegate response contruction tasks (DB query, Calling another API etc. ) to the providers.<br>
+Dependency injection is a design pattern whereby one object supplies dependencies to another object, imagine object A holds core functions X, Y that necessitate property B, C and functions D, E, instead of declaring B, C, D, E inside A, those can be declared inside another object F, object F will thus hold the dependencies of object A, for A to function F should be injected into A.<br>
+Providers are classes that are used to inject dependencies in controllers or other providers.<br>
+Different providers exist, but they usually are able to do the same, distinction is made between them more for structural reasons, they are simply indicated by adding the provider name at end of class name, usually the provider type service is used and would be indicated as `class classNameService`.
 
 `nest -g service serviceName --no-spec`can be used to generate a service boilerplate. 
 
+A provider is indicated with the Injectable decorator usually in an providerName.service.ts file:
+<pre>
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class studentService {
+  async findAll() {...}
+}
+</pre>
+A provider is injected into a controller like this inside the contructor:
+<pre>
+import { Controller, Get, Post, Put, Param, Body } from '@nestjs/common';
+import { studentService } from 'student.service';
+import { Student } from 'student.interface';
+
+@Controller('students')
+class StudentController {
+  constructor(private studentService: studentService) {}
+  
+  @Get()
+  async getStudents(): Promise&ltStudent[]&gt;{
+    return studentService.findAll();
+  }
+}
+</pre>
 
 ## Launch NestJS application
-
-app.module.ts contains an array of controllers, this can be filled with the controllers you want to be active inside the app.
+app.module.ts contains an array of controllers, this can be filled with the controllers you want to be active inside the app.<br>
+The same aplies to the provider array that can be filled with providers one wants to be active.
 
 `npm run start:dev` can be used to launch the application in watch mode, watch meaning each time a change is made in the code the app relaunches accordingly.
