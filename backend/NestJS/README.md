@@ -198,12 +198,104 @@ For being more specific in terms of routes:
 * multiple middleware can be specified: `consumer.apply(cors(), helmet(), logger)`
 * Middleware for the whole application is also possible with .use() 
 
-# database integration with TypeORM
+## database integration with TypeORM
 
+### TypeORM
 Object–relational mapping (ORM) in computer science is a programming technique for converting data between incompatible type systems using object-oriented programming languages. This creates, in effect, a "virtual object database" that can be used from within the programming language.
 
 TypeORM is one of the most popular ORMs that works with nodeJS and is written in typescript.<br>
 It allows to connect to different types of databases, connect and perform CRUD on the database.<br>
 
+To create tables, TypeORM uses models (another name for a class used to create a table) and the entity decorator.<br>
+<pre>
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+
+@Entity()
+export class User {
+
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    firstName: string;
+
+    @Column()
+    lastName: string;
+
+    @Column()
+    age: number;
+
+}
+</pre>
+PrimaryColumn decorator is used to indicate the key column, alternatively PrimaryGeneratedColumn decorator can be used to let the id increment automatically.<br>
+Column decorator is used to indicate a single column.<br>
+Each class attribute must be given a type.
+
+The above created table would be manipulated like this:
+<pre>
+const repository = connection.getRepository(User); //connect to the wanted table/repository, the connection object has to be created with the CreateConnection() function
+
+//Create 
+const user = new User(); //Instance of the above created user class, its columns can be filled
+user.firstName = "Timber";
+user.lastName = "Saw";
+user.age = 25;
+await repository.save(user); //The .save method will add a new column to the table and returns the object it took as parameter
+
+//Read
+const allUsers = await repository.find();
+let [allUsers, usersCount] = await repository.findAndCount();
+let allUsersNamedTimber = await photoRepository.find({ name: "Timber" });
+const firstUser = await repository.findOne(1); // find by id
+const timber = await repository.findOne({ firstName: "Timber", lastName: "Saw" });
+
+//Update
+const timberToUpdate = await repository.findOne({ firstName: "Timber", lastName: "Saw" });
+timberToUpdate.age = 11;
+repository.save(timberToUpdate);
+
+//Delete 
+const timber = await repository.findOne({ firstName: "Timber", lastName: "Saw" });
+await repository.remove(timber); //The .remove method is able to remove a specific table 
+</pre>
+
+Connect to the database:
+<pre>
+import "reflect-metadata"; //Has to be imported somewhere in the global place of your app
+import { createConnection } from "typeorm";
+import { Photo } from "./entity/Photo";
+
+createConnection({
+    type: "mysql", //Other database typed such as postgresql indicated with postgres
+    host: "localhost",
+    port: 3306,
+    username: "root",
+    password: "admin",
+    database: "test",
+    entities: [
+        Photo
+    ],
+    synchronize: true,
+    logging: false
+}).then(async connection => {
+    // here you can start to work with your entities if the connection was successful
+    //The function is async so that we can use await when calling the database
+    //The connection parameter is the connection object used in the example above
+}).catch(error => console.log(error));
+</pre>
+
+#### One-to-one relationship
+A one-to-one relationship is a relationship whereby one clumn of class A can only be associated with one column of class B and vice-versa.<br>
+An example is a photo can only be associated with one photoMetaData and vice-versa.<br>
+Inside the entitiy class it is indicated with, instead of @Column, @OneToOne(type => nameOfAssociatedTable), followed by @JoinColumn(), whereby OneToOne defines the relationship and JoinColumn creates the foreign key in the entity class, the type is set to associatedTableClass.
+
+When inserting a column with a one-to-one relationship tableA.foreignKeyName = tableBColumn.
+
+By creating one foreign key in one of the two tables as explained above we only have a unidirectional one-to-one relationship, TypeORM also allows to make this a bidirectional relationship, meaning class A has access to class B, but class B can also have access to class A.<br>
+The initial @OneToOne has to add a second parameter: @OneToOne(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.tableName), whereby  nameOfAssociatedTable => nameOfAssociatedTable.tableName refers to the name of the inverse side of the relation.
+And inside the associated table @OneToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.tableName).
+JoinColumn is defined ony once as only one foreign key is defined in one of the two tables.
+
+### TypeORM with NestJS
 NestJS usually uses TypeORM for connecting with a database, through the @nestjs/typeorm package.<br>
 TypeORM integrates well with NestJS because both are written in typescript.
