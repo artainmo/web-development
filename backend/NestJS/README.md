@@ -197,3 +197,13 @@ For being more specific in terms of routes:
 * routes can be excluded in .excude()
 * multiple middleware can be specified: `consumer.apply(cors(), helmet(), logger)`
 * Middleware for the whole application is also possible with .use() 
+
+# database integration with TypeORM
+
+Object–relational mapping (ORM) in computer science is a programming technique for converting data between incompatible type systems using object-oriented programming languages. This creates, in effect, a "virtual object database" that can be used from within the programming language.
+
+TypeORM is one of the most popular ORMs that works with nodeJS and is written in typescript.<br>
+It allows to connect to different types of databases, connect and perform CRUD on the database.<br>
+
+NestJS usually uses TypeORM for connecting with a database, through the @nestjs/typeorm package.<br>
+TypeORM integrates well with NestJS because both are written in typescript.
