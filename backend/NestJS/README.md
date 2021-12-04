@@ -198,7 +198,7 @@ For being more specific in terms of routes:
 * multiple middleware can be specified: `consumer.apply(cors(), helmet(), logger)`
 * Middleware for the whole application is also possible with .use() 
 
-## database integration with TypeORM
+## Database integration with TypeORM
 
 ### TypeORM
 Object–relational mapping (ORM) in computer science is a programming technique for converting data between incompatible type systems using object-oriented programming languages. This creates, in effect, a "virtual object database" that can be used from within the programming language.
@@ -258,6 +258,8 @@ repository.save(timberToUpdate);
 const timber = await repository.findOne({ firstName: "Timber", lastName: "Saw" });
 await repository.remove(timber); //The .remove method is able to remove a specific table 
 </pre>
+The above shows basic queries with .find. QueryBuilder on the other hand allows the creation and execution of SQL queries of almost any complexity.<br>
+QueryBuilder uses similar logic as the SQL CLI.
 
 Connect to the database:
 <pre>
@@ -292,9 +294,31 @@ Inside the entitiy class it is indicated with, instead of @Column, @OneToOne(typ
 When inserting a column with a one-to-one relationship tableA.foreignKeyName = tableBColumn.
 
 By creating one foreign key in one of the two tables as explained above we only have a unidirectional one-to-one relationship, TypeORM also allows to make this a bidirectional relationship, meaning class A has access to class B, but class B can also have access to class A.<br>
-The initial @OneToOne has to add a second parameter: @OneToOne(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.tableName), whereby  nameOfAssociatedTable => nameOfAssociatedTable.tableName refers to the name of the inverse side of the relation.
-And inside the associated table @OneToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.tableName).
-JoinColumn is defined ony once as only one foreign key is defined in one of the two tables.
+The initial @OneToOne has to add a second parameter: @OneToOne(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.nameOfInitialTable), whereby  nameOfAssociatedTable => nameOfAssociatedTable.tableName refers to the name of the inverse side of the relation.<br>
+And inside the associated table @OneToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.nameOfAssociatedTable).<br>
+JoinColumn is defined only once as only one foreign key is defined in one of the two tables.
+
+We can set up cascade options in our relations, in the cases when we want our related object to be saved whenever the other object is saved.<br>
+To indicate the cascade option the OneToOne() decorator has to take a third argument `{ cascade: true }`
+
+#### one-to-many/many-to-one relationship
+A one-to-many relationship consists of class A being able to hold multiple class B and class B would be a many-to-one relationship towards A, the one cannot exist without the other.<br>
+For example one book that can hold multiple chapters is a one-to-many relationship and multiple chapters that can only exist in one book is a many-to-one relationship.<br>
+
+It is created with the @OneToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.nameOfInitialTable) decorator and with the type of column being an array of the associatedClass, indicated in the OnToMany class.<br>
+The ManyToOne class will contain the @ManyToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.nameOfAssociatedTable) decoratorand and with the type of column being the initialClass.
+Because the many-to-one will contain the foreign key, it will also contain the @JoinColumn decorator.
+
+#### many-to-many relationship
+A many-to-many relationsip consists of class A containing multiple class B and vice-versa.<br>
+A example of this would be students having multiple classes and classes having multiple students.
+
+Usually a cross-reference table has to be created for many-to-many relationships, TypeORM does this automatically when indicating a many-to-many in the two relational classes.<br>
+Both classes should have the @ManyToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.nameOfInitialTable) decorator and have the type of the column by an array of the associatedTable.
+
+To add a new row in a many-to-many relationship:
+classA.foreignkey = [classB1, classB2, classB3]
+
 
 ### TypeORM with NestJS
 NestJS usually uses TypeORM for connecting with a database, through the @nestjs/typeorm package.<br>
