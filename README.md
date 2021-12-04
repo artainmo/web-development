@@ -144,11 +144,14 @@ https://www.youtube.com/watch?v=S0R82Osg-Mk NestJS Crash Course 2021 - 2h15min !
 https://progressivecoder.com/nestjs-providers-with-examples-learn-nestjs-series-part-3/ !<br>
 https://docs.nestjs.com !<br>
 
-Also learn how to connect a postgresql database to NestJS???? TypeORM?<br>
+Learn how to connect a postgresql database to NestJS with TypeORM?<br>
 https://typeorm.io !<br>
 https://docs.nestjs.com/techniques/database ????<br>
 
-Also learn docker-compose??... https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de <br>
+Also learn docker and docker-compose?<br>
+https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de <br>
+
+Also learn how to use websockets with NestJS?<br>
 
 **Courses**<br>
 https://www.codecademy.com/learn/learn-html - 9h !<br>
