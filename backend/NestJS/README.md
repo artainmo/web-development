@@ -311,14 +311,13 @@ Because the many-to-one will contain the foreign key, it will also contain the @
 
 #### many-to-many relationship
 A many-to-many relationsip consists of class A containing multiple class B and vice-versa.<br>
-A example of this would be students having multiple classes and classes having multiple students.
+An example of this would be students having multiple classes and classes having multiple students.
 
 Usually a cross-reference table has to be created for many-to-many relationships, TypeORM does this automatically when indicating a many-to-many in the two relational classes.<br>
 Both classes should have the @ManyToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.nameOfInitialTable) decorator and have the type of the column by an array of the associatedTable.
 
 To add a new row in a many-to-many relationship:
 classA.foreignkey = [classB1, classB2, classB3]
-
 
 ### TypeORM with NestJS
 NestJS usually uses TypeORM for connecting with a database, through the @nestjs/typeorm package.<br>
