@@ -222,13 +222,13 @@ export class User {
     @Column()
     lastName: string;
 
-    @Column()
+    @Column({default: 18})
     age: number;
 
 }
 </pre>
 PrimaryColumn decorator is used to indicate the key column, alternatively PrimaryGeneratedColumn decorator can be used to let the id increment automatically.<br>
-Column decorator is used to indicate a single column.<br>
+Column decorator is used to indicate a single column and can contain conditions on the column as argument.<br>
 Each class attribute must be given a type.
 
 The above created table would be manipulated like this:
@@ -268,7 +268,7 @@ import { createConnection } from "typeorm";
 import { Photo } from "./entity/Photo";
 
 createConnection({
-    type: "mysql", //Other database typed such as postgresql indicated with postgres
+    type: "mysql", //Other database types such as postgresql are indicated with postgres
     host: "localhost",
     port: 3306,
     username: "root",
@@ -285,6 +285,7 @@ createConnection({
     //The connection parameter is the connection object used in the example above
 }).catch(error => console.log(error));
 </pre>
+This database connection part may be different when using NestJS...
 
 #### One-to-one relationship
 A one-to-one relationship is a relationship whereby one clumn of class A can only be associated with one column of class B and vice-versa.<br>
@@ -321,4 +322,66 @@ classA.foreignkey = [classB1, classB2, classB3]
 
 ### TypeORM with NestJS
 NestJS usually uses TypeORM for connecting with a database, through the @nestjs/typeorm package.<br>
-TypeORM integrates well with NestJS because both are written in typescript.
+TypeORM integrates well with NestJS because both are written in typescript and TypeORM is the most mature ORM in typescript.
+
+#### Integrate typeORM
+The appropriate packages are downloaded and set inside the package.json like this: `npm install @nestjs/typeorm typeorm postgres`.
+
+TypeORM can be setup inside the root app module like this:
+<pre>
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+@Module({
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432, //This is the default postgres port
+      username: 'root',
+      password: 'root',
+      database: 'test',
+      entities: [],
+      synchronize: true, //This option allows automatic synchronization of databases instead of migrations, this should be activated for production
+    }),
+  ],
+})
+export class AppModule {}
+</pre>
+The .forRoot property also supprts other configuration properties...<br>
+Files containing entities are called customName.entity.ts and they can be indicated inside the .forRoot entities array property.<br>
+The object inside .forRoot can also be set inside a file at root called ormconfig.json, this allows to call forRoot without argument.
+
+#### Use
+Once the connection is made, the Connection and EntityManager objects can be used inside modules by declaring them inside constructors.
+
+To use the repository object, whith each entity having its own repository, multiple steps have to be taken.<br>
+The entity first has to be indicated inside the .forRoot entity property array.<br>
+In a module, inside the imports array set `TypeOrmModule.forFeature([entityName, entityName2,...])`.<br>
+Inside the associated service class the respository can be declared like this:
+<pre>
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from './user.entity';
+
+@Injectable()
+export class Service {
+  constructor(
+    @InjectRepository(entityName)
+    private Repository: Repository<entityName>,
+  ) {}
+
+  findAll(): Promise<entityName[]> {
+    return this.Repository.find();
+  }
+
+  findOne(id: string): Promise<entityName> {
+    return this.Repository.findOne(id);
+  }
+
+  async remove(id: string): Promise<void> {
+    await this.Repository.delete(id);
+  }
+}
+</pre>
