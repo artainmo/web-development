@@ -140,18 +140,17 @@ https://www.youtube.com/watch?v=Oe421EPjeBE - Node.js and Express.js - Full Cour
 
 https://www.youtube.com/watch?v=qw--VYLpxG4 - PostgreSQL full course - 4h20m !<br>
 
-https://www.youtube.com/watch?v=S0R82Osg-Mk NestJS Crash Course 2021 - 2h15min !<br>
+https://www.youtube.com/watch?v=S0R82Osg-Mk - NestJS Crash Course 2021 - 2h15min !<br>
 https://progressivecoder.com/nestjs-providers-with-examples-learn-nestjs-series-part-3/ !<br>
 https://docs.nestjs.com !<br>
-
-Learn how to connect a postgresql database to NestJS with TypeORM?<br>
 https://typeorm.io !<br>
-https://docs.nestjs.com/techniques/database ????<br>
+https://docs.nestjs.com/techniques/database !<br>
+https://github.com/axios/axios <br>
+https://docs.nestjs.com/techniques/http-module <br>
+Also learn how to use websockets with NestJS?<br>
 
 Also learn docker and docker-compose?<br>
 https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de <br>
-
-Also learn how to use websockets with NestJS?<br>
 
 **Courses**<br>
 https://www.codecademy.com/learn/learn-html - 9h !<br>
