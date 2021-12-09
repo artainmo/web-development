@@ -8,6 +8,14 @@
   - [Modules](#Modules)
   - [Pipes](#Pipes)
   - [Middleware](#Middleware)
+  - [Database integration with TypeORM](#Database-integration-with-TypeORM)
+    - [TypeORM independent of NestJS](#TypeORM-independent-of-NestJS)
+      - [One-to-one relationship](#One-to-one-relationship)
+      - [one-to-many/many-to-one relationship](#one-to-many/many-to-one-relationship)
+      - [many-to-many relationship](#many-to-many-relationship)
+    - [TypeORM NestJS](#TypeORM-NestJS)
+      - [Integrate typeORM](#Integrate-typeORM)
+      - [Use](#Use) 
 
 # Free tutorials 
 Nest.js is a Node.js scalable framework built on top of express.js and TypeScript that comes with a strong opinion on how API's should be built.<br>
@@ -200,7 +208,7 @@ For being more specific in terms of routes:
 
 ## Database integration with TypeORM
 
-### TypeORM
+### TypeORM independent of NestJS
 Object–relational mapping (ORM) in computer science is a programming technique for converting data between incompatible type systems using object-oriented programming languages. This creates, in effect, a "virtual object database" that can be used from within the programming language.
 
 TypeORM is one of the most popular ORMs that works with nodeJS and is written in typescript.<br>
@@ -320,7 +328,7 @@ Both classes should have the @ManyToMany(type => nameOfAssociatedTable, nameOfAs
 To add a new row in a many-to-many relationship:
 classA.foreignkey = [classB1, classB2, classB3]
 
-### TypeORM with NestJS
+### TypeORM NestJS
 NestJS usually uses TypeORM for connecting with a database, through the @nestjs/typeorm package.<br>
 TypeORM integrates well with NestJS because both are written in typescript and TypeORM is the most mature ORM in typescript.
 
@@ -350,6 +358,7 @@ export class AppModule {}
 </pre>
 The .forRoot property also supprts other configuration properties...<br>
 Files containing entities are called customName.entity.ts and they can be indicated inside the .forRoot entities array property.<br>
+Entities can also be loaded automatically by using `dist/**/*.entity{ .ts,.js}` inside the .forRoot entities array property or by setting the .forRoot configuration property autoLoadEntities to true.
 The object inside .forRoot can also be set inside a file at root called ormconfig.json, this allows to call forRoot without argument.
 
 #### Use
@@ -357,7 +366,7 @@ Once the connection is made, the Connection and EntityManager objects can be use
 
 To use the repository object, whith each entity having its own repository, multiple steps have to be taken.<br>
 The entity first has to be indicated inside the .forRoot entity property array.<br>
-In a module, inside the imports array set `TypeOrmModule.forFeature([entityName, entityName2,...])`.<br>
+In the associated module, inside the imports array set `TypeOrmModule.forFeature([entityName, entityName2,...])`.<br>
 Inside the associated service class the respository can be declared like this:
 <pre>
 import { Injectable } from '@nestjs/common';
@@ -385,3 +394,4 @@ export class Service {
   }
 }
 </pre>
+In the above example the repository was injected in the assocated module/service, to inject it in another module/service export the associated module and import it in the module you want to use it in.
