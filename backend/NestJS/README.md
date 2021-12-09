@@ -395,3 +395,69 @@ export class Service {
 }
 </pre>
 In the above example the repository was injected in the assocated module/service, to inject it in another module/service export the associated module and import it in the module you want to use it in.
+
+## Call the NestJS API with axios
+
+### Axios independent of NestJS
+Axios is a promise-based HTTP Client for node.js and the browser.<br>
+It thus enables making HTTP requests to the created NestJS API.<br>
+In javascript the built-in fetch() is usually used to make HTTP requests, both have the same functionality but some developers prefer Axios over built-ins for its ease of use.
+
+Here is an example of how to use axios to make a get request:
+<pre>
+const axios = require('axios');
+
+// Make a request for a user with a given ID
+axios.get('/user?ID=12345')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+
+// Optionally the request above could also be done as
+axios.get('/user', {
+    params: {
+      ID: 12345
+    }
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });  
+
+// Want to use async/await? Add the `async` keyword to your outer function/method.
+async function getUser() {
+  try {
+    const response = await axios.get('/user?ID=12345');
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+}
+</pre>
+axios.get(url, configObj) is used to make get requests with the first argument describing route and second argument is a request config object.<br>
+axios(configObj), axios.post(url, configObj), axios.delete(url, configObj), axios.put(url, configObj)... Are all ways to make requests...<br>
+The config object can take as properties; method, baseURL(prepended to url), url(route), params(url query params), data(body),... see all possibilities here https://axios-http.com/docs/req_config, only the url parameter is required.
+
+Instances can be created and are axios objects with preconfigured properties:
+<pre>
+const instance = axios.create({
+  baseURL: '127.0.0.1/3000', //This is the default url when creating a NestJS app, localhost on port 3000
+  timeout: 1000,
+  headers: {'X-Custom-Header': 'foobar'}
+});
+</pre>
+
+### Axios NestJS
