@@ -11,7 +11,7 @@
   - [Database integration with TypeORM](#Database-integration-with-TypeORM)
     - [TypeORM independent of NestJS](#TypeORM-independent-of-NestJS)
       - [One-to-one relationship](#One-to-one-relationship)
-      - [one-to-many/many-to-one relationship](#one-to-many/many-to-one-relationship)
+      - [one-to-many/many-to-one relationship](#one-to-many|many-to-one-relationship)
       - [many-to-many relationship](#many-to-many-relationship)
     - [TypeORM NestJS](#TypeORM-NestJS)
       - [Integrate typeORM](#Integrate-typeORM)
@@ -310,7 +310,7 @@ JoinColumn is defined only once as only one foreign key is defined in one of the
 We can set up cascade options in our relations, in the cases when we want our related object to be saved whenever the other object is saved.<br>
 To indicate the cascade option the OneToOne() decorator has to take a third argument `{ cascade: true }`
 
-#### one-to-many/many-to-one relationship
+#### one-to-many|many-to-one relationship
 A one-to-many relationship consists of class A being able to hold multiple class B and class B would be a many-to-one relationship towards A, the one cannot exist without the other.<br>
 For example one book that can hold multiple chapters is a one-to-many relationship and multiple chapters that can only exist in one book is a many-to-one relationship.<br>
 
