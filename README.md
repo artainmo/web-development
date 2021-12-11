@@ -147,8 +147,7 @@ https://typeorm.io !<br>
 https://docs.nestjs.com/techniques/database !<br>
 https://axios-http.com/docs/intro !<br>
 https://docs.nestjs.com/techniques/http-module !<br>
-Also learn how to use websockets with NestJS?<br>
-https://www.youtube.com/watch?v=7xpLYk4q0Sg !<br>
+https://www.youtube.com/watch?v=7xpLYk4q0Sg - Chat App With Nest.js + Socket.io in 15 Minutes - 13min !<br>
 https://docs.nestjs.com/websockets/exception-filters |<br>
 
 Also learn docker and docker-compose?<br>
