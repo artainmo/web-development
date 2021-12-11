@@ -512,12 +512,12 @@ To configure the underlying Axios instance, pass an optional options object to t
 ## NestJS Websockets
 Both the ws and socket.io packages can be used to create websockets in NestJS but socket.io is the most popular.
 
-The following packages have to be downloaded like this: `@nestjs/websockets @nestjs/platform-socket.io`
+The following packages have to be downloaded on node to work with socket.io on NestJS: `@nestjs/websockets @nestjs/platform-socket.io`
 
 ### server side
 To create websockets in NestJS a gateway (a gateway is an abstraction of websocket for nestjs) has to be created, this can be generated with: `nest g gateway nameOfGateway`.<br>
-A file will be generated called nameOfGateway.gateway.ts, it will contain a class (that can be treated as a provider and thus be injected and set in module provider array) with the @WebSocketGateway decorator to indicate the class is a gateway.<br>
-The @WebSocketGateway decorator can take as argument a port, if you want to set it on a different port than the default port the server is running on, and a namespace indicated like this: `{ namespace: 'chat' }` to separate gateways, so that messages can be send to one gateway in particular.
+A file will be generated called nameOfGateway.gateway.ts, it will contain a class (that can be treated as a provider and thus be set in module provider array) with the @WebSocketGateway decorator to indicate the class is a gateway.<br>
+The @WebSocketGateway decorator can take as argument a port, if you want to set it on a different port than the default port 3000, and a namespace indicated like this: `{ namespace: 'chat' }` to separate gateways, so that messages can be send to one gateway in particular.
 
 A gateway class will contain as methods event handlers to act in a particular way on particular events, such as server init, client connection/disconnection, message received...<br>
 For a method to handle an event it has to take the @SubsribeMessage(eventName) decorator, this is an example of a method to handle message received events:
@@ -527,6 +527,8 @@ handleMessage(@MessageBody() data: string): string { //@MessageBody() directly e
   return data; //The return statements sends back a response to the client
 }
 </pre>
+Actually the server-init, connection and disconnection events have to be indicated in a particular way.<br>
+The gateway class has to implement the following: `OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect`, which will force to declare the methods to handle those events.
 
 The following property can be added to the gateway to access the server instance:
 <pre>
@@ -538,10 +540,11 @@ this.server.emit('message', messageContent) //The server instance can be used to
 
 ### client side
 In the frontend once a button is pressed an event can be called, a function could be called that interacts with the websocket.<br>
-But a function that listens to incoming messages/responses from the server side has to exist too.
+But a function that listens to incoming messages/responses from the server side has to exist too.<br>
+Those functions can be delcared in a separate directory and file named after the gateway in the frontend.
 
 <pre>
-const socket = io(linkToWebSocketAddress) //Default linkToWebSocketAddress is "http://localhost:3000"
+const socket = io(linkToWebSocketAddress); //Default linkToWebSocketAddress is "http://localhost:3000"
 
 //This function is used to make a request to the server-side
 const handleSubmitMessage = () => {
