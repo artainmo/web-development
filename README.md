@@ -148,6 +148,8 @@ https://docs.nestjs.com/techniques/database !<br>
 https://axios-http.com/docs/intro !<br>
 https://docs.nestjs.com/techniques/http-module !<br>
 Also learn how to use websockets with NestJS?<br>
+https://www.youtube.com/watch?v=7xpLYk4q0Sg !<br>
+https://docs.nestjs.com/websockets/exception-filters |<br>
 
 Also learn docker and docker-compose?<br>
 https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de <br>
