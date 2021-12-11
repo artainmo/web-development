@@ -407,6 +407,7 @@ In the above example the repository was injected in the assocated module/service
 ### Axios independent of NestJS
 Axios is a promise-based HTTP Client for node.js and the browser.<br>
 It thus enables making HTTP requests to the created NestJS API.<br>
+It can be used to for example call the NestJS API from the frontend, this would be done inside functions declared in files in a separate API directory in the frontend.
 In javascript the built-in fetch() is usually used to make HTTP requests, both have the same functionality but some developers prefer Axios over built-ins for its ease of use.
 
 Here is an example of how to use axios to make a get request:
