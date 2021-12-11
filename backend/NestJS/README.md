@@ -19,7 +19,9 @@
   - [Call the NestJS API with axios](#Call-the-NestJS-API-with-axios)
     - [Axios independent of NestJS](#Axios-independent-of-NestJS)
     - [Axios NestJS](#Axios-NestJS)
-
+  - [NestJS-Websockets](#NestJS-Websockets)
+    - [Server side](#Server-side)
+    - [Client side](#Client-side)
 
 # Free tutorials 
 Nest.js is a Node.js scalable framework built on top of express.js and TypeScript that comes with a strong opinion on how API's should be built.<br>
