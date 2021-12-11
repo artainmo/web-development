@@ -16,6 +16,10 @@
     - [TypeORM NestJS](#TypeORM-NestJS)
       - [Integrate typeORM](#Integrate-typeORM)
       - [Use](#Use) 
+  - [Call the NestJS API with axios](#Call-the-NestJS-API-with-axios)
+    - [Axios independent of NestJS](#Axios-independent-of-NestJS)
+    - [Axios NestJS](#Axios-NestJS)
+
 
 # Free tutorials 
 Nest.js is a Node.js scalable framework built on top of express.js and TypeScript that comes with a strong opinion on how API's should be built.<br>
@@ -486,4 +490,21 @@ Interceptors can also be removed with .eject(interceptor name).
 Axios supports AbortController to cancel requests.
 
 ### Axios NestJS
+Nest wraps Axios and exposes it via the built-in HttpModule. The HttpModule exports the HttpService class, which exposes Axios-based methods to perform HTTP requests.
 
+Axios within NestJS has to be installed like this: `npm install @nestjs/axios`.
+
+HttpModule has to be imported inside a module within the module import array.<br>
+Next the HttpService has to be injected inside the module's associated service like this:
+<pre>
+@Injectable()
+export class CatsService {
+  constructor(private httpService: HttpService) {} //Inject HttpService inside the constructor to be able to access the Axios methods...
+
+  findAll(): Observable<AxiosResponse<Cat[]>> {
+    return this.httpService.get('http://localhost:3000/cats');
+  }
+}
+</pre>
+
+To configure the underlying Axios instance, pass an optional options object to the register() method of HttpModule when importing it.<br>
