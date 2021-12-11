@@ -460,4 +460,30 @@ const instance = axios.create({
 });
 </pre>
 
+The response object can be accessed as follows:
+<pre>
+axios.get('/user/12345')
+  .then((response) => {
+    console.log(response.data); //Response provided by the server
+    console.log(response.status); //HTTP status code
+    console.log(response.statusText);
+    console.log(response.headers); //HTTP headers
+    console.log(response.config); //The axios config provided for the request
+  });
+</pre>
+Errors can be catched with .catch((error)=>{console.log(error.toJSON());}) or with intercepts.
+
+Defaults can be configured that are applicable to every request.<br>
+<pre>
+axios.defaults.baseURL = 'https://api.example.com';
+axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+</pre>
+
+With interceptors (axios.interceptors.request axios.interceptors.response) one can intercept responses or requests before they are handled by .then or .catch.<br>
+Interceptors can also be removed with .eject(interceptor name).
+
+Axios supports AbortController to cancel requests.
+
 ### Axios NestJS
+
