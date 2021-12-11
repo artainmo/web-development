@@ -320,7 +320,7 @@ To indicate the cascade option the OneToOne() decorator has to take a third argu
 A one-to-many relationship consists of class A being able to hold multiple class B and class B would be a many-to-one relationship towards A, the one cannot exist without the other.<br>
 For example one book that can hold multiple chapters is a one-to-many relationship and multiple chapters that can only exist in one book is a many-to-one relationship.<br>
 
-It is created with the @OneToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.nameOfInitialTable) decorator and with the type of column being an array of the associatedClass, indicated in the OnToMany class.<br>
+It is created with the @OneToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.nameOfInitialTable) decorator and with the type of column being an array of the associatedClass, indicated in the OneToMany class.<br>
 The ManyToOne class will contain the @ManyToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.nameOfAssociatedTable) decoratorand and with the type of column being the initialClass.
 Because the many-to-one will contain the foreign key, it will also contain the @JoinColumn decorator.
 
@@ -329,7 +329,7 @@ A many-to-many relationsip consists of class A containing multiple class B and v
 An example of this would be students having multiple classes and classes having multiple students.
 
 Usually a cross-reference table has to be created for many-to-many relationships, TypeORM does this automatically when indicating a many-to-many in the two relational classes.<br>
-Both classes should have the @ManyToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.nameOfInitialTable) decorator and have the type of the column by an array of the associatedTable.
+Both classes should have the @ManyToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.nameOfInitialTable) decorator and have the type of the column be an array of the associatedTable.
 
 To add a new row in a many-to-many relationship:
 classA.foreignkey = [classB1, classB2, classB3]
@@ -356,7 +356,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       password: 'root',
       database: 'test',
       entities: [],
-      synchronize: true, //This option allows automatic synchronization of databases instead of migrations, this should be activated for production
+      synchronize: true, //This option allows automatic synchronization of databases instead of migrations, this should not be activated for production
     }),
   ],
 })
@@ -372,7 +372,7 @@ Once the connection is made, the Connection and EntityManager objects can be use
 
 To use the repository object, whith each entity having its own repository, multiple steps have to be taken.<br>
 The entity first has to be indicated inside the .forRoot entity property array.<br>
-In the associated module, inside the imports array set `TypeOrmModule.forFeature([entityName, entityName2,...])`.<br>
+In the applicable module, inside the imports array set `TypeOrmModule.forFeature([entityName, entityName2,...])`.<br>
 Inside the associated service class the respository can be declared like this:
 <pre>
 import { Injectable } from '@nestjs/common';
@@ -400,14 +400,14 @@ export class Service {
   }
 }
 </pre>
-In the above example the repository was injected in the assocated module/service, to inject it in another module/service export the associated module and import it in the module you want to use it in.
+In the above example the repository was injected in the module's associated service, to inject it in another module/service export the associated module and import it in the module you want to use it in.
 
 ## Call the NestJS API with axios
 
 ### Axios independent of NestJS
 Axios is a promise-based HTTP Client for node.js and the browser.<br>
 It thus enables making HTTP requests to the created NestJS API.<br>
-It can be used to for example call the NestJS API from the frontend, this would be done inside functions declared in files in a separate API directory in the frontend.
+It can be used to for example call the NestJS API from the frontend, this would be done inside functions declared in files in a separate API directory in the frontend.<br>
 In javascript the built-in fetch() is usually used to make HTTP requests, both have the same functionality but some developers prefer Axios over built-ins for its ease of use.
 
 Here is an example of how to use axios to make a get request:
@@ -538,13 +538,13 @@ The following property can be added to the gateway to access the server instance
 @WebSocketServer()
 server: Server;
 
-this.server.emit('message', messageContent) //The server instance can be used to broadcast to all clients active on a broadcast
+this.server.emit('message', messageContent) //The server instance can be used to broadcast to all clients active on the gateway
 </pre>
 
 ### client side
 In the frontend once a button is pressed an event can be called, a function could be called that interacts with the websocket.<br>
 But a function that listens to incoming messages/responses from the server side has to exist too.<br>
-Those functions can be delcared in a separate directory and file named after the gateway in the frontend.
+Those functions can be delcared in a separate directory from the front-end render code, named after the appropriate gateway.
 
 <pre>
 const socket = io(linkToWebSocketAddress); //Default linkToWebSocketAddress is "http://localhost:3000"
