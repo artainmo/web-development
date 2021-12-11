@@ -145,7 +145,7 @@ https://progressivecoder.com/nestjs-providers-with-examples-learn-nestjs-series-
 https://docs.nestjs.com !<br>
 https://typeorm.io !<br>
 https://docs.nestjs.com/techniques/database !<br>
-https://axios-http.com/docs/intro <br>
+https://axios-http.com/docs/intro !<br>
 https://docs.nestjs.com/techniques/http-module <br>
 Also learn how to use websockets with NestJS?<br>
 
