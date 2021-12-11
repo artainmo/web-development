@@ -508,3 +508,49 @@ export class CatsService {
 </pre>
 
 To configure the underlying Axios instance, pass an optional options object to the register() method of HttpModule when importing it.<br>
+
+## NestJS Websockets
+Both the ws and socket.io packages can be used to create websockets in NestJS but socket.io is the most popular.
+
+The following packages have to be downloaded like this: `@nestjs/websockets @nestjs/platform-socket.io`
+
+### server side
+To create websockets in NestJS a gateway (a gateway is an abstraction of websocket for nestjs) has to be created, this can be generated with: `nest g gateway nameOfGateway`.<br>
+A file will be generated called nameOfGateway.gateway.ts, it will contain a class (that can be treated as a provider and thus be injected and set in module provider array) with the @WebSocketGateway decorator to indicate the class is a gateway.<br>
+The @WebSocketGateway decorator can take as argument a port, if you want to set it on a different port than the default port the server is running on, and a namespace indicated like this: `{ namespace: 'chat' }` to separate gateways, so that messages can be send to one gateway in particular.
+
+A gateway class will contain as methods event handlers to act in a particular way on particular events, such as server init, client connection/disconnection, message received...<br>
+For a method to handle an event it has to take the @SubsribeMessage(eventName) decorator, this is an example of a method to handle message received events:
+<pre>
+@SubscribeMessage('message') //The eventName can be of choice but has to be in accordance with client-side which has to specify the event it wants to call
+handleMessage(@MessageBody() data: string): string { //@MessageBody() directly extract the message content into a string (data property of request)
+  return data; //The return statements sends back a response to the client
+}
+</pre>
+
+The following property can be added to the gateway to access the server instance:
+<pre>
+@WebSocketServer()
+server: Server;
+
+this.server.emit('message', messageContent) //The server instance can be used to broadcast to all clients active on a broadcast
+</pre>
+
+### client side
+In the frontend once a button is pressed an event can be called, a function could be called that interacts with the websocket.<br>
+But a function that listens to incoming messages/responses from the server side has to exist too.
+
+<pre>
+const socket = io(linkToWebSocketAddress) //Default linkToWebSocketAddress is "http://localhost:3000"
+
+//This function is used to make a request to the server-side
+const handleSubmitMessage = () => {
+  socket.emit('message', { data: 'Hello World' }) //'message' refers to event declared on server-side to handle messages
+}
+
+//This callback function is used to listen/receive the responses from the server-side
+socket.on('message', (res) => {  //'message' refers to event declared on server-side to handle messages
+  //Inside here another function can be called to render new HTML for example
+});
+
+</pre>
