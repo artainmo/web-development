@@ -111,8 +111,7 @@ Nest.js is a Node.js framework built on top of express.js and TypeScript that co
 PostgreSQL is a commonly used and advanced database-management-system, used to store and retrieve data. 
 
 ## Learning materials
-! -> consumed<br>
-| -> partly consumed
+! -> consumed as needed<br>
 
 **Books**<br>
 Javascript: The good parts - O'Reilly !
@@ -128,9 +127,9 @@ https://www.youtube.com/watch?v=dOnAC2Rr-6A - Javascript full course for beginne
 https://www.youtube.com/watch?v=PkZNo7MFNFg - Learn JavaScript - Full Course for Beginners - 3h26m !<br>
 https://www.youtube.com/watch?v=DHvZLI7Db8E - Javascript promises - 11m !<br>
 https://www.youtube.com/watch?v=V_Kr9OSfDeU&t=0s - JavaScript Async Await - 7m !<br>
-https://www.youtube.com/watch?v=cuEtnrL9-H0 - Fetch API - 6m |<br>
+https://www.youtube.com/watch?v=cuEtnrL9-H0 - Fetch API - 6m !<br>
 
-https://www.youtube.com/watch?v=hQAHSlTtcmY - Learn React In 30 Minutes - 27m |<br>
+https://www.youtube.com/watch?v=hQAHSlTtcmY - Learn React In 30 Minutes - 27m !<br>
 https://www.youtube.com/watch?v=MRIMT0xPXFI - Learn React in 5min (2020) - 5m !<br>
 https://www.youtube.com/watch?v=w7ejDZ8SWv8 - React JS Crash Course 2021 - 1h48m !<br>
 https://www.youtube.com/watch?v=vyJU9efvUtQ - Material UI React Tutorial - 42m !<br>
@@ -148,9 +147,8 @@ https://docs.nestjs.com/techniques/database !<br>
 https://axios-http.com/docs/intro !<br>
 https://docs.nestjs.com/techniques/http-module !<br>
 https://www.youtube.com/watch?v=7xpLYk4q0Sg - Chat App With Nest.js + Socket.io in 15 Minutes - 13min !<br>
-https://docs.nestjs.com/websockets/exception-filters |<br>
+https://docs.nestjs.com/websockets/exception-filters !<br>
 
-Also learn docker and docker-compose?<br>
 https://faun.pub/whats-docker-and-how-to-start-with-it-b13ff51013d0 !<br>
 https://wkrzywiec.medium.com/how-to-put-your-java-application-into-docker-container-5e0a02acdd6b ! <br>
 https://nodejs.org/en/docs/guides/nodejs-docker-webapp/ ! <br>
