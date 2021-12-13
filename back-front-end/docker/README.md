@@ -81,4 +81,36 @@ The app structure looks like this, at application root the docker-compose.yml an
 To start the app and run all containers, the following command has to be run at application root:`docker-compose up`, the -d flag will launch in background and --force-recreate will stop old containers before creating new ones.<br>
 `docker-compose down` stops the containers launched by docker-compose, `--rmi all` will also remove all containers and images.
 
+Here is an example of a dockor-compose.yml for database, backend and frontend micro-services in one application called kanban:
+<pre>
+version: '3.8' #This indicates the version of the docker-compose file, the latest one is at the moment of writing 3.8
+services: #After this all the micro-services can be defined
 
+  kanban-postgres: #This is the first service name, that denotes a postgresql database
+    image: "postgres:9.6-alpine" #This denotes the non-local image the container will use from https://hub.docker.com/
+    container_name: kanban-postgres #Specifies the name of the outcome container
+    ports:
+      - 5432:5432 #This defines the local-machine-port:container-port
+    environment: #Here environment variables can be declared for inside the container, postgresql needs specific variables to configure itself
+      - POSTGRES_DB:kanban
+      - POSTGRES_USER:kanban
+      - POSTGRES_PASSWORD:kanban
+
+  kanban-app: #This is the second micro-service and refers to the backend of the application
+    build: ./kanban-app #build is used to build an image from a local dockerfile instead of using an already made image, its argument refers to dockerfile path
+    container_name: kanban-app #Specifies the name of the outcome container
+    environment: #Environment variables can be set to enable connection with the postgresql database by using them in the source-code
+      - DB_SERVER=kanban-postgres
+    ports:
+      - 8080:8080 #This defines the local-machine-port:container-port
+    depends_on:
+      - kanban-postgres #This indicates that kanban-app is dependent upon kanban-postgres and thus kanban-app should only be started after kanban-postgres
+
+  kanban-ui: #This is the third micro-service and refers to the frontend of the application
+    build: ./kanban-ui #build is used to build an image from a local dockerfile instead of using an already made image, its argument refers to dockerfile path
+    container_name: kanban-ui #Specifies the name of the outcome container
+    ports: #This defines the local-machine-port:container-port
+      - 4200:80
+    depends_on:
+      - kanban-app #This indicates that kanban-ui is dependent upon kanban-app and thus kanban-ui should only be started after kanban-app
+</pre>
