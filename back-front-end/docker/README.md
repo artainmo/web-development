@@ -35,19 +35,41 @@ To create an image one has to create a Dockerfile at the root of the application
 
 Dockerfile example for a java application:
 <pre>
-FROM java:8-jdk-alpine //This line tells docker our image will contain the java:8-jdk-alpine image as dependency
+#dockerfile comments start with #
+FROM java:8-jdk-alpine #This line tells docker our image will contain the java:8-jdk-alpine image as dependency
 
-COPY ./build/libs/nasapicture-0.0.1-SNAPSHOT.war /usr/app/ //This line copies from local machine into container
+COPY ./build/libs/nasapicture-0.0.1-SNAPSHOT.war /usr/app/ #This line copies from local machine into container
 
-WORKDIR /usr/app //This sets the following path as root, all following docker commands will be launched starting from this path 
+WORKDIR /usr/app #This sets the following path as root, all following docker commands will be launched starting from this path 
 
-EXPOSE 8080 //The EXPOSE instruction indicates the ports on which a container listens for connections.
+EXPOSE 8080 #The EXPOSE instruction indicates the ports on which a container listens for connections
 
-ENTRYPOINT ["java", "-jar", "nasapicture-0.0.1-SNAPSHOT.war"] //The last command launches/runs the application
+ENTRYPOINT ["java", "-jar", "nasapicture-0.0.1-SNAPSHOT.war"] #The last command launches/runs the application
 </pre>
 
 To build the image from the dockerfile a command is used: `docker build -t nameImage pathToDockerfile`
 
-Once the image is created a container can be run based on this image with: `docker run --name containerName -i -d -p 3030:8080 imageName`.
+Once the image is created a container can be run based on this image with: `docker run --name containerName -i -d -p 3030:8080 imageName`.<br>
+The application will run on local machine on http://localhost:3030/.
+
+Dockerfile example for a nodejs application:
+<pre>
+FROM node:16 #node is a nodejs image from dockerhub and 16 indicates its latest version, our image will use the node image as dependency
+
+WORKDIR /usr/src/app #We create the root directoy of our application
+
+# package.json and package-lock.json hold the node application packages/dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied inside the container
+COPY package*.json ./
+
+RUN npm install # Install the dependencies inside the container from package.json to generate package-lock.json if it does not exist yet
+
+COPY . . # Bring all the source code inside the container
+
+EXPOSE 8080 #The EXPOSE instruction indicates the ports on which a container listens for connections
+
+CMD [ "node", "server.js" ] #Launches/runs the application
+</pre>
+
 
 ## Docker compose
