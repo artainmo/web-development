@@ -68,7 +68,7 @@ COPY . . # Bring all the source code inside the container
 
 EXPOSE 8080 #The EXPOSE instruction indicates the ports on which a container listens for connections
 
-CMD [ "node", "server.js" ] #Launches/runs the application
+CMD ["npm", "run", "start:dev"] #Launches/runs the application
 </pre>
 
 
@@ -113,4 +113,61 @@ services: #After this all the micro-services can be defined
       - 4200:80
     depends_on:
       - kanban-app #This indicates that kanban-ui is dependent upon kanban-app and thus kanban-ui should only be started after kanban-app
+</pre>
+
+### Use docker compose for NestJS with TypeORM and PostgreSQL
+To hide secret keys it is good practice to use a .env file, and set .env in .gitignore to avoid pushing it to a public repository.<br>
+The .env file should contain the following environment variables for a PostgreSQL database:
+<pre>
+DB_TYPE=postgres
+POSTGRES_HOST=postgres-db
+POSTGRES_PORT=5432
+DATABASE_USER=postgres
+DATABASE_PASSWORD=postgres
+DB_NAME=tododb
+</pre>
+
+The local-machine-environment-variables will be usable inside the docker-compose.yml file:
+<pre>
+version: '3'
+services: 
+  db:
+    image: postgres
+    environment: #Set the container-environment-variables without exposing secret keys and let PostgreSQL configure itself
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    container_name: postgres-db
+
+  nestjs:
+    build: . #An image will be created from a local dockerfile, the dockerfile created above as an example for a nodejs application could be used
+    environment: #Set the container-environment-variables without exposing secret keys, those will be used inside the TypeORM configuration
+      - DB_TYPE=${DB_TYPE}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    ports: 
+      - "8080:8080"
+    container_name: nest-todo-app-be
+    depends_on: 
+      - db # back-ends are always dependent on their database (and frontends are often dependent on their backend)
+</pre>
+
+The typeorm.config.ts file could be changed like this to use the set environment variables:
+<pre>
+import { TypeOrmModuleOptions } from "@nestjs/typeorm";
+
+const typeOrmConfig: TypeOrmModuleOptions = {
+    type: 'postgres',
+    host: process.env.POSTGRES_HOST || 'postgres-db',
+    port: process.env.POSTGRES_PORT || 5432,
+    username: process.env.DB_USERNAME || 'postgres',
+    password: process.env.DB_PASSWORD || 'postgres',
+    database: process.env.POSTGRES_DB || 'tododb',
+    entities: [__dirname + '/**/*.entity{.ts,.js}']
+}
+
+export = typeOrmConfig
 </pre>
