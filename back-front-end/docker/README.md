@@ -73,3 +73,12 @@ CMD [ "node", "server.js" ] #Launches/runs the application
 
 
 ## Docker compose
+When dividing an application into multiple micro-services, each micro-service will have own docker container.<br>
+Instead of launching each container separately, all the containers can be launched in one command with docker-compose.
+
+The app structure looks like this, at application root the docker-compose.yml and potentially in each micro-service root its dedicated dockerfile (if image is not created locally dockerfile is not necessary).<br>
+
+To start the app and run all containers, the following command has to be run at application root:`docker-compose up`, the -d flag will launch in background and --force-recreate will stop old containers before creating new ones.<br>
+`docker-compose down` stops the containers launched by docker-compose, `--rmi all` will also remove all containers and images.
+
+
