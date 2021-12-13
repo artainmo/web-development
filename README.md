@@ -151,6 +151,7 @@ https://www.youtube.com/watch?v=7xpLYk4q0Sg - Chat App With Nest.js + Socket.io 
 https://docs.nestjs.com/websockets/exception-filters |<br>
 
 Also learn docker and docker-compose?<br>
+https://faun.pub/whats-docker-and-how-to-start-with-it-b13ff51013d0 !<br>
 https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de <br>
 
 **Courses**<br>
