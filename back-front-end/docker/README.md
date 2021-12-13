@@ -31,6 +31,23 @@ Docker client is a terminal/command-line-application that can be used to communi
 `docker rmi imageName` can be used to remove images, $(docker images -q) as imageName refers to all images.
 
 ## Create an image
+To create an image one has to create a Dockerfile at the root of the application, a Dockerfile is a file named Dockerfile that contains docker commands to create an image.
 
+Dockerfile example for a java application:
+<pre>
+FROM java:8-jdk-alpine //This line tells docker our image will contain the java:8-jdk-alpine image as dependency
+
+COPY ./build/libs/nasapicture-0.0.1-SNAPSHOT.war /usr/app/ //This line copies from local machine into container
+
+WORKDIR /usr/app //This sets the following path as root, all following docker commands will be launched starting from this path 
+
+EXPOSE 8080 //The EXPOSE instruction indicates the ports on which a container listens for connections.
+
+ENTRYPOINT ["java", "-jar", "nasapicture-0.0.1-SNAPSHOT.war"] //The last command launches/runs the application
+</pre>
+
+To build the image from the dockerfile a command is used: `docker build -t nameImage pathToDockerfile`
+
+Once the image is created a container can be run based on this image with: `docker run --name containerName -i -d -p 3030:8080 imageName`.
 
 ## Docker compose
