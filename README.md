@@ -155,7 +155,7 @@ https://faun.pub/whats-docker-and-how-to-start-with-it-b13ff51013d0 !<br>
 https://wkrzywiec.medium.com/how-to-put-your-java-application-into-docker-container-5e0a02acdd6b ! <br>
 https://nodejs.org/en/docs/guides/nodejs-docker-webapp/ ! <br>
 https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de ! <br>
-
+https://tushar-chy.medium.com/a-simple-todo-application-with-nestjs-typeorm-postgresql-swagger-pgadmin4-jwt-and-docker-caa2742a4295 !
 
 **Courses**<br>
 https://www.codecademy.com/learn/learn-html - 9h !<br>
