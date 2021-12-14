@@ -77,7 +77,7 @@ The route syntax is similar as in Express<br>
 The param decorator is able to extract certain params from the HTTP query-params and the body decorator from the HTTP body.<br>
 
 The above example is missing the correct function returns of course and type specification of the body and function returns... Because those are custom types or classes, usually declared in a routeName.dto.ts file.<br>
-DTO stands for data transfer object, and practically refers to custum types declared as classes, they define for API users how requests (for example the body) should look like, but also how the response will look like.
+DTO stands for data transfer object, and practically refers to custum types declared as classes, they define for API users how requests (for example the body) should look like, but also how the response will look like (for example the function return).
 
 ## Providers
 Typically a controller should only handle the HTTP requests and should delegate response contruction tasks (DB query, Calling another API etc. ) to the providers.<br>
