@@ -39,7 +39,7 @@ View a complete example in NestJS-exercise/src.
 `npm i -g @nestjs/cli` is used to install the nest command line interface.<br>
 `nest -v` can be used to view nest version installed.<br>
 `nest new projectName` is used to create a nestjs backend boilerplate.<br>
-main.ts bootstraps the application and defines its port, app.module.ts is the root of the application, app.controller.spec.ts is a test file, other files are not mandatory for the app to run.
+main.ts bootstraps the application and defines its port, app.module.ts is the root of the application, app.controller.spec.ts is a test file, the last mentioned file and the other files are not mandatory for the app to run.
 
 ## Controllers
 A controller handles http requests, it accepts them and sends back a response.<br>
