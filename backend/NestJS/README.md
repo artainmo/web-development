@@ -45,7 +45,7 @@ main.ts bootstraps the application and defines its port, app.module.ts is the ro
 A controller handles http requests, it accepts them and sends back a response.<br>
 One application can have multiple controllers, similarly to how an express backend can have different routes.<br>
 One file usually refers to one route and is named after it like this: routeName.controller.ts.<br>
-`next g controller nameController --no-spec` this CLI command creates a boilerplate controller for specified name, the no-spec flag prevents creation of testing files.<br>
+`nest g controller nameController --no-spec` this CLI command creates a boilerplate controller for specified name, the no-spec flag prevents creation of testing files.<br>
 Specify a controller for a /students route for example like this:
 <pre>
 import { Controller, Get, Post, Put, Param, Body } from '@nestjs/common';
