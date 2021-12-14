@@ -41,6 +41,8 @@ View a complete example in NestJS-exercise/src.
 `nest new projectName` is used to create a nestjs backend boilerplate.<br>
 main.ts bootstraps the application and defines its port, app.module.ts is the root of the application, app.controller.spec.ts is a test file, the last mentioned file and the other files are not mandatory for the app to run.
 
+To create a new resource without test files which consists of an associated module, service, controller, DTO and entity use `nest g resource resourceName --no-spec`.
+
 ## Controllers
 A controller handles http requests, it accepts them and sends back a response.<br>
 One application can have multiple controllers, similarly to how an express backend can have different routes.<br>
