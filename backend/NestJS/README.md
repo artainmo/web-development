@@ -310,7 +310,7 @@ When inserting a column with a one-to-one relationship tableA.foreignKeyName = t
 
 By creating one foreign key in one of the two tables as explained above we only have a unidirectional one-to-one relationship, TypeORM also allows to make this a bidirectional relationship, meaning class A has access to class B, but class B can also have access to class A.<br>
 The initial @OneToOne has to add a second parameter: @OneToOne(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.foreignKey), whereby  nameOfAssociatedTable => nameOfAssociatedTable.tableName refers to the name of the inverse side of the relation.<br>
-And inside the associated table @OneToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.nameOfAssociatedTable).<br>
+And inside the associated table @OneToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.foreignKey).<br>
 JoinColumn is defined only once as only one foreign key is defined in one of the two tables.
 
 We can set up cascade options in our relations, in the cases when we want our related object to be saved whenever the other object is saved.<br>
