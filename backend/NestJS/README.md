@@ -309,7 +309,7 @@ Inside the entitiy class it is indicated with, instead of @Column, @OneToOne(typ
 When inserting a column with a one-to-one relationship tableA.foreignKeyName = tableBColumn.
 
 By creating one foreign key in one of the two tables as explained above we only have a unidirectional one-to-one relationship, TypeORM also allows to make this a bidirectional relationship, meaning class A has access to class B, but class B can also have access to class A.<br>
-The initial @OneToOne has to add a second parameter: @OneToOne(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.nameOfInitialTable), whereby  nameOfAssociatedTable => nameOfAssociatedTable.tableName refers to the name of the inverse side of the relation.<br>
+The initial @OneToOne has to add a second parameter: @OneToOne(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.foreignKey), whereby  nameOfAssociatedTable => nameOfAssociatedTable.tableName refers to the name of the inverse side of the relation.<br>
 And inside the associated table @OneToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.nameOfAssociatedTable).<br>
 JoinColumn is defined only once as only one foreign key is defined in one of the two tables.
 
@@ -320,8 +320,8 @@ To indicate the cascade option the OneToOne() decorator has to take a third argu
 A one-to-many relationship consists of class A being able to hold multiple class B and class B would be a many-to-one relationship towards A, the one cannot exist without the other.<br>
 For example one book that can hold multiple chapters is a one-to-many relationship and multiple chapters that can only exist in one book is a many-to-one relationship.<br>
 
-It is created with the @OneToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.nameOfInitialTable) decorator and with the type of column being an array of the associatedClass, indicated in the OneToMany class.<br>
-The ManyToOne class will contain the @ManyToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.nameOfAssociatedTable) decoratorand and with the type of column being the initialClass.
+It is created with the @OneToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.foreignKey) decorator and with the type of column being an array of the associatedClass, indicated in the OneToMany class.<br>
+The ManyToOne class will contain the @ManyToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.foreignKey) decoratorand and with the type of column being the initialClass.
 Because the many-to-one will contain the foreign key, it will also contain the @JoinColumn decorator.
 
 #### many-to-many relationship
@@ -329,7 +329,7 @@ A many-to-many relationsip consists of class A containing multiple class B and v
 An example of this would be students having multiple classes and classes having multiple students.
 
 Usually a cross-reference table has to be created for many-to-many relationships, TypeORM does this automatically when indicating a many-to-many in the two relational classes.<br>
-Both classes should have the @ManyToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.nameOfInitialTable) decorator and have the type of the column be an array of the associatedTable.
+Both classes should have the @ManyToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.foreignKey) decorator and have the type of the column be an array of the associatedTable.
 
 To add a new row in a many-to-many relationship:
 classA.foreignkey = [classB1, classB2, classB3]
