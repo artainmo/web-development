@@ -22,7 +22,7 @@
   - [NestJS Websockets](#NestJS-Websockets)
     - [Server side](#Server-side)
     - [Client side](#Client-side)
-      - [React socket.io implementation](#React-socket.io-implementation) 
+      - [React socket implementation](#React-socket-implementation) 
 
 # Free tutorials 
 Nest.js is a Node.js scalable framework built on top of express.js and TypeScript that comes with a strong opinion on how API's should be built.<br>
@@ -582,7 +582,7 @@ socket.on('message', (res) => {  //'message' refers to event declared on server-
 
 </pre>
 
-#### React socket.io implementation
+#### React socket implementation
 
 Install with: `npm install socket.io-client`
 
