@@ -602,9 +602,9 @@ function App() {
   }, []);
 
   return (
-    <p>
-      It's <time dateTime={response}>{response}</time>
-    </p>
+    &ltp&gt
+      It's &lttime dateTime={response}&gt{response}&lt/time&gt
+    &lt/p&gt
   );
 }
 
