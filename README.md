@@ -147,7 +147,7 @@ https://docs.nestjs.com/techniques/database !<br>
 https://axios-http.com/docs/intro !<br>
 https://docs.nestjs.com/techniques/http-module !<br>
 https://www.youtube.com/watch?v=7xpLYk4q0Sg - Chat App With Nest.js + Socket.io in 15 Minutes - 13min !<br>
-https://docs.nestjs.com/websockets/exception-filters !<br>
+https://docs.nestjs.com/websockets/gateways !<br>
 
 https://faun.pub/whats-docker-and-how-to-start-with-it-b13ff51013d0 !<br>
 https://wkrzywiec.medium.com/how-to-put-your-java-application-into-docker-container-5e0a02acdd6b ! <br>
