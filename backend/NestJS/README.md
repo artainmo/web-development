@@ -378,27 +378,45 @@ In the applicable module, inside the imports array set `TypeOrmModule.forFeature
 Inside the associated service class the respository can be declared like this:
 <pre>
 import { Injectable } from '@nestjs/common';
+import { Todo } from './todo.entity';
+import { Repository, DeleteResult } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { User } from './user.entity';
+import { CreateTodoDto } from './todos.dto';
 
 @Injectable()
-export class Service {
+export class TodosService {
   constructor(
-    @InjectRepository(entityName)
-    private Repository: Repository<entityName>,
+    @InjectRepository(Todo)
+    private readonly todoRepository: Repository<Todo>,
   ) {}
 
-  findAll(): Promise<entityName[]> {
-    return this.Repository.find();
+  public async findAll(): Promise<Todo[]> {
+    return await this.todoRepository.find();
   }
 
-  findOne(id: string): Promise<entityName> {
-    return this.Repository.findOne(id);
+  public async findById(id: number): Promise<Todo | null> {
+    return await this.todoRepository.findOneOrFail(id);
   }
 
-  async remove(id: string): Promise<void> {
-    await this.Repository.delete(id);
+  public async create(todo: CreateTodoDto): Promise<Todo> {
+    return await this.todoRepository.save(todo);
+  }
+
+  public async update(
+    id: number,
+    newValue: CreateTodoDto,
+  ): Promise<Todo | null> {
+    const todo = await this.todoRepository.findOneOrFail(id);
+    if (!todo.id) {
+      // tslint:disable-next-line:no-console
+      console.error("Todo doesn't exist");
+    }
+    await this.todoRepository.update(id, newValue);
+    return await this.todoRepository.findOne(id);
+  }
+
+  public async delete(id: number): Promise<DeleteResult> {
+    return await this.todoRepository.delete(id);
   }
 }
 </pre>
