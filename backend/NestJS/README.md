@@ -594,11 +594,12 @@ const ENDPOINT = "http://127.0.0.1:80";
 function App() {
   const [response, setResponse] = useState("");
 
-  useEffect(() => { //UseEffect with [] as second parameter is a only called once when objects mounts (and to avoid memory leak the client should disconnect when unmounting??)
+  useEffect(() => { //UseEffect with [] as second parameter is only called once when component mounts, we thus call socket.on once which will listen to incoming messages from the backend
     const socket = socketIOClient(ENDPOINT);
     socket.on("message", data => {
       setResponse(data);
     });
+    return socket.disconnect(); //The return statement content is executed when component unmounts, here we close the socket connection once the component unmounts 
   }, []);
 
   return (
@@ -610,5 +611,5 @@ function App() {
 
 export default App;
 </pre>
-Thus in React socket.on should be called from a useEffect() that only is called once at mounting of the component.<br>
+Thus in React, socket.on should be called from a useEffect() that only is called once at mounting of the component and that disconnects the socket when unmounting.<br>
 socket.on could be declared inside another function and a socket.emit too, both functions could be declared inside a separate gateway/name.gateway.js file.<br>
