@@ -22,6 +22,7 @@
   - [NestJS Websockets](#NestJS-Websockets)
     - [Server side](#Server-side)
     - [Client side](#Client-side)
+      - [React socket.io implementation](#React-socket.io-implementation) 
 
 # Free tutorials 
 Nest.js is a Node.js scalable framework built on top of express.js and TypeScript that comes with a strong opinion on how API's should be built.<br>
@@ -540,7 +541,7 @@ The following packages have to be downloaded on node to work with socket.io on N
 ### server side
 To create websockets in NestJS a gateway (a gateway is an abstraction of websocket for nestjs) has to be created, this can be generated with: `nest g gateway nameOfGateway`.<br>
 A file will be generated called nameOfGateway.gateway.ts, it will contain a class (that can be treated as a provider and thus be set in module provider array) with the @WebSocketGateway decorator to indicate the class is a gateway.<br>
-The @WebSocketGateway decorator can take as argument a port, if you want to set it on a different port than the default port 3000, and a namespace indicated like this: `{ namespace: 'chat' }` to separate gateways, so that messages can be send to one gateway in particular.
+The @WebSocketGateway decorator can take as argument a port, if you want to set it on a different port than the default port 3000 (usually port 80 is used), and a namespace indicated like this: `{ namespace: 'chat' }` to separate gateways, so that messages can be send to one gateway in particular.
 
 A gateway class will contain as methods event handlers to act in a particular way on particular events, such as server init, client connection/disconnection, message received...<br>
 For a method to handle an event it has to take the @SubsribeMessage(eventName) decorator, this is an example of a method to handle message received events:
@@ -567,7 +568,7 @@ But a function that listens to incoming messages/responses from the server side 
 Those functions can be delcared in a separate directory from the front-end render code, named after the appropriate gateway.
 
 <pre>
-const socket = io(linkToWebSocketAddress); //Default linkToWebSocketAddress is "http://localhost:3000"
+const socket = io(linkToWebSocketAddress); //Default linkToWebSocketAddress is "http://localhost:3000", a namespace can be called with /namespaceName appended to it
 
 //This function is used to make a request to the server-side
 const handleSubmitMessage = () => {
@@ -580,3 +581,34 @@ socket.on('message', (res) => {  //'message' refers to event declared on server-
 });
 
 </pre>
+
+#### React socket.io implementation
+
+Install with: `npm install socket.io-client`
+
+<pre>
+import React, { useState, useEffect } from "react";
+import socketIOClient from "socket.io-client";
+const ENDPOINT = "http://127.0.0.1:80";
+
+function App() {
+  const [response, setResponse] = useState("");
+
+  useEffect(() => { //UseEffect with [] as second parameter is a only called once when objects mounts (and to avoid memory leak the client should disconnect when unmounting??)
+    const socket = socketIOClient(ENDPOINT);
+    socket.on("message", data => {
+      setResponse(data);
+    });
+  }, []);
+
+  return (
+    <p>
+      It's <time dateTime={response}>{response}</time>
+    </p>
+  );
+}
+
+export default App;
+</pre>
+Thus in React socket.on should be called from a useEffect() that only is called once at mounting of the component.<br>
+socket.on could be declared inside another function and a socket.emit too, both functions could be declared inside a separate gateway/name.gateway.js file.<br>
