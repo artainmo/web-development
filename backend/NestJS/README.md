@@ -22,7 +22,6 @@
   - [NestJS Websockets](#NestJS-Websockets)
     - [Server side](#Server-side)
     - [Client side](#Client-side)
-      - [React socket implementation](#React-socket-implementation) 
 
 # Free tutorials 
 Nest.js is a Node.js scalable framework built on top of express.js and TypeScript that comes with a strong opinion on how API's should be built.<br>
