@@ -639,4 +639,5 @@ export const send: (message: WebsocketGameDto) => void = (message) => {
 </pre>
 
 In react for example useEffect with [] as second parameter is called only once at mounting of the associated component and its return statement is called at unmounting.<br>
-This can be used to only call socket.emit("joinRoom"), socket.on once at mounting and socket.emit("leaveRoom"), socket.disconnect at unmounting of the component.
+This can be used to only call socket.emit("joinRoom"), socket.on once at mounting and socket.emit("leaveRoom"), socket.disconnect at unmounting of the component.<br>
+Inside the socket.on callback function a state change can be done to re-render with new response.
