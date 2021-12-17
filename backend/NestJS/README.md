@@ -562,6 +562,36 @@ server: Server;
 this.server.emit('message', messageContent) //The server instance can be used to broadcast to all clients active on the gateway
 </pre>
 
+Assigning clients active on the gateway to a specific room, so that messages can be broadcast to the room clients only is possible.<br>
+This is useful when for example having a direct message chat between two persons, those two persons would have their own room.<br>
+This is how it would look like on server side:
+<pre>
+import { SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
+import { Server, Socket } from "socket.io";
+import { WebsocketGameDto } from "dto/websocket-game.dto";
+
+@WebSocketGateway(80, { namespace: 'game' })
+export class GameGateway {
+  @WebSocketServer()
+  server: Server;
+
+  @SubscribeMessage('message')
+  handleMessage(client: Socket, message: WebsocketChatDto): string {
+    this.server.to(message.room).emit("message", message) //Messages are broadcasted to clients of the room only
+  }
+
+  @SubscribeMessage('joinRoom')
+  joinRoom(client: Socket, room: string): void {
+    client.join(room); //Clients are added to the room, the room name could be the associated table row's unique id, if using a database
+  }
+
+  @SubscribeMessage('leaveRoom')
+  leaveRoom(client: Socket, room: string): void {
+    client.leave(room);
+  }
+}
+</pre>
+
 ### client side
 In the frontend once a button is pressed an event can be called, a function could be called that interacts with the websocket.<br>
 But a function that listens to incoming messages/responses from the server side has to exist too.<br>
@@ -579,37 +609,35 @@ const handleSubmitMessage = () => {
 socket.on('message', (res) => {  //'message' refers to event declared on server-side to handle messages
   //Inside here another function can be called to render new HTML for example
 });
-
 </pre>
 
-#### React socket implementation
-
-Install with: `npm install socket.io-client`
-
+This is how rooms would look like on client side, in gateway/gatewayName.ts file:
 <pre>
-import React, { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:80";
+import { WebsocketGameDto } from "dto/websocket-game.dto";
 
-function App() {
-  const [response, setResponse] = useState("");
+const socket = socketIOClient("http://127.0.0.1:80/game");
 
-  useEffect(() => { //UseEffect with [] as second parameter is only called once when component mounts, we thus call socket.on once which will listen to incoming messages from the backend
-    const socket = socketIOClient(ENDPOINT);
-    socket.on("message", data => {
-      setResponse(data);
-    });
-    return socket.disconnect(); //The return statement content is executed when component unmounts, here we close the socket connection once the component unmounts 
-  }, []);
-
-  return (
-    &ltp&gt
-      It's &lttime dateTime={response}&gt{response}&lt/time&gt
-    &lt/p&gt
-  );
+export const listen: (callbackFunc: (response: WebsocketGameDto) => void) => void = (callbackFunc) => {
+  socket.on('message', callbackFunc);
 }
 
-export default App;
+export const disconnect: () => void = () => {
+  socket.disconnect();
+}
+
+export const joinRoom: (room: string) => void = (room) => {
+  socket.emit("joinRoom", room);
+}
+
+export const leaveRoom: (room: string) => void = (room) => {
+  socket.emit("leaveRoom", room);
+}
+
+export const send: (message: WebsocketGameDto) => void = (message) => {
+  socket.emit("message", message);
+}
 </pre>
-Thus in React, socket.on should be called from a useEffect() that only is called once at mounting of the component and that disconnects the socket when unmounting.<br>
-socket.on could be declared inside another function and a socket.emit too, both functions could be declared inside a separate gateway/name.gateway.js file.<br>
+
+In react for example useEffect with [] as second parameter is called only once at mounting of the associated component and its return statement is called at unmounting.<br>
+This can be used to only call socket.emit("joinRoom"), socket.on once at mounting and socket.emit("leaveRoom"), socket.disconnect at unmounting of the component.
