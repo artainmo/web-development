@@ -543,7 +543,7 @@ A file will be generated called nameOfGateway.gateway.ts, it will contain a clas
 The @WebSocketGateway decorator can take as argument a port, if you want to set it on a different port than the default port 3000 (usually port 80 is used), and a namespace indicated like this: `{ namespace: 'chat' }` to separate gateways, so that messages can be send to one gateway in particular.
 
 A gateway class will contain as methods event handlers to act in a particular way on particular events, such as server init, client connection/disconnection, message received...<br>
-For a method to handle an event it has to take the @SubsribeMessage(eventName) decorator, this is an example of a method to handle message received events:
+For a method to handle an event it has to take the @SubscribeMessage(eventName) decorator, this is an example of a method to handle message received events:
 <pre>
 @SubscribeMessage('message') //The eventName can be of choice but has to be in accordance with client-side which has to specify the event it wants to call
 handleMessage(@MessageBody() data: string): string { //@MessageBody() directly extract the message content into a string (data property of request)
