@@ -274,7 +274,7 @@ repository.save(timberToUpdate);
 const timber = await repository.findOne({ firstName: "Timber", lastName: "Saw" });
 await repository.remove(timber); //The .remove method is able to remove a specific table 
 </pre>
-The above shows basic queries with .find. QueryBuilder on the other hand allows the creation and execution of SQL queries of almost any complexity.<br>
+The above shows basic queries with .find. For more complex .find queries https://orkhan.gitbook.io/typeorm/docs/find-options. QueryBuilder on the other hand allows the creation and execution of SQL queries of almost any complexity.<br>
 QueryBuilder uses similar logic as the SQL CLI.
 
 Connect to the database:
