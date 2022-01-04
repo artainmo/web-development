@@ -13,6 +13,7 @@
       - [One-to-one relationship](#One-to-one-relationship)
       - [one-to-many many-to-one relationship](#one-to-many-many-to-one-relationship)
       - [many-to-many relationship](#many-to-many-relationship)
+      - [Additional options](#Additional-options)
     - [TypeORM NestJS](#TypeORM-NestJS)
       - [Integrate typeORM](#Integrate-typeORM)
       - [Use](#Use) 
@@ -306,35 +307,230 @@ This database connection part may be different when using NestJS...
 #### One-to-one relationship
 A one-to-one relationship is a relationship whereby one clumn of class A can only be associated with one column of class B and vice-versa.<br>
 An example is a photo can only be associated with one photoMetaData and vice-versa.<br>
-Inside the entitiy class it is indicated with, instead of @Column, @OneToOne(type => nameOfAssociatedTable), followed by @JoinColumn(), whereby OneToOne defines the relationship and JoinColumn creates the foreign key in the entity class, the type is set to associatedTableClass.
+
+This is an example of a unidirectional one-to-one relationship:
+<pre>
+import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+
+@Entity()
+export class Profile {
+
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    gender: string;
+
+    @Column()
+    photo: string;
+
+}
+</pre>
+<pre>
+import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn} from "typeorm";
+import {Profile} from "./Profile";
+
+@Entity()
+export class User {
+
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    name: string;
+
+    @OneToOne(() => Profile)
+    @JoinColumn()
+    profile: Profile;
+
+}
+</pre>
+
+This is an example of a bidirectional one-to-one relationship:
+<pre>
+import {Entity, PrimaryGeneratedColumn, Column, OneToOne} from "typeorm";
+import {User} from "./User";
+
+@Entity()
+export class Profile {
+
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    gender: string;
+
+    @Column()
+    photo: string;
+
+    @OneToOne(() => User, user => user.profile) // specify inverse side as a second parameter
+    user: User;
+
+}
+</pre>
+<pre>
+import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn} from "typeorm";
+import {Profile} from "./Profile";
+
+@Entity()
+export class User {
+
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    name: string;
+
+    @OneToOne(() => Profile, profile => profile.user) // specify inverse side as a second parameter
+    @JoinColumn()
+    profile: Profile;
+
+}
+</pre>
+
+The @JoinColumn decorator has to be added on the owning side of the relation only (where the foreignkey will be).
 
 When inserting a column with a one-to-one relationship tableA.foreignKeyName = tableBColumn.
 
-By creating one foreign key in one of the two tables as explained above we only have a unidirectional one-to-one relationship, TypeORM also allows to make this a bidirectional relationship, meaning class A has access to class B, but class B can also have access to class A.<br>
-The initial @OneToOne has to add a second parameter: @OneToOne(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.foreignKey), whereby  nameOfAssociatedTable => nameOfAssociatedTable.tableName refers to the name of the inverse side of the relation.<br>
-And inside the associated table @OneToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.foreignKey).<br>
-JoinColumn is defined only once as only one foreign key is defined in one of the two tables.
-
-We can set up cascade options in our relations, in the cases when we want our related object to be saved whenever the other object is saved.<br>
-To indicate the cascade option the OneToOne() decorator has to take a third argument `{ cascade: true }`
-
 #### one-to-many many-to-one relationship
-A one-to-many relationship consists of class A being able to hold multiple class B and class B would be a many-to-one relationship towards A, the one cannot exist without the other.<br>
+A one-to-many relationship consists of class A being able to hold multiple class B and class B would be a many-to-one relationship towards A.<br>
 For example one book that can hold multiple chapters is a one-to-many relationship and multiple chapters that can only exist in one book is a many-to-one relationship.<br>
 
-It is created with the @OneToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.foreignKey) decorator and with the type of column being an array of the associatedClass, indicated in the OneToMany class.<br>
-The ManyToOne class will contain the @ManyToOne(type => nameOfIntialTable, nameOfInitialTable => nameOfInitialTable.foreignKey) decoratorand and with the type of column being the initialClass.
-Because the many-to-one will contain the foreign key, it will also contain the @JoinColumn decorator.
+A one-to-many relationship must always exist together with a many-to-one relationship:
+<pre>
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
+import {User} from "./User";
+
+@Entity()
+export class Photo {
+
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    url: string;
+
+    @ManyToOne(() => User, user => user.photos)
+    user: User;
+
+}
+</pre>
+<pre>
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from "typeorm";
+import {Photo} from "./Photo";
+
+@Entity()
+export class User {
+
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    name: string;
+
+    @OneToMany(() => Photo, photo => photo.user)
+    photos: Photo[];
+
+}
+</pre>
+
+Because the many-to-one relationship will contain the foreign key, it should also contain the @JoinColumn decorator, or the @JoinColumn decorator can be omited here.
+
+The many-to-one relationship can be defined on its own without the one-to-many (but one-to-many cannot be alone), making it a unidirectional relationship.
 
 #### many-to-many relationship
 A many-to-many relationsip consists of class A containing multiple class B and vice-versa.<br>
 An example of this would be students having multiple classes and classes having multiple students.
 
-Usually a cross-reference table has to be created for many-to-many relationships, TypeORM does this automatically when indicating a many-to-many in the two relational classes.<br>
-Both classes should have the @ManyToMany(type => nameOfAssociatedTable, nameOfAssociatedTable => nameOfAssociatedTable.foreignKey) decorator and have the type of the column be an array of the associatedTable.
+Usually a cross-reference table has to be created for many-to-many relationships, TypeORM does this automatically when indicating a many-to-many relationship.<br>
 
-To add a new row in a many-to-many relationship:
-classA.foreignkey = [classB1, classB2, classB3]
+Relations can be uni-directional or bi-directional. Uni-directional relations are relations with a relation decorator only on one side. Bi-directional relations are relations with decorators on both sides of a relation. Bi-directional relations allow you to join relations from both sides.
+
+This is an example of a uni-directional relationship:
+<pre>
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+
+@Entity()
+export class Category {
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    name: string;
+}
+</pre>
+<pre>
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
+import { Category } from "./Category";
+
+@Entity()
+export class Question {
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    title: string;
+
+    @Column()
+    text: string;
+
+    @ManyToMany(() => Category)
+    @JoinTable()
+    categories: Category[];
+}
+</pre>
+
+This is an example of a bi-directional relationship:
+<pre>
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
+import { Question } from "./Question";
+
+@Entity()
+export class Category {
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    name: string;
+
+    @ManyToMany(() => Question, question => question.categories)
+    questions: Question[];
+}
+</pre>
+<pre>
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from "typeorm";
+import { Category } from "./Category";
+
+@Entity()
+export class Question {
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column()
+    title: string;
+
+    @Column()
+    text: string;
+
+    @ManyToMany(() => Category, category => category.questions)
+    @JoinTable()
+    categories: Category[];
+}
+</pre>
+
+One or both entities should have the @ManyToMany decorator and have the type of the column be an array of the associated table, the owning side only should also have the @JoinTable decorator.
+
+To add a new row in a many-to-many relationship:<br>
+classA.foreignkeyColumnName = [classB1, classB2, classB3]
+
+#### Additional options
+
+In the relationship decorators the cascade option can be set to true, which will make sure the elements the foreignkey points to are changed, deleted or added together with its relationship.
+
+When reading from the database an entity is usually returned without its relationship values, besides if the relationships are joined.<br>
+This can be done like this for example: `const users = await userRepository.find({ relations: ["profile"] });`, whereby the profile relationship on users is joined, leading it to be loaded too.
+
+In the relationship decorators the eager option can be set to true, which will automatically load the associated relationship, thus skipping the need to join it. Only one side can have eager set to true.
 
 ### TypeORM NestJS
 NestJS usually uses TypeORM for connecting with a database, through the @nestjs/typeorm package.<br>
