@@ -808,10 +808,10 @@ socket.on('message', (res) => {  //'message' refers to event declared on server-
 
 This is how rooms would look like on client side, in gateway/gatewayName.ts file:
 <pre>
-import socketIOClient from "socket.io-client";
 import { WebsocketGameDto } from "dto/websocket-game.dto";
+import { io } from "socket.io-client";
 
-const socket = socketIOClient("http://127.0.0.1:80/game");
+const socket = io("http://localhost:80/chat"); //80 is often used as websocket port
 
 export const listen: (callbackFunc: (response: WebsocketGameDto) => void) => void = (callbackFunc) => {
   socket.on('message', callbackFunc);
