@@ -17,6 +17,7 @@
   - [State](#STATE)
   - [Effects](#EFFECTS)
   - [Material UI](#MATERIAL-UI)
+  - [CSS Modules](#CSS-MODULES)
   - [React with typescript](#REACT-WITH-TYPESCRIPT)
 
 ## REACT CODECADEMY COURSE
@@ -294,6 +295,12 @@ To create an app-bar:<br>
 `import IconButton from '@material-ui/core/IconButton'`<br>
 `import MenuIcon from '@material-ui/icons/MenuIcons'`<br>
 The MenuIcon must come inside an IconButton, which has to come inside a ToolBar, which has to come inside an AppBar.
+
+### CSS MODULES
+
+In ft_transcendance project, this was used:
+https://github.com/css-modules/css-modules
+https://coolors.co/2b2d42-8d99ae-f8f32b-ffffff-000000
 
 ### REACT WITH TYPESCRIPT
 Create boilerplate app with `create-react-app nameApp --typescript`
