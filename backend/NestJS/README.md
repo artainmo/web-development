@@ -168,6 +168,11 @@ async findOne(@Param('uuid', new ParseUUIDPipe()) uuid: string) {
 }
 </pre>
 
+Above mentionned types validate specific data types, to validate classes (but classes only, not interfaces or strings...) the built-in ValidationPipe can be used.<br>
+It can be set as global by writing this in main.ts: `app.useGlobalPipes(new ValidationPipe());`.<br>
+Afterwards to indicate the checks that have to be made use the class-validator-library-decorators onto the class properties.
+https://github.com/typestack/class-validator#custom-validation-classes
+
 ## Middleware
 
 Middleware is a function which is called before the route handler.<br>
