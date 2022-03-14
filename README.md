@@ -175,3 +175,6 @@ https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h !<
 https://www.codecademy.com/learn/connecting-front-end-to-back-end - 2h !<br>
 https://www.codecademy.com/learn/learn-websockets - 2h !<br>
 https://www.codecademy.com/learn/paths/full-stack-engineer-career-path - 6months<br>
+https://www.codecademy.com/learn/learn-ruby - 10h <br>
+https://www.codecademy.com/learn/learn-rails - 10h <br>
+https://www.codecademy.com/learn/rails-auth - 3h <br>
