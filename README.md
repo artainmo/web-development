@@ -87,6 +87,10 @@ The web browser has to first transform javascript to HTML/CSS before display, it
 It is a strict syntactical superset of JavaScript and adds optional static typing to the language. TypeScript is designed for the development of large applications and transcompiles to JavaScript.<br>
 By making use of static typing it makes the code more readable and allows compile-time-errors.
 
+**Ruby on Rails**<br>
+This is a framework for webdevelopment written in the general-purpose programming language Ruby. Although both backend and frontend development is possible, it is mostly used for backend development.<br>
+It uses a default MVC structure and uses multiple web/programming conventions, it enables rapid deployment and is widely used.
+
 ### Frontend
 **HTML & CSS**<br>
 The HyperText Markup Language, or HTML is the standard markup language for documents designed to be displayed in a web browser.<br>
@@ -108,7 +112,7 @@ Express.js, or simply Express, is a back-end web application framework for Node.
 Nest.js is a Node.js framework built on top of express.js and TypeScript that comes with a strong opinion on how API's should be built. Since it is very opinionated it provides a structure, a CLI, and lots of tools that let you create professional APIs fast.
 
 **PostgreSQL**<br>
-PostgreSQL is a commonly used and advanced database-management-system, used to store and retrieve data. 
+PostgreSQL is a commonly used and advanced database-management-system, used to store and retrieve data.
 
 ## Learning materials
 ! -> consumed as needed<br>
