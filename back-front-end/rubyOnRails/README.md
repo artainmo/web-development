@@ -27,4 +27,25 @@ dwdqwdwqd
 dwdwq
 =end</pre>
 
+#### Control flow
+If statements take an expression, if that expression is true the code following 'if' gets executed.<br>
+The statements 'elsif' and 'else' can also be used and speak for themselves, contrary to most other languages the 'end' keyword is used to indicate the end of the control flow.<br>
+
+<pre>
+if !true
+  print "It is true"
+elsif false
+  print "It is false"
+else
+  print "It was neither?"
+end
+</pre>
+To verify if a condition is false, 'unless' can be used instead of 'if' with ! operator.
+
+Relational operators in Ruby are ==, !=, >, <, >=, <=.<br>
+Logical operatorsin Ruby are &&, ||.<br>
+Parantheses can be used to divide conditional expressions.
+
+#### Loops and iterators
+
 
