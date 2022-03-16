@@ -156,4 +156,7 @@ To assign a value to a variable only in the case the variable equals nil the ||=
 
 The methods upto and downto can be used on both letters and numbers `"L".upto("P") {|item| puts item}`.
 
+.push method can be used interchangeably with the << operator to shove a new value at the end of an array.<br>
+The concatenation operator << can also be used interchangeably with + operaotr to join two strings together.
 
+#### Blocks, Procs and Lambdas
