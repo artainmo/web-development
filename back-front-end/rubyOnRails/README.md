@@ -47,5 +47,54 @@ Logical operatorsin Ruby are &&, ||.<br>
 Parantheses can be used to divide conditional expressions.
 
 #### Loops and iterators
+The while loop keeps executing code between 'while' and 'end' keyword until its condition becomes false.<br>
+The until loop keeps executing until its condition becomes true.<br>
+Infinite loops are bugs that occur from loops that never end.
+<pre>
+while i < 10
+  puts i
+  i += 1
+end
+</pre>
+Use for loop to display 1 to 15
+<pre>
+for num in 1..15
+  puts num
+end
+</pre>
+
+In Ruby, curly braces ({}) are generally interchangeable with the keywords do (to open the block) and end (to close it).<br>
+; must not be used at end of line, but can be used to indicate multiple lines of code into one.<br>
+loop keyword can be used to create a loop and must be stopped with the break keyword.
+<pre>
+loop { i += 1; print "#{i}"; break if i > 5; }
+</pre>
+The next keyword can be used to skip over certain steps in the loop.
+
+Objects that hold multiple values such as arrays can be looped over using the .each method.
+<pre>
+object.each { |item| puts item }
+</pre>
+
+`10.times { print "Chunky bacon!" }` times method can be used to loop a predefined number of times.
+
+#### Arrays and hashes
+Arrays can contain different objects and are declared like this: `arr = [1, 2, "dwdw", true, [10, 9]]`.<br>
+To access the second value in the array `arr[1]` with first element being at index 0.<br>
+
+Hashes are sort of like JavaScript objects or Python dictionaries. They are a collection of key-value pairs.
+<pre>
+person = {
+  "age" => 25,
+  "name" => "Jonathan"
+}
+
+puts person["age"]
+</pre>
+To declare an empty hash one can do it with `{}` or `Hash.new` and to add a new key-value pair `hashName[keyName] = value`.<br>
+To iterate over a hash `hash.each { |key, value| puts value }`.
+
+
+
 
 
