@@ -81,6 +81,7 @@ object.each { |item| puts item }
 #### Arrays and hashes
 Arrays can contain different objects and are declared like this: `arr = [1, 2, "dwdw", true, [10, 9]]`.<br>
 To access the second value in the array `arr[1]` with first element being at index 0.<br>
+.push method can be used to add new values to the array.
 
 Hashes are sort of like JavaScript objects or Python dictionaries. They are a collection of key-value pairs.
 <pre>
@@ -94,7 +95,43 @@ puts person["age"]
 To declare an empty hash one can do it with `{}` or `Hash.new` and to add a new key-value pair `hashName[keyName] = value`.<br>
 To iterate over a hash `hash.each { |key, value| puts value }`.
 
+#### Methods, blocks and sorting
+Methods in ruby are like functions in other languages, reusable blocks of code.
+<pre>
+def add(num1, num2=3) #num2 if not given will have default value 3, this is called a default parameter
+  return num1 + num2
+end
+</pre>
+Splat arguments are arguments preceded by a *, which tells the program that the method can receive one or more arguments.
 
+Blocks are nameless methods, similar to anonymous functions in javascript and lambdas in python, they are not reusable, found in method parameters such as each method and inside `{}` or 'do end'.
+
+To sort arrays (in ascending order) the .sort method can be used.<br>
+The combined comparison operator (<=>) returns 0 if both values are equal, 1 if first value is greater than second and -1 if second value is greater.<br>
+To sort in descending order we will have to define the sorting function like this `books.sort! { |firstBook, secondBook| secondBook <=> firstBook }`.
+
+#### Hashes and symbols
+.each method can be used to iterate over hashes.<br>
+When trying to access a key that does not exist on a hash, instead of receiving an error, the value `nil` will be returned.<br>
+You can replace nil by a default value by declaring the hash like this: `my_hash = Hash.new(default_value)`.
+
+Symbols are names/labels that are not strings, they are their own type, they are usually used in hashes as keys it makes hash key lookups faster.<br>
+Symbols consist of a colon followed by a name `:mySymbol`.<br>
+The .to_sym/.intern methods are used to transform a string to a symbol and .to_s the inverse.
+
+Today hashes and symbols are written differently but it still is useful to be aware of the past terminlogy to be able to read old code.
+This is how hashes and symbols are today:
+<pre>
+movies = {
+  movie1: "Good", #The colon is put at end to indicate a symbol and arrow is not necessary anymore
+  movie2: "Bad"
+}
+</pre>
+
+.select method can filter out hashes keys by only selecting and returning ones that pass a certain condition.<br>
+`good_movies = movie_ratings.select { |key,value| value > 3 }`
+
+Instead of using .each, hashes allow to also use .each_key or .each_value and the ability to remove a key-value-pair is possible with the delete method.
 
 
 
