@@ -1,4 +1,4 @@
-# RUBY ON RAILS
+# RUBY
 
 ## Table of contents
 
