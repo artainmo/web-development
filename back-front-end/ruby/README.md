@@ -1,4 +1,4 @@
-# RUBY ON RAILS
+# RUBY
 
 ## Table of contents
 
@@ -104,6 +104,8 @@ end
 </pre>
 Splat arguments are arguments preceded by a *, which tells the program that the method can receive one or more arguments.
 
+If a method does not have an explicit return statement the result of the last line is returned.
+
 Blocks are nameless methods, similar to anonymous functions in javascript and lambdas in python, they are not reusable, found in method parameters such as each method and inside `{}` or 'do end'.
 
 To sort arrays (in ascending order) the .sort method can be used.<br>
@@ -133,5 +135,28 @@ movies = {
 
 Instead of using .each, hashes allow to also use .each_key or .each_value and the ability to remove a key-value-pair is possible with the delete method.
 
+#### Refactoring
+Refactoring consists of restructuring code in a readable and as a consequence maintainable way.<br>
+Ruby prioritizes readability over program optimization, meaning it is easy to write but not the fastest, in terms of code execution, or memory sparing language.
 
+'If' statement can be written in one line like this: `puts "It's true! if true"`.<br>
+'if/else' statement can be replaced in one line with a ternary `puts 3 < 4 ? "Yes" : "No"`.
+'if/elsif/else' statement can be replaced with case statement.
+<pre>
+case greeting
+  when "English" then puts "Hello!"
+  when "French" then puts "Bonjour!"
+  when "German" then puts "Guten Tag!"
+  when "Finnish" then puts "Haloo!"
+  else puts "I don't know that language!'"
+end
+</pre>
 
+To assign a value to a variable only in the case the variable equals nil the ||= operator is used `favorite_book ||= "Cat's Cradle"`.
+
+The methods upto and downto can be used on both letters and numbers `"L".upto("P") {|item| puts item}`.
+
+.push method can be used interchangeably with the << operator to shove a new value at the end of an array.<br>
+The concatenation operator << can also be used interchangeably with + operaotr to join two strings together.
+
+#### Blocks, Procs and Lambdas
