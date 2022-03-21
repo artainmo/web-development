@@ -162,7 +162,7 @@ The concatenation operator << can also be used interchangeably with + operaotr t
 #### Blocks, Procs and Lambdas
 A Ruby block is just a bit of code that can be executed. Block syntax uses either do..end or curly braces ({}).
 
-.collect is a method similar to .map it applies a block to each item in an array.
+.collect or .map is a method that applies a block to each item in an array.
 
 Yielding allows a block to return mutliple times here is an example:
 <pre>
@@ -192,5 +192,13 @@ cube = Proc.new { |x| x ** 3 }
 
 cube.call(3) # The call method is used to call the block inside the proc
 </pre>
+Methods are often represented by symbols, symbols can be converted to procs and its block like this for example: `strings_array = numbers_array.map(&:to_s)`, with to_s being a method on integers that transform to string.
+
+Lambdas are quite similar to procs and declared like this : `lambda {|param| puts param }` and the block it contains is accessed with &lambdaName or .call method.<br>
+A lambda throws an error if it does not receive the correct mumber of arguments while procs will give the value nil to missing arguments.<br>
+When a proc returns the whole block it is in will return, with a lambda the last line of the block will be returned independent from the lambda's return.<br>
+All in all I think lambdas provide behavior that is more to be expected.
+
+#### Object oriented programming
 
 
