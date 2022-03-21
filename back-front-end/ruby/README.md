@@ -160,3 +160,37 @@ The methods upto and downto can be used on both letters and numbers `"L".upto("P
 The concatenation operator << can also be used interchangeably with + operaotr to join two strings together.
 
 #### Blocks, Procs and Lambdas
+A Ruby block is just a bit of code that can be executed. Block syntax uses either do..end or curly braces ({}).
+
+.collect is a method similar to .map it applies a block to each item in an array.
+
+Yielding allows a block to return mutliple times here is an example:
+<pre>
+def yield_name(name)
+  puts "In the method! Let's yield."
+  yield("Kim")
+  puts "In between the yields!"
+  yield(name)
+  puts "Block complete! Back in the method."
+end
+
+yield_name("Eric") { |n| puts "My name is #{n}." }
+
+------------------------
+In the method! Let's yield.
+My name is Kim.
+In between the yields!
+My name is Eric.
+Block complete! Back in the method
+</pre>
+
+A proc is a block saved inside a variable/object that has methods, works like a function pointer, defined like this:
+<pre>
+cube = Proc.new { |x| x ** 3 }
+
+[1, 2, 3].collect!(&cube) # & is used to convert proc into the block it holds 
+
+cube.call(3) # The call method is used to call the block inside the proc
+</pre>
+
+
