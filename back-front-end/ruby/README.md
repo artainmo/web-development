@@ -216,4 +216,6 @@ Class attributes can be defined with different starting symbols, the $ symbol ma
 The @ symbol makes it private and tied to the class instance while the @@ symbol makes it also private but tied to all class instances thus it enables for example to count the total number of instances of a specific class.<br>
 
 Inheritance allows reusability of classes inside other classes, following the DRY rule. All methods and attributes of one class can become accessible in another class through inheritamce which is indicated like this for example `class MyApp < Application`.<br>
-If the parent and child class have a similar method name, the child method will override the parent one.<br>
+If the parent and child class have a similar method name, the child method will override the parent one, the child method can call the parent method with the super keyword.
+
+
