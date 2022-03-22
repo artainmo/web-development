@@ -200,5 +200,20 @@ When a proc returns the whole block it is in will return, with a lambda the last
 All in all I think lambdas provide behavior that is more to be expected.
 
 #### Object oriented programming
+A class is an object that contains attributes (variables, key-value pairs) and methods (blocks/functions).
+They are defined like this:
+<pre>
+class Person
+  def initialize(name) #initialize is like a constructor function, called with .new method.
+    @name = name;
+  end
+end
 
+matz = Person.new("Yukihiro");
+</pre>
 
+Class attributes can be defined with different starting symbols, the $ symbol makes it global and thus directly accessible from outside the class.<br>
+The @ symbol makes it private and tied to the class instance while the @@ symbol makes it also private but tied to all class instances thus it enables for example to count the total number of instances of a specific class.<br>
+
+Inheritance allows reusability of classes inside other classes, following the DRY rule. All methods and attributes of one class can become accessible in another class through inheritamce which is indicated like this for example `class MyApp < Application`.<br>
+If the parent and child class have a similar method name, the child method will override the parent one.<br>
