@@ -6,10 +6,10 @@
   - [Control flow](#Control-flow)
   - [Loops and iterators](#Loops-and-iterators)
   - [Arrays and hashes](#Arrays-and-hashes)
-  - [Methods, blocks and sorting](#Methods,-blocks-and-sorting)
+  - [Methods, blocks and sorting](#Methods-and-blocks-and-sorting)
   - [Hashes and symbols](#Hashes-and-symbols)
   - [Refactoring](#Refactoring)
-  - [Blocks, Procs and Lambdas](#Blocks,-Procs-and-Lambdas)
+  - [Blocks, Procs and Lambdas](#Blocks-and-Procs-and-Lambdas)
   - [Object oriented programming](#Object-oriented-programming)
 
 ## CODECADEMY COURSE LEARN RUBY
@@ -105,7 +105,7 @@ puts person["age"]
 To declare an empty hash one can do it with `{}` or `Hash.new` and to add a new key-value pair `hashName[keyName] = value`.<br>
 To iterate over a hash `hash.each { |key, value| puts value }`.
 
-### Methods, blocks and sorting
+### Methods and blocks and sorting
 Methods in ruby are like functions in other languages, reusable blocks of code.
 <pre>
 def add(num1, num2=3) #num2 if not given will have default value 3, this is called a default parameter
@@ -169,7 +169,7 @@ The methods upto and downto can be used on both letters and numbers `"L".upto("P
 .push method can be used interchangeably with the << operator to shove a new value at the end of an array.<br>
 The concatenation operator << can also be used interchangeably with + operaotr to join two strings together.
 
-### Blocks, Procs and Lambdas
+### Blocks and Procs and Lambdas
 A Ruby block is just a bit of code that can be executed. Block syntax uses either do..end or curly braces ({}).
 
 .collect or .map is a method that applies a block to each item in an array.
