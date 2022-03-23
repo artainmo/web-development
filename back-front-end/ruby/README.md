@@ -1,8 +1,18 @@
 # RUBY
 
 ## Table of contents
+- [Codecademy course: learn Ruby](#CODECADEMY-COURSE-LEARN-RUBY)
+  - [Introduction](#Introduction)
+  - [Control flow](#Control-flow)
+  - [Loops and iterators](#Loops-and-iterators)
+  - [Arrays and hashes](#Arrays-and-hashes)
+  - [Methods, blocks and sorting](#Methods,-blocks-and-sorting)
+  - [Hashes and symbols](#Hashes-and-symbols)
+  - [Refactoring](#Refactoring)
+  - [Blocks, Procs and Lambdas](#Blocks,-Procs-and-Lambdas)
+  - [Object oriented programming](#Object-oriented-programming)
 
-## CODECADEMY COURSE - LEARN RUBY
+## CODECADEMY COURSE LEARN RUBY
 ### Introduction
 Ruby is a flexible programming language often used in webdevelopment with the Ruby on Rails framework.<br>
 Ruby is a high-level, object-oriented, language considered easy to use.<br>
@@ -27,7 +37,7 @@ dwdqwdwqd
 dwdwq
 =end</pre>
 
-#### Control flow
+### Control flow
 If statements take an expression, if that expression is true the code following 'if' gets executed.<br>
 The statements 'elsif' and 'else' can also be used and speak for themselves, contrary to most other languages the 'end' keyword is used to indicate the end of the control flow.<br>
 
@@ -46,7 +56,7 @@ Relational operators in Ruby are ==, !=, >, <, >=, <=.<br>
 Logical operatorsin Ruby are &&, ||.<br>
 Parantheses can be used to divide conditional expressions.
 
-#### Loops and iterators
+### Loops and iterators
 The while loop keeps executing code between 'while' and 'end' keyword until its condition becomes false.<br>
 The until loop keeps executing until its condition becomes true.<br>
 Infinite loops are bugs that occur from loops that never end.
@@ -78,7 +88,7 @@ object.each { |item| puts item }
 
 `10.times { print "Chunky bacon!" }` times method can be used to loop a predefined number of times.
 
-#### Arrays and hashes
+### Arrays and hashes
 Arrays can contain different objects and are declared like this: `arr = [1, 2, "dwdw", true, [10, 9]]`.<br>
 To access the second value in the array `arr[1]` with first element being at index 0.<br>
 .push method can be used to add new values to the array.
@@ -95,7 +105,7 @@ puts person["age"]
 To declare an empty hash one can do it with `{}` or `Hash.new` and to add a new key-value pair `hashName[keyName] = value`.<br>
 To iterate over a hash `hash.each { |key, value| puts value }`.
 
-#### Methods, blocks and sorting
+### Methods, blocks and sorting
 Methods in ruby are like functions in other languages, reusable blocks of code.
 <pre>
 def add(num1, num2=3) #num2 if not given will have default value 3, this is called a default parameter
@@ -112,7 +122,7 @@ To sort arrays (in ascending order) the .sort method can be used.<br>
 The combined comparison operator (<=>) returns 0 if both values are equal, 1 if first value is greater than second and -1 if second value is greater.<br>
 To sort in descending order we will have to define the sorting function like this `books.sort! { |firstBook, secondBook| secondBook <=> firstBook }`.
 
-#### Hashes and symbols
+### Hashes and symbols
 .each method can be used to iterate over hashes.<br>
 When trying to access a key that does not exist on a hash, instead of receiving an error, the value `nil` will be returned.<br>
 You can replace nil by a default value by declaring the hash like this: `my_hash = Hash.new(default_value)`.
@@ -135,7 +145,7 @@ movies = {
 
 Instead of using .each, hashes allow to also use .each_key or .each_value and the ability to remove a key-value-pair is possible with the delete method.
 
-#### Refactoring
+### Refactoring
 Refactoring consists of restructuring code in a readable and as a consequence maintainable way.<br>
 Ruby prioritizes readability over program optimization, meaning it is easy to write but not the fastest, in terms of code execution, or memory sparing language.
 
@@ -159,7 +169,7 @@ The methods upto and downto can be used on both letters and numbers `"L".upto("P
 .push method can be used interchangeably with the << operator to shove a new value at the end of an array.<br>
 The concatenation operator << can also be used interchangeably with + operaotr to join two strings together.
 
-#### Blocks, Procs and Lambdas
+### Blocks, Procs and Lambdas
 A Ruby block is just a bit of code that can be executed. Block syntax uses either do..end or curly braces ({}).
 
 .collect or .map is a method that applies a block to each item in an array.
@@ -199,7 +209,7 @@ A lambda throws an error if it does not receive the correct mumber of arguments 
 When a proc returns the whole block it is in will return, with a lambda the last line of the block will be returned independent from the lambda's return.<br>
 All in all I think lambdas provide behavior that is more to be expected.
 
-#### Object oriented programming
+### Object oriented programming
 A class is an object that contains attributes (variables, key-value pairs) and methods (blocks/functions).
 They are defined like this:
 <pre>
