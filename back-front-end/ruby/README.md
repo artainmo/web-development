@@ -251,3 +251,8 @@ Built-in modules such as Math already exist and do not have to be imported, othe
 Modules can also be imported using the `include` keyword instead of require and this removes the need for the scope resolution operator and thus allows direct access to the module's methods and constants, usually this is not recommended as it can lead to namespace pollution.<br>
 A mixin is a class that includes a module (include ModuleName), enabling use of the module's methods and constants inside the class.<br>
 A class that extends a module (extend ModuleName), makes the class inherit the module's methods and constants.
+
+## SINATRA FREE TUTORIALS
+### Introduction
+
+
