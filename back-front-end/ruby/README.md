@@ -254,5 +254,6 @@ A class that extends a module (extend ModuleName), makes the class inherit the m
 
 ## SINATRA FREE TUTORIALS
 ### Introduction
-
+http://sinatra-org-book.herokuapp.com/
+http://sinatrarb.com/
 
