@@ -27,4 +27,14 @@ Commits are stored chronologically in the repository and can be viewed with `git
 
 `git push` is used to upload local repository content to a remote repository. Pushing is how you transfer commits from your local repository to a remote repo.
 
-### Important git operations
+### Backtrack
+The head commit represents the last commit and can be viewed with `git show HEAD`.<br>
+`git checkout HEAD fileName` is used to reset working directory file to latest commit file.<br>
+'git reset HEAD fileName` is used to reset the file in staging area to be same as HEAD commit.<br>
+`git reset commit_SHA` is used to reset HEAD (latest commit version) to a specific prior commit, all commits SHA can be viewed with `git log` and only first 7 characters of SHA have to be indicated.
+
+If you want to switch branch you will lose local changes that have not been commited.<br>
+You can commit or if you do not want to commit you can `git stash`, which will temporarily store local changes.<br>
+After you switch branches and come back to initial branch, to reset local changes use `git stash pop`.
+
+If you realize after a commit you forgot something small that does not deserve its own commit, you can use 'git commit --amend --no-edit' to add the small changes to latest commit with same message.
