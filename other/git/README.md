@@ -25,4 +25,6 @@ In order for git to track the changes they have to be added to the staging area 
 `git commit -m "Description of made changes"` permanently stores changes from the staging area inside the repository.<br>
 Commits are stored chronologically in the repository and can be viewed with `git log`.
 
-###Important git operations
+`git push` is used to upload local repository content to a remote repository. Pushing is how you transfer commits from your local repository to a remote repo.
+
+### Important git operations
