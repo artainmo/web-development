@@ -175,3 +175,5 @@ https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h !<
 https://www.codecademy.com/learn/connecting-front-end-to-back-end - 2h !<br>
 https://www.codecademy.com/learn/learn-websockets - 2h !<br>
 https://www.codecademy.com/learn/learn-ruby - 10h !<br>
+https://www.codecademy.com/learn/learn-git - 15h !<br>
+https://www.codecademy.com/learn/learn-angularjs - 15h <br>
