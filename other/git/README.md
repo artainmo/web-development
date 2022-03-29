@@ -2,7 +2,14 @@
 
 ## Table of contents
 - [Codecademy course](#CODECADEMY-COURSE)
-
+- [Basic git workflow](#Basic-git-workflow)
+- [Backtrack](#Backtrack)
+- [Github](#Github)
+- [Git branching](#Git-branching)
+- [Git teamwork](#Git-teamwork)
+- [Best practices for github repositories](#Best-practices-for-github-repositories)
+- [Collaborating with the github community](#Collaborating-with-the-github-community)
+- [Github features](#Github-features)
 
 ## CODECADEMY COURSE
 ### Basic git workflow
