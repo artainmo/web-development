@@ -62,9 +62,6 @@ Pull Requests on GitHub allow collaborators to review and give feedback on propo
 When creating a pull request it is important to have a good description of the changes and not have too much changes in same pull request, the reviewer should comment clearly and propose solutions. It is called pull request because the main branch has to pull from another branch to merge.<br>
 Unactive branches can be deleted.
 
-In repository different sections exist such as code, issues, pull requests, actions... The projects section can be used to create a todo list.<br>
-Different columns can be created, todo, doing and done. Notes can be draged across the different columns to see what is left to be done for you or what you were working on...
-
 Markdown provides a lightweight syntax to style any text document so that it can be converted to HTML for viewing and publishing.<br>
 Github allows to format written text in markdown, this is usually done in README.md files or any files with md or markdown as extension.<br>
 It is used to explain more about the project/repo.<br>
@@ -98,4 +95,46 @@ origin/master is a default-existing branch, used as intermediary before merging 
 'git push origin branchName` will push a certain branch to origin/master branch, others will be able to review and merge the changes in origin/master into the master branch.<br>
 `git push` is used to directly upload local repository commits to the remote repository branch, bypassing the verification step with origin/master.<br>
 
+### Best practices for github repositories
+A pull request is a feature of github to review code before merging it from one branch to the main branch.<br>
+A pull request can be created from the software interface pull request section on repository.<br>
+Teammates can accept or reject the proposed changes, each pull request has own discussion forum for feedback.<br>
+Teammates make suggestions, the proposed changes can be updated with further commits until they are accepted by teammates, leading to a merge.<br>
+When creating a pull request try to answer in title 'What?', in description 'Why?' and 'How?'. Make clear commit messages and set comments in code when necessary. Reduce size of pull requests, make one for each new feature. Respond fast to pull request and make clear suggestions.
+
+rebase is an alternative to merge. The difference lies in the commit history, merge only merges code, while rebase also merges the commit history, letting source branch commit history overwrite destination branch commit history.<br>
+It is usually used to merge the main branch back into a working branch, it makes visualizing past commits easier.<br>
+Because rebase overwrites and thus deletes commit history, it is considered dangerous and thus only recommended to use locally.
+
+In repository settings branch section, we can setup the rule consisting of forcing pull requests when wanting to merge a working branch to the main branch.<br>
+In repository settings collaborators section, we can add new users and give them certain permissions.<br>
+GitHub Organizations provide its members a way to collaborate on multiple projects across multiple repositories.<br>
+
+Sometimes we have in our repository files that we know in advance we will never want to commit.<br>
+A .gitignore file can be created inside the repository to indicate which files should not be commited nor added to the stagging area.<br>
+Each line in .gitignore corresponds to a file, directory, or pattern (such as file extensions) we would like to ignore when staging.
+
+When wanting to delete files in repository locally but also in remote repository after push or merge, one has to explicitly remove it by using `git rm` instead of simply 'rm'.
+
+### Collaborating with the github community
+Profiles can be followed to stay up-to-date with others work, having well-rounded profiles creates more legitimacy towards recruiters and when wanting to make contributions to open-source projects.<br>
+A well-rounded profile contains different projects, well-written READMEs, filled-out activity trackers.
+
+Github's seach feature can be used to explore other projects, developers or companies, this can be used as inspiration or to learn from others.
+
+Open-source-projects have their code open to the public and take suggestions from them.<br>
+Contributing to open-source-projects is great to grow in experience.<br>
+To contribute, you can start at any repository’s issues page, where bugs and potential new features are listed. Then, you can fork the repository to work on a specific issue and eventually make a pull request.<br>
+A fork consists of copying another's project into one of your projects, it will contain a 'compare & pull request' button that enables you to make a pull request on the original project from your forked project.
+
+### Github features
+In repository different sections exist such as code, issues, pull requests, actions... The projects section can be used to create a todo list relative to a certain 'project' in a repository.<br>
+Different columns can be created, todo, doing and done. Notes can be draged across the different columns to see what is left to be done for you or what you were working on...
+
+Github issues allows project management by listing tasks and organize them into which are open and in progress while containing own discussion forum.<br>
+Those can even be referenced in pull requests and in other issues and receive tags such as feature or bug.
+
+The github command line interface (CLI) allows one to interact with issues and pull requests from the terminal instead of the software interface.
+
+Github actions can be used to automate certain tasks, such as using automated tests after a pull request or notify collaborators after a branch merged into the main.
 
