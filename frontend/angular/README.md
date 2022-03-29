@@ -20,7 +20,7 @@ app.controller('MainController', ['$scope', function($scope) {
 }]);
 </pre>
 4. Indicate the controller in the view's application scope (`<div ng-controller='MainController'></div>`) to define the controller scope.
-5. Display the controller `$scope` properties in the view (<h1>{{title}}</h1>), this is also called an expression.
+5. Display the controller `$scope` properties in the view (`<h1>{{title}}</h1>`), this is also called an expression.
 
 When displaying content from controller, filters can be used, filters will format the content in a certain way.<br>
 Examples of filters are uppercase, currency, date... they are indicated with a pipe like this `<h1>{{price | currency}}</h1>`.
