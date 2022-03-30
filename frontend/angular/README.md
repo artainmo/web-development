@@ -36,3 +36,4 @@ Attributes starting with ng are called directives they bind angular behavior to 
 The `ng-click` attributes allow users to click on the display of an HTML element, ultimately letting users interact with the site and thus make the site dynamic instead of static.<br>
 The 'ng-click' attribute is usually set equal to a function, which is executed at click.
 
+### Directives
