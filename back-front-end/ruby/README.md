@@ -149,7 +149,7 @@ Instead of using .each, hashes allow to also use .each_key or .each_value and th
 Refactoring consists of restructuring code in a readable and as a consequence maintainable way.<br>
 Ruby prioritizes readability over program optimization, meaning it is easy to write but not the fastest, in terms of code execution, or memory sparing language.
 
-'If' statement can be written in one line like this: `puts "It's true! if true"`.<br>
+'If' statement can be written in one line like this: `puts "It's true!" if true`.<br>
 'if/else' statement can be replaced in one line with a ternary `puts 3 < 4 ? "Yes" : "No"`.
 'if/elsif/else' statement can be replaced with case statement.
 <pre>
@@ -225,7 +225,7 @@ matz = Person.new("Yukihiro");
 Class attributes can be defined with different starting symbols, the $ symbol makes it global and thus directly accessible from outside the class.<br>
 The @ symbol makes it private and tied to the class instance while the @@ symbol makes it also private but tied to all class instances thus it enables for example to count the total number of instances of a specific class.
 
-Inheritance allows reusability of classes inside other classes, following the DRY rule. All methods and attributes of one class can become accessible in another class through inheritamce which is indicated like this for example `class MyApp < Application`.<br>
+Inheritance allows reusability of classes inside other classes, following the DRY rule. All methods and attributes of one class can become accessible in another class through inheritance which is indicated like this for example `class MyApp < Application`.<br>
 If the parent and child class have a similar method name, the child method will override the parent one, the child method can call the parent method with the super keyword.
 
 Methods inside classes can be indicated as public or private, private meaning the method can only be used inside the class, this is indicated with the public or private keywords making all methods underneath of its type.
@@ -254,6 +254,55 @@ A class that extends a module (extend ModuleName), makes the class inherit the m
 
 ## SINATRA FREE TUTORIALS
 ### Introduction
+Sinatra is a Ruby framework used to quickly create APIs or the backend of a web-application.
+
+It can be installed like this: `gem install sinatra`.
+
+An 'hello world' application in hello_world.rb file:
+<pre>
+require 'sinatra'
+
+get '/' do
+  "Hello world, it's #{Time.now} at the server!"
+end
+</pre>
+Run the application with `ruby hello_world.rb` and look at http://localhost:4567.
+
+### Routing
+Sinatra allows us to create routes, which consists of defining HTTP requests and their answers, here is an example of multiple routes:
+<pre>
+get '/dogs' do
+  # get a listing of all the dogs
+end
+
+get '/dog/:id' do
+  # just get one dog, you might find him like this:
+  @dog = Dog.find(params[:id])
+end
+
+post '/dog' do
+  # create a new dog listing
+end
+
+put '/dog/:id' do
+  # HTTP PUT request method to update an existing dog
+end
+
+delete '/dog/:id' do
+  # HTTP DELETE request method to remove a dog!
+end
+</pre>
+
+### Filters
+Filters allow manipulation of the request chain, executing code before or after the appropriate route gets processed.
+
+The before and after methods have to be used, they can take an URL pattern or not to specify on what routes it will execute.
+
+## Handlers
+Handlers are top-level methods available in Sinatra to take care of common HTTP routines such as halting, passing, redirecting, manipulare cookies, access HTTP request params.
+
+
+
 http://sinatra-org-book.herokuapp.com/
 http://sinatrarb.com/
 
