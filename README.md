@@ -115,7 +115,8 @@ Nest.js is a Node.js framework built on top of express.js and TypeScript that co
 PostgreSQL is a commonly used and advanced database-management-system, used to store and retrieve data.
 
 ## Learning materials
-! -> consumed as needed<br>
+! -> consumed as wanted<br>
+| -> partly consumed
 
 **Books**<br>
 Javascript: The good parts - O'Reilly !
@@ -176,4 +177,4 @@ https://www.codecademy.com/learn/connecting-front-end-to-back-end - 2h !<br>
 https://www.codecademy.com/learn/learn-websockets - 2h !<br>
 https://www.codecademy.com/learn/learn-ruby - 10h !<br>
 https://www.codecademy.com/learn/learn-git - 15h !<br>
-https://www.codecademy.com/learn/learn-angularjs - 15h <br>
+https://www.codecademy.com/learn/learn-angularjs - 15h |<br>
