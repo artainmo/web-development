@@ -277,7 +277,6 @@ end
 
 get '/dog/:id' do
   # just get one dog, you might find him like this:
-  @dog = Dog.find(params[:id])
 end
 
 post '/dog' do
