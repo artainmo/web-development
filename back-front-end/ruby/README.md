@@ -297,8 +297,8 @@ Filters allow manipulation of the request chain, executing code before or after 
 
 The before and after methods have to be used, they can take an URL pattern or not to specify on what routes it will execute.
 
-## Handlers
-Handlers are top-level methods available in Sinatra to take care of common HTTP routines such as halting, passing, redirecting, manipulare cookies, access HTTP request params.
+### Handlers
+Handlers are top-level methods available in Sinatra to take care of common HTTP routines such as halting, passing, redirecting, manipulate cookies, access HTTP request params.
 
 
 
