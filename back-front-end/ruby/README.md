@@ -11,6 +11,12 @@
   - [Refactoring](#Refactoring)
   - [Blocks, Procs and Lambdas](#Blocks-and-Procs-and-Lambdas)
   - [Object oriented programming](#Object-oriented-programming)
+- [Sinatra free tutorials](#SINATRA-FREE-TUTORIALS)
+  - [Introduction](#Introduction)
+  - [Routing](#Routing)
+  - [Filters](#Filters)
+  - [Handlers](#Handlers)
+
 
 ## CODECADEMY COURSE LEARN RUBY
 ### Introduction
@@ -300,8 +306,7 @@ The before and after methods have to be used, they can take an URL pattern or no
 ### Handlers
 Handlers are top-level methods available in Sinatra to take care of common HTTP routines such as halting, passing, redirecting, manipulate cookies, access HTTP request params.
 
+### Continue learning sinatra with following documentation
 
-
-http://sinatra-org-book.herokuapp.com/
-http://sinatrarb.com/
+http://sinatrarb.com/intro.html
 
