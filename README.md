@@ -98,8 +98,11 @@ CSS describes how HTML elements should be displayed and is thus a styling langua
 Those are the only languages a web browser can display.
 
 **React**<br>
-React is a free and open-source front-end JavaScript library for building user interfaces or UI components.<br>
+React is a free and open-source front-end JavaScript library for building user interfaces or UI components allowing dynamic single-page client applications.<br>
 Material-UI is a react framework that contains pre-made UI components.
+
+**Angular**<br>
+Angular is a platform and framework for building dynamic single-page client applications using HTML and TypeScript.
 
 ### Backend
 **nodeJS**<br>
@@ -113,6 +116,17 @@ Nest.js is a Node.js framework built on top of express.js and TypeScript that co
 
 **PostgreSQL**<br>
 PostgreSQL is a commonly used and advanced database-management-system, used to store and retrieve data.
+
+**Sinatra**<br>
+Sinatra is a Ruby framework used to quickly create APIs or the backend of a web-application. Large applications usually use 'Ruby on Rails instead'.
+
+### Other
+
+**Git**<br>
+Git is a software that allows you to keep track of changes made to a coding project over time and collaborate.
+
+**Docker**<br>
+Docker is platform that uses OS-level virtualization allowing easy automation through a script of the building of a specific environment a program necessiates to run on.
 
 ## Learning materials
 ! -> consumed as wanted<br>
@@ -162,6 +176,9 @@ https://wkrzywiec.medium.com/how-to-put-your-java-application-into-docker-contai
 https://nodejs.org/en/docs/guides/nodejs-docker-webapp/ ! <br>
 https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de ! <br>
 https://tushar-chy.medium.com/a-simple-todo-application-with-nestjs-typeorm-postgresql-swagger-pgadmin4-jwt-and-docker-caa2742a4295 !
+
+http://sinatra-org-book.herokuapp.com/ ! <br>
+http://sinatrarb.com/intro.html |
 
 **Courses**<br>
 https://www.codecademy.com/learn/learn-html - 9h !<br>
