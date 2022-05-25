@@ -313,28 +313,47 @@ end
 </pre>
 Routes are matched in the order they are defined. The first route that matches the request is invoked.
 
-### Return values
+#### Return values
 A route method may return:
 * A string which will represent the response body.
 * An integer which will represent the status code.
 * An array with integer as status code and string as body.
 * An array with integer as status code, a hash containing headers and string as body. 
 
-### Static files
-`:public_folder` is a global variable that contains the path towards the folder with static files (frontend files).<br>
-Its default value is `./public`, this value can be changed like this `set :public_folder, ./myNewPathExample`.
-
-
-
 ### Filters
 Filters allow manipulation of the request chain, executing code before or after the appropriate route gets processed.
 
-The before and after methods have to be used, they can take an URL pattern or not to specify on what routes it will execute.
+The before and after keywords are used to indicate the appropriate filter methods.
+<pre>
+before '/protected/*' do # Here a route pattern is set so that this method only executes before this route pattern and not all of them
+  authenticate!
+end
+
+after do
+  puts response.status
+end
+</pre>
+
+### Helpers
+Helper methods are simple methods (aka functions) that do not act as routes but can be called inside route methods.<br>
+Those are defined in helper blocks `helpers do end` or are modules indicated as helpers `helpers FooModule, BarModule`.
 
 ### Handlers
 Handlers are top-level methods available in Sinatra to take care of common HTTP routines such as halting, passing, redirecting, manipulate cookies, access HTTP request params.
 
-### Continue learning sinatra with following documentation
+### Halting
+Halting is used to stop a request immediately like this `halt`.<br>
+Possibility exists to indicate a status code `halt 401`, a body `halt 'this will be the body'` or headers and all of those combined `halt 402, {'Contnet-Type' => 'text/plain}, 'this is the body'`.
 
-http://sinatrarb.com/intro.html
+### Passing
+The keyword 'pass' can be used to go to the next matching route pattern.
 
+### Streaming and websockets
+The stream keyword can be used to create a method that will return multiple times. This is useful for streaming APIs but also websockets. 
+
+
+
+### Configuration
+#### Static files location
+`:public_folder` is a global variable that contains the path towards the folder with static files (frontend files).<br>
+Its default value is `./public`, this value can be changed like this `set :public_folder, ./myNewPathExample`.
