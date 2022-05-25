@@ -282,21 +282,49 @@ get '/dogs' do
 end
 
 get '/dog/:id' do
-  # just get one dog, you might find him like this:
+  # just get one dog, access the id parameter via the 'params' hash like this params['id']
 end
 
 post '/dog' do
   # create a new dog listing
 end
 
-put '/dog/:id' do
-  # HTTP PUT request method to update an existing dog
+put '/dog/:id' do |id|
+  # HTTP PUT request method to update an existing dog, the block parameter id will take the route parameter
 end
 
 delete '/dog/:id' do
   # HTTP DELETE request method to remove a dog!
 end
+
+get '/say/*/to/*' do # Those wildcards are called splat parameters
+  # The route pattern could match /say/hello/to/world with params['splat'] equaling ["hello", "world"]
+end
+
+get '/posts/:format?' do
+  # Here format is an optional route parameter, meaming the route pattern could match /posts/ and /posts/1
+end
+
+get '/posts' do
+  # matches "GET /posts?title=foo&author=bar" meaning it also optionally accepts query parameters
+  title = params['title']
+  author = params['author']
+end
 </pre>
+Routes are matched in the order they are defined. The first route that matches the request is invoked.
+
+### Return values
+A route method may return:
+* A string which will represent the response body.
+* An integer which will represent the status code.
+* An array with integer as status code and string as body.
+* An array with integer as status code, a hash containing headers and string as body. 
+
+### Static files
+`:public_folder` is a global variable that contains the path towards the folder with static files (frontend files).<br>
+Its default value is `./public`, this value can be changed like this `set :public_folder, ./myNewPathExample`.
+
+
 
 ### Filters
 Filters allow manipulation of the request chain, executing code before or after the appropriate route gets processed.
