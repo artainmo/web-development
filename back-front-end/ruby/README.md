@@ -14,8 +14,16 @@
 - [Sinatra free tutorials](#SINATRA-FREE-TUTORIALS)
   - [Introduction](#Introduction-Sinatra)
   - [Routing](#Routing)
-  - [Filters](#Filters)
-  - [Handlers](#Handlers)
+    - [Return values](#Return-values)
+    - [Accessing the request object](#Accessing-the-request-object)
+    - [Filters](#Filters)
+    - [Helpers](#Helpers)
+    - [Halting](#Halting) 
+    - [Passing](#Passing)
+    - [Streaming and websockets](#Streaming-and-websockets)
+    - [Redirect](#Redirect)
+    - [Error Handling](#Error-Handling)
+  - [Configuration](#Configuration)
 
 
 ## CODECADEMY COURSE LEARN RUBY
@@ -259,7 +267,7 @@ A mixin is a class that includes a module (include ModuleName), enabling use of 
 A class that extends a module (extend ModuleName), makes the class inherit the module's methods and constants.
 
 ## SINATRA FREE TUTORIALS
-### Introduction Sinatra
+### Introduction
 Sinatra is a Ruby framework used to quickly create APIs or the backend of a web-application.
 
 It can be installed like this: `gem install sinatra`.
@@ -321,6 +329,9 @@ A route method may return:
 * An array with integer as status code, a hash containing headers and string as body. 
 * The contents of a file with `send_file filePath` instead of a return statement.
 
+#### Accessing the request object
+The request object can be manipulated from filter, routes or error handlers and is simply named request and contains values such as `request.body`, `request.query_string`, `request.url`, `request.path`...
+
 #### Filters
 Filters allow manipulation of the request chain, executing code before or after the appropriate route gets processed.
 
@@ -339,12 +350,9 @@ end
 Helper methods are simple methods (aka functions) that do not act as routes but can be called inside route methods.<br>
 Those are defined in helper blocks `helpers do end` or are modules indicated as helpers `helpers FooModule, BarModule`.
 
-#### Handlers
-Handlers are top-level methods available in Sinatra to take care of common HTTP routines such as halting, passing, redirecting, manipulate cookies, access HTTP request params.
-
 #### Halting
 Halting is used to stop a request immediately like this `halt`.<br>
-Possibility exists to indicate a status code `halt 401`, a body `halt 'this will be the body'` or headers and all of those combined `halt 402, {'Contnet-Type' => 'text/plain}, 'this is the body'`.
+Possibility exists to indicate a status code `halt 401`, a body `halt 'this will be the body'` or headers and all of those combined `halt 402, {'Content-Type' => 'text/plain}, 'this is the body'`.
 
 #### Passing
 The keyword 'pass' can be used to go to the next matching route pattern.
@@ -356,10 +364,45 @@ The stream keyword can be used to create a method that will return multiple time
 A redirect can be done with the redirect helper method `redirect http://www.google.com/` or to send the user back where he came from `redirect back`.<br>
 Here is an example on how to redirect to another route pattern while indicating status code and body `redirect to('/bar'), 303, 'Wrong place'`.
 
-#### Accessing the request object
-The request object can be manipulated from filter, routes or error handlers and is simply named request and contains values such as `request.body`, `request.query_string`, `request.url`, `request.path`...
+#### Error Handling
+The `not_found do end` handler, which is a method called not_found, is evoked when response status code is 404 or route pattern is not found.
+
+The `error do end` handler is invoked each time an exception is raised in routes or filters. In development this will only run if `set :show_exceptions, :after_handler`.<br>
+Custom errors can be called and made like the following.
+<pre>
+get '/' do
+  raise MyCustomError, 'something bad'
+end
+
+error MyCustomError do
+  return 'So what happened was...' + env['sinatra.error'].message
+end
+</pre>
+Error handler can also respond to a specific or multiple status code.
+<pre>
+get '/secret' do
+  return 403
+end
+
+error 403 do
+  return 'Access forbidden'
+end
+
+error 400..510 do
+  return 'I take all the error codes'
+end
+</pre>
 
 ### Configuration
-#### Static files location
+`set`, `enable`, `disable` are methods used to manipulate settings, which are application-level variables controlling features of the application.<br>
+`set :foo, 'bar'` takes a setting (:foo) and its assigned value ('bar').<br>
+`enable` and `disable` are sugar syntax that activate (set to true) or deactivate (set to false) a certain setting respectively.
+
+`:root` is the setting representing the directory used as base for the application, whereon `:public_folder` and `:views` settings are constructed on. Its default value is the directory of the main application file, this value can be changed like this `set :root, ./myNewPathExample` and accessed like this `settings.root`.
+
+`:static` is the boolean setting that determines if files should be served from the public directory (:public_folder setting), if true Sinatra will check if a static file exists and serve it before checking for matching route patterns. This is activated by default if the public directory exists.
+
 `:public_folder` is a global variable that contains the path towards the folder with static files (frontend files).<br>
-Its default value is `./public`, this value can be changed like this `set :public_folder, ./myNewPathExample`.
+Its default value is `./public`, this value can be changed like this `set :public_folder, ./myNewPathExample` and accessed like this `settings.public_folder`.
+
+`:port` determines the port the application will run on.
