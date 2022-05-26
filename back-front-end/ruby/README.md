@@ -267,7 +267,7 @@ A mixin is a class that includes a module (include ModuleName), enabling use of 
 A class that extends a module (extend ModuleName), makes the class inherit the module's methods and constants.
 
 ## SINATRA FREE TUTORIALS
-### Introduction
+### Introduction Sinatra
 Sinatra is a Ruby framework used to quickly create APIs or the backend of a web-application.
 
 It can be installed like this: `gem install sinatra`.
