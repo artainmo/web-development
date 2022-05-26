@@ -178,7 +178,8 @@ https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-singl
 https://tushar-chy.medium.com/a-simple-todo-application-with-nestjs-typeorm-postgresql-swagger-pgadmin4-jwt-and-docker-caa2742a4295 !
 
 http://sinatra-org-book.herokuapp.com/ ! <br>
-http://sinatrarb.com/intro.html |
+http://sinatrarb.com/intro.html ! <br>
+http://sinatrarb.com/configuration.html ! <br>
 
 **Courses**<br>
 https://www.codecademy.com/learn/learn-html - 9h !<br>
