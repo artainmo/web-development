@@ -302,7 +302,7 @@ get '/say/*/to/*' do # Those wildcards are called splat parameters
 end
 
 get '/posts/:format?' do
-  # Here format is an optional route parameter, meaming the route pattern could match /posts/ and /posts/1
+  # Here format is an optional route parameter, meaning the route pattern could match /posts/ and /posts/1
 end
 
 get '/posts' do
@@ -319,8 +319,9 @@ A route method may return:
 * An integer which will represent the status code.
 * An array with integer as status code and string as body.
 * An array with integer as status code, a hash containing headers and string as body. 
+* The contents of a file with `send_file filePath` instead of a return statement.
 
-### Filters
+#### Filters
 Filters allow manipulation of the request chain, executing code before or after the appropriate route gets processed.
 
 The before and after keywords are used to indicate the appropriate filter methods.
@@ -334,24 +335,29 @@ after do
 end
 </pre>
 
-### Helpers
+#### Helpers
 Helper methods are simple methods (aka functions) that do not act as routes but can be called inside route methods.<br>
 Those are defined in helper blocks `helpers do end` or are modules indicated as helpers `helpers FooModule, BarModule`.
 
-### Handlers
+#### Handlers
 Handlers are top-level methods available in Sinatra to take care of common HTTP routines such as halting, passing, redirecting, manipulate cookies, access HTTP request params.
 
-### Halting
+#### Halting
 Halting is used to stop a request immediately like this `halt`.<br>
 Possibility exists to indicate a status code `halt 401`, a body `halt 'this will be the body'` or headers and all of those combined `halt 402, {'Contnet-Type' => 'text/plain}, 'this is the body'`.
 
-### Passing
+#### Passing
 The keyword 'pass' can be used to go to the next matching route pattern.
 
-### Streaming and websockets
+#### Streaming and websockets
 The stream keyword can be used to create a method that will return multiple times. This is useful for streaming APIs but also websockets. 
 
+#### Redirect
+A redirect can be done with the redirect helper method `redirect http://www.google.com/` or to send the user back where he came from `redirect back`.<br>
+Here is an example on how to redirect to another route pattern while indicating status code and body `redirect to('/bar'), 303, 'Wrong place'`.
 
+#### Accessing the request object
+The request object can be manipulated from filter, routes or error handlers and is simply named request and contains values such as `request.body`, `request.query_string`, `request.url`, `request.path`...
 
 ### Configuration
 #### Static files location
