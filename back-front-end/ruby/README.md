@@ -12,6 +12,7 @@
   - [Blocks, Procs and Lambdas](#Blocks-and-Procs-and-Lambdas)
   - [Object oriented programming](#Object-oriented-programming)
   - [Modules](#Modules)
+  - [RubyGems](#RubyGems)
 - [Sinatra free tutorials](#SINATRA-FREE-TUTORIALS)
   - [Introduction](#Introduction-Sinatra)
   - [Routing](#Routing)
@@ -269,6 +270,11 @@ Built-in modules such as Math already exist and do not have to be imported, othe
 Modules can also be imported using the `include` keyword instead of require and this removes the need for the scope resolution operator and thus allows direct access to the module's methods and constants, usually this is not recommended as it can lead to namespace pollution.<br>
 A mixin is a class that includes a module (include ModuleName), enabling use of the module's methods and constants inside the class.<br>
 A class that extends a module (extend ModuleName), makes the class inherit the module's methods and constants.
+
+### RubyGems
+RubyGems is a Ruby packaging system designed to facilitate the creation, sharing and installation of libraries. Ruby comes with RubyGems by default since version 1.9.<br>
+A gem is a packaged library or application that can be installed with RubyGems.<br>
+`gem list` allows to view locally installed gems, `gem install gemName` to install a specific gem and `gem help` to view more information on how to use the gem command.
 
 ## SINATRA FREE TUTORIALS
 ### Introduction Sinatra
