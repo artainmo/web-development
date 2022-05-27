@@ -241,12 +241,12 @@ matz = Person.new("Yukihiro");
 </pre>
 
 Class attributes can be defined with different starting symbols, the $ symbol makes it global and thus directly accessible from outside the class.<br>
-The @ symbol makes it private and tied to the class instance while the @@ symbol makes it also private but tied to all class instances thus it enables for example to count the total number of instances of a specific class.
+The @ symbol (instance variable) makes it private and tied to the class instance while the @@ symbol (class variable) makes it also private but tied to all class instances thus it enables for example to count the total number of instances of a specific class.
 
 Inheritance allows reusability of classes inside other classes, following the DRY rule. All methods and attributes of one class can become accessible in another class through inheritance which is indicated like this for example `class MyApp < Application`.<br>
 If the parent and child class have a similar method name, the child method will override the parent one, the child method can call the parent method with the super keyword.
 
-Methods inside classes can be indicated as public or private, private meaning the method can only be used inside the class, this is indicated with the public or private keywords making all methods underneath of its type.
+Methods inside classes are by default public but can be indicated as public or private, private meaning the method can only be used inside the class, this is indicated with the public or private keywords making all methods underneath of its type.
 
 Get and set methods allow to get or set the value of an attribute in a class, one faster way to write such a function is with attr_reader and attr_writer,
 here is an example:
@@ -254,11 +254,12 @@ here is an example:
 class Person
   attr_reader :name #This allows us to get the value of attribute @name
   attr_writer :job #This allows us to set the value of attribute @job
-  attr_accessor :age #This allows us to both get and set the attribute @age
+  attr_accessor :age, :education #This allows us to both get and set the attribute @age
   def initialize(name, job, age)
     @name = name
     @job = job
     @age = age
+    @education = '19'
   end
 end
 </pre>
