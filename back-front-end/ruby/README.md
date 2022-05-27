@@ -260,7 +260,7 @@ class Person
 end
 </pre>
 
-### Object oriented programming
+### Modules
 
 Modules are similar to classes besides that no instances of them can be made, they are only used to store constant values and methods, they are similar to namespaces or libraries in other languages.<br>
 Modules are declared like this: `module ModuleName end` and its content is called using the scope resolution operator `ModuleName::MethodName`.<br>
