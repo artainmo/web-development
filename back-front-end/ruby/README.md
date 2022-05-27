@@ -31,15 +31,17 @@
 ### Introduction
 Ruby is a flexible programming language often used in webdevelopment with the Ruby on Rails framework.<br>
 Ruby is a high-level, object-oriented, language considered easy to use.<br>
-Ruby is interpreted, meaning a compiler is not necessary. The interpreter runs the code in the console.
+Ruby is interpreted, meaning a compiler is not necessary.<br>
+The interpreter runs the code in the console, is called `ruby` and interprets files terminating in `.rb` like this `ruby fileExample.rb`.<br>
+The .rb file is executed line by line like a script and can include other files or pre-existing libraries with the `require` keyword.
 
 Ruby variables are loosely typed and can contain as data types; numbers, booleans or strings.
 
 Arithmetic operations; +, -, *, /, **(exponentiation, fractions allow roots), %(modulo, remainder of given division).
 
 puts and print can be used like this to print to the console `puts "hello world"`, the difference being that puts comes with a terminating /n.<br>
-For string interpolation set the variable name in between #{}.
-gets can be used to get input from a user, its method .chomp removes the trailing /n.<br>
+For string interpolation set the variable name in between #{}.<br>
+`gets` can be used to get input from a user, its method .chomp removes the trailing /n.<br>
 
 Ruby consists of objects and those contain a variety of methods.<br>
 For example strings contain the length method, which returns the number of characters in a string: `puts "Hello World".length` in console gives 11.<br>
@@ -260,8 +262,7 @@ class Person
 end
 </pre>
 
-### Modules
-
+### Modules 
 Modules are similar to classes besides that no instances of them can be made, they are only used to store constant values and methods, they are similar to namespaces or libraries in other languages.<br>
 Modules are declared like this: `module ModuleName end` and its content is called using the scope resolution operator `ModuleName::MethodName`.<br>
 Built-in modules such as Math already exist and do not have to be imported, other modules have to be imported using `require ModuleName` and others can be created by yourself.<br>
