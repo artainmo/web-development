@@ -277,6 +277,15 @@ RubyGems is a Ruby packaging system designed to facilitate the creation, sharing
 A gem is a packaged library or application that can be installed with RubyGems.<br>
 `gem list` allows to view locally installed gems, `gem install gemName` to install a specific gem and `gem help` to view more information on how to use the gem command.
 
+A Gemfile describes the gem dependencies required to execute associated Ruby code. It must be placed in the root of the directory containing the associated code.
+<pre>
+source "https://rubygems.org" do #Indicate the rubyGem source of the following gem dependencies
+  gem "nokogiri" #Use the gem method to indicate the gem dependencies
+  gem "RedCloth", ">= 4.1.0", "< 4.2.0" #Optionally specify possible versions of the gem 
+end
+</pre>
+To install all the dependencies from the gemfile launch in terminal `bundle install`.
+
 ## SINATRA FREE TUTORIALS
 ### Introduction Sinatra
 Sinatra is a Ruby framework used to quickly create APIs or the backend of a web-application.
