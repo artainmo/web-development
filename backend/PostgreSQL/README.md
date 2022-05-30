@@ -328,6 +328,7 @@ With `\l` you can list all databases, by giving it as parameter a database name 
 With `\dt` you can list all tables and through the parameter one specific table can be shown.<br>
 With `\! command` you can execute regular shell commands.<br>
 With `\h partialSqlCommand` syntax help is given on correct SQL command.<br>
+The query buffer consists of written SQL commands without command-terminating-semicolon. `\gdesc` verifies syntax errors in query buffer without executing while `\g` executes the query buffer, `\p` shows the current query buffer or last executed and `\r` resets/clears the query buffer.  
 
 ### Use
 To create a new database use `CREATE DATABASE name;`.<br>
