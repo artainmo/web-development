@@ -316,12 +316,10 @@ Data is stored in tables that consist of rows and columns.
 Such databases are called relational databases, non-relational databases also exist and they consist of huge JSON-like objects, those are simpler and faster.
 
 ### Setup
-Has to be downloaded as an app from the web.<br>
-For access to the terminal command psql set in .zshrc "export PATH=$PATH:/pathFoundInPostgresqlApp"<br>
-Or use brew install.
+Is best downloaded as an app from the web, on macos for example: https://postgresapp.com/.<br>
+On https://postgresapp.com/ you can download the app but also learn how to install it, create a postgresql server with databases, how to connect from the terminal to those databases to execute psql commands and how to connect from programming languages to those databases.
 
-When launching psql, you can start launching psql commands in the terminal with /? you can view the usage guide and with /l you can list the whole database.<br>
-Inside .sql files you can write SQL scripts. Execute them with /i.
+When launching psql, you can start launching psql commands in the terminal with \? you can view the usage guide and with \l you can list the whole database. Inside .sql files you can write SQL scripts. Execute them with \i.
 
 ### Use
 To create a new database use `CREATE DATABASE name;`.<br>
