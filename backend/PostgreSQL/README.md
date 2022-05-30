@@ -319,7 +319,7 @@ Such databases are called relational databases, non-relational databases also ex
 Is best downloaded as an app from the web, on macos for example: https://postgresapp.com/.<br>
 On https://postgresapp.com/ you can download the app but also learn how to install it, create a postgresql server with databases, how to connect from the terminal to those databases to execute psql commands and how to connect from programming languages to those databases.
 
-psql is a terminal-based frontend to PostgreSQL. It enables interactive communication with PostgreSQL databases, type queries in terminal and see results.<br>
+psql is a terminal-based frontend to PostgreSQL. It enables interactive communication with PostgreSQL databases from the terminal.<br>
 SQL commands can be written and will only be send to the server when a command-terminating-semicolon is reached, a line return does not end the command and thus your command can be written on multiple lines for clarity. If the command got executed without errors the results will be shown.<br>
 When launching psql, next to SQL commands you can start launching psql meta-commands in the terminal, all psql meta-commands start with \. 
 With `\?` you can view the usage guide.<br>
@@ -331,7 +331,7 @@ With `\h partialSqlCommand` syntax help is given on correct SQL command.<br>
 
 ### Use
 To create a new database use `CREATE DATABASE name;`.<br>
-To connect to the database use `psql -h ipAddress -p port nameDatabase` or `\c nameDatabase`.<br>
+To connect to the database use `psql -h ipAddress -p port nameDatabase` or `\c nameDatabase` or view 'setup and psql' section.<br>
 To delete a database use `DROP DATABASE name;`.<br>
 To delete specific rows, use `DELETE FROM tableName WHERE clumnName=value;`, to delete all rows `DELETE FROM tableName;`.<br>
 To create a table use <pre>CREATE TABLE tableName (
@@ -340,7 +340,7 @@ To create a table use <pre>CREATE TABLE tableName (
 									columnName3 dataType flags/constraints,
 									);</pre>
 The `NON NULL` contraint obligates the column to be filled when filling the row.<br>
-To insert data `INSERT INTO nameDatabse (columnName1, columnName2) VALUES (valueColumn1, valueColumn2);`.<br>
+To insert data `INSERT INTO tableName (columnName1, columnName2) VALUES (valueColumn1, valueColumn2);`.<br>
 To make updates `UPDATE tableName SET columnName1 = value1, columnName2 = value2  WHERE id=idNumber`.
 
 To get specific columns from a table use `SELECT columnNamesSeparatedByComma FROM tableName;` with `*` to select all columns.<br>
