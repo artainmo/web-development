@@ -38,7 +38,8 @@ Datas can be of different types;
 * REAL(decimal).<br>
 
 Commands are used to manage the database, they can be written on multiple lines and must end with a semi-colon.<br>
--- starts a single line comment.
+Commands can be written in terminal with psql or from programming language with appropriate library (learn more in 'Setup and psql' section), commands can also be written as scripts in a .sql file which can be executed from the terminal or a programming language with appropriate library.
+`-- ` starts a single line comment.
 
 `CREATE TABLE table_name (column_1 data_type, column_2 data_type, column_3 data_type);` is used to create a new table in a database.<br>
 `INSERT INTO tableName (columnName1, columnName2, columnName3) VALUES (value1, value2, value3)` is used to insert rows inside a table.<br>
@@ -56,7 +57,8 @@ NOT NULL, makes sure all rows have a value.
 
 In order to run and use Postgres on your own computer, you will need to set up both a Postgres server and a client.<br>
 How to do this depends on os system.<br>
-Once it is locally installed, it will run on a port (usually 5432), it can be manipulated through the command line interface with psql or through a UI that has to be installed.
+Once it is locally installed, it will run on a port (usually 5432), it can be manipulated through the command line interface with psql or through a UI that has to be installed.<br>
+Learn more in 'Setup and psql' section.
 
 ### Queries
 
