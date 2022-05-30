@@ -15,7 +15,7 @@
   	- [Normalization](#Normalization) 
 - [Free tutorials](#Free-tutorials)
   - [Understand](#understand) 
-  - [Setup and psql](#Setup)
+  - [Setup and psql](#Setup-and-psql)
   - [Use](#Use)
 
 ## Codecademy course
