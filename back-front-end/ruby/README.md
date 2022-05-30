@@ -48,7 +48,7 @@ For string interpolation set the variable name in between #{}.<br>
 
 Ruby consists of objects and those contain a variety of methods.<br>
 For example strings contain the length method, which returns the number of characters in a string: `puts "Hello World".length` in console gives 11.<br>
-Other methods on strings are reverse, upcase, downcase, capitalize(first letter uppercase only)...<br>
+Other methods on strings are reverse, upcase, downcase, capitalize(first letter uppercase only), [0..4] or [0..-2](take part of string)...<br>
 variable1.method! is the same as variable1 = variable1.method, through the use of '!'. 
 
 Single-line-comments are indicated with # and multi-line-comments like this:<br>
