@@ -294,6 +294,15 @@ end
 </pre>
 
 ### Read files
+To take file content into string variable:
+<pre>
+fileObject = File.new("yourPath.txt")
+fileString = fileObject.read
+fileObject.close
+</pre>
+Or in one line `fileString = File.read("yourPath.txt") {|file| file.read}`
+
+To process a file one line at a time `File.foreach("yourPath.txt") { |line| puts line }`.
 
 ### RubyGems
 RubyGems is a Ruby packaging system designed to facilitate the creation, sharing and installation of libraries. Ruby comes with RubyGems by default since version 1.9.<br>
