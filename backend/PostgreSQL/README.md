@@ -328,8 +328,9 @@ With `\?` you can view the usage guide.<br>
 With `\c databaseName` you can connect to another database and with `\conninfo` view current database.<br>
 With `\l` you can list all databases, by giving it as parameter a database name you can selectively show that database. <br>
 With `\d` you can list all tables and through the parameter one specific table can be shown.<br>
-With `\! command` you can execute regular shell commands.<br>
+With `\! shellCommand` you can execute regular shell commands and with `\cd` change directory.<br>
 With `\h partialSqlCommand` syntax help is given on correct SQL command.<br>
+With `\i fileName` you can execute a .sql file and thus the commands it contains.<br>
 The query buffer consists of written SQL commands without command-terminating-semicolon. `\gdesc` verifies syntax errors in query buffer without executing while `\g` executes the query buffer, `\p` shows the current query buffer or last executed and `\r` resets/clears the query buffer.  
 
 ### Use
