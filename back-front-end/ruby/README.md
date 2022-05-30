@@ -12,6 +12,9 @@
   - [Blocks, Procs and Lambdas](#Blocks-and-Procs-and-Lambdas)
   - [Object oriented programming](#Object-oriented-programming)
   - [Modules](#Modules)
+- [Ruby free tutorials](#RUBY-FREE-TUTORIALS)
+  - [Exceptions](#Exceptions)
+  - [Read files](#Read-files)
   - [RubyGems](#RubyGems)
 - [Sinatra free tutorials](#SINATRA-FREE-TUTORIALS)
   - [Introduction](#Introduction-Sinatra)
@@ -26,7 +29,6 @@
     - [Redirect](#Redirect)
     - [Error Handling](#Error-Handling)
   - [Configuration](#Configuration)
-
 
 ## CODECADEMY COURSE LEARN RUBY
 ### Introduction
@@ -272,6 +274,27 @@ Modules can also be imported using the `include` keyword instead of require and 
 A mixin is a class that includes a module (include ModuleName), enabling use of the module's methods and constants inside the class.<br>
 A class that extends a module (extend ModuleName), makes the class inherit the module's methods and constants.
 
+## RUBY FREE TUTORIALS
+### Exceptions
+<pre>
+begin
+  # code that might raise an exception
+rescue ExceptionClass => ErrorObject
+  # code that deals with some exception defined by ExceptionClass, ErrorObject can be used to view error description with its .message attribute.
+rescue SomeOtherException
+  # code that deals with another specific exception
+rescure
+  # Exception is not specified and thus it takes all exceptions
+else
+  # code that runs only if no exception was raised
+ensure
+  # ensure that this code always runs, no matter what
+  # does not change the final value of the block
+end
+</pre>
+
+### Read files
+
 ### RubyGems
 RubyGems is a Ruby packaging system designed to facilitate the creation, sharing and installation of libraries. Ruby comes with RubyGems by default since version 1.9.<br>
 A gem is a packaged library or application that can be installed with RubyGems.<br>
@@ -285,7 +308,7 @@ source "https://rubygems.org" do #Indicate the rubyGem source of the following g
 end
 </pre>
 To install all the dependencies from the gemfile launch in terminal `bundle install`.
-
+    
 ## SINATRA FREE TUTORIALS
 ### Introduction Sinatra
 Sinatra is a Ruby framework used to quickly create APIs or the backend of a web-application.
