@@ -323,10 +323,10 @@ On https://postgresapp.com/ you can download the app but also learn how to insta
 
 psql is a terminal-based frontend to PostgreSQL. It enables interactive communication with PostgreSQL databases from the terminal.<br>
 SQL commands can be written and will only be send to the server when a command-terminating-semicolon is reached, a line return does not end the command and thus your command can be written on multiple lines for clarity. If the command got executed without errors the results will be shown.<br>
-When launching psql, next to SQL commands you can start launching psql meta-commands in the terminal, all psql meta-commands start with \. 
+When launching psql, next to SQL commands you can start launching psql meta-commands in the terminal, all psql meta-commands start with \.<br> 
 With `\?` you can view the usage guide.<br>
 With `\c databaseName` you can connect to another database and with `\conninfo` view current database.<br>
-With `\l` you can list all databases, by giving it as parameter a database name you can selectively show that database. 
+With `\l` you can list all databases, by giving it as parameter a database name you can selectively show that database. <br>
 With `\d` you can list all tables and through the parameter one specific table can be shown.<br>
 With `\! command` you can execute regular shell commands.<br>
 With `\h partialSqlCommand` syntax help is given on correct SQL command.<br>
