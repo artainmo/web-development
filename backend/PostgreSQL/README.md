@@ -38,7 +38,7 @@ Datas can be of different types;
 * REAL(decimal).<br>
 
 Commands are used to manage the database, they can be written on multiple lines and must end with a semi-colon.<br>
-Commands can be written in terminal with psql or from programming language with appropriate library (learn more in 'Setup and psql' section), commands can also be written as scripts in a .sql file which can be executed from the terminal or a programming language with appropriate library.
+Commands can be written in terminal with psql or from programming language with appropriate library (learn more in 'Setup and psql' section), commands can also be written as scripts in a .sql file which can be executed from the terminal or a programming language with appropriate library.<br>
 `-- ` starts a single line comment.
 
 `CREATE TABLE table_name (column_1 data_type, column_2 data_type, column_3 data_type);` is used to create a new table in a database.<br>
