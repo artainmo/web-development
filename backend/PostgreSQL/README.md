@@ -15,7 +15,7 @@
   	- [Normalization](#Normalization) 
 - [Free tutorials](#Free-tutorials)
   - [Understand](#understand) 
-  - [Setup](#Setup)
+  - [Setup and psql](#Setup)
   - [Use](#Use)
 
 ## Codecademy course
@@ -315,11 +315,19 @@ Data is stored in tables that consist of rows and columns.
 
 Such databases are called relational databases, non-relational databases also exist and they consist of huge JSON-like objects, those are simpler and faster.
 
-### Setup
+### Setup and psql
 Is best downloaded as an app from the web, on macos for example: https://postgresapp.com/.<br>
 On https://postgresapp.com/ you can download the app but also learn how to install it, create a postgresql server with databases, how to connect from the terminal to those databases to execute psql commands and how to connect from programming languages to those databases.
 
-When launching psql, you can start launching psql commands in the terminal with \? you can view the usage guide and with \l you can list the whole database. Inside .sql files you can write SQL scripts. Execute them with \i.
+psql is a terminal-based frontend to PostgreSQL. It enables interactive communication with PostgreSQL databases, type queries in terminal and see results.<br>
+SQL commands can be written and will only be send to the server when a command-terminating-semicolon is reached, a line return does not end the command and thus your command can be written on multiple lines for clarity. If the command got executed without errors the results will be shown.<br>
+When launching psql, next to SQL commands you can start launching psql meta-commands in the terminal, all psql meta-commands start with \. 
+With `\?` you can view the usage guide.<br>
+With `\c databaseName` you can connect to another database and with `\conninfo` view current database.<br>
+With `\l` you can list all databases, by giving it as parameter a database name you can selectively show that database. 
+With `\dt` you can list all tables and through the parameter one specific table can be shown.<br>
+With `\! command` you can execute regular shell commands.<br>
+With `\h partialSqlCommand` syntax help is given on correct SQL command.<br>
 
 ### Use
 To create a new database use `CREATE DATABASE name;`.<br>
