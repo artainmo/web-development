@@ -27,7 +27,7 @@ PostgreSQL is a relational database management system, meaning it stores data in
 PostgreSQL stores information on a dedicated database server instead of on a local file system.<br>
 SQL (Structured Query Language) is a programming language used to communicate with data stored in a relational database management system.<br>
 Other relational databases are mySQL, SQLite, SQL server, Oracle DB....<br> 
-Because all use SQL or slight variations of it, learing to use one relational database also opens doors to other relational databases.<br>
+Because all use SQL or slight variations of it, learning to use one relational database also opens doors to other relational databases.<br>
 Distinction can be made between relational databases with file extensions, PostgreSQL uses .sql as file extension, but also with data types and access to built-in-tables.
 
 A relational database can consist of one or more tables, tables consist of rows and columns that contain datas.<br>
@@ -109,7 +109,7 @@ ON tableName1.columnName = tableName2.columnName;</pre>
 or
 <pre>SELECT * FROM tableName1, tableName2
 WHERE tableName1.columnName = tableName2.columnName;</pre>
-Whereby tableName1.columnName is table1's primary key and tableName2.columnName is table2's foreign key referencing towards the table1 primary key, they thus must be similar for the join to happen, as the left table will be kept and righ table removed when joining.<br>
+Whereby tableName1.columnName is table1's primary key and tableName2.columnName is table2's foreign key referencing towards the table1 primary key, they thus must be similar for the join to happen, as the left table will be kept and right table removed when joining.<br>
 If they are not similar LEFT JOIN can be used, whereby the values that are different will be set to NULL while the others will keep the left table values.
 
 CROSS JOINS allow to simply join together two tables who do not have a relationship like this:<br>
@@ -324,25 +324,25 @@ When launching psql, you can start launching psql commands in the terminal with 
 Inside .sql files you can write SQL scripts. Execute them with /i.
 
 ### Use
-To create a new database use "CREATE DATABASE name;".<br>
-To connect to the database use "psql -h ipAddress -p port nameDatabase" or "\c nameDatabase".<br>
-To delete a database use "DROP DATABASE name;".<br>
-To delete specific rows, use "DELETE FROM tableName WHERE clumnName=value;", to delete all rows "DELETE FROM tableName;".<br>
-To create a table use "CREATE TABLE tableName (<br>
-									columnName dataType flags/constraints, <br>
-									columnName2 dataType flags/constraints, <br>
-									columnName3 dataType flags/constraints, <br>
-									);"<br>
-The "NON NULL" contraint obligates the column to be filled when filling the row.<br>
-To insert data "INSERT INTO nameDatabse (columnName1, columnName2) VALUES (valueColumn1, valueColumn2);".<br>
-To make updates "UPDATE tableName SET columnName1 = value1, columnName2 = value2  WHERE id=idNumber".
+To create a new database use `CREATE DATABASE name;`.<br>
+To connect to the database use `psql -h ipAddress -p port nameDatabase` or `\c nameDatabase`.<br>
+To delete a database use `DROP DATABASE name;`.<br>
+To delete specific rows, use `DELETE FROM tableName WHERE clumnName=value;`, to delete all rows `DELETE FROM tableName;`.<br>
+To create a table use <pre>CREATE TABLE tableName (
+									columnName dataType flags/constraints,
+									columnName2 dataType flags/constraints,
+									columnName3 dataType flags/constraints,
+									);</pre>
+The `NON NULL` contraint obligates the column to be filled when filling the row.<br>
+To insert data `INSERT INTO nameDatabse (columnName1, columnName2) VALUES (valueColumn1, valueColumn2);`.<br>
+To make updates `UPDATE tableName SET columnName1 = value1, columnName2 = value2  WHERE id=idNumber`.
 
-To get specific columns from a table use "SELECT columnNamesSeparatedByComma FROM tableName;" with `*` to select all columns.<br>
-To sort based on specific column "SELECT * FROM tableName ORDER BY columnName;", it will order in terms of the alphabet, numerical system or dates, to reverse the base order add at end command DESC.<br>
-To filter the data use "SELECT * FROM tableName WHERE columnName = value;" to set multiple conditions you can add to the command "ADD newCondition", () and OR can be used too. Comparison operators; =, <, >, <=, >=, <>(not equal).<br>
-To select only x number of first rows "SELECT * FROM tableName LIMIT x", to only select x->y number of rows "SELECT * FROM tableName OFFSET x LIMIT y - x;".<br>
-To get all rows between two values "SELECT * FROM tableName WHERE columnName BETWEEN value1 and value2;".<br>
-To get all values starting/ending with particular value "SELECT * FROM databaseName WHERE tableName LIKE 'startValue%endValue';".<br>
+To get specific columns from a table use `SELECT columnNamesSeparatedByComma FROM tableName;` with `*` to select all columns.<br>
+To sort based on specific column `SELECT * FROM tableName ORDER BY columnName;`, it will order in terms of the alphabet, numerical system or dates, to reverse the base order add at end command DESC.<br>
+To filter the data use `SELECT * FROM tableName WHERE columnName = value;` to set multiple conditions you can add to the command `ADD newCondition`, () and OR can be used too. Comparison operators; =, <, >, <=, >=, <>(not equal).<br>
+To select only x number of first rows `SELECT * FROM tableName LIMIT x`, to only select x->y number of rows `SELECT * FROM tableName OFFSET x LIMIT y - x;`.<br>
+To get all rows between two values `SELECT * FROM tableName WHERE columnName BETWEEN value1 and value2;`.<br>
+To get all values starting/ending with particular value `SELECT * FROM databaseName WHERE tableName LIKE 'startValue%endValue';`.<br>
 To know how much rows with a certain value of a certain column exist `SELECT columnName, count(*) FROM tableName GROUP BY columnName ORDER BY columnName;`. <br>
 The count function is called an aggregate function and different ones exist, such as MAX(columnName), MIN(columnName), AVG(columnName), SUM(columnName), )using multiple ones is also possible such as ROUND(AVG(columnName), numberDecimals).<br>
 To filter values with certain amount of rows `SELECT columnName, count(*) FROM tableName GROUP BY columnName HAVING COUNT(*) comparison ORDER BY columnName;`<br>
