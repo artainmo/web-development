@@ -373,9 +373,12 @@ Inner joins allows us to join two tables that are connected through a foreign ke
 Constraints can also be added, a constraint is for example, all the values inside the email column have to be unique, this would be indicated with `ALTER TABLE tableName ADD CONSTRAINT nameConstraint UNIQUE (columnName);` this constraint can be removed with `ALTER TABLE tableName DROP CONSTRAINT nameConstraint;`. With the use of CHECK (condition) instead of UNIQUE, you can choose own condition.<br>
 If the constraint condition is met a conflict occurs which will block the action from taking place, to make an exception add at end of insert command `ON CONFLICT constraintName DO UPDATE SET columnName = EXCLUDED.columnName;`.<br>
 
+Often times as primary keys instead of the standard incrementing integer a uuid is used, which stands for universal unique identifier.<br>
+Using UUIDs as primary keys can protect against attackers that want to mine the database, it also allows for merging databses without conflicts.<br>
+To set a primary key as a uuid give it the UUID type. To generate uuids the SQL uuid_generate_v4() function can be used or from different programming languages different functions are used to generate uuids.
+
+Extensions are SQL functions that can be viewed with `SELECT FROM pg_available_extensions;`, those can add various functionalities like universally unique identifiers or sequences.<br>
+
 Columns can also contain as value a sequence. This is a type that yields ever increasing values, the value can be reset and increases each time it is selected with SELECT. It gets indicated when creating a table with the BIGSERIAL type, it can be used for the primary-key/id column.<br>
-Extensions are functions that can be viewed with `SELECT FROM pg_available_extensions;`, those can add various functionalities like universally unique identifiers.<br>
-UUIDs can be installed with `CREATE EXTENSION IF NOT EXISTS 'uuid-ossp';`, using `SELECT uuid_generate_v4();` you can generate a random UUID, using UUIDs as primary keys can protect against attackers that want to mine the database, it also allows for merging databses without conflicts.<br>
-To use UUIDS as primary key, use the UUID type for the primary key and uuid_generate_v4() function to insert the appropriate values.
 
 Generate a .csv file, `\copy (SELECT command to take wanted code from tables) TO .csvPath DELIMITER "," CSV HEADER;`
