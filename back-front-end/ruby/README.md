@@ -293,6 +293,8 @@ ensure
 end
 </pre>
 
+Raise an exception like this `raise StandardError.new "This is the error message"` or simply `raise "This is the error message"`.
+
 ### Read files
 To take file content into string variable:
 <pre>
