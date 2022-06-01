@@ -388,6 +388,8 @@ A route method may return:
 * An array with integer as status code, a hash containing headers and string as body. 
 * The contents of a file with `send_file filePath` instead of a return statement.
 
+The body must always be a string. If you want to send an object transform it into a json string before sending `require 'json'; object.to_json;`.
+
 #### Accessing the request object
 The request object can be manipulated from filter, routes or error handlers and is simply named request and contains values such as `request.body`, `request.query_string`, `request.url`, `request.path`...
 
