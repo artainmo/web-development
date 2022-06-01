@@ -5,6 +5,7 @@
   - [Rendering and code generation](#Rendering-and-code-generation) 
   - [REST APIs](#REST-APIs)
   - [How-to-structure-apps](#How-to-structure-apps)
+- [Practical resources for calling backend APIs from the frontend](#Practical-resources-for-calling-backend-APIs-from-the-frontend)
 
 ## Codecademy course
 
@@ -80,3 +81,10 @@ You will have to create a .env at root of project (set inside .gitignore to keep
 * PORT=8000
 
 In to-do-list project one can better visualize the whole MVC structure and how the back and front connect..
+
+## Practical resources for calling backend APIs from the frontend
+
+In javascript:<br>
+https://github.com/artainmo/WebDevelopment/tree/main/back-front-end/javascript#PROMISES-and-SYNC-AWAIT-and-FETCH-and-ERRORS<br>
+https://github.com/artainmo/WebDevelopment/tree/main/back-front-end/javascript#REQUESTS<br>
+https://github.com/artainmo/WebDevelopment/tree/main/backend/NestJS#Call-the-NestJS-API-with-axios<br>
