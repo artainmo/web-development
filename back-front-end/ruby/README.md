@@ -368,7 +368,9 @@ get '/posts/:format?' do
 end
 
 get '/posts' do
-  # matches "GET /posts?title=foo&author=bar" meaning it also optionally accepts query parameters
+  # Also matches "GET /posts?title=foo&author=bar" meaning it also optionally accepts query parameters.
+  # Query parameters are always optional they do not define the route path.
+  # Query parameters are usually used to further describe and filter what is demanded.
   title = params['title']
   author = params['author']
 end
