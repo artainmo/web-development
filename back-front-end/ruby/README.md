@@ -373,6 +373,9 @@ get '/posts' do
   # Query parameters are usually used to further describe and filter what is demanded.
   title = params['title']
   author = params['author']
+  # The request body is found here request.body and comes in json
+  # Caution it can only be read one time or it has to be rewind like this request.body.rewind
+  body = JSON.parse request.body.read # This allows to transform the json object into the appropriate ruby object
 end
 </pre>
 Routes are matched in the order they are defined. The first route that matches the request is invoked.
