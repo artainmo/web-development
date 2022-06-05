@@ -16,7 +16,8 @@
 - [Free tutorials](#Free-tutorials)
   - [Understand](#understand) 
   - [Setup and psql](#Setup-and-psql)
-  - [Use](#Use)
+  - [Basic use](#Basic-use)
+  - [Even more](#Even-more)
 
 ## Codecademy course
 
@@ -334,7 +335,7 @@ With `\i fileName` you can execute a .sql file and thus the commands it contains
 With `\q` you can quit psql.
 The query buffer consists of written SQL commands without command-terminating-semicolon. `\gdesc` verifies syntax errors in query buffer without executing while `\g` executes the query buffer, `\p` shows the current query buffer or last executed and `\r` resets/clears the query buffer.  
 
-### Use
+### Basic use
 To create a new database use `CREATE DATABASE name;`.<br>
 To connect to the database use `psql -h ipAddress -p port nameDatabase` or `\c nameDatabase` or view 'setup and psql' section.<br>
 To delete a database use `DROP DATABASE name;`.<br>
@@ -361,7 +362,6 @@ To filter values with certain amount of rows `SELECT columnName, count(*) FROM t
 To give name to new columnName use `AS newColumnName`.<br>
 `COALESCE(defaultValue)` allows to fill empty or undefined values with default values.<br>
 Arithmetic operators: + - * / %(modulo) ^(power) !(factorial)<br>
-Use DATE() for date + time or DATE()::DATE for only date or DATE()::TIME for only time. With 'INTERVAL "amountOfTime"' you can add or substract the time. To get even more precise values you can `SELECT EXTRACT(YEAR/DAY/... FROM NOW())`.<br>
 To view all different values in a column `SELECT DISTINCT columnName FROM tableName;`.
 
 Primary keys are identifiers, an index for the rows of the table, it is possible to have multiple of them, they are indicated by using the flag `PRIMARY KEY` at table creation.<br>
@@ -373,12 +373,43 @@ Inner joins allows us to join two tables that are connected through a foreign ke
 Constraints can also be added, a constraint is for example, all the values inside the email column have to be unique, this would be indicated with `ALTER TABLE tableName ADD CONSTRAINT nameConstraint UNIQUE (columnName);` this constraint can be removed with `ALTER TABLE tableName DROP CONSTRAINT nameConstraint;`. With the use of CHECK (condition) instead of UNIQUE, you can choose own condition.<br>
 If the constraint condition is met a conflict occurs which will block the action from taking place, to make an exception add at end of insert command `ON CONFLICT constraintName DO UPDATE SET columnName = EXCLUDED.columnName;`.<br>
 
-Often times as primary keys instead of the standard incrementing integer a uuid is used, which stands for universal unique identifier.<br>
-Using UUIDs as primary keys can protect against attackers that want to mine the database, it also allows for merging databses without conflicts.<br>
-To set a primary key as a uuid give it the UUID type. To generate uuids the SQL uuid_generate_v4() function can be used or from different programming languages different functions are used to generate uuids.
-
 Extensions are SQL functions that can be viewed with `SELECT FROM pg_available_extensions;`, those can add various functionalities like universally unique identifiers or sequences.<br>
 
 Columns can also contain as value a sequence. This is a type that yields ever increasing values, the value can be reset and increases each time it is selected with SELECT. It gets indicated when creating a table with the BIGSERIAL type, it can be used for the primary-key/id column.<br>
 
 Generate a .csv file, `\copy (SELECT command to take wanted code from tables) TO .csvPath DELIMITER "," CSV HEADER;`
+
+### UUID
+Often times as primary keys instead of the standard incrementing integer a uuid is used, which stands for universal unique identifier.<br>
+Using UUIDs as primary keys can protect against attackers that want to mine the database, it also allows for merging databses without conflicts.<br>
+To set a primary key as a uuid give it the UUID type. To generate uuids the SQL uuid_generate_v4() function can be used or from different programming languages different functions are used to generate uuids.
+
+### Even more
+Realize a lot more is possible with postgres than explained here, do not hesitate to research what you need it may already exist.<br>
+More datatypes exist such as `timestamp` for dates and time and `point` for two-dimensional x and y values.<br>
+More functions exist such as `AGE(birthday)`.<br>
+
+Additional modules can be added like this `CREATE EXTENSION module_name;` with arguments such as `IF NOT EXISTS` to not throw an error if module already existed, `CASCADE` to dwonload depending modules that do not exist yet.<br>
+Those modules contain specific functions that can be useful.<br>
+Here is a list of the modules and its functions: https://www.postgresql.org/docs/9.1/contrib.html.
+
+You can also create your own SQL functions, here is an example:
+<pre>
+CREATE FUNCTION get_film_count(len_from int, len_to int) #function name, parameters and associated type are declared
+returns int #The return type is declared
+language plpgsql #The language the function will be written is declared, other languages than plpgsql are possible too
+as
+$$ #Here the function starts
+declare
+   film_count integer; #Here you can declare variable that will be used
+begin
+   select count(*) 
+   into film_count #'into' assigns a value to a variable
+   from film
+   where length between len_from and len_to;   
+   return film_count;
+end;
+$$; #Here the function ends
+</pre>
+
+
