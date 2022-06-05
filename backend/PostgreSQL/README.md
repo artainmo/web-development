@@ -412,4 +412,5 @@ end;
 $$; #Here the function ends
 </pre>
 
+Creating own datatypes is possible too.
 
