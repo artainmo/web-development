@@ -90,7 +90,7 @@ Two arrays can be joined together forming one array with all the maps of summed 
 
 Like simple variables, arrays can also be passed as references instead of copies to function parameters, meaning changes to the function parameters will also create changes in the array send into the function as a reference. Because references instead of creating a copy in memory space point to the same memory space.
 
-### HTML form handling with PHP
+### HTML forms with PHP
 PHP was designed as a back-end web-development language, specifically it was designed to work well with HTML by enabling dynamic generation of HTML code.
 
 We can embed PHP scripts within HTML documents with the opening tag `<?php` and the closing tag `?>`.<br>
@@ -140,7 +140,7 @@ HTML form tags can be of a certain method indicated by the method attribute and 
 A HTML form tag can take an action attribute, it allows redirection after submitting the form, this can equal a new URL or relative file path.<br>
 In this new file after the redirection the superglobals are still available with the collected data from the past form.
 
-### Conditionals and logic in PHP
+### Conditionals
 Like other languages PHP uses as conditionals if, elseif and else.
 <pre>
 if (statement) { 
@@ -177,12 +177,32 @@ Comparison operators are used inside conditional statements and evaluate to true
 Similar to other languages PHP uses the following comparison operators: >, >=, <, <=, ===, !===.<br>
 Like in javascript distinction can be made with the equal operator (== / !=) and the identical operator (=== / !==), the identical operator is more strict and predictable thus is usually preferred.
 
+Logical operators are used inside conditional starements, similar to other languages PHP uses:
+- `||` / `or` (or, returns true if left or right condition evaluates to true)
+- `&&` / `and` (and, returns true if both left and right conditions evaluate to true)
+- `!` (not, only takes a right operand and reverses its boolean value)
+- `xor` (xor, evaluates to true if right or left operands equal to true but not both simultaneously)
+
 Values that are considered as false are:
 - Empty strings or arrays
 - null, 0, "0" or undefined
 
+### Loops
+Loops allow the repetition of a code block until a certain condition is met.<br>
+This repetition is referred as iterating and one code repetition is called one iteration.
 
+If the condition that stops the loop is never met an infinite loop occurs which blocks further program execution.<br>
 
+A while loop consists of `while (condition) { block of code }` and executes its block of code until its condition becomes false.<br>
+A do while loop consists of `do { block of code } while (condition);` and executes the first iteration without verifying the condition, afterwards it functions like a regular while loop.<br>
+A for loop is used to execute a block of code a specific number of times and looks like this `for (iteration variable declaration; condition that stops the loop if false; incrementing/decrement the iteration variable) { bock of code }`.<br>
+The foreach loop is used to loop over each element in an array and looks like `foreach ($array as $element) { block of code executed for each $element }`, if the array is associative instead of ordered it would look like `foreach ($array as $key => $value) {block of code executed for each key and associated value}`.<br>
 
+Inside loop-code-blocks the keyword `break` is used to stop a loop from running instantly while the `continue` keyword will skip the execution of current iteration remaining code by directly going to start next iteration.  
+
+In HTML php tags, for loops can use a more readable syntax which consists of replacing the opening brace { with a colon `:` and the closing brace } with `endfor;`, in the same logic while loops closing brace } can be replaced with `endwhile;` and foreach loop's ending brace with `endforeach;`.<br>
+When using foreach, the elements from the array in the HTML code can be accessed by using php tags around the element references, one can use the php shorthand echo opening tag `<?=$key?> <?=$value?>` to easily display the array elements in HTML code.
+
+### PHP form validation
 
 
