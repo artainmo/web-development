@@ -11,7 +11,8 @@ PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used open so
 PHP was created in 1994 and is one of the foundational technologies of web-development. For new websites newer technologies are usually used, but PHP maintains ground by still being present in foundational widely-used content management systems such as Wordpress.
 
 PHP allows dynamic content by being easily added to HTML in between `<?php ?>`.<br>
-But PHP can also be written in PHP scripts that log in the terminal, within files with extension `.php`, those scripts need to start with `<?php` and do not necessitate a closing tag.
+But PHP can also be written in PHP scripts that log in the terminal, within files with extension `.php`, those scripts need to start with `<?php` and do not necessitate a closing tag.<br>
+PHP code is executed with `php filePath`.
 
 In PHP the `echo` keyword is used to output text, it can output HTML text with HTML tags.<br>
 An instruction in PHP is called a statement and needs to be ended by a `;`.<br>
@@ -88,6 +89,100 @@ Ordered arrays can be considered associative arrays whereby ordered numerical ke
 Two arrays can be joined together forming one array with all the maps of summed arrays using the + operator. 
 
 Like simple variables, arrays can also be passed as references instead of copies to function parameters, meaning changes to the function parameters will also create changes in the array send into the function as a reference. Because references instead of creating a copy in memory space point to the same memory space.
+
+### HTML form handling with PHP
+PHP was designed as a back-end web-development language, specifically it was designed to work well with HTML by enabling dynamic generation of HTML code.
+
+We can embed PHP scripts within HTML documents with the opening tag `<?php` and the closing tag `?>`.<br>
+When using echo within HTML we are not printing to the terminal but rather generating HTML code.<br>
+<pre>
+<html>
+ <head>
+  <title>My First PHP Site</title>
+ </head>
+ <body>
+ <?php 
+   $lucky_number = 5 * 2 - 1;
+   echo "<h1>Your lucky number is ${lucky_number}</h1>";
+  ?> 
+ </body>
+</html>
+</pre>
+HTML code that contains PHP tags is not written in .html but in .php instead.<br>
+One php tag does not form a local scope, functions and variables from other above tags are accessible by all underneath tags.<br>
+
+Usually echo is used to generate HTML with php, instead the opening php tag can be changed from `<?php` to `<?=` so that echo is not necessary anymore.
+<pre>
+<p>This HTML will get delivered as is</p>
+<?="<p>PHP interprets this and turns it into HTML</p>";?>
+</pre>
+
+PHP contains superglobals which are global variables such as `$_REQUEST`, `$_GET` or `$_POST` who hold history of made requests, get-requests and post-requests respectively, they can be accessed from anywhere in PHP tags.<br>
+HTML form tags can be of a certain method indicated by the method attribute and contain input tags with a name attribute. The result of someone submitting a form can be found in superglobals, the result of someone submitting a GET form with input name 'country' for example is found in `$_GET["country"]`.
+<pre>
+<html>
+<body>
+<form method="get">
+<input name="country" type="text">
+<br>
+<input name="language" type="text">
+<br>
+<input type="submit" value="Submit">
+</form>
+<br>
+<p>Your language is: <?=$_GET["language"];?></p>
+<p>Your country is: <?=$_GET["country"];?></p>
+<a href="index.php">Reset</a>
+</body>
+</html>
+</pre>
+
+A HTML form tag can take an action attribute, it allows redirection after submitting the form, this can equal a new URL or relative file path.<br>
+In this new file after the redirection the superglobals are still available with the collected data from the past form.
+
+### Conditionals and logic in PHP
+Like other languages PHP uses as conditionals if, elseif and else.
+<pre>
+if (statement) { 
+  code to be executed if statement is true 
+} elseif (statement) {
+  code to be executed if statement is true 
+} else { 
+  code to be executed if all prior statements were false 
+}
+</pre>
+
+Alternatively a switch statement can replace repetitive elseif statements.
+<pre>
+switch ($variable) {
+  case value1:
+    action;
+    break;
+  case value2:
+    action;
+    break;
+  case value3: //If the variable equals value3 or value4 it will execute the same following action
+  case value4:
+    action;
+    break;
+  default:
+    action;
+}
+</pre>
+
+Alternatively ternary operators can replace short if-else statements into one line of code.<br>
+`statement ? expression to return if statement is true : expression to return if statement is false`
+
+Comparison operators are used inside conditional statements and evaluate to true or false.<br>
+Similar to other languages PHP uses the following comparison operators: >, >=, <, <=, ===, !===.<br>
+Like in javascript distinction can be made with the equal operator (== / !=) and the identical operator (=== / !==), the identical operator is more strict and predictable thus is usually preferred.
+
+Values that are considered as false are:
+- Empty strings or arrays
+- null, 0, "0" or undefined
+
+
+
 
 
 
