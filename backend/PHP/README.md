@@ -204,5 +204,52 @@ In HTML php tags, for loops can use a more readable syntax which consists of rep
 When using foreach, the elements from the array in the HTML code can be accessed by using php tags around the element references, one can use the php shorthand echo opening tag `<?=$key?> <?=$value?>` to easily display the array elements in HTML code.
 
 ### PHP form validation
+#### Introduction to form validation
+The process of checking that the information submitted through a form adheres to expectations is called form validation.<br>
+Examples are verifying if an email is indeed an email as expected or if a password is secure enough.<br>
+Form validation is important for security reasons and for the website to function correctly.
 
+The first technique we can use to validate form data is to prevent problematic inputs from being submitted in the first place. This is called client-side validation, meaning verifying data directly from the frontend. Its advantage is speed and reduced resource needs but it is unable to handle all types of validations.<br>
+This is partly already present in HTML which allows to make for example some forms required, to set minimum and maximum values or string length.<br>
+Javascript in plain form or using specific libraries can also be used to make more complex validations in the frontend.
+
+Because front-end validations are not always complete and easy to bypass it is always necessary to validate in the back-end, as a rule the backend should never trust the data it receives.<br>
+Server-side-validation has the advantages of enabling validation code often on machines with more computing power, it allows to write code hidden from the client and validate data in relation to datas easily accessible in the backend but not frontend.<br>
+Asynchronous requests to the server can perform back-end validations before a form has been submitted, but usually a final back-end validation is done after the client submitted the form.
+
+#### Regular expressions
+Regular expressions are sequences of characters that define patterns to look for in text. They are an important tool used in validating input.
+
+Literals is when our regular expression contains the exact text it wants to match, for example `banana` will only match `banana` or `bananas`.<br>
+
+Alternation consists of `regularExpression1|regularExpression2` and will match text that matches the regular expression 1 or 2, the | acts as an or statement.<br>
+
+Character sets, denoted by a pair of brackets, let us match one character from a series of characters, allowing for matches with incorrect or different spellings. For example `con[sc]en[sc]us` will match `consensus` but also `concencus`. <br>
+The ^ sign can be used to not match certain character sets, for example `[^ems]at` will not match eat, mat or sat but will match cat, hat or rat...<br>
+
+Wildcards will match any single character (letter, number, symbol or whitespace) in a piece of text. They are useful when we do not care about the specific value of a character, but only that a character exists. They are indicated with `.`, for example `I ate . bananas` will match `I ate 3 bananas` but not `I ate 34 bananas`.<br>
+If we want to match an actual point we should prepend it with an escape character like this `\.`.
+
+Ranges allow us to specify a range of characters in which we can make a match without having to type out each individual character. The regex `[abc]`, which would match any character a, b, or c, is equivalent to regex range `[a-c]`.
+
+Shorthand character classes represent common ranges. For example `\w` named 'word character' represents the range `[A-Za-z0-9_]`, `\d` named 'digit character' represents the range `[0-9]` and `\s` named 'whitespace character' represents the range `[\t\r\n\f\v]`.<br>
+Negated shorthand character classes on the other hand matches characters that are not in the character range by using the ^ sign, `\W` equals `[^A-Za-z0-9_]`, `\D` `[^0-9]` and `\S` `[^ \t\r\n\f\v]`.
+
+Fixed quantifiers, denoted with curly braces {}, allowing indicating the exact quantity of a character we wish to match. <br>
+For example `\w{3}` will match exactly 3 word characters and `\w{4,7}` will match minimum 4 word characters and maximum 7 word characters.<br>
+
+Optional quantifiers, indicated by the question mark ?, allow to indicate a character in a regex as optional, meaning it can appear 0 or 1 time. For example, the regex humou?r matches the characters humo, then either 0 occurrences or 1 occurrence of the letter u, and finally the letter r.<br>
+To match an actual question mark we can prepend it with an escape character `\?`.
+
+Grouping, denoted with the open parenthesis ( and the closing parenthesis ), allows grouping parts of a regular expression together, and allows to limit alternation to part of the regex. For example `I love (baboons|gorillas)` will match either `I love baboons` or `I love gorillas`.<br>
+Another example with quantifiers, the regex `The monkey ate a (rotten )?banana` will completely match both `The monkey ate a rotten banana` and `The monkey ate a banana`.
+
+The Kleene star, denoted with the asterisk `*`, is also a quantifier, and matches the preceding character zero or more times. This means that the character doesn’t need to appear, can appear once, or can appear many times.<br>
+For example the regex `meo*w` will match `mew`, `meow`, `meoooow`.<br>
+Another useful quantifier is the Kleene plus, denoted by the plus +, which matches the preceding character 1 or more times.
+
+The anchors hat ^ and dollar sign $ are used to match text at the start and the end of a string, respectively.<br>
+The regex `^Monkeys: my mortal enemy$` will match the text `Monkeys: my mortal enemy` but not match `Spider Monkeys: my mortal enemy in the wild`, the ^ ensures that the matched text begins with Monkeys, and the $ ensures the matched text ends with enemy.
+
+#### Form validation with PHP
 
