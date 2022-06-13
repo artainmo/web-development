@@ -170,47 +170,41 @@ PHP was designed as a back-end web-development language, specifically it was des
 
 We can embed PHP scripts within HTML documents with the opening tag `<?php` and the closing tag `?>`.<br>
 When using echo within HTML we are not printing to the terminal but rather generating HTML code.<br>
-<pre>
-<html>
- <head>
-  <title>My First PHP Site</title>
- </head>
- <body>
- <?php 
-   $lucky_number = 5 * 2 - 1;
-   echo "<h1>Your lucky number is ${lucky_number}</h1>";
-  ?> 
- </body>
-</html>
-</pre>
+`<html>`<br>
+` <head>`<br>
+`  <title>My First PHP Site</title>`<br>
+` </head>`<br>
+` <body>`<br>
+` <?php `<br>
+`   $lucky_number = 5 * 2 - 1;`<br>
+`   echo "<h1>Your lucky number is ${lucky_number}</h1>";`<br>
+`  ?> `<br>
+` </body>`<br>
+`</html>`<br>
 HTML code that contains PHP tags is not written in .html but in .php instead.<br>
 One php tag does not form a local scope, functions and variables from other above tags are accessible by all underneath tags.<br>
 
-Usually echo is used to generate HTML with php, instead the opening php tag can be changed from `<?php` to `<?=` so that echo is not necessary anymore.
-<pre>
-<p>This HTML will get delivered as is</p>
-<?="<p>PHP interprets this and turns it into HTML</p>";?>
-</pre>
+Usually echo is used to generate HTML with php, instead the opening php tag can be changed from `<?php` to `<?=` so that echo is not necessary anymore.<br>
+`<p>This HTML will get delivered as is</p>`<br>
+`<?="<p>PHP interprets this and turns it into HTML</p>";?>`
 
 PHP contains superglobals which are global variables such as `$_REQUEST`, `$_GET` or `$_POST` who hold history of made requests, get-requests and post-requests respectively, they can be accessed from anywhere in PHP tags.<br>
-HTML form tags can be of a certain method indicated by the method attribute and contain input tags with a name attribute. The result of someone submitting a form can be found in superglobals, the result of someone submitting a GET form with input name 'country' for example is found in `$_GET["country"]`.
-<pre>
-<html>
-<body>
-<form method="get">
-<input name="country" type="text">
-<br>
-<input name="language" type="text">
-<br>
-<input type="submit" value="Submit">
-</form>
-<br>
-<p>Your language is: <?=$_GET["language"];?></p>
-<p>Your country is: <?=$_GET["country"];?></p>
-<a href="index.php">Reset</a>
-</body>
-</html>
-</pre>
+HTML form tags can be of a certain method indicated by the method attribute and contain input tags with a name attribute. The result of someone submitting a form can be found in superglobals, the result of someone submitting a GET form with input name 'country' for example is found in `$_GET["country"]`.<br>
+`<html>`<br>
+`<body>`<br>
+`<form method="get">`<br>
+`<input name="country" type="text">`<br>
+`<br>`<br>
+`<input name="language" type="text">`<br>
+`<br>`<br>
+`<input type="submit" value="Submit">`<br>
+`</form>`<br>
+`<br>`<br>
+`<p>Your language is: <?=$_GET["language"];?></p>`<br>
+`<p>Your country is: <?=$_GET["country"];?></p>`<br>
+`<a href="index.php">Reset</a>`<br>
+`</body>`<br>
+`</html>`<br>
 
 A HTML form tag can take an action attribute, it allows redirection after submitting the form, this can equal a new URL or relative file path.<br>
 In this new file after the redirection the superglobals are still available with the collected data from the past form.
