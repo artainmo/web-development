@@ -252,4 +252,75 @@ The anchors hat ^ and dollar sign $ are used to match text at the start and the 
 The regex `^Monkeys: my mortal enemy$` will match the text `Monkeys: my mortal enemy` but not match `Spider Monkeys: my mortal enemy in the wild`, the ^ ensures that the matched text begins with Monkeys, and the $ ensures the matched text ends with enemy.
 
 #### Form validation with PHP
+Sanitizing incoming data consists of transforming it into a safe and standardized format.<br>
 
+Different built-in functions exist in PHP to help with sanitization, such as `trim()` which removes whitespace characters at begin and end string or `htmlspecialchars()` which transforms HTML elements into entities (represents HTML elements but won't display them) which is useful to prevent attacks through HTML injections.<br>
+
+The most powerful function for sanitizing data is `filter_var()` which takes a string and an ID representing the filtering type. For example the filtering type `FILTER_SANITIZE_EMAIL` will either sanitize an email or return false if an error occured.<br>
+`filter_var()` also contains validation filters, if the string seems valid it will be returned else false is returned. An example of validation filter is `FILTER_VALIDATE_URL`.<br>
+`filter_var()` also contains an optional third argument that allows the addition of conditions to validate and takes the form of an associative nested array. For example with the filter `FILTER_VALIDATE_INT` the third argument can take the following keys "min_range" "max_range".
+
+The function `preg_match()` allows to create custom validations, it takes as first argument a regular expression string and as second argument a string to verify if it matches the regular expression pattern. It returns 1 if it matches, 0 if it does not and false if an error occured.<br>
+Before using `preg-match()` it is a good idea to verify the length of the array to verify because the function is slow and excessively long inputs could slow down the server.
+
+When storing in a database we want all the datas to be formatted in the same way, the function `preg_replace()` can find certain patterns and if necessary change them to the correct format.<br>
+The function `preg_replace()` takes a regular expression, some replacement text, and a subject string. First, It searches through the subject string for instances that match the regular expression, then, it outputs a copy of the subject string that has the matched instances replaced by the replacement string.
+
+As validation becomes more complex and associated code longer, modularity can be used by separating the validation logic from display logic.
+
+#### Classes and objects
+A class is a custom type that contains related properties(variables inside class) and methods(functions inside class). Once the class is defined, we can create specific instances of it, these instances of the class are called objects.<br>
+A dog object could for example have the properties color, age, breed and methods bark, eat, cuddle.
+
+A class is defined like this in PHP:
+<pre>
+class Beverage {
+  #Here properties are defined
+  #The keyword public makes the properties accessible not only from inside but also from outside the class
+  public $color, $opacity, $temperature; 
+
+  function __construct($temperature, $color) { #Constructor is called at object instantiation and is usually used to set its properties
+    $this->temperature = $temperature;
+    $this->color = $color;
+  }
+  
+  function getInfo() 
+    return "This beverage is $this->temperature and $this->color.";
+    #'$this' refers to the object itself and is used to access properties of the class
+  }
+}
+
+$tea = new Beverage("cold", "black"); #Here we instantiate the object tea from the class Beverage with the new keyword calling the constructor
+$tea->temperature = "hot"; #The property can be accessed through object->propertyNameWithout$
+echo $tea->temperature;
+echo $tea->getInfo();
+</pre>
+
+Inheritance consists of letting one class (we can call child class) inherit all the properties and methods of another class (we can call parent class). This prevents rewriting same code as sometimes we want to create for example a 'dog' and 'cat' class who would have partly similar content that could be inherited from a 'pet' class.<br>
+A class inherits like this `class childClassName extends parentClassName {}`.<br>
+Sometimes, we want to change how methods behave for subclasses from the original parent definition. This is called overriding a method. To do this, define a new method within the subclass with the same name as the parent method. Still the original overriden parent class can be called from the child class like this `parent::nameOverridenFunction()`.
+
+Class properties can be made public or private with the `public` or `private` keywords, public means the property can be called from outside the class while private only allows the property to be accessible from inside the class. Another visibility keyword is `protected` which allows properties to be accessible from within the class obviously but also from child classes.<br>
+The concept of only accessing private properties through methods is commonly referred to as using getters and setters and done like this for example.
+<pre>
+class Pet {
+  private $name;
+  
+  function setName($name) {
+    if (gettype($name) === "string") { #setter and getter functions allow for example to do verifications before executing the function's goal
+      $this->name = $name;
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
+  function getName() {
+    return $this->name;
+  }
+}
+</pre>
+
+Static class members always hold the same value and thus do not need to be instantiated instead they can directly be given a value within the class definition while being preprended with the keyword static. <br>
+A static member is not accessed with `instantiatedObject->memberWithout$` but with the scope resolution `class::memberWith$` instead.<br>
+Because static members in a class can directly be accessible with scope resolution, without instantiating the class, they act like namespaces.
