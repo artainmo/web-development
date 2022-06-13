@@ -105,6 +105,9 @@ Material-UI is a react framework that contains pre-made UI components.
 Angular is a platform and framework for building dynamic single-page client applications using HTML and TypeScript.
 
 ### Backend
+**PHP**<br>
+PHP was created in 1994 and is one of the foundational technologies of web-development. For new websites newer technologies are usually used, but PHP maintains ground by still being present in foundational widely-used content management systems such as Wordpress.
+
 **nodeJS**<br>
 Node.js is a back-end JavaScript runtime environment that executes JavaScript code outside a web browser.
 
@@ -196,3 +199,4 @@ https://www.codecademy.com/learn/learn-websockets - 2h !<br>
 https://www.codecademy.com/learn/learn-ruby - 10h !<br>
 https://www.codecademy.com/learn/learn-git - 15h !<br>
 https://www.codecademy.com/learn/learn-angularjs - 15h |<br>
+https://www.codecademy.com/learn/learn-php - 25h !<br>
