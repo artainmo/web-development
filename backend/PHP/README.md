@@ -2,6 +2,18 @@
 
 ## Table of contents
 - [Codecademy course](#Codecademy-course)
+  - [Introduction](#Introduction)
+  - [PHP variables](#PHP-variables)
+  - [PHP functions](#PHP-functions)
+  - [PHP arrays](#PHP-arrays)
+  - [Conditionals](#Conditionals)
+  - [Loops](#Loops)
+  - [HTML-forms-with-PHP](#HTML-forms-with-PHP)
+  - [PHP form validation](#PHP-form-validation)
+    - [Introduction to form validation](#Introduction-to-form-validation)
+    - [Regular expressions](#Regular-expressions)
+    - [Form validation with PHP](#Form-validation-with-PHP)
+  - [Classes and objects](#Classes-and-objects)
 
 ## Codecademy course
 
@@ -90,56 +102,6 @@ Two arrays can be joined together forming one array with all the maps of summed 
 
 Like simple variables, arrays can also be passed as references instead of copies to function parameters, meaning changes to the function parameters will also create changes in the array send into the function as a reference. Because references instead of creating a copy in memory space point to the same memory space.
 
-### HTML forms with PHP
-PHP was designed as a back-end web-development language, specifically it was designed to work well with HTML by enabling dynamic generation of HTML code.
-
-We can embed PHP scripts within HTML documents with the opening tag `<?php` and the closing tag `?>`.<br>
-When using echo within HTML we are not printing to the terminal but rather generating HTML code.<br>
-<pre>
-<html>
- <head>
-  <title>My First PHP Site</title>
- </head>
- <body>
- <?php 
-   $lucky_number = 5 * 2 - 1;
-   echo "<h1>Your lucky number is ${lucky_number}</h1>";
-  ?> 
- </body>
-</html>
-</pre>
-HTML code that contains PHP tags is not written in .html but in .php instead.<br>
-One php tag does not form a local scope, functions and variables from other above tags are accessible by all underneath tags.<br>
-
-Usually echo is used to generate HTML with php, instead the opening php tag can be changed from `<?php` to `<?=` so that echo is not necessary anymore.
-<pre>
-<p>This HTML will get delivered as is</p>
-<?="<p>PHP interprets this and turns it into HTML</p>";?>
-</pre>
-
-PHP contains superglobals which are global variables such as `$_REQUEST`, `$_GET` or `$_POST` who hold history of made requests, get-requests and post-requests respectively, they can be accessed from anywhere in PHP tags.<br>
-HTML form tags can be of a certain method indicated by the method attribute and contain input tags with a name attribute. The result of someone submitting a form can be found in superglobals, the result of someone submitting a GET form with input name 'country' for example is found in `$_GET["country"]`.
-<pre>
-<html>
-<body>
-<form method="get">
-<input name="country" type="text">
-<br>
-<input name="language" type="text">
-<br>
-<input type="submit" value="Submit">
-</form>
-<br>
-<p>Your language is: <?=$_GET["language"];?></p>
-<p>Your country is: <?=$_GET["country"];?></p>
-<a href="index.php">Reset</a>
-</body>
-</html>
-</pre>
-
-A HTML form tag can take an action attribute, it allows redirection after submitting the form, this can equal a new URL or relative file path.<br>
-In this new file after the redirection the superglobals are still available with the collected data from the past form.
-
 ### Conditionals
 Like other languages PHP uses as conditionals if, elseif and else.
 <pre>
@@ -202,6 +164,56 @@ Inside loop-code-blocks the keyword `break` is used to stop a loop from running 
 
 In HTML php tags, for loops can use a more readable syntax which consists of replacing the opening brace { with a colon `:` and the closing brace } with `endfor;`, in the same logic while loops closing brace } can be replaced with `endwhile;` and foreach loop's ending brace with `endforeach;`.<br>
 When using foreach, the elements from the array in the HTML code can be accessed by using php tags around the element references, one can use the php shorthand echo opening tag `<?=$key?> <?=$value?>` to easily display the array elements in HTML code.
+
+### HTML forms with PHP
+PHP was designed as a back-end web-development language, specifically it was designed to work well with HTML by enabling dynamic generation of HTML code.
+
+We can embed PHP scripts within HTML documents with the opening tag `<?php` and the closing tag `?>`.<br>
+When using echo within HTML we are not printing to the terminal but rather generating HTML code.<br>
+<pre>
+<html>
+ <head>
+  <title>My First PHP Site</title>
+ </head>
+ <body>
+ <?php 
+   $lucky_number = 5 * 2 - 1;
+   echo "<h1>Your lucky number is ${lucky_number}</h1>";
+  ?> 
+ </body>
+</html>
+</pre>
+HTML code that contains PHP tags is not written in .html but in .php instead.<br>
+One php tag does not form a local scope, functions and variables from other above tags are accessible by all underneath tags.<br>
+
+Usually echo is used to generate HTML with php, instead the opening php tag can be changed from `<?php` to `<?=` so that echo is not necessary anymore.
+<pre>
+<p>This HTML will get delivered as is</p>
+<?="<p>PHP interprets this and turns it into HTML</p>";?>
+</pre>
+
+PHP contains superglobals which are global variables such as `$_REQUEST`, `$_GET` or `$_POST` who hold history of made requests, get-requests and post-requests respectively, they can be accessed from anywhere in PHP tags.<br>
+HTML form tags can be of a certain method indicated by the method attribute and contain input tags with a name attribute. The result of someone submitting a form can be found in superglobals, the result of someone submitting a GET form with input name 'country' for example is found in `$_GET["country"]`.
+<pre>
+<html>
+<body>
+<form method="get">
+<input name="country" type="text">
+<br>
+<input name="language" type="text">
+<br>
+<input type="submit" value="Submit">
+</form>
+<br>
+<p>Your language is: <?=$_GET["language"];?></p>
+<p>Your country is: <?=$_GET["country"];?></p>
+<a href="index.php">Reset</a>
+</body>
+</html>
+</pre>
+
+A HTML form tag can take an action attribute, it allows redirection after submitting the form, this can equal a new URL or relative file path.<br>
+In this new file after the redirection the superglobals are still available with the collected data from the past form.
 
 ### PHP form validation
 #### Introduction to form validation
@@ -268,7 +280,7 @@ The function `preg_replace()` takes a regular expression, some replacement text,
 
 As validation becomes more complex and associated code longer, modularity can be used by separating the validation logic from display logic.
 
-#### Classes and objects
+### Classes and objects
 A class is a custom type that contains related properties(variables inside class) and methods(functions inside class). Once the class is defined, we can create specific instances of it, these instances of the class are called objects.<br>
 A dog object could for example have the properties color, age, breed and methods bark, eat, cuddle.
 
