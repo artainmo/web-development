@@ -43,7 +43,7 @@ In simple terms REST APIs are APIs that follow certain conventions/standards for
 REST APIs must be able to Create(POST), Read(GET), Update(PUT), and Delete(DELETE) resources (CRUD).<br>
 REST APIs are usually more on the light-weight side.
 
-Both front-end and back-end have to be run separately, first back-end has to be launched followed by front-end.<br>
+Both front-end and back-end have to be run separately, first back-end has to be launched followed by front-end, so that the frontend can call the backend.<br>
 
 Front-end and back-end communication can be summarized as follows:
 * API calls are initiated by the front-end components found in frontend/src/components.
@@ -56,6 +56,11 @@ PostgreSQL tables can be made from the platform.<br>
 The external API will have an URL and secret code, in the backend a file .env is created with variables APIName_URL and APIName_secret that takes those values.<br>
 .env is set inside .gitignore to avoid making it public.<br>
 In backend provider/supabase.js is filled with commands to connect to supabase and export connected supabase object, to be used in backend routes for database calls.
+
+API definitions are a form of contract, they define how the API communicates and act as a visual representation and usage guide of the API.<br>
+Usually the API definition is created first and indicates the backend developer what the API should look like afterwards.<br>
+Here is a tool to create API definitions https://editor.swagger.io/, and a tool for collaboration on API defintiions https://swagger.io/tools/swaggerhub/.
+Another form of contract are database shemas, those are documentation forming a visual representation of the database, which can be done for example with DbDiagram.io as explained here https://github.com/artainmo/WebDevelopment/tree/main/backend/PostgreSQL#Design-a-database.
 
 ### How to structure apps
 
