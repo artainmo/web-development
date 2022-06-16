@@ -37,7 +37,7 @@ Variables are assigned a value with the `=` operator, they can be used as much a
 In PHP usually the snake case is used to declare multiple word variables meaning a _ is used in between each word instead of separating words with a capital first word letter.
 
 Strings are defined between `" "`.<br> 
-" can be indicated in a string like this \" and a new-line like this \n.<br>
+`"` can be indicated in a string like this `\"` and a new-line like this `\n`.<br>
 Strings can be concatenated with the . operator like this `"string 1" . "string 2"`, the .= operator can be used to concatenate to oneself like this `firstname .= lastname`.<br>
 Other variables can be put inside strings like this `Hello world I am ${name}`.
 
@@ -85,7 +85,7 @@ The function `array(value1, value2, value3...)` creates and returns an array, wh
 An array can be printed with echo by transforming it into a string with `implode(", ", $array)` or we can display it using the function `print_r($array)`.
 
 Individual values inside an array can be accessed like this `array[1]` to access the second value as index 0 would refer to the first value.<br>
-The functions `array_pop($array, value1, value2...)` and `array_pop($array)` can be used to add values to end of array or remove the last value of array respectively.<br>
+The functions `array_push($array, value1, value2...)` and `array_pop($array)` can be used to add values to end of array or remove the last value of array respectively.<br>
 The function `$array1 = array_shift($array2)` returns the first value of and removes it from $array2 while the function `array_unshift($array, value1, value2...)` adds values to front of array and returns the new array's length.
 
 While ordered arrays contain a numbered index, associative arrays contain keys instead of indexes, with keys being a chosen label to access a value, and the key-value-pairs being called maps.<br>
