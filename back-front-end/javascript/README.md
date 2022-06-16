@@ -62,7 +62,7 @@ var keyword indicates simple variable, available in function scope or as global 
 let keyword declares variable solely in block scope, block scope can be an if statement scope for example.<br>
 const keyword creates constant variables, meaning their value cannot change, available in block scope only.
 
-The typeof keyword returns in string format the type name of following.
+The typeof keyword returns in string format the type name of following variable.
 
 ### CONDITIONS
 if statement executes code in following block(code between {}) if its statement is true.<br>
@@ -127,7 +127,7 @@ Arrays can contain as element other arrays this is called nested arrays.
 A loop does an action until a condition is met.<br>
 The syntax of for loop goes as follows "for (variable-declaration; condition-check-at-each-round; single-line-action-executed-at-each-round) { actions }", usually used to loop over arrays whereby the declared variable is an index that gets incremented during the single-line-action until it gets to the array length.<br>
 The syntax for a while loop is simply "while (condition-checked-at-each-round) {actions} ".<br>
-The do-while loop does the actions at east one time even if the condition is instantly not met, its syntax goes as follows "do { actions } while (condition)".
+The do-while loop does the actions at least one time even if the condition is instantly not met, its syntax goes as follows "do { actions } while (condition)".
 The break keyword allows to exit a loop.
 
 Iterators are array methods that enable looping over the array.<br>
@@ -141,7 +141,7 @@ The .some(callbackFunction) returns true if at least one of the array's elements
 The .every(callbackFunction) returns true if all of the array's elements passes through the callbackFunction with true returned.<br>
 Other iteration methods can be found here https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Iteration_methods.
 
-To loop over object use for...in statement like this "for (variableName in object) {actions}" whereby the variableNames equal the keys inside the object.
+To loop over object use for statement like this "for (variableName in object) {actions}" whereby the variableNames equal the keys inside the object.
 
 ### OBJECTS
 Objects allow to accomodate and manipulate related data, like a real life object it has attributes/properties(variables) and maybe actions(methods/functions).
@@ -179,7 +179,6 @@ Classes can heritate from other classes meaning, it the child class heritates al
 Static methods are like private methods, they are indicated by the keyword static and are only available inside the class never outside the class.
 
 ### RUNTIME ENVIRONMENT
-For the environment the program will be executed in, often nodejs and chrome are used.<br>
 For javascript front-end applications, chrome or other browsers can be used.<br>
 For javascript back-end applications, nodejs is used.<br>
 Full-stack applications use both nodejs and a browser.
@@ -316,21 +315,20 @@ const keyword creates constant variables, meaning their value cannot change, ava
 
 All types have access to different methods.<br>
 Strings can be concatenated with +.<br>
-Strings are immutable you can not change a single char inside it, only the whole string at once can be changed.<br>
+Strings are immutable you cannot change a single char inside it, only the whole string at once can be changed.<br>
 Push and pop methods can make arrays dynamic.<br>
-Date objects contain a number that represents miliseconds since 1 January 1970 UTC.<br>
 Primitive values are passed by copy/value and objects by referene.<br>
 typeof keyword is used to receive the current type of a variable.
 
-Objects can also be created which are considered as one variable but contains multiple variables, they work like python dictionnaries..<br>
+Objects can also be created which are considered as one variable but contains multiple variables, they work like python dictionnaries.<br>
 Object.freeze(objectname) can be used to make the variables inside the object constant.<br>
-Classes contain variables and methods (functions that use those variables, to access those variables this keyowrd is used), a constructor also exist that is called at construction and can take parameter values.<br>
+Classes contain variables and methods a constructor also exist that is called at construction and can take parameter values.<br>
 With extend keyword classes, heritage from another class is possible, to call the parent class contructor use super().
 
 Spread operator consist of ...variable as keyword, it allows to extract the inside of string/array/object.<br>
-If string to array [..variable, ...variable2] it will transform each letter of the string into strings inside an array.<br>
-If array to array [..variable, ...variable2] it extraxts each element in the array into elements in the new array.<br>
-If object to object {..object1, ...object2} it extracts each variable in the object into new object.<br>
+If string to array [..string1, ...string2] it will transform each character of the string into strings inside an array.<br>
+If array to array [..array1, ...array2] it extraxts each element in the array into elements in the new array.<br>
+If object to object {..object1, ...object2} it extracts each attribute/method in the object into new object.<br>
 One can also change a value that has just been spread from an object like this {..object1, objectVariable:newValue}.<br>
 With ! you can call the opposite value of a variable like this {..object1, objectVariable:!objectVariableValue}
 
@@ -410,7 +408,7 @@ To select an HTML element, JavaScript most often uses the `document.getElementBy
 This JavaScript example writes "Hello JavaScript!" into an HTML element with id="demo" (`<p id="demo"></p>`) `<script> document.getElementById("demo").innerHTML = "Hello JavaScript!"; </script>`<br>
 Javascript can also change HTML styles `<script>document.getElementById("demo").style.fontSize = "25px";</script>` or attributes `<script>document.getElementById("image").src = "picture.gif";</script>`.
 
-Inline javascript is javascript directly written in HTML element attribute. It is usually used for events, which are triggers after user-site interaction, to call functions. For example here when a user clicks on a button the display() function is called `<input type="button" value="Result" onClick="display()"/> `.
+Inline javascript is javascript directly written in HTML element attribute. It is usually used for events, which are triggers after user-site interactions, to call functions. For example here when a user clicks on a button the display() function is called `<input type="button" value="Result" onClick="display()"/> `.
 
-Those javascript functions can also be written inside external .js files. External scripts are practical when the same code is used in many different web pages.<br>
+Those javascript functions can also be written inside external .js files. External scripts are practical when the same code is used in many different web pages or to make the code more modular and thus readable.<br>
 To use an external .js script in an HTML file, put the name of the script file in the src attribute of a <script> tag: `<script src="myScript.js"></script>`.
