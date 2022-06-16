@@ -59,7 +59,8 @@ In backend provider/supabase.js is filled with commands to connect to supabase a
 
 API definitions are a form of contract, they define how the API communicates and act as a visual representation and usage guide of the API.<br>
 Usually the API definition is created first and indicates the backend developer what the API should look like afterwards.<br>
-Here is a tool to create API definitions https://editor.swagger.io/, and a tool for collaboration on API defintiions https://swagger.io/tools/swaggerhub/.
+The frontend developers use those API definitions as a usage guide of how to use the API.<br>
+Here is a tool to create API definitions https://editor.swagger.io/, and a tool for collaboration on API definitions https://swagger.io/tools/swaggerhub/.
 Another form of contract are database shemas, those are documentation forming a visual representation of the database, which can be done for example with DbDiagram.io as explained here https://github.com/artainmo/WebDevelopment/tree/main/backend/PostgreSQL#Design-a-database.
 
 ### How to structure apps
