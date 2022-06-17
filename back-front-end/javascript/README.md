@@ -401,14 +401,26 @@ Try-catch statement can be used to catch errors. Whereby if a code gets generate
 ### Javascript inside HTML
 JavaScript makes HTML pages dynamic and interactive.
 
+#### Where
 In HTML, JavaScript code is inserted between <script> and </script> tags, those are usually placed in HTML header or body.<br>
 Common uses for JavaScript are image manipulation, form validation, and dynamic changes of content.<br>
-
-To select an HTML element, JavaScript most often uses the `document.getElementById(id)` method.
-This JavaScript example writes "Hello JavaScript!" into an HTML element with id="demo" (`<p id="demo"></p>`) `<script> document.getElementById("demo").innerHTML = "Hello JavaScript!"; </script>`<br>
-Javascript can also change HTML styles `<script>document.getElementById("demo").style.fontSize = "25px";</script>` or attributes `<script>document.getElementById("image").src = "picture.gif";</script>`.
 
 Inline javascript is javascript directly written in HTML element attribute. It is usually used for events, which are triggers after user-site interactions, to call functions. For example here when a user clicks on a button the display() function is called `<input type="button" value="Result" onClick="display()"/> `.
 
 Those javascript functions can also be written inside external .js files. External scripts are practical when the same code is used in many different web pages or to make the code more modular and thus readable.<br>
 To use an external .js script in an HTML file, put the name of the script file in the src attribute of a <script> tag: `<script src="myScript.js"></script>`.
+
+#### How
+To select an HTML element, JavaScript most often uses the `document.getElementById(id)` method.
+This JavaScript example writes "Hello JavaScript!" into an HTML element with id="demo" (ex.`<p id="demo"></p>`) `<script> document.getElementById("demo").innerHTML = "Hello JavaScript!"; </script>`<br>
+Javascript can also change HTML styles `<script>document.getElementById("demo").style.fontSize = "25px";</script>` or attributes `<script>document.getElementById("image").src = "picture.gif";</script>`.
+
+The function `EventTarget.addEventListener(event, function, options=false)` allows a function to be called once a specified event occurs.<br>
+The EventTarget can equal for example `document` which refers to the whole webpage or a specific HTML element which can be specified with `document.getElementById(id)`.<br>
+The event can for example equal "click" or "mouseover" and function can be what you want.<br>
+In the following simple example the element with id="demo" will display "Hello World" after a click on webpage.<br>
+`document.addEventListener("click", () => { document.getElementById("demo").innerHTML = "Hello World"; });`<br>
+In the following example the HTML element with id="demo" will display "You just clicked me" after someone clicked on that same element.<br>
+`document.getElementById("demo").addEventListener("click", () => { document.getElementById("demo").innerHTML = "You just clicked me" });`<br>
+When passing parameter values, use an "anonymous function" that calls the specified function with the parameters.<br>
+`element.addEventListener("click", function(){ myFunction(p1, p2); });`<br>
