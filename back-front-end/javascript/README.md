@@ -401,7 +401,6 @@ Try-catch statement can be used to catch errors. Whereby if a code gets generate
 ### Javascript inside HTML
 JavaScript makes HTML pages dynamic and interactive.
 
-#### Where
 In HTML, JavaScript code is inserted between <script> and </script> tags, those are usually placed in HTML header or body.<br>
 Common uses for JavaScript are image manipulation, form validation, and dynamic changes of content.<br>
 
@@ -410,7 +409,6 @@ Inline javascript is javascript directly written in HTML element attribute. It i
 Those javascript functions can also be written inside external .js files. External scripts are practical when the same code is used in many different web pages or to make the code more modular and thus readable.<br>
 To use an external .js script in an HTML file, put the name of the script file in the src attribute of a <script> tag: `<script src="myScript.js"></script>`.
 
-#### How
 To select an HTML element, JavaScript most often uses the `document.getElementById(id)` method.
 This JavaScript example writes "Hello JavaScript!" into an HTML element with id="demo" (ex.`<p id="demo"></p>`) `<script> document.getElementById("demo").innerHTML = "Hello JavaScript!"; </script>`<br>
 Javascript can also change HTML styles `<script>document.getElementById("demo").style.fontSize = "25px";</script>` or attributes `<script>document.getElementById("image").src = "picture.gif";</script>`.
@@ -424,3 +422,21 @@ In the following example the HTML element with id="demo" will display "You just 
 `document.getElementById("demo").addEventListener("click", () => { document.getElementById("demo").innerHTML = "You just clicked me" });`<br>
 When passing parameter values, use an "anonymous function" that calls the specified function with the parameters.<br>
 `element.addEventListener("click", function(){ myFunction(p1, p2); });`<br>
+
+Javascript can validate HTML forms like this for example.<br>
+`//With the onsubmit attribute the validation function can be called after form submission`<br>
+`<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">`<br>
+`Name: <input type="text" name="fname">`<br>
+`<input type="submit" value="Submit">`<br>
+`</form>`<br>
+` `<br>
+`function validateForm() {`<br>
+`  let x = document.forms["myForm"]["fname"].value; //Here "myform" refers to the form element with name attribute "myform" and "fname" to name attribute of input element inside the form element`<br> `  if (x == "") {`<br>
+`alert("Name must be filled out"); //This alert warns the user about mistake in form submission`<br>
+`return false; //Returning false prevents the form from being submitted`<br>
+`  }`<br>
+`}`<br>
+When validating a form, the data is usually initially sanitized, which means transformed to a standard and safe format.<br>
+This is usually done by removing outer spaces with `str.trim()` and protecting from HTML and script/javascript injections by making the data equal to HTMLelement.innerHTML which will automatically escape HTML entities.<br>
+Regular expressions can be used to validate data (https://github.com/artainmo/WebDevelopment/tree/main/backend/PHP#Regular-expressions), by validating the prescence of a certain pattern, in javascript the `str.match(regularExpression)` function can be used for this.<br>
+Regular expressions can be used to standardize data too by replacing certain patterns, in javascript `str.replace(regularExpression, replace)` is used for this.
