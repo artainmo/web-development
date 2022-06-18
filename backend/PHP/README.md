@@ -14,6 +14,8 @@
     - [Regular expressions](#Regular-expressions)
     - [Form validation with PHP](#Form-validation-with-PHP)
   - [Classes and objects](#Classes-and-objects)
+- [Free tutorials](#Free-tutorials)
+  - [Require and include](#Require-and-include)
 
 ## Codecademy course
 
@@ -330,3 +332,9 @@ class Pet {
 Static class members always hold the same value and thus do not need to be instantiated instead they can directly be given a value within the class definition while being preprended with the keyword static. <br>
 A static member is not accessed with `instantiatedObject->memberWithout$` but with the scope resolution `class::memberWith$` instead.<br>
 Because static members in a class can directly be accessible with scope resolution, without instantiating the class, they act like namespaces.
+
+## Free tutorials
+### Require and include
+The require/include statement takes all the code that exists in the specified file and copies it into the file that uses the require/include statement like this `require "filePath"`.<br>
+Including files is very useful when you want to include the same PHP, HTML, or text on multiple pages of a website, such as when you want to use the same header and footer on different web pages.<br>
+The include and require statements are identical, except upon failure, require will produce a fatal error and include a warning.<br>
