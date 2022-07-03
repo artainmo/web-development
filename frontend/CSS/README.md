@@ -11,10 +11,10 @@ Used to style HTML.
   - [Typography](#Typography)
 
 ## Syntax
-CSS declarations contain a property (ex. color) and a value (ex. blue), example color: blue;<br>
+CSS declarations contain a property (ex. color) and a value (ex. blue), example `color: blue;`<br>
 CSS selectors consist of a tag (ex. p, also called the type selector) followed by braces like a function ({}) filled with declarations, to define a style for a particular tag.
 
-The usual syntax for CSS is external stylesheet, consisting of selectors inside a .css file, to style an HTML based on that css file, use the element <link href=pathCSS rel="stylesheet"> with rel for relationship.<br>
+The usual syntax for CSS is external stylesheet, consisting of selectors inside a .css file, to style an HTML based on that css file, use the element `<link rel="stylesheet" href="pathToCSS">` with rel for relationship which is usually set in the head section of HTML page.<br>
 But inline and internal stylesheet also exist.<br>
 In HTML elements can have the attribute style, that can directly be set with a css declaration (inline).<br>
 In the header element of an HTML file, style element can be created which will contain selectors like in a .css, applicable for the elements in the .HTML file.<br>
@@ -29,7 +29,8 @@ Descendants are child elements a parent element can style its child elements wit
 Pseudo-class selectors are added to the selector type (ex. p:focus) and allow to change styling during an action on the site here are some of them :focus, :visited, :disabled, and :active.
 
 If mutliple css selectors are applicable on an HTML element the most specific one receives priority, id is more specific than class which is more specific than type. <br>
-Good practice when writing a .css is to write the file from lowest priority selectors to highest priority selectors.
+!important can be used at end of declaration to automatically make it the most specific one (priority), but its use is considerd bad practice.<br>
+Good practice when writing a .css is to write the file from lowest priority selectors to highest priority selectors.<br>
 
 ## CSS visual rules
 As a declaration property font-family can be used to indicate typeface/font family.<br>
@@ -38,7 +39,6 @@ To change how bold or thin text appears use font-weight.<br>
 text-align can be used to position text relative to its parent HTML element.<br>
 color indicates the text color, background-color and background-image are self-explanatory.<br>
 opacity can be used to indicate the transparancy of the text.<br>
-!important can be used at end of declaration to automatically make it the most specific one (priority), but its use is considerd bad practice.
 
 ## Box model
 Defines set of properties that defines how much space an HTML element takes.<br>
@@ -54,7 +54,7 @@ The visibility of an HTML element can be set to hidden, so that it takes the pla
 
 In all (*), margin and padding is set to 0. This is often first selector of an external stylesheet it resets the default values a browser has.
 
-A default box-model is used but it can be modified with * { border-size: border-box }. The border-box model is not affected by border thickness or padding.
+A default box-model is used but it can be modified with `* { border-size: border-box; }`. The border-box model is not affected by border thickness or padding, a lot of developers prefer this.
 
 Google Chrome devTools can be used to view and adjust box dimensions from the browser.
 
@@ -68,7 +68,7 @@ When an element is set to sticky it will keep its perfect position relative to t
 
 Offset properties can also be used to precisely position elements, those are top, bottom, right, left, they can be used to move the position x pixels from the property.<br>
 z-index describes the depth of elements, thus which elements come above other ones, with a higher z-index leading to a more forward sitting element.<br>
-float property can be set to right or left and simply places the element against the left or right side of the screeen. If elements bump into each other as a consequence of float, clear property (right, left, both values) can be used to avoid them bumping on one side or both sides.
+float property can be set to right or left and simply places the element against the left or right side of the screen. If elements bump into each other as a consequence of float, clear property (right, left, both values) can be used to avoid them bumping on one side or both sides.
 
 The display property indicates if elements are horizontally positioned.<br>
 The inline value is the default one, here the next element comes horizontally next to the prior element, but height and width properties cannot be used.<br>
