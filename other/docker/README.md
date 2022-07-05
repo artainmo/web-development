@@ -17,7 +17,7 @@ Virtual machines also enable this but docker containers are more lightweight and
 Docker has to be installed differently on different OS.<br>
 `docker --version` can be used to verify docker is installed.
 
-Docker images are container templates/configurations, you can create one yourself in a dockerfile or use one from https://hub.docker.com/.
+Docker images are container templates/configurations, you can create one yourself in a dockerfile or use one from https://hub.docker.com/.<br>
 Docker daemon is a local background service that manages the containers.<br>
 Docker client is a terminal/command-line-application that can be used to communicate with the docker daemon.
 
@@ -31,7 +31,7 @@ Docker client is a terminal/command-line-application that can be used to communi
 `run --rm` is used so that docker removes the container once it exits.<br>
 `run -p 8888:8080`, leads to the server running on port 8080 inside the container and on local machine on http://localhost:8888/.<br>
 `run -d`, runs the container in detached mode, meaning in background.<br>
-`run exec` opens the terminal associated with the container enabling shell commands inside the container, it should be used with -i to keep the terminal open.
+`run exec` opens the terminal associated with the container enabling shell commands inside the container, it should be used with -i to keep the terminal open.<br>
 `docker system prune` removes all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes.
 
 `docker stop containerName` can be used to stop containers running in background, $(docker ps -aq) as containerName refers to all containers<br>
