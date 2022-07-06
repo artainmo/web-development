@@ -31,7 +31,7 @@ Docker client is a terminal/command-line-application that can be used to communi
 `run --rm` is used so that docker removes the container once it exits.<br>
 `run -p 8888:8080`, leads to the server running on port 8080 inside the container and on local machine on http://localhost:8888/.<br>
 `run -d`, runs the container in detached mode, meaning in background.<br>
-`docker exec` opens the terminal associated with the container enabling shell commands inside the container, it should be used with -i to keep the terminal open.<br>
+`docker exec` opens the terminal associated with the container enabling shell commands inside the container, to keep it open use this command `docker exec -it containerName /bin/bash`.<br>
 `docker system prune` removes all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes.
 
 `docker stop containerName` can be used to stop containers running in background, $(docker ps -aq) as containerName refers to all containers<br>
