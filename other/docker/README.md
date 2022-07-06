@@ -14,12 +14,13 @@ Docker solves this problem by creating a container which refers to a small machi
 Docker also has the benefit of being able to create different environments for different micro-services in one software application.<br>
 Virtual machines also enable this but docker containers are more lightweight and thus are faster and easier.
 
-Docker has to be installed differently on different OS.<br>
-`docker --version` can be used to verify docker is installed.
-
 Docker images are container templates/configurations, you can create one yourself in a dockerfile or use one from https://hub.docker.com/.<br>
 Docker daemon is a local background service that manages the containers.<br>
-Docker client is a terminal/command-line-application that can be used to communicate with the docker daemon.
+Docker client is a terminal/command-line-application that can be used to communicate with the docker daemon.<br>
+Until recently Docker didn't run on native Mac or Windows OS, so another tool was created, Docker-Machine, which creates a virtual machine (using yet another tool, e.g. Oracle VirtualBox), runs Docker on that VM, and helps coordinate between the host OS and the Docker VM. Today by using 'Docker desktop' Mac and windows do not necessitate docker-machine anymore.
+
+Docker has to be installed differently on different OS.<br>
+`docker --version` can be used to verify docker is installed.
 
 `docker info` returns the status of current containers and images.<br>
 `docker ps -a` returns all running containers, ps means “Process Status” and -a means all (both stopped and running) containers.<br>
