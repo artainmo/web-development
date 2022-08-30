@@ -39,8 +39,10 @@ For radio buttons, which allow to choose one option between multiple checkboxes,
 For a drop-down menu use the select tags that contain option tags.<br>
 A datalist is an input wherein you can write and an appropriate drop-down will follow, this is possible using the datalist tags containing the option tags.<br>
 `<textarea></textarea>` can be used to take larger text input.<br>
-A form element must always end with a submit button this can be created with an input element containing the type attribute equaling submit.<br>
+A form element must always end with a submit button this can be created with a button element containing the type attribute equaling submit.<br>
 When a `<form>` is submitted, the name of the fields that accept input and the value of those fields are sent as name=value pairs.
+
+The `<button type="button">Click Me!</button>` tag defines a clickable button. Inside a <button> element you can put text (and tags like <i>, <b>, <strong>, <br>, <img>, etc.). That is not possible with a button created with the <input> element. 
 
 The required attribute in an input element can force the filling of that form.<br>
 The min/minlength and max/maxlength attributes in an input element can force the number-or-range/text to be in between certain values / to have a certain length.<br>
