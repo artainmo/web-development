@@ -141,7 +141,7 @@ Comparison operators are used inside conditional statements and evaluate to true
 Similar to other languages PHP uses the following comparison operators: >, >=, <, <=, ===, !===.<br>
 Like in javascript distinction can be made with the equal operator (== / !=) and the identical operator (=== / !==), the identical operator is more strict and predictable thus is usually preferred.
 
-Logical operators are used inside conditional starements, similar to other languages PHP uses:
+Logical operators are used inside conditional statements, similar to other languages PHP uses:
 - `||` / `or` (or, returns true if left or right condition evaluates to true)
 - `&&` / `and` (and, returns true if both left and right conditions evaluate to true)
 - `!` (not, only takes a right operand and reverses its boolean value)
