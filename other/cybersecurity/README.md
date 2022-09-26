@@ -134,8 +134,7 @@ There are two main methods for preventing injection attacks:
 * Sanitization is the process of removing dangerous characters from user input. Usually a programming language should have its own function for sanitization of inputs.
 * Prepared statements also called parameterized queries is the most reliable way of protecting from SQL injections. It uses SQL query templates, which contains parameters that will never be considered SQL code.
 
-#### Cross-Site Scripting (XSS) & Cross-Site Request Forgery (CSRF)
-**XSS**<br>
+#### XSS
 Cross-Site Scripting (XSS) is a common web application vulnerability that occurs when a web application returns unsanitized input to the frontend of an application.<br>
 An example of a place for this type of attack would be a comment section, your comment is accepted as input and displayed on frontend afterwards.<br>
 In a XSS attack, an attacker takes advantage of this vulnerability by inputting malicious code, generally in the form of JavaScript, through the browser.
@@ -156,7 +155,7 @@ The most basic POC payload is `<script>alert(1);</script>`. If this does not wor
 Similar to SQL injections, XSS is preventable with both application-level firewalls and sanitization.<br>
 Sanitization is the process of removing/replacing problematic characters with safe versions. Depending on the backend language, there may or may not be built in functions to aid in this process.
 
-**CSRF**<br>
+#### CSRF
 Cross-Site Request Forgery (CSRF) is another class of vulnerability focused on poor session controls and session management.<br>
 Sometimes, the requests sent by an application aren’t unique. As such, it’s possible for an attacker to craft a special request and send that to a user.
 
@@ -168,15 +167,14 @@ One of the simplest ways to prevent these attacks is to add a CSRF token. This t
 While a CSRF token can prevent many malicious requests, it can still fail.  If an application is vulnerable to XSS a hacker could use their XSS attack to extract this token.<br>
 A solution is to ask the user for his password before commiting a profile change.
 
-#### Zero-Day and DDoS
-**Zero-day**<br>
+#### Zero-day
 A “zero-day” (also called “0-day”) vulnerability is a newly-discovered software bug that a developer was not aware of before the software was released.<br>
 Therefore, after it is discovered, the developer has “zero” days to patch it before it can be exploited. When a “zero-day attack” occurs, the vulnerability quickly becomes known and is patched by the developer.
 
 The vast majority of cyber attacks exploit existing vulnerabilities and thus are not 0-day vulnerabilities. These vulnerabilities are catalogued and numbered as CVEs, or “Common Vulnerabilities and Exposures” and are maintained in places like the Mitre Corporation’s database or the National Vulnerability Database (NVD).<br>
 Thousands of CVEs are recorded every year and are typically found first by either security companies or researchers participating in companies’ bug bounty programs. Bug bounty programs offer money (a bounty) to anyone able to find a vulnerability in their systems.
 
-**DDoS**<br>
+#### DDoS
 DDoS stands for Distributed Denial of Service. A DDoS attack is when an attacker attempts to make a resource, such as a website’s various servers, go offline by overwhelming it with web traffic.<br>
 This is done by making requests to a server with large amounts of computers.
 
