@@ -10,15 +10,15 @@ Digital attacks for example could consist of stealing data from a database such 
 
 The CIA Triad stands for confidentiality, integrity and availability and is a comprehensive model for cybersecurity.
 
-**Confidentiality**
+**Confidentiality**<br>
 Refers to the protection of private data.<br>
 This can be done through: permission rights, data encryption, multi-factor authentification.
 
-**Integrity**
+**Integrity**<br>
 Refers to data integrity, meaning data should be protected from malignant change or deletion.<br>
 This can be done through: keeping data backups, using cryptography to securely check for changes, keeping track of digital signatures to prove integrity of data.
 
-**Availability**
+**Availability**<br>
 Refers to data being reliably available for those authorized.<br>
 This can be done through: constant monitoring of servers and networks, maintaining hardware and software.
 
@@ -135,7 +135,7 @@ There are two main methods for preventing injection attacks:
 * Prepared statements also called parameterized queries is the most reliable way of protecting from SQL injections. It uses SQL query templates, which contains parameters that will never be considered SQL code.
 
 #### Cross-Site Scripting (XSS) & Cross-Site Request Forgery (CSRF)
-**XSS**
+**XSS**<br>
 Cross-Site Scripting (XSS) is a common web application vulnerability that occurs when a web application returns unsanitized input to the frontend of an application.<br>
 An example of a place for this type of attack would be a comment section, your comment is accepted as input and displayed on frontend afterwards.<br>
 In a XSS attack, an attacker takes advantage of this vulnerability by inputting malicious code, generally in the form of JavaScript, through the browser.
@@ -156,11 +156,11 @@ The most basic POC payload is `<script>alert(1);</script>`. If this does not wor
 Similar to SQL injections, XSS is preventable with both application-level firewalls and sanitization.<br>
 Sanitization is the process of removing/replacing problematic characters with safe versions. Depending on the backend language, there may or may not be built in functions to aid in this process.
 
-**CSRF**
+**CSRF**<br>
 Cross-Site Request Forgery (CSRF) is another class of vulnerability focused on poor session controls and session management.<br>
 Sometimes, the requests sent by an application aren’t unique. As such, it’s possible for an attacker to craft a special request and send that to a user.
 
-Suppose our web application allows users to change their password via the following link, where [USER PASSWORD] would contain the new desired password 'https://oursite.com/changepassword.php?new_password=\[USER PASSWORD]'.<br>
+Suppose our web application allows users to change their password via the following link, where [USER PASSWORD] would contain the new desired password `https://oursite.com/changepassword.php?new_password=\[USER PASSWORD]`.<br>
 If the developers didn’t consider the impact of cross-site request forgery attacks, a threat actor may be able to create a new password link and send it to the user. When the user opens the link, they would initiate the password change, but with the attacker-supplied password.<br>
 Because the request considers nothing but the current session, a user would have their password changed.
 
@@ -169,14 +169,14 @@ While a CSRF token can prevent many malicious requests, it can still fail.  If a
 A solution is to ask the user for his password before commiting a profile change.
 
 #### Zero-Day and DDoS
-**Zero-day**
+**Zero-day**<br>
 A “zero-day” (also called “0-day”) vulnerability is a newly-discovered software bug that a developer was not aware of before the software was released.<br>
 Therefore, after it is discovered, the developer has “zero” days to patch it before it can be exploited. When a “zero-day attack” occurs, the vulnerability quickly becomes known and is patched by the developer.
 
 The vast majority of cyber attacks exploit existing vulnerabilities and thus are not 0-day vulnerabilities. These vulnerabilities are catalogued and numbered as CVEs, or “Common Vulnerabilities and Exposures” and are maintained in places like the Mitre Corporation’s database or the National Vulnerability Database (NVD).<br>
 Thousands of CVEs are recorded every year and are typically found first by either security companies or researchers participating in companies’ bug bounty programs. Bug bounty programs offer money (a bounty) to anyone able to find a vulnerability in their systems.
 
-**DDoS**
+**DDoS**<br>
 DDoS stands for Distributed Denial of Service. A DDoS attack is when an attacker attempts to make a resource, such as a website’s various servers, go offline by overwhelming it with web traffic.<br>
 This is done by making requests to a server with large amounts of computers.
 
@@ -187,7 +187,7 @@ There are a number of ways that websites try to guard against DDoS attacks, for 
 In general, it is difficult to guard against DDoS attacks. This is why websites seek protection from organizations such as Cloudflare, which provides protection against DDoS attacks by sitting between the server and the client, and forwarding legitimate traffic to the server while hiding malicious traffic.
 
 ### Cryptography
-**Encryption**
+**Encryption**<br>
 Cryptography is the science of hiding data and making it available again.<br>
 
 In cryptography, hiding data is called encryption and unhiding it is called decryption.<br>
@@ -202,7 +202,7 @@ The public key is only used to encrypt while the private key is used to decrypt 
 For example, if you want to receive an encrypted message from someone, you would first generate a key pair and give them the public key. Then, they would write a message and encrypt it using the public key you gave them. Finally, they would send you the message and you would decrypt it with your private key.<br>
 Having a private key you do not share makes it impossible for others to intercept and read messages.<br>
 
-**Hashing**
+**Hashing**<br>
 Hashing is a key application of cryptography. A cybersecurity professional uses hashing algorithms to compare files big and small, as well as to protect data.
 
 Unlike the methods we’ve already looked at, which are designed to both encrypt and decrypt data, hashing is different. Hashing does not encrypt data. Instead, hashing is a one-way process that takes a piece of data of any size and uses a mathematical function to represent that data with a unique hash value of a fixed size. You cannot compute the original data from its hash.<br>
