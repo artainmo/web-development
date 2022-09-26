@@ -168,7 +168,7 @@ One of the simplest ways to prevent these attacks is to add a CSRF token. This t
 While a CSRF token can prevent many malicious requests, it can still fail.  If an application is vulnerable to XSS a hacker could use their XSS attack to extract this token.<br>
 A solution is to ask the user for his password before commiting a profile change.
 
-### Zero-Day and DDoS
+#### Zero-Day and DDoS
 **Zero-day**<br>
 A “zero-day” (also called “0-day”) vulnerability is a newly-discovered software bug that a developer was not aware of before the software was released.<br>
 Therefore, after it is discovered, the developer has “zero” days to patch it before it can be exploited. When a “zero-day attack” occurs, the vulnerability quickly becomes known and is patched by the developer.
@@ -220,7 +220,7 @@ Rainbow tables are tables used by hackers to compare password hashes from a data
 Using complex passwords prevents this from working plus hashed passwords can be further protected using salts.<br>
 Salts protect against rainbow tables by adding to the password before hashing a secret random string.
 
-### authentification and authorization
+### Authentification and authorization
 Authentication is the verification of who you are and Authorization is the verification of what you have the right to do.<br>
 Authentication and authorization go hand in hand. Users must be authenticated before carrying out the activity they are authorized to perform.<br>
 Role-based access is exactly what it sounds like: you have permissions to access certain things (authorization) based on your role/responsibilities (authentication).
