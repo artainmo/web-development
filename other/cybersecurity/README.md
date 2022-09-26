@@ -240,7 +240,7 @@ By using OAuth someone can connect through another application, this external ap
 OAuth tokens are great at defending users against data breaches since they eliminate the need to store passwords. However OAuth can be used by malicious applications to demand access to a lot of data from the external application.
 
 ### Network security
-
+How we are able to exchange such large amounts of information over the web and between our devices may seem a bit mystical. How we keep this exchange secure is the whole field of network security.
 
 
 ## Free tutorials
