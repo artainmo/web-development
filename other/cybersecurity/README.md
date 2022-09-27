@@ -24,6 +24,7 @@
   - [Personal security](#Personal-security)
   - [Case studies](#Case-studies)
   - [Looking ahead](#Looking-ahead)
+- [Codecademy course - Cybersecurity for Business](#Codecademy-course---Cybersecurity-for-Business)
 - [Free tutorials](#Free-tutorials)
   - [Other concepts](#Other-concepts)
     - [Hacking and ethical hacking](#Hacking-and-ethical-hacking)
@@ -406,6 +407,9 @@ An attacker who can access your IoT devices can use the data those devices store
 #### AI
 Using artificial intelligence, computers can process data relevant to security or threat intelligence at incredibly large volumes. These insights can then be used towards automating complex security actions.<br>
 On the other hand, AI is also available to attackers who can collect and gain insights about a target and figure out the most opportune vector or time to attack.
+
+## Codecademy course - Cybersecurity for Business
+
 
 ## Free tutorials
 ### Other concepts
