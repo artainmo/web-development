@@ -3,7 +3,7 @@
 ## Table of contents
 - [Codecademy course](#CODECADEMY-COURSES)
 
-## CODECADEMY COURSES
+## CODECADEMY COURSE - Introduction to Cybersecurity
 ### Definition
 Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks.<br>
 Digital attacks for example could consist of stealing data from a database such as credit card information, sending fraudulent emails asking for money, shutdown a website or use digital tools in a fraudulent way.<br>
@@ -238,8 +238,148 @@ By using OAuth someone can connect through another application, this external ap
 OAuth tokens are great at defending users against data breaches since they eliminate the need to store passwords. However OAuth can be used by malicious applications to demand access to a lot of data from the external application.
 
 ### Network security
-How we are able to exchange such large amounts of information over the web and between our devices may seem a bit mystical. How we keep this exchange secure is the whole field of network security.
+#### Network basics
+A network is two or more computers or devices that are linked in order to share information. Network security consists of keeping exchange within a network secure.<br>
+Our computers and devices are able to communicate due to a large set of standards, much like we have road systems and traffic protocols when we drive a car.
 
+Network types:
+* A Local Area Network (LAN) is a smaller network that connects multiple devices in a limited area.<br>
+* A Campus Area Network (CAN) connects multiple computers and devices over a slightly larger area. In many cases, these types of networks will connect multiple buildings located in the same vicinity. You may see these networks in a university where multiple buildings and outdoor spaces provide students with network access.
+* A Wide Area Network (WAN) connects multiple computers over a geographically large area. Large, international organizations may operate these types of networks. Since we’re all connected to the Internet, the whole Internet can technically be classified as a WAN.
+
+The OSI (Open Systems Interconnection) Model was developed in the 1970s and 1980s, and it is a conceptual model that breaks networking into seven separate layers. The layers start from physical signals all the way up to the web applications we interact with. Each layer generally only interacts with the layer below it and provides useful tools or information to the layer above it. OSI is used to help us categorize network processes so we can communicate about them during troubleshooting and while improving security.
+
+OSI layers:
+1. Physical - This layer includes the hardware part of modems, adapters, and repeaters next to how unstructured data, like bits, is transmitted. Signals are transferred over wires, WiFi, Bluetooth, the raw data bits are received as a stream of 0s and 1s.
+2. Data Link - Covers how data is sent from device to device when they are connected on the same local network. It structures incoming or outgoing data bits into dataframes, manages those dataframes and physical addresses of devices also called Media Access Control (MAC), a switch routes dataframes to correct MAC.
+3. Network - Describes how data packets are routed between wider networks such as the Internet. Whereas a data frame at the data link layer travels to local MAC addresses, a data packet at the network layer is routed from a source IP (Internet Protocol) address to a destination IP address.
+4. Transport - Refers to how data is actually transferred. Let’s say you wanted to upload a photo from your phone onto social media. The transport layer handles how the image data from that photo is split (segmentation), the rate at which the packets are sent, and how errors are handled if data packets don’t make it to the site’s server. The most common transport protocols on the Internet are TCP (Transmission Control Protocol) and UDP (User Datagram Protocol). TCP is a connection-oriented protocol, where a more rigorous acknowledgment between sender and receiver must happen before any data can be sent. This protocol also includes flow control and error recovery, and it is used when larger amounts of data need to be sent and timing is less of a concern. UDP is a more lightweight protocol that does not require a fixed channel between a sender and receiver. It is often used when the amount of data sent is piecemeal and needs to be transmitted quickly such as during video.
+5. Session - When two computers or devices have started an exchange of information, we call that a session. The Session layer in OSI is responsible for opening, closing, and maintaining sessions. It contains authentication and authorization measures at session opening and safeguards in case a connection drops.
+6. Presentation - This layer includes all the functions that convert data from unusable to usable by an application, such as encryption, decryption, file compression, file decompression.
+7. Application - Includes websites, browsers, email, mobile applications, and how they render Internet data so that we can interact with it.
+
+Next to the OSI model, the TCP/IP model is a shorter model describing networking that makes direct reference to its foundational protocols TCP and IP.<br>
+The four layers of TCP/IP are as follows:
+1. Network access - Also called the link layer, encompasses OSI layer 1, 2 and refers to the sending and receiving of network data at the local network level.
+2. Internet - Similarly as 'OSI Network layer' is where routing and IP addressing occurs.
+3. Transport - Refers to TCP and thus not UDP protocol. 
+4. Application - Encompasses OSI layer 5,6,7 and includes opening and closing of sessions, translating data, and the interaction with content at application level. 
+
+Network protocols are a set of standards for devices interacting on the internet. Cyber attacks can abuse protocol standards at application level to gain access to sensitive information.<br>
+Here are important protocols at TCP/IP application layer:
+* Domain Name System (DNS) - converts domain names to IP addresses.
+* HTTP (The Hyper Text Transfer Protocol) - Handles web requests to servers such as GET, POST, PUT, HEAD to retrieve and send data.
+* IMAP, POP, and SMTP - To send email, the standard is SMTP (Simple Mail Transfer Protocol). IMAP (Internet Message Access Protocol) and POP (Post Office Protocol) allow users to access emails stored on a remote web server. In IMAP, servers store your email and return copies to you, allowing you to access the same email on multiple devices. In POP3 (POP version 3), however, emails are generally downloaded from the server onto just a single device.
+* Secure Shell (SSH) - Is used to access a remote terminal or virtual machine (VM) over a secure connection. For example, accessing github from the command line uses SSH.
+* File Transfer Protocol (FTP) - Is used to transfer files from one system to another.
+* Server Message Block (SMB) - Allows multiple users to interact with a remote system like a file share. Multiple people can view and modify shared resources in a centralized server.
+
+Data-packets get routed from the transport layer to those network protocols, specific numbers called ports are reserved so that packets for different network protocols can come in at the same time. Think of ports as lanes for network traffic.
+
+#### Firewalls
+A firewall is a tool designed to intercept and assess incoming and outgoing packets.<br>
+We can set rules for a firewall to either accept or deny a packet in the network. Those rules can be based on the source IP address of a packet, the details of a network session, or the contents of a packet.
+
+Packet-filtering firewalls are the simplest of all firewalls, they do not verify content, they only filter on source IP, destination IP, destination port numbers on a packet. They are usually only used within an organization to prevent the flow of packets between different parts of the network.
+
+Circuit-level firewalls ensures legitimate connections and properly configured sessions. Those prevent malformed sessions from connecting, but can still allow certain threats to pass through, as such it is usually used together with other more advanced firewalls.
+
+Stateful inspection firewalls have the capabilities of packet-filtering and circuit-level firewalls plus they offer the additional protection of dropping unexpected packets.
+
+Application firewalls offer robust security, using pattern-matching, they can recognize potential attacks inside HTTP requests and block those.
+
+Next-generation level firewalls are the most advanced, they encompass all the capabilities of prior firewalls plus identification of additional malicious content. To identify malicious content it may use AI and thus is complex with a higher operating cost.
+
+#### Wireless Network Security
+With Wi-Fi, users have experienced an increase in device freedom, but wireless technology carries the risk that we may not physically see who is accessing a network.
+
+Network Segmentation is the basic practice of breaking apart larger networks into smaller, functionally similar networks with different access levels. This improves both security and performance.<br>
+When segmenting networks we can consider who can access which network and use different firewalls on different segmented networks.
+
+Access points are the systems and nodes used to distribute wireless signals. It is important we consider both the placement and strength of our access points.<br>
+This risk is especially true in places like coffee shops or libraries. It would not be very wise to keep the router in plain sight so that anyone could physically configure it.
+
+All wireless activity should be securely encrypted. Currently, the accepted standard for security is WPA2. WPA2-Personal will require a single password to access Wi-Fi, while WPA2-Enterprise will require multi-factor authentication.<br>
+It’s recommended to set your own network name and password when you set up your wireless Internet at home.
+
+#### Network monitoring
+By analyzing network activity, sensitive information or malicious activity can be found.
+
+The software wireshark can be used to analyze network activity.<br>
+The key when trying to analyze network activity is filtering out noise.<br>
+ARP, also known as Address Resolution Protocol, is used to translate MAC addresses to IP addresses. To only see ARP traffic use the bar labeled 'Apply a display filter', enter 'arp'.<br>
+To see DNS requests, enter 'dns' in the bar labeled 'Apply a display filter'.<br>
+Other filters are 'http' or more specific filters such as 'tcp.port == 80'.
+
+### Personal security
+Today, there are common methods to guess passwords in a variety of ways, such as brute-forcing, credential stuffing, dictionary attacks, and rainbow tables.<br>
+The more characters, different capitalizations, special symbols a password has, the harder it is to “brute-force”.<br>
+Avoid using same password on different websites. By some metrics, 30,000 websites are hacked every day. When people hack into the website of a small company and steal the usernames and passwords of users, they are then able to use freely available credential stuffing tools to automatically try those username and password combinations across thousands of other sites.<br>
+A password manager is software that usually comes in a browser extension form, and it stores all of your passwords in encrypted form so that you don’t have to remember all of them individually. Instead, you only have to remember one master password.<br>
+Make sure you use two-factor authentication (2FA) and multi-factor authentication (MFA) wherever and whenever possible. At the very least, 2FA should be enabled for high-value accounts such as your bank account.Tools like the Google Authenticator App or YubiKey make code-based MFA more convenient.<br>
+
+Virtual Private Networks (VPNs) make you anonimous while browsing the web by constantly changing your IP address.<br>
+Your internet service provider (ISP) can see everything you do on the internet and even sell that data if you are not using a VPN. People you interact with on internet through your IP address can find your location besides if you use a VPN.<br>
+VPNs also add security, they can protect you from Man-In-The-Middle (MITM) Attacks, in which network traffic is intercepted by a malicious third party. When you use a VPN, it creates an encrypted tunnel between you and a remote server operated by your VPN provider. That prevents your ISP, others on your WiFi network, and websites from seeing what you’re doing. So, if you log on a suspicious public WiFi network with a VPN turned on, you don’t have to worry about your username and password being stolen.<br>
+Additionaly It can give you an IP address from another country, affecting how websites treat you, such as Netflix that proposes different content depending on IP location.
+
+Just as VPN encryption keeps you safe from eavesdroppers, the encryption provided by certain messaging apps such as Signal, or email providers such as Protonmail or Tutanota can also help to keep you secure. What makes these services different from more widely known competitors is that all of them offer end-to-end encryption. Essentially, using encrypted communication platforms both protects your data from being taken and prevents companies from collecting data from your messages for marketing purposes.
+
+Some browsers are more secure than others. For example, some browsers may update frequently but allow third parties to track you, whereas others may have the opposite problem. However, no matter what browser you are using, by always running the latest software available to you, you ensure that you are protected from the vast majority of attacks.<br>
+DuckDuckGo is an internet search engine that emphasizes protecting searchers' privacy and avoiding the filter bubble of personalized search results. Unlike Google DuckDcukGo doesn´t track your browser history and sell it online for advertising.
+
+Make sure that you are running the current version of your browser and operating system. Make sure to download new updates on your devices as well, since they often release specific patches for vulnerabilities.
+
+Making sure you know how to spot phishing(don't trust unknown people), malware(don't download untrustworthy programs or click on suspicious links) and other social engineering attacks is as important as keeping your systems secure.
+
+Hardening is the process of fortifying a system against attacks. When we harden computers, we are generally focused on fortifying the operating system, making sure that it is as secure as it can be.<br>
+Operating systems (OS for short) are pre-loaded sets of software that handle the details of keeping a computer running, provide services to applications, and make it easy for us to interact with our computers through a graphical user interface.<br>
+Hardening is a balancing act: too little of it, and the computer is vulnerable to attacks, but too much hardening can make a computer impractical to use. For example, keeping a computer off is a sure-fire way to prevent it from being remotely compromised, but also dramatically decreases its usability.<br>
+No matter what OS you use, there are some shared practices between different types of devices. Some examples of shared practices might be: Requiring Account Passwords, Limiting Administrator Access, Utilizing Firewalls, Using a Trustworthy Antivirus Software, Keeping Your System Up-to-Date.<br>
+There are other security practices that will differ based on the type of device you use. Many Windows processes will be unique to Windows machines. Linux and Mac OS might share some processes because the Mac terminal is similar to the terminal on Linux machines.<br>
+For more info see [Windows hardening](https://www.codecademy.com/courses/introduction-to-cybersecurity/articles/windows-hardening) and [Linux hardening](https://www.codecademy.com/courses/introduction-to-cybersecurity/articles/linux-hardening).
+
+### Case studies
+#### Breach 1: Uber
+In late 2016, attackers used a password obtained in an unrelated data breach to gain access to an Uber engineer’s personal GitHub account. From this account, the attackers were able to access one of Uber’s internal repositories, which contained a private key used to access Uber’s datastores. These datastores contained unencrypted personal information for approximately 57 million Uber drivers and riders. The attackers downloaded copies of this private user information violating the information’s confidentiality. The attackers then contacted Uber, informed them that they had compromised Uber’s databases, and demanded a ransom to delete the stolen data.<br>
+Uber was contacted by the attackers on November 14th, 2016, and Uber chose to pay the ransom. Uber had the attackers sign non-disclosure agreements regarding the stolen information.<br>
+Uber didn’t disclose the breach until November 21, 2017, following the appointment of a new CEO. In addition to being highly unethical, Uber’s failure to disclose the breach was also illegal. In addition to the $100,000 ransom, Uber paid $148 million as part of the settlement.
+
+Learnings:
+* Failing to disclose breaches is unethical and illegal.
+* Mistakenly including keys or other sensitive data in source-control repositories is a common mistake with potentially serious repercussions.
+* Internal resources should be accessed using work accounts with strong security policies.
+* Don’t store private user information in an unencrypted format.
+
+#### Breach 2: Target
+In late November of 2013, attackers gained access to Target’s internal network using credentials stolen from a third-party vendor with network access. Improper network segmentation let the attackers gain access to Target’s point-of-sale (POS) system, which they installed malware onto. This malware stole the details of over 40 million credit cards used at Target’s stores, along with the personal information of over 70 million people. Target had antimalware software monitoring their system, but it was improperly monitored and configured. The software was not able to automatically remove the malware, and the alerts it raised went uninvestigated.<br>
+Target invested 100 million dollars into improving its cybersecurity and paid out an additional 18.5 million dollars in settlement costs.
+
+#### Breach 3: SolarWinds
+In September of 2019, a group of hackers covertly gained access to SolarWinds, a company that develops enterprise IT and cybersecurity software. The attackers tested and deployed Sunspot, a piece of custom malware, targeting Orion, one of SolarWinds’ products. Sunspot secretly added a backdoor to Orion, which was then digitally signed by SolarWinds’ update system which made it appear legitimate and pushed to customers through software updates. The backdoor allowed the attackers to install additional malware, known as Teardrop, onto the networks of SolarWinds customers, causing a massive breach of confidentiality and integrity.<br>
+SolarWinds did not become aware of the attack until December of 2020 when FireEye, another cybersecurity company, discovered the backdoor while investigating how they themselves had been breached. In the ensuing investigation, it was determined that the attackers had used the backdoor to attack approximately 100 companies including Boeing and 9 federal agencies, including the United States Department of Defense and Justice Department. The attack has been publicly attributed to Russia by multiple United States government organizations, including the FBI and NSA. This attack is one of the largest and most serious cases of cyber-espionage in history.
+
+### Looking ahead
+#### Cloud
+Cloud computing is now an essential solution to the question of scaling as the demand grows for remote collaboration and distributing data quicker to more places.<br>
+The benefits of the cloud are that an organization’s data is centralized, the capacity for storage and content delivery is more flexible, and the physical management of the server is outsourced while improving reliability.<br>
+Cloud security depends on shared responsibility between the cloud provider and an organization using the cloud (customer).<br>
+Provider Side: protecting and configuring the physical infrastructure, improving cloud network architecture, and ensuring the reliability of content delivery.<br>
+Customer Side: implementing access control, encryption of assets stored in the cloud, and ensuring compliance.
+
+#### 5G
+5G stands for the 5th Generation of standards for telecommunications. Like every new generation, connections between devices will become faster and more reliable. This will allow the evolution of other technologies relying on fast telecommunication such as AIs and automation of certain industries. 
+
+New technology means new security risks. As 5G was built out, new security controls were also introduced. These include new authentication mechanisms, enhanced mobile security, more advanced encryption of communication, and even the possible elimination of physical SIM cards.
+
+#### IoT
+Internet of things are objects connected to the internet such as voice-activated speakers, home assistants.
+
+An attacker who can access your IoT devices can use the data those devices store for malicious purposes. They can also hijack these devices to use them as part of a botnet. IoT security is becoming more and more important.
+
+#### AI
+Using artificial intelligence, computers can process data relevant to security or threat intelligence at incredibly large volumes. These insights can then be used towards automating complex security actions.<br>
+On the other hand, AI is also available to attackers who can collect and gain insights about a target and figure out the most opportune vector or time to attack.
 
 ## Free tutorials
 ### Ethical hacking?
@@ -248,3 +388,6 @@ Hacking is the act of working within the confines of a system to produce uninten
 ### Request interception?
 
 ### Firewall?
+
+## Resources
+https://www.codecademy.com/learn/introduction-to-cybersecurity
