@@ -1,24 +1,46 @@
 # Cybersecurity
 
 ## Table of contents
-- [Codecademy course](#CODECADEMY-COURSES)
+- [Codecademy course, Introduction to Cybersecurity](#Codecademy-course,-Introduction-to-Cybersecurity)
+  - [Definition](#Definition)
+  - [Subsets](#Subsets)
+  - [History](#History)
+  - [Regulations](#Regulations)
+  - [Cyber Threats](#Cyber-Threats)
+    - [Malware](#Malware)
+    - [Phishing](#Phishing)
+    - [SQL Injection](#SQL-Injection)
+    - [XSS](#XSS)
+    - [CSRF](#CSRF)
+    - [Zero-day](#Zero-day)
+    - [DDoS](#DDoS)
+  - [Cryptography](#Cryptography)
+  - [Authentification and authorization](#Authentification-and-authorization)
+  - [Network security](#Network-security)
+    - [Network basics](#Network-basics)
+    - [Firewalls](#Firewalls)
+    - [Wireless Network Security](#Wireless-Network-Security)
+    - [Network monitoring](#Network-monitoring)
+  - [Personal security](#Personal-security)
+  - [Case studies](#Case-studies)
+  - [Looking ahead](#Looking-ahead)
 
-## CODECADEMY COURSE - Introduction to Cybersecurity
+## Codecademy course, Introduction to Cybersecurity
 ### Definition
 Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks.<br>
 Digital attacks for example could consist of stealing data from a database such as credit card information, sending fraudulent emails asking for money, shutdown a website or use digital tools in a fraudulent way.<br>
 
 The CIA Triad stands for confidentiality, integrity and availability and is a comprehensive model for cybersecurity.
 
-**Confidentiality**<br>
+#### Confidentiality
 Refers to the protection of private data.<br>
 This can be done through: permission rights, data encryption, multi-factor authentification.
 
-**Integrity**<br>
+#### Integrity
 Refers to data integrity, meaning data should be protected from malignant change or deletion.<br>
 This can be done through: keeping data backups, using cryptography to securely check for changes, keeping track of digital signatures to prove integrity of data.
 
-**Availability**<br>
+#### Availability
 Refers to data being reliably available for those authorized.<br>
 This can be done through: constant monitoring of servers and networks, maintaining hardware and software.
 
