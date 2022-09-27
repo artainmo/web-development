@@ -24,6 +24,10 @@
   - [Personal security](#Personal-security)
   - [Case studies](#Case-studies)
   - [Looking ahead](#Looking-ahead)
+- [Free tutorials](#Free-tutorials)
+  - [Other concepts](#Other-concepts)
+    - [Hacking and ethical hacking](#Hacking-and-ethical-hacking)
+- [Resources](#Resources)
 
 ## Codecademy course - Introduction to Cybersecurity
 ### Definition
@@ -404,12 +408,13 @@ Using artificial intelligence, computers can process data relevant to security o
 On the other hand, AI is also available to attackers who can collect and gain insights about a target and figure out the most opportune vector or time to attack.
 
 ## Free tutorials
-### Ethical hacking?
+### Other concepts
+#### Hacking and ethical hacking
 Hacking is the act of working within the confines of a system to produce unintended behavior.<br>
+However when taking about hacking or a hacker we usually mean security hacking/hacker.<br>
+A security hacker is a malicious attacker who explores methods for breaching defenses and exploiting weaknesses in a computer system or network.
 
-### Request interception?
-
-### Firewall?
+Ethical hacking involves an authorized attempt to gain unauthorized access to a computer system, application, or data. Carrying out an ethical hack involves duplicating strategies and actions of malicious attackers. This practice helps to identify security vulnerabilities which can then be resolved before a malicious attacker has the opportunity to exploit them.
 
 ## Resources
-https://www.codecademy.com/learn/introduction-to-cybersecurity
+https://www.codecademy.com/learn/introduction-to-cybersecurity - Introduction to Cybersecurity
