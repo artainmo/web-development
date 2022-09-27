@@ -1,7 +1,7 @@
 # Cybersecurity
 
 ## Table of contents
-- [Codecademy course, Introduction to Cybersecurity](#Codecademy-course,-Introduction-to-Cybersecurity)
+- [Codecademy course - Introduction to Cybersecurity](#Codecademy-course---Introduction-to-Cybersecurity)
   - [Definition](#Definition)
   - [Subsets](#Subsets)
   - [History](#History)
@@ -25,7 +25,7 @@
   - [Case studies](#Case-studies)
   - [Looking ahead](#Looking-ahead)
 
-## Codecademy course, Introduction to Cybersecurity
+## Codecademy course - Introduction to Cybersecurity
 ### Definition
 Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks.<br>
 Digital attacks for example could consist of stealing data from a database such as credit card information, sending fraudulent emails asking for money, shutdown a website or use digital tools in a fraudulent way.<br>
