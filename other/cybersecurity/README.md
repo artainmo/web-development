@@ -155,7 +155,7 @@ A time-based injection makes use of several built in SQL functions, such as SLEE
 
 Unlike the other methods, which return the results via the web application, an out-of-band injection will leverage a new channel to retrieve information from a query.<br>
 Generally, these SQL injections will cause the database server to send HTTP or DNS requests containing SQL query results to an attacker-controlled server. From there, the attacker could review the log files to identify the query results.<br>
-These injections are extremely difficult to execute, because yhey rely on permissions to database functions that are most often disabled, and would have to bypass firewalls that might stop requests to the attacker’s server.
+These injections are extremely difficult to execute, because they rely on permissions to database functions that are most often disabled, and would have to bypass firewalls that might stop requests to the attacker’s server.
 
 There are two main methods for preventing injection attacks:
 * Sanitization is the process of removing dangerous characters from user input. Usually a programming language should have its own function for sanitization of inputs.
