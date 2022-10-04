@@ -492,7 +492,7 @@ As you draft your playbook, try to use public resources as a guide so that you a
 
 A walkthrough exercise is a real-world scenario that you can create for your team using the playbook as a guide. Walkthrough exercises are an effective way of challenging your playbook, identifying strengths and weaknesses, and evaluating its effectiveness while making changes as needed. Lastly, your incident response playbook should be tested at least twice annually so that all relevant team members are prepared to address any security incident at any given time.
 
-## Codecademy course - Defending Node Applications from SQL Injection and XSS and CSRF Attacks
+## Codecademy course - Defending Node Applications from SQL Injection, XSS and CSRF Attacks
 
 
 ## Free tutorials
