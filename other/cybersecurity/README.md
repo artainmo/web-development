@@ -501,4 +501,5 @@ A security hacker is a malicious attacker who explores methods for breaching def
 Ethical hacking involves an authorized attempt to gain unauthorized access to a computer system, application, or data. Carrying out an ethical hack involves duplicating strategies and actions of malicious attackers. This practice helps to identify security vulnerabilities which can then be resolved before a malicious attacker has the opportunity to exploit them.
 
 ## Resources
-https://www.codecademy.com/learn/introduction-to-cybersecurity - Introduction to Cybersecurity
+https://www.codecademy.com/learn/introduction-to-cybersecurity - Introduction to Cybersecurity<br>
+https://www.codecademy.com/learn/cybersecurity-for-business - Cybersecurity for Business
