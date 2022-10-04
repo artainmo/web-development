@@ -409,6 +409,48 @@ Using artificial intelligence, computers can process data relevant to security o
 On the other hand, AI is also available to attackers who can collect and gain insights about a target and figure out the most opportune vector or time to attack.
 
 ## Codecademy course - Cybersecurity for Business
+### Cybersecurity team
+A security team could consist of the following roles.
+* The Security Operations Center, typically referred to as the “SOC”, is the function that is responsible for managing security incidents, detecting and resolving them.
+  * A SOC analysist detects the threats.
+  * Incident responders ward off incidents that have already taken place.
+  * Forensics investigate how to prevent an incident from reoccurring.
+  * Identity and access management ensures members of the organizations can access the tools they need to fulfill their responsibilities.
+  * Red team is similar to ethical hackers, they try to discover vulnerabilities in their own organization's program.    
+* Security Governance, Risk, and Compliance, decides what security problems to prioritize or not, it verifies the company follows the law.
+  * Vulnerability management team is responsible for tracking vulnerabilities found within the company’s information systems, assisting in the remediation process, indicates what needs to be patched.
+  * Architects are responsible for security architecture which refers to how security is implemented in an organization.
+* Security Auditors are in charge of assessing the organization’s security posture by measuring it against industry standards, federal regulations, and recognized frameworks. We can think of audits as a big checklist of requirements that companies need to have.
+
+Processes provide strategies that allow cybersecurity teams to implement security while adopting best practices.
+* A popular strategy that many companies use is to follow a framework such as the The NIST Cybersecurity Framework. Frameworks provide a reference for cybersecurity teams to follow to identify gaps in their security architecture.
+* Collaboration between different subsets of the cybersecurity team is important.
+
+Lastly a team consists of technologies/tools used to monitor, assess, remediate and automate security processes.
+* Static Application Security Testing (SAST) is a tool used to identify vulnerabilities within own code base. The Open Web Application Security Project (OWASP) has a list of popular SAST tools. This allows the development team to fix problems before the applications are made public.
+* We can use a Dynamic Application Security Testing (DAST) tool to simulate cyberattacks on an application and check to see whether or not it has vulnerabilities that a real hacker can take advantage of.
+* The SOC team typically manages a Security Information and Event Management system (SIEM). A SIEM can provide real-time monitoring while analyzing events through logging.
+* Vulnerability Scanners: Scan networks and applications for common vulnerabilities.
+* Firewalls: Prevent unauthorized access within an internal network.
+* Antivirus Software: Applications that are used to detect and remove malware from a computer, network, or other system.
+With every new tool, we need to create an implementation plan. These types of plans ensure that the tool is assimilated into the environment and all involved parties are trained on how to use the new tool.<br>
+An implementation plan should also contain periodic assessments of the technology that is being adopted. It is never helpful to pay for a resource that is no longer being used to its full capacity. At the same time, there may be a new tool that can serve the needs of the company in a much more efficient manner.
+
+### Employee account policies
+Employee accounts can contain sensitive information, this should be protected through policies.
+
+A user account policy refers to the rules around having an account in your organization.<br>
+The password policy in your organization should have complexity requirements, for example employee passwords should have a certain length and use certain characters.<br>
+Typically, a password policy may ask you to change passwords every 6 months or every year. Old passwords are risky because data breaches can happen at any time, and if your password is found in a data breach, it is only a matter of time before a hacker is able to log in to your account.<br>
+Users that try different passwords to login can get blocked after a certain amounts of tries, this is called account lockout and can protect against brute-force attacks.<br>
+Passwords cannot be shared with others, re-used, stored in tools not authorized by the company, or written down.
+
+Account management is the practice of creating, deleting, and modifying accounts for users in an organization. Accounts have different levels of privileges, which means that some accounts are able to perform actions that other accounts can’t. Only accounts in use should exist and account privileges should not exceed what is necessary.<br>
+
+An employee acceptable use policy (AUP) is a list of rules that employees must follow when connected to the company’s network or when using company devices.<br>
+Acceptable use policies help prevent cybersecurity threats, avoid illegal or illicit activities from occurring on your network, and help maximize productivity by preventing access to certain sites during the workday.
+
+### Employee security awareness training
 
 
 ## Free tutorials
