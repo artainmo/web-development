@@ -436,7 +436,8 @@ Lastly a team consists of technologies/tools used to monitor, assess, remediate 
 With every new tool, we need to create an implementation plan. These types of plans ensure that the tool is assimilated into the environment and all involved parties are trained on how to use the new tool.<br>
 An implementation plan should also contain periodic assessments of the technology that is being adopted. It is never helpful to pay for a resource that is no longer being used to its full capacity. At the same time, there may be a new tool that can serve the needs of the company in a much more efficient manner.
 
-### Employee account policies
+### Employee safety
+#### Account policies
 Employee accounts can contain sensitive information, this should be protected through policies.
 
 A user account policy refers to the rules around having an account in your organization.<br>
@@ -450,8 +451,39 @@ Account management is the practice of creating, deleting, and modifying accounts
 An employee acceptable use policy (AUP) is a list of rules that employees must follow when connected to the company’s network or when using company devices.<br>
 Acceptable use policies help prevent cybersecurity threats, avoid illegal or illicit activities from occurring on your network, and help maximize productivity by preventing access to certain sites during the workday.
 
-### Employee security awareness training
+#### Security awareness training
+It’s important to always be prepared for any kind of cyber threat, and one of the most effective ways is to teach employees how they can protect themselves so that their data, as well as the company’s data, is not compromised.
 
+Phishing emails can demand employee's password, identifying as the employee's company while they are not.<br>
+One of the most common ways to establish an awareness program is to run a phishing test. A phishing test is a simulation of a real phishing attack on employees. The process of measuring that risk and implementing controls to mitigate it is a cybersecurity practice known as third-party risk management.
+
+### Third-party risk management
+A lot of companies use third party products, which are digital tools used by a software company in the application they serve to their clients. Third-party products prevent from having to recreate certain products from scratch and thus are useful but they can come with security risks.
+
+Before using third-party tools, it is best to do its due-diligence on that product.
+
+If we purchase a product from a vendor that has security issues, we’ll be poisoning our own environment once the vendor’s product is integrated. Also, adopting a product that isn’t compliant with federal regulations is a recipe for disaster.<br>
+Products from vendors with a bad reputation is best not utilized to avoid this bad reputation for yourself.<br>
+Make sure the third-party product has good performance and support available.
+
+A common trend that has surfaced over the years is outsourcing code development. Companies hire skilled workers from countries where the cost of labor is low. Managing a team of developers in another country can result in communication breakdowns, including conflicting working styles and expectations. The biggest danger, however, is that we run a potential security risk with outsourced code. We’re entrusting the intellectual property of our company to a foreign team that may not have aligned security practices in place.
+
+Ever since cloud technology became popular, many companies rushed to store their data in the cloud. This proved to be a cheaper and easier alternative to having your own data centers.<br>
+Other third-party tools can also sometimes have access to your data.<br>
+But this can come with the risk of those external services holding your data not being properly secured.
+
+Developing a strong third-party risk management program is the first step in determining how your organization will handle new tools and technology. With an effective risk management process, your company will enjoy the benefits of adopting third-party products and services while lowering the risk that is associated with the vendor.
+
+### Incident response playbook
+The incident response playbook is a manual for how to respond to security incidents.
+
+Before creating our playbook, we need to prepare ourselves and decide what type of incidents will be included in our playbook. We also have to decide who does what, since an understanding of roles and responsibilities is important when responding to an incident. Lastly, we’ll have to make sure that we have a plan for public relations in the event that an incident does occur.
+
+As you draft your incident response playbook, remember to create a repeatable process. It’s helpful to create a “one size fits all” solution so that the playbook can be used to respond to any incident.<br>
+Based on your research, map out specific steps that need to be taken to resolve an incident throughout its lifecycle.<br>
+As you draft your playbook, try to use public resources as a guide so that you are able to create a playbook that includes recommendations from some of the top cybersecurity organizations in the world. The Computer Security Incident Handling Guide from the National Institute of Standards and Technology is a good place to start looking. Another helpful resource is the Incident Handler’s Handbook by SANS, which is a renowned cybersecurity instruction organization.
+
+A walkthrough exercise is a real-world scenario that you can create for your team using the playbook as a guide. Walkthrough exercises are an effective way of challenging your playbook, identifying strengths and weaknesses, and evaluating its effectiveness while making changes as needed. Lastly, your incident response playbook should be tested at least twice annually so that all relevant team members are prepared to address any security incident at any given time.
 
 ## Free tutorials
 ### Other concepts
