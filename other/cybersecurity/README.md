@@ -34,6 +34,7 @@
 - [Free tutorials](#Free-tutorials)
   - [Other concepts](#Other-concepts)
     - [Hacking and ethical hacking](#Hacking-and-ethical-hacking)
+- [Codecademy course - Defending Node Applications from SQL Injection, XSS and CSRF Attacks](Codecademy-course---Defending-Node-Applications-from-SQL-Injection,-XSS-and-CSRF-Attacks)
 - [Resources](#Resources)
 
 ## Codecademy course - Introduction to Cybersecurity
@@ -490,6 +491,9 @@ Based on your research, map out specific steps that need to be taken to resolve 
 As you draft your playbook, try to use public resources as a guide so that you are able to create a playbook that includes recommendations from some of the top cybersecurity organizations in the world. The Computer Security Incident Handling Guide from the National Institute of Standards and Technology is a good place to start looking. Another helpful resource is the Incident Handler’s Handbook by SANS, which is a renowned cybersecurity instruction organization.
 
 A walkthrough exercise is a real-world scenario that you can create for your team using the playbook as a guide. Walkthrough exercises are an effective way of challenging your playbook, identifying strengths and weaknesses, and evaluating its effectiveness while making changes as needed. Lastly, your incident response playbook should be tested at least twice annually so that all relevant team members are prepared to address any security incident at any given time.
+
+## Codecademy course - Defending Node Applications from SQL Injection, XSS and CSRF Attacks
+
 
 ## Free tutorials
 ### Other concepts
