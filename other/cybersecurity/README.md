@@ -34,7 +34,7 @@
 - [Free tutorials](#Free-tutorials)
   - [Other concepts](#Other-concepts)
     - [Hacking and ethical hacking](#Hacking-and-ethical-hacking)
-- [Codecademy course - Defending Node Applications from SQL Injection and XSS and CSRF Attacks](Codecademy-course---Defending-Node-Applications-from-SQL-Injection-and-XSS-and-CSRF-Attacks)
+- [Codecademy course - Defending Node Applications from SQL Injection and XSS and CSRF Attacks](#codecademy-course---defending-node-applications-from-sql-injection-xss-and-csrf-attacks)
 - [Resources](#Resources)
 
 ## Codecademy course - Introduction to Cybersecurity
