@@ -496,7 +496,10 @@ A walkthrough exercise is a real-world scenario that you can create for your tea
 [CSRF introduction](#CSRF)
 
 The csurf module provides middleware functions to help our Node.js/Express web application send and process CSRF tokens with web requests.<br>
-
+The csurf module stores CSRF tokens within a cookie or in session. The cookie-parser module can be used to manipulate cookies.<br>
+A csrf token has to be generated in the backend and send to appropriate frontend page.<br>
+When a client submits a form, the form should contain a hidden <input> field containing the csrf token.<br>
+The backend will afterwards compare the csrf token from submitted form with the backend generated crsf token, if those are not equal the backend will return an error.
 
 
 ## Free tutorials
