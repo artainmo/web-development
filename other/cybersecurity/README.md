@@ -152,11 +152,13 @@ Webpages that harvest credentials are especially effective phishing tools. Becau
 #### SQL Injection
 In apps containing a database, SQL injections consists of writing SQL code inside inputs, if this input is subsequently used inside an SQL database query, access is given to the database to unauthorized users.
 
+The SQL injection vulnerability only affects databases that use SQL as their language. This, however, does not mean MongoDB or NoSQL databases are not at risk since they are also prone to their own vulnerabilities and injection attacks.
+
 A union-based injection leverages the power of the SQL keyword UNION. UNION allows us to take two separate SELECT queries and combine their results.<br>
 
 In an error-based injection, an attacker writes a SQL query to force the application to return an error message with sensitive data.
 
-Boolean-based injections involve SQL statements that can confirm TRUE/FALSE questions about the database.
+Boolean-based injections involve SQL statements that can confirm TRUE/FALSE questions about the database. A classic example is writing in a search input `1 OR '1'='1'` as this will always equal to true the database will return all values that could be searched.
 
 A time-based injection makes use of several built in SQL functions, such as SLEEP() and BENCHMARK(), to cause visible delays in an application’s response time. This can be useful when you’re unable to get visible output and want a true/false response.
 
@@ -495,11 +497,27 @@ A walkthrough exercise is a real-world scenario that you can create for your tea
 ### CSRF Attacks
 [CSRF introduction](#CSRF)
 
-The csurf module provides middleware functions to help our Node.js/Express web application send and process CSRF tokens with web requests.<br>
+The `csurf` module provides middleware functions to help our Node.js/Express web application send and process CSRF tokens with web requests.<br>
 The csurf module stores CSRF tokens within a cookie or in session. The cookie-parser module can be used to manipulate cookies.<br>
 A csrf token has to be generated in the backend and send to appropriate frontend page.<br>
 When a client submits a form, the form should contain a hidden <input> field containing the csrf token.<br>
 The backend will afterwards compare the csrf token from submitted form with the backend generated crsf token, if those are not equal the backend will return an error.
+
+### SQL Attacks
+[SQL Injection introduction](#SQL-Injection)
+
+One method of preventing SQL injection is to sanitize inputs. Input sanitization is a cybersecurity measure of checking, cleaning, and filtering data inputs before using them.<br>
+The module `validator` can be used inside Node.js to validate and sanitize strings.<br>
+It can validate different types from dates to emails with functions such as `isEmail()`, `isLength()`, `isNumeric()`, `contains()`...<br>
+Data sanitization is the process of removing all dangerous characters from an input string before passing it to the SQL engine. For example, we can remove unwanted characters or spaces that might lead to a SQL injection.<br>
+For example we can use `normalizeEmail()` function to remove potentially dangerous characters while keeping the email address or we can use the `escape()` function to replace <, >, &, ', and " characters that could be confused with HTML entities.
+
+Arguably, the best technique to protect against SQL injections is a method called prepared statements. Prepared statements are predefined SQL queries that take user input and place them into placeholders not considering those as SQL just as arguments for the predefined SQL query.<br>
+At least in Node.js a non-prepared statement looks like this `SELECT * FROM Employee  WHERE FirstName = ${req.body.firstName} AND LastName =  ${req.body.lastName}` while a prepared statement looks like this `"SELECT * FROM Employee  WHERE FirstName = ? AND LastName = ? ", 
+  [req.body.lastName, req.body.firstName]`.<br>
+Alternatively prepared statements can be written with named placeholders like this `"SELECT * FROM Employee  WHERE FirstName = $firstName AND LastName = $lastName ", { $firstName: req.body.firstName, $lastName: req.body.lastName }`.
+
+### XSS Attacks
 
 
 ## Free tutorials
@@ -510,6 +528,8 @@ However when taking about hacking or a hacker we usually mean security hacking/h
 A security hacker is a malicious attacker who explores methods for breaching defenses and exploiting weaknesses in a computer system or network.
 
 Ethical hacking involves an authorized attempt to gain unauthorized access to a computer system, application, or data. Carrying out an ethical hack involves duplicating strategies and actions of malicious attackers. This practice helps to identify security vulnerabilities which can then be resolved before a malicious attacker has the opportunity to exploit them.
+
+I also heard from an informal source certain ethical hackers that try to physically take control over an application by trying to access the server's physical location and entering in the computers.
 
 ## Resources
 https://www.codecademy.com/learn/introduction-to-cybersecurity - Introduction to Cybersecurity<br>
