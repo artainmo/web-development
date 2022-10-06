@@ -24,13 +24,6 @@
   - [Personal security](#Personal-security)
   - [Case studies](#Case-studies)
   - [Looking ahead](#Looking-ahead)
-- [Codecademy course - Cybersecurity for Business](#Codecademy-course---Cybersecurity-for-Business)
-  - [Cybersecurity team](#Cybersecurity-team)
-  - [Employee safety](#Employee-safety)
-    - [Account policies](#Account-policies) 
-    - [Security awareness training](#Security-awareness-training)
-  - [Third-party risk management](#Third-party-risk-management)
-  - [Incident response playbook](#Incident-response-playbook)
 - [Codecademy course - Defending Node Applications from SQL Injection, XSS and CSRF Attacks](#codecademy-course---defending-node-applications-from-sql-injection-xss-and-csrf-attacks)
   - [CSRF Attacks](#CSRF-Attacks)
   - [SQL Attacks](#SQL-Attacks) 
@@ -38,10 +31,16 @@
   - [CORS](#CORS)
   - [Javascript Defensive coding](#Javascript-Defensive-coding)
   - [Secure your nodejs application Summary](#Secure-your-nodejs-application-Summary)
+- [Codecademy course - Cybersecurity for Business](#Codecademy-course---Cybersecurity-for-Business)
+  - [Cybersecurity team](#Cybersecurity-team)
+  - [Employee safety](#Employee-safety)
+    - [Account policies](#Account-policies) 
+    - [Security awareness training](#Security-awareness-training)
+  - [Third-party risk management](#Third-party-risk-management)
+  - [Incident response playbook](#Incident-response-playbook)
 - [Free tutorials](#Free-tutorials)
   - [Other concepts](#Other-concepts)
     - [Hacking and ethical hacking](#Hacking-and-ethical-hacking)
-- [Codecademy course - Defending Node Applications from SQL Injection and XSS and CSRF Attacks](#codecademy-course---defending-node-applications-from-sql-injection-xss-and-csrf-attacks)
 - [Resources](#Resources)
 
 ## Codecademy course - Introduction to Cybersecurity
@@ -423,86 +422,6 @@ An attacker who can access your IoT devices can use the data those devices store
 Using artificial intelligence, computers can process data relevant to security or threat intelligence at incredibly large volumes. These insights can then be used towards automating complex security actions.<br>
 On the other hand, AI is also available to attackers who can collect and gain insights about a target and figure out the most opportune vector or time to attack.
 
-## Codecademy course - Cybersecurity for Business
-### Cybersecurity team
-A security team could consist of the following roles.
-* The Security Operations Center, typically referred to as the “SOC”, is the function that is responsible for managing security incidents, detecting and resolving them.
-  * A SOC analysist detects the threats.
-  * Incident responders ward off incidents that have already taken place.
-  * Forensics investigate how to prevent an incident from reoccurring.
-  * Identity and access management ensures members of the organizations can access the tools they need to fulfill their responsibilities.
-  * Red team is similar to ethical hackers, they try to discover vulnerabilities in their own organization's program.    
-* Security Governance, Risk, and Compliance, decides what security problems to prioritize or not, it verifies the company follows the law.
-  * Vulnerability management team is responsible for tracking vulnerabilities found within the company’s information systems, assisting in the remediation process, indicates what needs to be patched.
-  * Architects are responsible for security architecture which refers to how security is implemented in an organization.
-* Security Auditors are in charge of assessing the organization’s security posture by measuring it against industry standards, federal regulations, and recognized frameworks. We can think of audits as a big checklist of requirements that companies need to have.
-
-Processes provide strategies that allow cybersecurity teams to implement security while adopting best practices.
-* A popular strategy that many companies use is to follow a framework such as the The NIST Cybersecurity Framework. Frameworks provide a reference for cybersecurity teams to follow to identify gaps in their security architecture.
-* Collaboration between different subsets of the cybersecurity team is important.
-
-Lastly a team consists of technologies/tools used to monitor, assess, remediate and automate security processes.
-* Static Application Security Testing (SAST) is a tool used to identify vulnerabilities within own code base. The Open Web Application Security Project (OWASP) has a list of popular SAST tools. This allows the development team to fix problems before the applications are made public.
-* We can use a Dynamic Application Security Testing (DAST) tool to simulate cyberattacks on an application and check to see whether or not it has vulnerabilities that a real hacker can take advantage of.
-* The SOC team typically manages a Security Information and Event Management system (SIEM). A SIEM can provide real-time monitoring while analyzing events through logging.
-* Vulnerability Scanners: Scan networks and applications for common vulnerabilities.
-* Firewalls: Prevent unauthorized access within an internal network.
-* Antivirus Software: Applications that are used to detect and remove malware from a computer, network, or other system.
-With every new tool, we need to create an implementation plan. These types of plans ensure that the tool is assimilated into the environment and all involved parties are trained on how to use the new tool.<br>
-An implementation plan should also contain periodic assessments of the technology that is being adopted. It is never helpful to pay for a resource that is no longer being used to its full capacity. At the same time, there may be a new tool that can serve the needs of the company in a much more efficient manner.
-
-### Employee safety
-#### Account policies
-Employee accounts can contain sensitive information, this should be protected through policies.
-
-A user account policy refers to the rules around having an account in your organization.<br>
-The password policy in your organization should have complexity requirements, for example employee passwords should have a certain length and use certain characters.<br>
-Typically, a password policy may ask you to change passwords every 6 months or every year. Old passwords are risky because data breaches can happen at any time, and if your password is found in a data breach, it is only a matter of time before a hacker is able to log in to your account.<br>
-Users that try different passwords to login can get blocked after a certain amounts of tries, this is called account lockout and can protect against brute-force attacks.<br>
-Passwords cannot be shared with others, re-used, stored in tools not authorized by the company, or written down.
-
-Account management is the practice of creating, deleting, and modifying accounts for users in an organization. Accounts have different levels of privileges, which means that some accounts are able to perform actions that other accounts can’t. Only accounts in use should exist and account privileges should not exceed what is necessary.<br>
-
-An employee acceptable use policy (AUP) is a list of rules that employees must follow when connected to the company’s network or when using company devices.<br>
-Acceptable use policies help prevent cybersecurity threats, avoid illegal or illicit activities from occurring on your network, and help maximize productivity by preventing access to certain sites during the workday.
-
-#### Security awareness training
-It’s important to always be prepared for any kind of cyber threat, and one of the most effective ways is to teach employees how they can protect themselves so that their data, as well as the company’s data, is not compromised.
-
-Phishing emails can demand employee's password, identifying as the employee's company while they are not.<br>
-One of the most common ways to establish an awareness program is to run a phishing test. A phishing test is a simulation of a real phishing attack on employees. The process of measuring that risk and implementing controls to mitigate it is a cybersecurity practice known as third-party risk management.
-
-### Third-party risk management
-A lot of companies use third party products, which are digital tools used by a software company in the application they serve to their clients. Third-party products prevent from having to recreate certain products from scratch and thus are useful but they can come with security risks.
-
-Before using third-party tools, it is best to do its due-diligence on that product.
-
-If we purchase a product from a vendor that has security issues, we’ll be poisoning our own environment once the vendor’s product is integrated. Also, adopting a product that isn’t compliant with federal regulations is a recipe for disaster.<br>
-Products from vendors with a bad reputation is best not utilized to avoid this bad reputation for yourself.<br>
-Make sure the third-party product has good performance and support available.
-
-A common trend that has surfaced over the years is outsourcing code development. Companies hire skilled workers from countries where the cost of labor is low. Managing a team of developers in another country can result in communication breakdowns, including conflicting working styles and expectations. The biggest danger, however, is that we run a potential security risk with outsourced code. We’re entrusting the intellectual property of our company to a foreign team that may not have aligned security practices in place.
-
-Ever since cloud technology became popular, many companies rushed to store their data in the cloud. This proved to be a cheaper and easier alternative to having your own data centers.<br>
-Other third-party tools can also sometimes have access to your data.<br>
-But this can come with the risk of those external services holding your data not being properly secured.
-
-Developing a strong third-party risk management program is the first step in determining how your organization will handle new tools and technology. With an effective risk management process, your company will enjoy the benefits of adopting third-party products and services while lowering the risk that is associated with the vendor.
-
-### Incident response playbook
-The incident response playbook is a manual for how to respond to security incidents.
-
-Before creating our playbook, we need to prepare ourselves and decide what type of incidents will be included in our playbook. We also have to decide who does what, since an understanding of roles and responsibilities is important when responding to an incident. Lastly, we’ll have to make sure that we have a plan for public relations in the event that an incident does occur.
-
-As you draft your incident response playbook, remember to create a repeatable process. It’s helpful to create a “one size fits all” solution so that the playbook can be used to respond to any incident.<br>
-Based on your research, map out specific steps that need to be taken to resolve an incident throughout its lifecycle.<br>
-As you draft your playbook, try to use public resources as a guide so that you are able to create a playbook that includes recommendations from some of the top cybersecurity organizations in the world. The Computer Security Incident Handling Guide from the National Institute of Standards and Technology is a good place to start looking. Another helpful resource is the Incident Handler’s Handbook by SANS, which is a renowned cybersecurity instruction organization.
-
-A walkthrough exercise is a real-world scenario that you can create for your team using the playbook as a guide. Walkthrough exercises are an effective way of challenging your playbook, identifying strengths and weaknesses, and evaluating its effectiveness while making changes as needed. Lastly, your incident response playbook should be tested at least twice annually so that all relevant team members are prepared to address any security incident at any given time.
-
-An incident response refers to “everything that needs to happen to investigate and recover from an incident”. This includes preparation(prior readiness through training, access to tools), detection, analysis, remediation(the process of fixing a security issue), review(note what happened to prevent it from reoccuring).<br>
-NIST is a fantastic resource for cybersecurity in general. In addition to general cybersecurity frameworks that organizations can use and adapt, NIST has a detailed guide on establishing and maintaining incident response capability.
-
 ## Codecademy course - Defending Node Applications from SQL Injection, XSS and CSRF Attacks
 ### CSRF Attacks
 [CSRF introduction](#CSRF)
@@ -606,6 +525,86 @@ We can customize the linter rules to fit our needs using configuration files or 
   * Implement CSRF tokens with `csurf` package.
   * Ask password before commiting important account changes.
 * Setup CORS correctly
+
+## Codecademy course - Cybersecurity for Business
+### Cybersecurity team
+A security team could consist of the following roles.
+* The Security Operations Center, typically referred to as the “SOC”, is the function that is responsible for managing security incidents, detecting and resolving them.
+  * A SOC analysist detects the threats.
+  * Incident responders ward off incidents that have already taken place.
+  * Forensics investigate how to prevent an incident from reoccurring.
+  * Identity and access management ensures members of the organizations can access the tools they need to fulfill their responsibilities.
+  * Red team is similar to ethical hackers, they try to discover vulnerabilities in their own organization's program.    
+* Security Governance, Risk, and Compliance, decides what security problems to prioritize or not, it verifies the company follows the law.
+  * Vulnerability management team is responsible for tracking vulnerabilities found within the company’s information systems, assisting in the remediation process, indicates what needs to be patched.
+  * Architects are responsible for security architecture which refers to how security is implemented in an organization.
+* Security Auditors are in charge of assessing the organization’s security posture by measuring it against industry standards, federal regulations, and recognized frameworks. We can think of audits as a big checklist of requirements that companies need to have.
+
+Processes provide strategies that allow cybersecurity teams to implement security while adopting best practices.
+* A popular strategy that many companies use is to follow a framework such as the The NIST Cybersecurity Framework. Frameworks provide a reference for cybersecurity teams to follow to identify gaps in their security architecture.
+* Collaboration between different subsets of the cybersecurity team is important.
+
+Lastly a team consists of technologies/tools used to monitor, assess, remediate and automate security processes.
+* Static Application Security Testing (SAST) is a tool used to identify vulnerabilities within own code base. The Open Web Application Security Project (OWASP) has a list of popular SAST tools. This allows the development team to fix problems before the applications are made public.
+* We can use a Dynamic Application Security Testing (DAST) tool to simulate cyberattacks on an application and check to see whether or not it has vulnerabilities that a real hacker can take advantage of.
+* The SOC team typically manages a Security Information and Event Management system (SIEM). A SIEM can provide real-time monitoring while analyzing events through logging.
+* Vulnerability Scanners: Scan networks and applications for common vulnerabilities.
+* Firewalls: Prevent unauthorized access within an internal network.
+* Antivirus Software: Applications that are used to detect and remove malware from a computer, network, or other system.
+With every new tool, we need to create an implementation plan. These types of plans ensure that the tool is assimilated into the environment and all involved parties are trained on how to use the new tool.<br>
+An implementation plan should also contain periodic assessments of the technology that is being adopted. It is never helpful to pay for a resource that is no longer being used to its full capacity. At the same time, there may be a new tool that can serve the needs of the company in a much more efficient manner.
+
+### Employee safety
+#### Account policies
+Employee accounts can contain sensitive information, this should be protected through policies.
+
+A user account policy refers to the rules around having an account in your organization.<br>
+The password policy in your organization should have complexity requirements, for example employee passwords should have a certain length and use certain characters.<br>
+Typically, a password policy may ask you to change passwords every 6 months or every year. Old passwords are risky because data breaches can happen at any time, and if your password is found in a data breach, it is only a matter of time before a hacker is able to log in to your account.<br>
+Users that try different passwords to login can get blocked after a certain amounts of tries, this is called account lockout and can protect against brute-force attacks.<br>
+Passwords cannot be shared with others, re-used, stored in tools not authorized by the company, or written down.
+
+Account management is the practice of creating, deleting, and modifying accounts for users in an organization. Accounts have different levels of privileges, which means that some accounts are able to perform actions that other accounts can’t. Only accounts in use should exist and account privileges should not exceed what is necessary.<br>
+
+An employee acceptable use policy (AUP) is a list of rules that employees must follow when connected to the company’s network or when using company devices.<br>
+Acceptable use policies help prevent cybersecurity threats, avoid illegal or illicit activities from occurring on your network, and help maximize productivity by preventing access to certain sites during the workday.
+
+#### Security awareness training
+It’s important to always be prepared for any kind of cyber threat, and one of the most effective ways is to teach employees how they can protect themselves so that their data, as well as the company’s data, is not compromised.
+
+Phishing emails can demand employee's password, identifying as the employee's company while they are not.<br>
+One of the most common ways to establish an awareness program is to run a phishing test. A phishing test is a simulation of a real phishing attack on employees. The process of measuring that risk and implementing controls to mitigate it is a cybersecurity practice known as third-party risk management.
+
+### Third-party risk management
+A lot of companies use third party products, which are digital tools used by a software company in the application they serve to their clients. Third-party products prevent from having to recreate certain products from scratch and thus are useful but they can come with security risks.
+
+Before using third-party tools, it is best to do its due-diligence on that product.
+
+If we purchase a product from a vendor that has security issues, we’ll be poisoning our own environment once the vendor’s product is integrated. Also, adopting a product that isn’t compliant with federal regulations is a recipe for disaster.<br>
+Products from vendors with a bad reputation is best not utilized to avoid this bad reputation for yourself.<br>
+Make sure the third-party product has good performance and support available.
+
+A common trend that has surfaced over the years is outsourcing code development. Companies hire skilled workers from countries where the cost of labor is low. Managing a team of developers in another country can result in communication breakdowns, including conflicting working styles and expectations. The biggest danger, however, is that we run a potential security risk with outsourced code. We’re entrusting the intellectual property of our company to a foreign team that may not have aligned security practices in place.
+
+Ever since cloud technology became popular, many companies rushed to store their data in the cloud. This proved to be a cheaper and easier alternative to having your own data centers.<br>
+Other third-party tools can also sometimes have access to your data.<br>
+But this can come with the risk of those external services holding your data not being properly secured.
+
+Developing a strong third-party risk management program is the first step in determining how your organization will handle new tools and technology. With an effective risk management process, your company will enjoy the benefits of adopting third-party products and services while lowering the risk that is associated with the vendor.
+
+### Incident response playbook
+The incident response playbook is a manual for how to respond to security incidents.
+
+Before creating our playbook, we need to prepare ourselves and decide what type of incidents will be included in our playbook. We also have to decide who does what, since an understanding of roles and responsibilities is important when responding to an incident. Lastly, we’ll have to make sure that we have a plan for public relations in the event that an incident does occur.
+
+As you draft your incident response playbook, remember to create a repeatable process. It’s helpful to create a “one size fits all” solution so that the playbook can be used to respond to any incident.<br>
+Based on your research, map out specific steps that need to be taken to resolve an incident throughout its lifecycle.<br>
+As you draft your playbook, try to use public resources as a guide so that you are able to create a playbook that includes recommendations from some of the top cybersecurity organizations in the world. The Computer Security Incident Handling Guide from the National Institute of Standards and Technology is a good place to start looking. Another helpful resource is the Incident Handler’s Handbook by SANS, which is a renowned cybersecurity instruction organization.
+
+A walkthrough exercise is a real-world scenario that you can create for your team using the playbook as a guide. Walkthrough exercises are an effective way of challenging your playbook, identifying strengths and weaknesses, and evaluating its effectiveness while making changes as needed. Lastly, your incident response playbook should be tested at least twice annually so that all relevant team members are prepared to address any security incident at any given time.
+
+An incident response refers to “everything that needs to happen to investigate and recover from an incident”. This includes preparation(prior readiness through training, access to tools), detection, analysis, remediation(the process of fixing a security issue), review(note what happened to prevent it from reoccuring).<br>
+NIST is a fantastic resource for cybersecurity in general. In addition to general cybersecurity frameworks that organizations can use and adapt, NIST has a detailed guide on establishing and maintaining incident response capability.
 
 ## Free tutorials
 ### Other concepts
