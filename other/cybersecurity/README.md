@@ -469,7 +469,7 @@ Similar to SQL injections, XSS is preventable with input sanitization and applic
 Sanitization is the process of removing/replacing problematic characters with safe versions, usually libraries/modules exist that do the work for you.<br>
 Rather than remove characters, we can also replace them with HTML-encoded versions of the characters. This allows us to retain the characters, but remove their capacity to affect the page’s HTML.<br>
 Validation checks if the input meets a set of criteria (such as a string contains no standalone single quotation marks), whereas sanitization modifies the input to ensure that it is valid (such as removing single quotes).<br>
-Look at the [SQL section](#SQL Attacks) to learn more about sanitization and validators.
+Look at the [SQL section](#SQL-Attacks) to learn more about sanitization and validators.
 
 To prevent DOM-based attacks the function `eval()` or property setter `.innerHTML` should not evaluate user input as they can execute javascript. `.innerHTML` could be replaced with `.textContent` to prevent javascript code from being executed. The simplest prevention would be to avoid rendering user input. Lastly, one should validate and sanitize all user input in order to prevent any data manipulation. 
 
