@@ -135,11 +135,13 @@ To contribute, you can start at any repository’s issues page, where bugs and p
 A fork consists of copying another's project into one of your projects, it will contain a 'compare & pull request' button that enables you to make a pull request on the original project from your forked project.
 
 ### Github features
-In repository different sections exist such as code, issues, pull requests, actions... The projects section can be used to create a todo list relative to a certain 'project' in a repository.<br>
+In repository different sections exist such as code, issues, pull requests, actions, projects...<br>
+
+The project's section can be used to create a todo list relative to a certain 'project' in a repository.<br>
 Different columns can be created, todo, doing and done. Notes can be draged across the different columns to see what is left to be done for you or what you were working on...
 
 Github issues allows project management by listing tasks and organize them into which are open and in progress while containing own discussion forum.<br>
-Those can even be referenced in pull requests and in other issues and receive tags such as feature or bug.
+Those can even be referenced in pull requests and in other issues and receive tags such as feature or bug. You can also create your own tags.
 
 The github command line interface (CLI) allows one to interact with issues and pull requests from the terminal instead of the software interface.
 
