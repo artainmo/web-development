@@ -46,6 +46,7 @@ An **environment** is the subset of infrastructure resources used to execute a p
 A traditional software company often has a separate Development and Operations team.
 * The Development team writes an application’s code/features.
 * The Operation team creates and maintains the infrastructure that the application runs on.
+
 The development team sends their code to the operations team who deploys it on the infrastructure. Because the development/local environment is not the same as the environments used by the operations team, bugs can occur, to fix those bugs one team needs to hand-off the problem to the other, all of those complications lead to a non-optimized organization through loss of time.<br>
 **DevOps**, is a way of organizing or a culture, that aims at ending the division between development and operations for a faster work-flow. It is an abbreviation of and refers to development and operations.
 
@@ -58,6 +59,9 @@ Rather than having mistakes be punished, DevOps culture stresses the importance 
 A feedback loop is created when a team identifies and tracks a key piece of data, or metric. Teams can then use that information to drive process improvements.
 
 By fostering DevOps culture and following DevOps practices, teams can build and release software with greater speed, quality, and reliability.
+
+### Infrastructure
+
 
 ## Resources
 [codecademy - Introduction to DevOps](https://www.codecademy.com/learn/introduction-to-dev-ops)<br>
