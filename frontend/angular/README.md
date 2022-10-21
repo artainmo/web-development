@@ -4,12 +4,12 @@
 - [Codecademy course - Learn AngularJS 1.X](#Codecademy-course---Learn-AngularJS-1.X)
   - [Your first app](#Your-first-app)
 
--[Resources](#Resources)
+- [Resources](#Resources)
 
 ## Codecademy course - Learn AngularJS 1.X
 ### Your first app
 View refers to HTML index.<br>
-HTML elements in view can take an angular module, between those tags, a tag can take a controller related to the prior module, this controller can contain variables which can be used in the HTML.<br>
+HTML tags in view can take an angular module, between those tags, a tag can take a controller related to the prior module, this controller can contain variables which can be used in the HTML.<br>
 
 The angular workflow:
 1. Create a module (`var app = angular.module("myApp", []);`) in app.js for example, contains different components of angular app.
