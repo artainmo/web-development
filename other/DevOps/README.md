@@ -4,7 +4,7 @@
 - [Codecademy course - Introduction to DevOps](#Codecademy-course---Introduction-to-DevOps)
   - [Introduction](#Introduction)
     - [Deployment](#Deployment)
-    - [DevOps](#DevOps)
+    - [DevOps](#DevOps-1)
   - [Infrastructure](#Infrastructure)
     - [Scalability](#Scalability)
     - [Virtualization](#Virtualization)
@@ -14,7 +14,7 @@
     - [Cloud-infrastructure](#Cloud-infrastructure)
   - [Monitoring](#Monitoring)
   - [Resiliency](#Resiliency)
-  - [CI/CD pipelines](#CI/CD-pipelines) 
+  - [CI/CD pipelines](#CICD-pipelines) 
 - [Resources](#Resources)
 
 ## Codecademy course - Introduction to DevOps
