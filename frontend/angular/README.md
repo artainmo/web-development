@@ -3,7 +3,6 @@
 ## Table of contents
 - [Codecademy course - Learn AngularJS 1.X](#Codecademy-course---Learn-AngularJS-1.X)
   - [Your first app](#Your-first-app)
-
 - [Resources](#Resources)
 
 ## Codecademy course - Learn AngularJS 1.X
