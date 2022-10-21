@@ -126,8 +126,91 @@ Cloud-based infrastructure has several benefits:
 * It allows a company to scale quickly since cloud providers have physical resources readily available.
 
 ### Monitoring
+Monitoring is the practice of collecting metrics to gain insights on our systems.
 
+**Metrics** express a value relevant to the system.<br>
+Some important metrics for monitoring system health and performance:
+* Latency, is the time between the start of an event, such as serving a request, to its completion.
+* Traffic, is the amount of system usage over time. An abnormal amount of traffic can require scaling to maintain performance.
+* Errors. An error is an invalid state our system has reached. Examples include exceeding a memory limit or reading a corrupted data file.
+* Saturation describes the load on our system’s resources. Our system reaching its limits can result in poor performance.
 
+Monitoring metrics can give a broad view of system health and diagnose issues.
+
+A **Service Level Objective** (SLO) is a range of valid measurements for a metric. An SLO might define that the page response time should be less than 100 milliseconds.
+
+A **Service Level Indicator** (SLI) is the current measurements of a metric related to an SLO. Let’s say that one of our SLOs is that response time should be less than 100 milliseconds. Our system measures that current load times are approximately 75 milliseconds. Our SLI for that SLO would be within a valid range.
+
+A **Service Level Agreement** (SLA) is a contract with consumers. Not every business will have an SLA, as they carry a degree of legal responsibility. SLA binds the business to the level of expected service promised to a business’s customers. An SLA might define that a busines's services be available 99.99% of the time.
+
+In many situations, monitoring is achieved using a combination of **tools**. Big picture trends, like performance, can be monitored by a tool like Prometheus. Meanwhile, a finer piece of detail, such as the time taken for a database query, may be monitored using Monyog.
+
+Monitoring tools can provide **alerts**, notifying a problem.<br>
+Alerts can come in the form of customer tickets, emails, slack alerts, SMS.<br>
+From excessive alerts we may develop alert fatigue, where we start ignoring alerts or turning them off. To prevent this, only alert when immediate attention is necessary.<br>
+Alerts provide context to help teams solve an issue before it becomes a crisis.
+
+**Observability** is the degree to which a system’s information can be used to locate and fix a problem. In a system with high observability, a team can more easily trace, diagnose, and fix the problem. With poor observability, the data does little to help.<br>
+To improve observability create meaningful alerts, optimize application logging.
+
+### Resiliency
+**Resiliency**, a system’s ability to continue to perform despite experiencing problems.
+
+The common types of system problems fit into the following categories:
+* Internal problems, these problems come from within the components of the system that we control. Internal problems include in-house hardware issues and software bugs.
+* External problems: these problems arise from dependencies we have on other parties outside of our control. External problems might include issues with an API, or a cloud service our application relies on.
+* Malicious actors, these problems stem from other people (or sometimes bots) that seek to disrupt or exploit our services for a variety of reasons.
+
+Updates to our system’s hardware, dependencies, or code all have the potential to make our system fail or behave unexpectedly. These issues are best mitigated through a comprehensive suite of automated tests performed prior to completing any change.<br>
+Over time, hardware components, like hard drives and power supplies, reach the end of their lifespan and fail. To combat this, organizations can duplicate their hardware components. This redundancy can allow for a seamless switchover to a backup component when a failure occurs.
+
+When using external services, we open up our system to issues that are often outside of our control. On the other hand, external services enable the development of far more powerful applications than we could create on our own.<br>
+There are a variety of methods we can use in order to help resolve issues with external dependencies:
+* We can be on the lookout for news of scheduled outages, vulnerabilities, or cancellations.
+* We can define fallback strategies for our external dependencies. If we detect that a dependency is not working, we might switch to a different dependency, or hide the functionality that depends on the failing service.
+
+To protect from malicious actors, see the 'cybersecurity' course.
+
+Some important metrics that indicate a system’s resiliency include:
+* Uptime, or what percentage of the time is our system available.
+* Recovery speed, when an outage occurs, how long does it take for the system to become available again.
+
+The recovery time objective (RTO) is the amount of time an application can be unavailable before it causes significant harm to the business.<br>
+The recovery point objective (RPO) is the acceptable amount of data loss after a system outage. Different applications have varying levels of data importance. A popular bank losing minutes of transaction data might be a nightmare. Losing hours of progress in an online multiplayer system would be unfortunate, but not a disaster.<br>
+Benchmarks such as these can help us establish target levels of uptime and recovery time for our business.
+
+Penetration testing involves simulating cyber-attacks to try to exploit security vulnerabilities. Penetration testing gives us a chance to see how our system might respond to a malicious user. Using penetration testing allows us to identify holes in our security that we need to fix.<br>
+Load testing seeks to replicate situations in which the system is under heavy use. Load testing might simulate millions of customers trying to access our site all at once. Load testing can help us identify areas in which the system will break under real-world conditions.<br>
+Chaos engineering consists of experimenting on a system to test its resiliency, such as randomly disconnecting cables in the server room, basically intentionally causing internal server errors.<br>
+Disaster recovery exercises are simulations of catastrophic events, such as whole server rooms of servers or external dependencies disconnecting all at once. Companies will go through the strategy for dealing with these scenarios and see how their responses might pan out in real-time.<br>
+Each of these practices can help us identify and then remove weak spots within our system.
+
+### CI/CD pipelines
+The automation of the deployment process creates the **Continuous Integration / Continuous Delivery (CI/CD) Pipeline**. This pipeline also encompasses 'Continuous Testing' and 'Continuous Deployment'.<br>
+Manually performing each part of the deployment pipeline can cause problems in a large project, this is why we would want to automate it. Automation can improve speed, reduce errors and cost.
+
+**Continuous testing** involves automatically triggering tests to be executed once an application is built in a new environment. Developers are automatically notified when a test failed. This occurs throughout the whole CI/CD pipeline.
+
+**Continuous integration** consists of merging, subsequently building in integration environment and automatically testing with unit-tests and integration tests.<br>
+Feature-branch-development consists of developing a new feature for a long time before merging, while trunk-based-development consists of merging small changes frequently.<br>
+Rapidly merging smaller changes means that there is less of a risk for merge conflicts. If any are found, they can be addressed quickly and require fewer changes due to the small size.<br>
+Each newly merged change automatically triggers building the application in an integration environment. Through continuous testing, tests are executed immediately as changes are introduced. As a result, bugs are caught early on in the process.
+
+**Continuous delivery** is the automated process of preparing new versions of an application to be deployed into the production environment, by configuring environments through containerization and IaC, deploying to testing and staging environments, passing the acceptance and end-to-end tests.<br>
+Sometimes, an application that runs well in the development or testing environment will crash if deployed to production. DevOps practices, such as containerization and Infrastructure as Code (IaC) can be incorporated into continuous delivery to resolve these issues.<br>
+Through continuous delivery, developers can be confident that the application has been thoroughly tested and is ready to be deployed at any time.
+
+Traditionally, an approval process is controlled by the deployment team. The team would ensure that the production server is ready, all tests from continuous delivery have passed, and the feature meets the business requirements. Afterwards, the application would be manually deployed onto the production environment.<br>
+This process typically requires entire features to be completed before deploying to production, resulting in slower release cycles. For many businesses, this is desirable. For others businesses, releasing new updates on a faster and more regular schedule may be preferred.<br>
+**Continuous deployment** is the automatic process of deploying a project to the production server after it has been tested in testing and staging environments.<br>
+It may look like this:
+1. If previous tests were successful an automated system deploys the application onto the production environment.
+2. Final tests, monitoring tools and user feedback identify bugs, developers become alerted and can react by patching.
+3. Those patches can go through the whole CI/CD pipeline again.
+
+Rapid merges take priority over releasing completed features when using continuous integration, delivery, and deployment. To prevent users from accessing potentially incomplete features, teams can hide them for all (or some) users and then make them available once the feature is complete.
+
+Here are tools used to form CI/CD pipelines; Gihub Actions, Jenkins, CircleCI.
 
 ## Resources
 [codecademy - Introduction to DevOps](https://www.codecademy.com/learn/introduction-to-dev-ops)<br>
