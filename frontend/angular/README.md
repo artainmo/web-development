@@ -37,6 +37,77 @@ Attributes starting with ng are called directives they bind angular behavior to 
 The `ng-click` attributes allow users to click on the display of an HTML element, ultimately letting users interact with the site and thus make the site dynamic instead of static.<br>
 The 'ng-click' attribute is usually set equal to a function, which is executed at click.
 
+### Directives
+Directives let you create self-contained units of functionality. Those units/directives are reusable and more readable. They can take the form of HTML elements or HTML element's attributes.
+
+As seen before, ng-repeat, ng-src and ng-click are built-in directives.
+
+HTML element directives can be used together with HTML element's attribute directives.
+
+#### Create HTML element
+We can create HTML elements in angular through the use of directives.<br>
+
+For example we can have a file named 'js/directives/appInfo.js' which defines the HTML element like this:
+<pre>
+app.directive('appInfo', function() { 
+  return { 
+    restrict: 'E', 
+    scope: { 
+      info: '=' 
+    }, 
+    templateUrl: 'js/directives/appInfo.html' 
+  }; 
+}); 
+</pre>
+It returns an object with three attributes:
+* restrict, specifies how the directive will be used in the view. The 'E' means it will be used as a new HTML element.
+* scope, specifies that we will pass information into this directive through an attribute named info. The = tells the directive to look for an attribute named info like this: `<app-info info="shutterbugg"></app-info>`.
+* templateUrl, specifies the HTML to use in order to display the data in scope.info.
+
+Here we use as template URL 'js/directives/appInfo.html' which looks like this:
+<pre>
+<img class="icon" ng-src="{{ info.icon }}"> 
+<h2 class="title">{{ info.title }}</h2> 
+<p class="developer">{{ info.developer }}</p> 
+<p class="price">{{ info.price | currency }}</p> 
+</pre>
+
+Now we can in the viewer 'index.html' define the created HTML element `<script src="js/directives/appInfo.js"></script>` and use our created element `<app-info info="shutterbugg"></app-info>`.
+
+#### Interactive directive
+When defining a directive next to the attributes restrict, scope and templateUrl we can also define the attribute 'link' which should equal a function and is used to respond to a user's action.
+
+The 'link' function should take three inputs;
+* scope, refers to the directive’s scope. Any new properties attached to $scope will become available to use in the directive’s template.
+* element, refers to the directive’s HTML element.
+* attrs, contains the element’s attributes.
+
+Here is an example of the link attribute:
+<pre>
+link: function(scope, element, attrs) { 
+  scope.buttonText = "Install", 
+  scope.installed = false, 
+ 
+  scope.download = function() { 
+    element.toggleClass('btn-active'); 
+    if(scope.installed) { 
+      scope.buttonText = "Install"; 
+      scope.installed = false; 
+    } else { 
+      scope.buttonText = "Uninstall"; 
+      scope.installed = true; 
+    } 
+  } 
+}
+</pre>
+
+And here is how the template URL looks like:
+<pre>
+<button class="btn btn-active" ng-click="download()"> 
+  {{ buttonText }} 
+</button>
+</pre>
+
 ### Else
 Course to be continued...
 
