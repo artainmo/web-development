@@ -116,7 +116,7 @@ Services are basically reusable blocks of code with the goal of fetching outside
 
 We can create a service like this:
 <pre>
-app.factory('forecast', ['$http', function($http) { #AngularJS’s built-in $http is used to fetch JSON from the server. 
+app.factory('forecast', ['$http', function($http) { //AngularJS’s built-in $http is used to fetch JSON from the server. 
   return $http.get('https://content.codecademy.com/courses/ltp4/forecast-api/forecast.json') 
             .success(function(data) { 
               return data; 
@@ -132,6 +132,39 @@ Next we use it inside a controller to update the datas used by the application:
 app.controller('MainController', ['$scope', 'forecast', function($scope, forecast) {
   forecast.success(function(data) {
     $scope.fiveDay = data;
+  });
+}]);
+</pre>
+
+### Routing
+Angular’s application routes allow to have one index take different templates. This allows for an app with multiple pages. Technically because no reload is necessary, only the index's content changes, the app can still be considered a single-page-app.
+
+This is an example of how we config routes in an angular app:
+<pre>
+app.config(function ($routeProvider) { //We use Angular’s $routeProvider to define the application routes
+  $routeProvider 
+    .when('/', {                       //We map the URL '/' to to the controller HomeController and the template home.html.
+      controller: 'HomeController', 
+      templateUrl: 'views/home.html' 
+    }) 
+    .when('/photos/:id', {            //':id' is a variable inside the URL.
+      controller: 'PhotoController',
+      templateUrl: 'views/photo.html'
+    })
+    .otherwise({                       //If a user accidentally visits a URL other than '/', we just redirect to '/' 
+      redirectTo: '/' 
+    }); 
+}); 
+</pre>
+In the viewer (index.html), this line of code `<div ng-view></div>` gets replaced by the appropriate template the URL refers to.
+
+The controller 'PhotoController' is used on an URL containing a variable.<br>
+To handle this we use Angular’s '$routeParams' to retrieve the id from the URL by using '$routeParams.id' inside the controller. The controller will define different scope data based on this 'id', thus rendering different pages depending on the 'id'.<br>
+An example code is shown below:
+<pre>
+app.controller('PhotoController', ['$scope', 'photos', '$routeParams', function($scope, photos, $routeParams) {
+  photos.success(function(data) {
+    $scope.detail = data[$routeParams.id];
   });
 }]);
 </pre>
