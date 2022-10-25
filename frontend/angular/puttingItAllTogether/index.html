@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://content.codecademy.com/projects/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/leaflet.css" rel="stylesheet" />
+    <script src="js/vendor/angular.min.js"></script>
+  </head>
+  <body ng-app="NearMeApp">
+    
+    <div class="header">
+      <div class="container-fluid">
+        <h1 class="pull-left">NearMe</h1>
+      </div>
+    </div>
+
+    <div class="main" ng-controller="MainController">
+      <div class="container-fluid" id="map-canvas">
+        <leaflet center="mapCenter" markers="mapMarkers">
+        </leaflet>
+      </div>
+    </div>
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+
+    <!-- Directives -->
+    <!-- The following directives come from an open-source directive called 'leaflet' found online (http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js) and (https://content.codecademy.com/projects/4/nearme-1/js/vendor/angular-leaflet-directive.min.js) -->
+    <script src="js/vendor/leaflet.js"></script>
+    <script src="js/vendor/angular-leaflet-directive.min.js"></script>
+
+    <!-- Services -->
+    
+  </body>
+</html>
