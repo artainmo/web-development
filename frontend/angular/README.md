@@ -169,8 +169,7 @@ app.controller('PhotoController', ['$scope', 'photos', '$routeParams', function(
 }]);
 </pre>
 
-### Else
-Course to be continued...
+Because routing does not come in Angular by default, the following should be included inside the view's header `<script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>`.
 
 ## Resources
 [codecademy - Learn AngularJS 1.X](https://www.codecademy.com/learn/learn-angularjs)
