@@ -72,7 +72,8 @@ Here we use as template URL 'js/directives/appInfo.html' which looks like this:
 <p class="price">{{ info.price | currency }}</p> 
 </pre>
 
-Now we can in the viewer 'index.html' define the created HTML element `<script src="js/directives/appInfo.js"></script>` and use our created element `<app-info info="shutterbugg"></app-info>`.
+Now we can in the viewer 'index.html' define the created HTML element `<script src="js/directives/appInfo.js"></script>` and use our created element `<app-info info="shutterbugg"></app-info>`.<br>
+The directive's name is written in camelcase (appInfo) however the HTML element uses the hyphen (app-info).
 
 #### Interactive directive
 When defining a directive next to the attributes restrict, scope and templateUrl we can also define the attribute 'link' which should equal a function and is used to respond to a user's action.
