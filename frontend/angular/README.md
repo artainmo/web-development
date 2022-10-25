@@ -109,7 +109,32 @@ And here is how the template URL looks like:
 </button>
 ```
 
+### Services
+Services allow to read live data from servers.<br>
+Instead of filling the controller with code to fetch data from a server, it’s better to move this independent logic into a service so that it can be reused by other parts of the app.<br>
+Services are basically reusable blocks of code with the goal of fetching outside data.
 
+We can create a service like this:
+<pre>
+app.factory('forecast', ['$http', function($http) { #AngularJS’s built-in $http is used to fetch JSON from the server. 
+  return $http.get('https://content.codecademy.com/courses/ltp4/forecast-api/forecast.json') 
+            .success(function(data) { 
+              return data; 
+            }) 
+            .error(function(err) { 
+              return err; 
+            }); 
+}]);
+</pre>
+
+Next we use it inside a controller to update the datas used by the application:
+<pre>
+app.controller('MainController', ['$scope', 'forecast', function($scope, forecast) {
+  forecast.success(function(data) {
+    $scope.fiveDay = data;
+  });
+}]);
+</pre>
 
 ### Else
 Course to be continued...
