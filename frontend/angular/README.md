@@ -65,12 +65,12 @@ It returns an object with three attributes:
 * templateUrl, specifies the HTML to use in order to display the data in scope.info.
 
 Here we use as template URL 'js/directives/appInfo.html' which looks like this:
-<pre>
+```
 <img class="icon" ng-src="{{ info.icon }}"> 
 <h2 class="title">{{ info.title }}</h2> 
 <p class="developer">{{ info.developer }}</p> 
 <p class="price">{{ info.price | currency }}</p> 
-</pre>
+```
 
 Now we can in the viewer 'index.html' define the created HTML element `<script src="js/directives/appInfo.js"></script>` and use our created element `<app-info info="shutterbugg"></app-info>`.<br>
 The directive's name is written in camelcase (appInfo) however the HTML element uses the hyphen (app-info).
@@ -103,11 +103,13 @@ link: function(scope, element, attrs) {
 </pre>
 
 And here is how the template URL looks like:
-<pre>
+```
 <button class="btn btn-active" ng-click="download()"> 
   {{ buttonText }} 
 </button>
-</pre>
+```
+
+
 
 ### Else
 Course to be continued...
