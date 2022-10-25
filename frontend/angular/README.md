@@ -44,6 +44,8 @@ As seen before, ng-repeat, ng-src and ng-click are built-in directives.
 
 HTML element directives can be used together with HTML element's attribute directives.
 
+A lot of open-source directives exist online that you can use for your project.
+
 #### Create HTML element
 We can create HTML elements in angular through the use of directives.<br>
 
