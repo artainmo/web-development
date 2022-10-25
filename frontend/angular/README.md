@@ -1,7 +1,7 @@
 # Angular
 
 ## Table of contents
-- [Codecademy course - Learn AngularJS 1.X](#Codecademy-course---Learn-AngularJS-1.X)
+- [Codecademy course - Learn AngularJS 1.X](#codecademy-course---learn-angularjs-1x)
   - [Your first app](#Your-first-app)
   - [Directives](#Directives)
     - [Create HTML element](#create-html-element)
