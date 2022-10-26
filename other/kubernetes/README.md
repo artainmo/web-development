@@ -50,7 +50,24 @@ A **Pod** is the smallest scheduling work unit in Kubernetes. It is a logical co
 The network traffic between client users and the containerized applications deployed in Pods is handled directly by the worker nodes, and is not routed through the control plane node.<br>
 Kubernetes requires a container runtime, such as docker, on the node where a Pod and its containers are to be scheduled.
 
-A successfully deployed containerized application running in Pods inside a Kubernetes cluster may require accessibility from the outside world. Kubernetes enables external accessibility through Services, complex encapsulations of network routing rule definitions stored in iptables on cluster nodes and implemented by kube-proxy agents. By exposing services to the external world with the aid of kube-proxy, applications become accessible from outside the cluster over a virtual IP address and a dedicated port number.
+Kubernetes enables external accessibility, exposing a container to the cluster or even the outside world, through **Services**. It works with the involvement of the kube-proxy node agent, IP tables, routing rules, cluster DNS server, all collectively implementing a micro-load balancing mechanism that exposes a container's virtual IP address and dedicated port number.
+
+Examples of **Kubernetes object** types are Nodes, Namespaces, Pods, ReplicaSets, Deployments, DaemonSets...<br>
+
+We can partition the cluster into virtual sub-clusters using **Namespaces**. The names of the resources/objects created inside a Namespace are unique, but not across Namespaces in the cluster.<br>
+It is good practice to use Namespaces to virtualize the cluster and isolate users, developer teams, applications, or tiers.<br>
+Generally, Kubernetes creates four Namespaces by default:
+* kube-system, contains control plane agents or other objects created by kubernetes.
+* default, contains the objects and resources created by developers.
+* kube-public, contains objects that are readable by anyone, used to expose public information about the cluster.
+* kube-node-lease, holds node lease objects used for node heartbeat data.
+
+**Controllers** handle pods' replication, fault tolerance, self-healing, etc. Examples of controllers are Deployments, ReplicaSets, DaemonSets, Jobs, etc.<br>
+A **ReplicaSet** ensures a specified number of replicas of a Pod is running at any given time, thus it can scale and heal pods.
+**Deployments** are the recommended controllers for the orchestration of Pods, they manage the creation, deletion, and updates of Pods. A 'Deployment' automatically creates a ReplicaSet, which then creates a Pod. There is no need to manage ReplicaSets and Pods separately, the 'Deployment controller' will manage them on our behalf.
+
+**Labels** are key-value pairs attached to Kubernetes objects, they are used to organize/categorize objects and enable the selection of a subset of objects. Labels do not provide uniqueness to objects.<br>
+Label selectors are used by collectors or services to select a subset of objects. Equality-Based-Selectors allow filtering of objects based on Label keys and values while Set-Based-Selectors allow filtering of objects based on a set of values.
 
 ### Installing kubernetes
 Kubernetes can be installed using different cluster configurations, such as:
@@ -93,7 +110,7 @@ minikube addons enable dashboard
 </pre>
 Subsequently the command `minikube dashboard` can be used to open in browser the kubernetes dashboard.
 
-### Accessing kubernetes
+### Interact with kubernetes
 A kubernetes cluster is accessible through; command-line-interface (CLI) scripts/tools, web-based-user-interfaces, APIs from CLI or programmatically.<br>
 **kubectl** is the Kubernetes CLI client to manage clusters. It can be used in scripts to automate.<br>
 The **Kubernetes Dashboard** provides a Web-based User Interface (Web UI) to interact with a Kubernetes cluster. It is not as flexible as kubectl CLI but simpler to use.<br>
@@ -101,6 +118,53 @@ We can access the **API** server running on the control plane node either direct
 
 Use the `kubectl proxy` command to authenticate with the API server in the control-plane-node, this makes the API service available on a given ip address usually with port '8001'. Now we can make HTTP requests to the API, from the CLI with 'curl' for example. A simple get request returns us all the possible endpoints.<br>
 Alternatively we can authenticate to the API by providing a 'Bearer Token' when issuing a curl, or by providing a set of 'keys' and 'certificates'.
+
+### Create Kubernetes Objects
+First create a .yaml file. Here is an example of a stand-alone Pod object's definition that such a file could contain:
+<pre>
+apiVersion: v1            
+kind: Pod
+metadata:                 #metadata, holds the object's name and optional labels and annotations.
+  name: nginx-pod
+  labels:
+    run: nginx-pod
+spec:                     #spec, marks the beginning of the block defining the desired state of the Pod object
+  containers:
+  - name: nginx
+    image: nginx:1.20.2   #nginx:1.20.2, is used as image to run our single container. This image gets pulled from docker hub.
+    ports:
+    - containerPort: 80
+</pre>
+To add this pod in cluster use `kubectl apply -f <filename>.yaml`, subsequently `kubectl get pods` can be used to view the new running pod.<br>
+The pod can be deleted with `kubectl delete -f <filename>.yaml`
+
+Here is an example of a .yaml file for a Deployment controller:
+<pre>
+apiVersion: apps/v1               #apiVersion, specifies the API endpoint on the API server which we want to connect to.
+kind: Deployment
+metadata:                         #metadata, holds the object's basic information, such as name, annotations, labels, namespaces, etc.
+  name: nginx-deployment
+  labels:
+    app: nginx-deployment
+spec:                             #spec marks the beginning of the block defining the desired state of the Deployment controller object.
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-deployment
+  template:                       #Here we create the 3 (because 3 replicas) running pods.
+    metadata:
+      labels:
+        app: nginx-deployment
+    spec:                         #This second spec (spec.template.spec) specifies the desired state of the 3 pods contained in the controller.
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+</pre>
+Here a new Deployment creates a ReplicaSet which then creates 3 Pods, with each Pod Template configured to run one nginx:1.7.9 container image.
+
+
 
 ## Resources
 [edX - Introduction to Kubernetes](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS158x+1T2022/home)
