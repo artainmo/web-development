@@ -117,7 +117,8 @@ The **Kubernetes Dashboard** provides a Web-based User Interface (Web UI) to int
 We can access the **API** server running on the control plane node either directly by calling the respective API endpoints, using the CLI tools, or the Dashboard UI.
 
 Use the `kubectl proxy` command to authenticate with the API server in the control-plane-node, this makes the API service available on a given ip address usually with port '8001'. Now we can make HTTP requests to the API, from the CLI with 'curl' for example. A simple get request returns us all the possible endpoints.<br>
-Alternatively we can authenticate to the API by providing a 'Bearer Token' when issuing a curl, or by providing a set of 'keys' and 'certificates'.
+Alternatively we can authenticate to the API by providing a 'Bearer Token' when issuing a curl, or by providing a set of 'keys' and 'certificates'.<br>
+It is possible to use modules for authentication and authorization, allowing us to customize authentication, authorization, and access control stages of the Kubernetes API access.
 
 ### Create Kubernetes Objects
 First create a .yaml file. Here is an example of a stand-alone Pod object's definition that such a file could contain:
@@ -164,6 +165,7 @@ spec:                             #spec marks the beginning of the block definin
 </pre>
 Here a new Deployment creates a ReplicaSet which then creates 3 Pods, with each Pod Template configured to run one nginx:1.7.9 container image.
 
+### Services
 
 
 ## Resources
