@@ -2,7 +2,7 @@
 
 ## Table of contents
 - [edX course - Introduction to Kubernetes](#edX-course---Introduction-to-Kubernetes)
-  - [Introduction](#Introduction)
+  - [From Monolith to Microservices](#From-Monolith-to-Microservices)
 - [Resources](#Resources)
 
 ## edX course - Introduction to Kubernetes
@@ -82,6 +82,25 @@ With the `minikube stop` command, we can stop Minikube.<br>
 List all the nodes with `minikube node list` and use `-p` flag (p from profile) to specify the cluster.<br>
 With the `minikube ip` command, we get the ip address of the control-plane-node, to specify another node use the `--node` flag.<br>
 Use `minikube delete` to remove a cluster, specify the cluster with `-p`.
+
+A Minikube installation has its own kubectl CLI installed and ready to use. However, it is somewhat inconvenient to use as the kubectl command becomes a subcommand of the minikube command. Users would be required to type longer commands, such as `minikube kubectl <subcommands>`, instead of just `kubectl <subcommands>`. While a simple solution would be to set up an alias, the recommendation is to run the kubectl CLI tool as a standalone installation.<br>
+Once kubectl is installed, we can display information about the Minikube Kubernetes cluster with the `kubectl cluster-info` command.
+
+By default minikube disables the 'Kubernetes dashboard'. It can be enabled by using the following commands:
+<pre>
+minikube addons enable metrics-server
+minikube addons enable dashboard
+</pre>
+Subsequently the command `minikube dashboard` can be used to open in browser the kubernetes dashboard.
+
+### Accessing kubernetes
+A kubernetes cluster is accessible through; command-line-interface (CLI) scripts/tools, web-based-user-interfaces, APIs from CLI or programmatically.<br>
+**kubectl** is the Kubernetes CLI client to manage clusters. It can be used in scripts to automate.<br>
+The **Kubernetes Dashboard** provides a Web-based User Interface (Web UI) to interact with a Kubernetes cluster. It is not as flexible as kubectl CLI but simpler to use.<br>
+We can access the **API** server running on the control plane node either directly by calling the respective API endpoints, using the CLI tools, or the Dashboard UI.
+
+Use the `kubectl proxy` command to authenticate with the API server in the control-plane-node, this makes the API service available on a given ip address usually with port '8001'. Now we can make HTTP requests to the API, from the CLI with 'curl' for example. A simple get request returns us all the possible endpoints.<br>
+Alternatively we can authenticate to the API by providing a 'Bearer Token' when issuing a curl, or by providing a set of 'keys' and 'certificates'.
 
 ## Resources
 [edX - Introduction to Kubernetes](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS158x+1T2022/home)
