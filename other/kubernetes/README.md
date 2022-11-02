@@ -121,6 +121,7 @@ Alternatively we can authenticate to the API by providing a 'Bearer Token' when 
 It is possible to use modules for authentication and authorization, allowing us to customize authentication, authorization, and access control stages of the Kubernetes API access.
 
 ### Create Kubernetes Objects
+#### Pod
 First create a .yaml file. Here is an example of a stand-alone Pod object's definition that such a file could contain:
 <pre>
 apiVersion: v1            
@@ -139,6 +140,7 @@ spec:                     #spec, marks the beginning of the block defining the d
 To add this pod in cluster use `kubectl apply -f <filename>.yaml`, subsequently `kubectl get pods` can be used to view the new running pod.<br>
 The pod can be deleted with `kubectl delete -f <filename>.yaml`
 
+#### Deployment controller
 Here is an example of a .yaml file for a Deployment controller:
 <pre>
 apiVersion: apps/v1               #apiVersion, specifies the API endpoint on the API server which we want to connect to.
@@ -165,7 +167,28 @@ spec:                             #spec marks the beginning of the block definin
 </pre>
 Here a new Deployment creates a ReplicaSet which then creates 3 Pods, with each Pod Template configured to run one nginx:1.7.9 container image.
 
-### Services
+#### Service
+The following is an example of a Service object definition:
+<pre>
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-svc
+spec:
+  selector:
+    app: frontend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 5000
+  externalIPs:
+    - 80.11.12.10
+</pre>
+In this example, we are creating a frontend-svc Service by selecting all the Pods that have the Label key=app set to value=frontend. By default, each Service receives an IP address routable only inside the cluster, known as ClusterIP. The user/client now connects to a Service via its ClusterIP, which forwards traffic to one of the Pods attached to it. A Service provides load balancing by default while selecting the Pods for traffic forwarding.<br>
+As soon as the Pod starts on any worker node, the kubelet daemon running on that node adds a set of environment variables in the Pod for all active Services. For example, if we have an active Service called redis-master, which exposes port 6379, and its ClusterIP is 172.17.0.6, then, on a newly created Pod, we can see the following environment variables: REDIS_MASTER_SERVICE_HOST=172.17.0.6, REDIS_MASTER_SERVICE_PORT=6379, REDIS_MASTER_PORT=tcp://172.17.0.6:6379.<br>
+With the property 'ServiceType' we can define an access scope for the service, meaning the service is accessible only from inside the cluster ('ClusterIP' is default value) or from outside ('NodePort') or both from inside and outside ('LoadBalancer').<br>
+If there are external IPs that route to one or more cluster nodes, Kubernetes Services can be exposed on those 'externalIPs'. Traffic that ingresses into the cluster with the external IP (as destination IP), on the Service port, will be routed to one of the Service endpoints. 'externalIPs' are not managed by Kubernetes.
+
 
 
 ## Resources
