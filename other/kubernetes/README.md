@@ -69,6 +69,10 @@ A **ReplicaSet** ensures a specified number of replicas of a Pod is running at a
 **Labels** are key-value pairs attached to Kubernetes objects, they are used to organize/categorize objects and enable the selection of a subset of objects. Labels do not provide uniqueness to objects.<br>
 Label selectors are used by collectors or services to select a subset of objects. Equality-Based-Selectors allow filtering of objects based on Label keys and values while Set-Based-Selectors allow filtering of objects based on a set of values.
 
+**Liveness Probe** checks on an application's health, and if the health check fails, kubelet restarts the affected container automatically.
+
+In certain instances applications have to meet certain conditions before they can be deployed. Such as ensuring that depending services are available, datasets are loaded, etc... In such cases we use **Readiness Probes** to wait until all conditions are met before the application serves traffic.
+
 ### Installing kubernetes
 Kubernetes can be installed using different cluster configurations, such as:
 * **All-in-One Single-Node Installation**. In this setup, all the control plane and worker components are installed and running on a single-node. While it is useful for learning, development, and testing, it is not recommended for production purposes.
@@ -110,6 +114,8 @@ minikube addons enable dashboard
 </pre>
 Subsequently the command `minikube dashboard` can be used to open in browser the kubernetes dashboard.
 
+To access the application go to minikube's ip. Find it with this command `minikube ip`.
+
 ### Interact with kubernetes
 A kubernetes cluster is accessible through; command-line-interface (CLI) scripts/tools, web-based-user-interfaces, APIs from CLI or programmatically.<br>
 **kubectl** is the Kubernetes CLI client to manage clusters. It can be used in scripts to automate.<br>
@@ -121,6 +127,11 @@ Alternatively we can authenticate to the API by providing a 'Bearer Token' when 
 It is possible to use modules for authentication and authorization, allowing us to customize authentication, authorization, and access control stages of the Kubernetes API access.
 
 ### Create Kubernetes Objects
+To add objects in cluster use `kubectl apply -f <filename>.yaml`, subsequently `kubectl get <pods/deployments/services>` can be used to view the new running pod/deployment/service.<br>
+The pod can be deleted with `kubectl delete -f <filename>.yaml`. When deleting an object that was responsible for the creation of other objects, those other objects will be deleted too.
+
+To visualize the created objects in detail use `kubectl describe service/deployment/pod name`.
+
 #### Pod
 First create a .yaml file. Here is an example of a stand-alone Pod object's definition that such a file could contain:
 <pre>
@@ -137,8 +148,6 @@ spec:                     #spec, marks the beginning of the block defining the d
     ports:
     - containerPort: 80
 </pre>
-To add this pod in cluster use `kubectl apply -f <filename>.yaml`, subsequently `kubectl get pods` can be used to view the new running pod.<br>
-The pod can be deleted with `kubectl delete -f <filename>.yaml`
 
 #### Deployment controller
 Here is an example of a .yaml file for a Deployment controller:
@@ -184,12 +193,180 @@ spec:
   externalIPs:
     - 80.11.12.10
 </pre>
-In this example, we are creating a frontend-svc Service by selecting all the Pods that have the Label key=app set to value=frontend. By default, each Service receives an IP address routable only inside the cluster, known as ClusterIP. The user/client now connects to a Service via its ClusterIP, which forwards traffic to one of the Pods attached to it. A Service provides load balancing by default while selecting the Pods for traffic forwarding.<br>
+In this example, we are creating a frontend-svc Service by selecting all the Pods that have the Label key=app set to value=frontend.<br>
+By default, each Service receives an IP address routable only inside the cluster, known as ClusterIP. The user/client now connects to a Service via its ClusterIP, which forwards traffic to one of the Pods attached to it. A Service provides load balancing by default while selecting the Pods for traffic forwarding.<br>
 As soon as the Pod starts on any worker node, the kubelet daemon running on that node adds a set of environment variables in the Pod for all active Services. For example, if we have an active Service called redis-master, which exposes port 6379, and its ClusterIP is 172.17.0.6, then, on a newly created Pod, we can see the following environment variables: REDIS_MASTER_SERVICE_HOST=172.17.0.6, REDIS_MASTER_SERVICE_PORT=6379, REDIS_MASTER_PORT=tcp://172.17.0.6:6379.<br>
 With the property 'ServiceType' we can define an access scope for the service, meaning the service is accessible only from inside the cluster ('ClusterIP' is default value) or from outside ('NodePort') or both from inside and outside ('LoadBalancer').<br>
 If there are external IPs that route to one or more cluster nodes, Kubernetes Services can be exposed on those 'externalIPs'. Traffic that ingresses into the cluster with the external IP (as destination IP), on the Service port, will be routed to one of the Service endpoints. 'externalIPs' are not managed by Kubernetes.
 
+A more direct method of creating a Service is by exposing the previously created Deployment. Like this for example `kubectl expose deployment nameDeployment --name=web-service --type=NodePort`. 
 
+#### Liveness and Readiness probe
+<pre>
+...
+livenessProbe:
+       httpGet:                  
+         path: /healthz
+         port: 8080
+         httpHeaders:
+         - name: X-Custom-Header
+           value: Awesome
+       initialDelaySeconds: 3     #The initialDelaySeconds parameter requests the kubelet to wait for 3 seconds before the first check.
+       periodSeconds: 3           #The existence of /healthz is configured to be checked every 3 seconds.
+...
+</pre>
+The kubelet sends the HTTP GET request to the /healthz endpoint of the application, on port 8080. If that returns a failure, then the kubelet will restart the affected container, otherwise, it would consider the application to be alive.
+
+<pre>
+...
+livenessProbe:
+  tcpSocket:
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 20
+...
+</pre>
+With TCP Liveness Probe, the kubelet attempts to open the TCP Socket to the container which is running the application. If it succeeds, the application is considered healthy, otherwise the kubelet would mark it as unhealthy and restart the affected container.
+
+Readiness probes are defined in the same way as Liveness probes, only 'livenessProbe' has to be switched with 'readinessProbe' obviously.
+
+### ConfigMaps and Secrets
+Docker images can take runtime parameters, those parameters can configure the docker image, allowing the use of one image in different ways. The **ConfigMap API resource** can be used for setting up runtime parameters. If those runtime parameters hold sensitive information we can use the **Secret API resource** instead.
+
+**ConfigMaps** allow us to decouple the configuration details from the container image. Using ConfigMaps, we pass configuration data as key-value pairs.<br>
+A configmap can be created like this `kubectl create configmap <name> --from-literal=<key1>=<value1> --from-literal=<key2>=<value2>` and visualized like this `kubectl get configmaps <name> -o yaml`. Alternatively we can create a configmap from a file, which is easier when our configuration contains a lot of key-value pairs. It is done like this `kubectl create configmap <name> --from-file=<filepath>`, whereby the file contains one key-value pair (key=value) per line.<br>
+Inside a Container, we can retrieve the key-value data of an entire ConfigMap or the values of specific ConfigMap keys as environment variables.
+<pre>
+...
+  containers:
+  - name: myapp-full-container
+    image: myapp
+    envFrom:
+    - configMapRef:
+      name: full-config-map        #the myapp-full-container's environment variables receive the values of the 'full-config-map' ConfigMap keys.
+...
+</pre>
+
+Sometimes containers want to take parameters that hold sensitive information such as a database password for example. In this scenario, the **Secret** object can help by allowing us to encode the sensitive information before sharing it.<br>
+We can create a secret object like this `kubectl create secret generic <name> --from-literal=<key1>=<value1>` and visualize it like this `kubectl describe secret <name>`. Alternatively we can create a secret object from a file by encrypting values (`echo mysqlpassword | base64`) into a file (`echo -n 'bXlzcWxwYXNzd29yZAo=' > password.txt`) and using this command `kubectl create secret generic <name> --from-file=<filepath>`.<br>
+Inside a container we can retrieve the key-value data from a secret as environment variables.
+<pre>
+....
+spec:
+  containers:
+  - image: wordpress:4.7.3-apache
+    name: wordpress
+    env:
+    - name: WORDPRESS_DB_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: my-password
+          key: password            #we reference only the 'password' key of the 'my-password' secret and assign its value to the 'WORDPRESS_DB_PASSWORD' environment variable.
+....
+</pre>
+
+As explained in the 'Volume management' section, datas from configMaps and secrets not only can be accessed through environment variables but also via Volumes.
+<pre>
+....
+spec:
+  containers:
+  - image: wordpress:4.7.3-apache
+    name: wordpress
+    volumeMounts:
+    - name: secret-volume
+      mountPath: "/etc/secret-data"
+      readOnly: true
+  volumes:
+  - name: secret-volume
+    secret:
+      secretName: my-password
+....
+</pre>
+
+### Volume management
+When a container, containing data, stops running, by default it will lose all that data. To maintain that data, for it to be available once the container is started again, it has to be stored. Kubernetes uses **Volumes** of several types to store/maintain data outside the application container, so that when the container stops, the data is not lost.<br>
+In Kubernetes, a Volume is linked to a Pod and can be shared among the containers of that Pod. Although the Volume has the same life span as the Pod, meaning that it is deleted together with the Pod, the Volume outlives the containers of the Pod, this allows data to be preserved across container restarts.
+
+Volume types:
+* persistentVolumeClaim
+  * We can attach a PersistentVolume to a Pod using a persistentVolumeClaim. Persistent volume allows data to be maintained even after the container stops. This is the type most commonly used.
+* gcePersistentDisk, awsElasticBlockStore, azureDisk
+  * Allows to mount a Google Compute Engine (GCE) persistent disk, AWS EBS Volume, Microsoft Azure Data Disk into a Pod. Those are like persistent volumes but from third party services.
+* emptyDir
+  * If the Pod is terminated, the associated datas are deleted. In the end it comes down to the same as not setting up Volumes.
+* hostPath
+  * Allows to share data storage between the host and the Pod. If the Pod is terminated, the content of the Volume is still available on the host.
+* configMap
+  * With configMap objects, we can provide configuration data, or shell commands and arguments into a Pod. Our configMap key-value pairs basically get stored inside a persistent volume associated to a container.
+* secret
+  * With the secret Volume Type, we can pass sensitive information, such as passwords, to Pods.
+
+A volume is created, similar to all other kubernetes objects, inside a .yaml file.
+
+### Ingress
+An Ingress is a collection of rules that allow incoming connections to reach the cluster Services.<br>
+With Ingress, users do not connect directly to a Service. Users reach the Ingress endpoint, and, from there, the request is forwarded to the desired Service according to the ingress' defined rules.
+
+A service acts as one endpoint that can forward requests to different pods and an ingress acts as one endpoint that can forward requests to different services.
+
+<pre>
+apiVersion: networking.k8s.io/v1 
+kind: Ingress
+metadata:
+  name: virtual-host-ingress
+  namespace: default
+spec:
+  rules:
+  - host: blue.example.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: webserver-blue-svc
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+  - host: green.example.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: webserver-green-svc
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+</pre>
+In the example above, user requests to both 'blue.example.com' and 'green.example.com' would go to the same Ingress endpoint, and, from there, they would be forwarded to 'webserver-blue-svc', and 'webserver-green-svc', respectively. Here we used a 'Name-Based Virtual Hosting' Ingress rule.
+
+<pre>
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fan-out-ingress
+  namespace: default
+spec:
+  rules:
+  - host: example.com
+    http:
+      paths:
+      - path: /blue
+        backend:
+          service:
+            name: webserver-blue-svc
+            port:
+              number: 80
+        pathType: ImplementationSpecific
+      - path: /green
+        backend:
+          service:
+            name: webserver-green-svc
+            port:
+              number: 80
+        pathType: ImplementationSpecific
+</pre>
+Here requests to 'example.com/blue' and 'example.com/green' would be forwarded to 'webserver-blue-svc' and 'webserver-green-svc' respectively. Here we used a 'fanout' ingress rule.
 
 ## Resources
 [edX - Introduction to Kubernetes](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS158x+1T2022/home)
