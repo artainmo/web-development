@@ -368,5 +368,18 @@ spec:
 </pre>
 Here requests to 'example.com/blue' and 'example.com/green' would be forwarded to 'webserver-blue-svc' and 'webserver-green-svc' respectively. Here we used a 'fanout' ingress rule.
 
+### Advanced topics
+#### Annotations
+When creating a kubernetes object in .yaml, annotations, which are simply notes surrounding the object, can be added.
+<pre>
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver
+  annotations:
+    description: Deployment based PoC dates 2nd Mar'2022
+</pre>
+When displaying the object like this `kubectl describe deployment webserver` the annotations will appear too.
+
 ## Resources
 [edX - Introduction to Kubernetes](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS158x+1T2022/home)
