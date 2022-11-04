@@ -418,5 +418,9 @@ A solution would be to bundle the kubernetes application into one repository tha
 **Helm** is a package manager for Kubernetes, which can install/update/delete those Charts in the Kubernetes cluster.<br>
 Charts submitted for Kubernetes are available on https://artifacthub.io/.
 
+## Free tutorials
+### Ancient related notes
+https://github.com/artainmo/ft_services/blob/master/notes.txt
+
 ## Resources
 [edX - Introduction to Kubernetes](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS158x+1T2022/home)
