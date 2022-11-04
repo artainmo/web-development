@@ -381,5 +381,42 @@ metadata:
 </pre>
 When displaying the object like this `kubectl describe deployment webserver` the annotations will appear too.
 
+#### Quotas
+A kubernetes cluster is subdivided into multiple parts, those should share the same amount of resources. One part cannot use resources at the detriment of other parts.
+
+Administrators can use the **ResourceQuota API resource** to provide constraints that limit aggregate resource consumption per Namespace.<br>
+We can set the following types of quotas per Namespace:
+* Compute Resource Quota
+  * Consists of limiting the total sum of compute resources (CPU, memory, etc.) that can be requested in a given Namespace.
+* Storage Resource Quota
+  * Consists of limiting the total sum of storage resources (PersistentVolumeClaims, requests.storage, etc.) that can be requested.
+* Object Count Quota
+  * Consists of restricting the number of objects of a given type (pods, ConfigMaps, PersistentVolumeClaims, ReplicationControllers, Services, Secrets, etc.).
+
+An additional resource that helps limit resources allocation to pods and containers in a namespace, is the **LimitRange**.<br>
+A LimitRange can:
+* Set compute resources usage limits per Pod or Container in a namespace.
+* Set storage request limits per PersistentVolumeClaim in a namespace.
+
+The difference between ResourceQuota and LimitRange is that the former acts on the namespace level while the latter is more specific and acts on pods, containers, volumes inside the namespaces. 
+
+#### Autoscaling
+Autoscaling can be implemented in a Kubernetes cluster via controllers which periodically adjust the number of running objects based on single, multiple, or custom metrics.
+
+Here are the different autoscaler types:
+* Horizontal Pod Autoscaler (HPA)
+  * Adjusts the number of replicas based on CPU utilization.
+* Vertical Pod Autoscaler (VPA)
+  * Automatically sets Container resource requirements (CPU and memory) in a Pod and dynamically adjusts them based on historical utilization data, current resource availability and real-time events.
+* Cluster Autoscaler
+  * Automatically re-sizes the Kubernetes cluster when there are insufficient resources available for new Pods expecting to be scheduled or when there are underutilized nodes in the cluster.
+
+#### Helm
+Large kubernetes applications can contain lots of kuberneted objects. Deploying those manually one by one can be time consuming.<br>
+A solution would be to bundle the kubernetes application into one repository that can be downloaded in one command. We call such a bundled kubernetes application a **Chart**.
+
+**Helm** is a package manager for Kubernetes, which can install/update/delete those Charts in the Kubernetes cluster.<br>
+Charts submitted for Kubernetes are available on https://artifacthub.io/.
+
 ## Resources
 [edX - Introduction to Kubernetes](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS158x+1T2022/home)
