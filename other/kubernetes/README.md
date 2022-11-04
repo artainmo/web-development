@@ -22,7 +22,7 @@
     - [Quotas](#Quotas)
     - [Autoscaling](#Autoscaling)
     - [Helm](#Helm)
-- [Free tutorials](Free-tutorials)
+- [Free tutorials](#Free-tutorials)
   - [Ancient related notes](#Ancient-related-notes) 
 - [Resources](#Resources)
 
