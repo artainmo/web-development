@@ -493,7 +493,15 @@ The application status is initially in 'OutOfSync' state since the application h
 `argocd app sync <nameApp>`.<br>
 This command retrieves the manifests from the repository and performs a kubectl apply of the manifests, meaning it creates the associated kubernetes objects. The guestbook app is now running and you can now view its resource components, logs, events, and assessed health status.
 
+## k3d
+k3d is a lightweight wrapper to run k3s in docker. k3d makes it easy to create single- and multi-node k3s clusters in docker. It is often used for local development on Kubernetes.
+
+Using brew we can install it like this `brew install k3d`.
+
+Create a new kubernetes cluster with single server node: `k3d cluster create <nameCluster>`. 
+
 ## Resources
 [edX - Introduction to Kubernetes](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS158x+1T2022/home)<br>
 [Argo CD - Declarative GitOps CD for Kubernetes](https://argo-cd.readthedocs.io/en/stable/)<br>
 [Helm](https://helm.sh/docs/)<br>
+[K3D](https://k3d.io/v5.4.6/)<br>
