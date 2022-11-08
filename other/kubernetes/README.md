@@ -465,12 +465,12 @@ Argo CD follows the GitOps pattern of using Git repositories for defining the de
 Argo CD is implemented as a [kubernetes controller](https://github.com/artainmo/WebDevelopment/tree/main/other/kubernetes#Kubernetes-Architecture), inside the kubernetes cluster, which continuously monitors running applications and compares the current, live state against the desired target state (as specified in the Git repo). It synchronizes the live state with target state (defined in Git repo). Thus changes made in git repo are automatically mirrored inside the running application.
 
 ### Getting started
-**Install Argo CD inside kubernetes namespace**
+**Install Argo CD inside kubernetes namespace**<br>
 `kubectl create namespace <nameNamespace>`<br>
 `kubectl apply -n <nameNamespace> -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`<br>
 This will create a new namespace, where the Argo CD controller and associated application will live.
 
-**Access The Argo CD API Server**
+**Access The Argo CD API Server**<br>
 First download the argo CD CLI: `brew install argocd`.
 
 After expose the Argo CD API Server with an external ip by setting its service's type to 'loadbalancer'.<br>
@@ -481,7 +481,7 @@ First get the auto-generated password like this:<br>
 `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`
 Using the default login 'admin' and prior password you can login like this `argocd login <ARGOCD_SERVER>`.
 
-**Create An Application From A Git Repository**
+**Create An Application From A Git Repository**<br>
 To create via CLI we first need to specify the namespace we are working on `kubectl config set-context --current --namespace=<nameArgoCdNamespace>`.<br>
 Subsequently we can create an app inside that namespace from a repository. Here is an example:<br>
 `argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path guestbook --dest-server https://kubernetes.default.svc --dest-namespace default`
