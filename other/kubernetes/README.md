@@ -435,12 +435,65 @@ Here are the different autoscaler types:
 Large kubernetes applications can contain lots of kuberneted objects. Deploying those manually one by one can be time consuming.<br>
 A solution would be to bundle the kubernetes application into one repository that can be downloaded in one command. We call such a bundled kubernetes application a **Chart**.
 
-**Helm** is a package manager for Kubernetes, which can install/update/delete those Charts in the Kubernetes cluster.<br>
-Charts submitted for Kubernetes are available on https://artifacthub.io/.
+**Helm** is a package manager for Kubernetes, which can install/update/delete those Charts in the Kubernetes cluster.
+
+On macos you can download helm with brew `brew install helm`.<br>
+Once you have Helm ready, you can add a chart repository. Check [Artifact Hub](https://artifacthub.io/) for available Helm chart repositories.<br>
+`helm repo add <nameForChartRepo> <linkToChart>`<br>
+One chart repository can contain multiple charts that you can visualize like this `helm search repo <nameChartRepo>`.<br>
+One specific chart can be visualized like this `helm show chart <nameChart>`.<br>
+Finally install a chart like this:<br>
+`helm repo update                   # Make sure we get the latest list of charts`<br>
+`helm install <nameChart> --generate-name`<br>
+This will create what we call a 'release' which consists of the chart's associated kubernetes objects inside a namespace. Multiple releases can be launched from the same chart.<br>
+`helm list` will display a list of all the deployed releases.<br>
+To uninstall a release use `helm uninstall <releaseName>`.
 
 ## Free tutorials
 ### Ancient related notes
 https://github.com/artainmo/ft_services/blob/master/notes.txt
 
+## Argo CD
+### Introduction
+**Argo CD** is a declarative, GitOps [continuous delivery](https://github.com/artainmo/WebDevelopment/tree/main/other/DevOps#CICD-pipelines) tool for Kubernetes.<br>
+In computer science **declarative** programming is a style of building programs that expresses logic of computation without talking about its control flow. It may simplify writing parallel programs.<br>
+**GitOps** is a way of implementing [Continuous Deployment](https://github.com/artainmo/WebDevelopment/tree/main/other/DevOps#CICD-pipelines) for applications. It consists of a Git repository that always contains declarative descriptions of the infrastructure currently desired in the production environment and an automated process to make the production environment match the described state in the repository. As a result creating changes in the repository will update the production environment automatically.
+
+Basically Argo CD facilitates the use of kubernetes and creation of a [CI/CD pipeline](https://github.com/artainmo/WebDevelopment/tree/main/other/DevOps#CICD-pipelines), which helps move code from a development to production environment.
+
+Argo CD follows the GitOps pattern of using Git repositories for defining the desired application state. In this repository kubernetes objects can be specified using [helm charts](https://github.com/artainmo/WebDevelopment/tree/main/other/kubernetes#Helm), [plain .yaml files](https://github.com/artainmo/WebDevelopment/tree/main/other/kubernetes#Create-Kubernetes-Objects), or other tools. Argo CD automates the deployment of the desired application states in the specified target environments.<br>
+Argo CD is implemented as a [kubernetes controller](https://github.com/artainmo/WebDevelopment/tree/main/other/kubernetes#Kubernetes-Architecture), inside the kubernetes cluster, which continuously monitors running applications and compares the current, live state against the desired target state (as specified in the Git repo). It synchronizes the live state with target state (defined in Git repo). Thus changes made in git repo are automatically mirrored inside the running application.
+
+### Getting started
+**Install Argo CD inside kubernetes namespace**
+`kubectl create namespace <nameNamespace>`<br>
+`kubectl apply -n <nameNamespace> -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`<br>
+This will create a new namespace, where the Argo CD controller and associated application will live.
+
+**Access The Argo CD API Server**
+First download the argo CD CLI: `brew install argocd`.
+
+After expose the Argo CD API Server with an external ip by setting its service's type to 'loadbalancer'.<br>
+`kubectl patch svc argocd-server -n <nameNamespace> -p '{"spec": {"type": "LoadBalancer"}}'`
+
+Now you can login using CLI.<br>
+First get the auto-generated password like this:<br>
+`kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`
+Using the default login 'admin' and prior password you can login like this `argocd login <ARGOCD_SERVER>`.
+
+**Create An Application From A Git Repository**
+To create via CLI we first need to specify the namespace we are working on `kubectl config set-context --current --namespace=<nameArgoCdNamespace>`.<br>
+Subsequently we can create an app inside that namespace from a repository. Here is an example:<br>
+`argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path guestbook --dest-server https://kubernetes.default.svc --dest-namespace default`
+
+The possibility also exists to create an app from the Argo CD UI.
+
+Afterwards we can see the app's status like this `argocd app get <nameApp>`.<br>
+The application status is initially in 'OutOfSync' state since the application has yet to be deployed. To sync (deploy) the application, run:<br>
+`argocd app sync <nameApp>`.<br>
+This command retrieves the manifests from the repository and performs a kubectl apply of the manifests, meaning it creates the associated kubernetes objects. The guestbook app is now running and you can now view its resource components, logs, events, and assessed health status.
+
 ## Resources
-[edX - Introduction to Kubernetes](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS158x+1T2022/home)
+[edX - Introduction to Kubernetes](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS158x+1T2022/home)<br>
+[Argo CD - Declarative GitOps CD for Kubernetes](https://argo-cd.readthedocs.io/en/stable/)<br>
+[Helm](https://helm.sh/docs/)<br>
