@@ -105,8 +105,7 @@ For production environments HA is recommended both on control-plane-nodes and on
 There are a variety of installation tools allowing us to deploy Kubernetes clusters on our local workstations, for learning and development purposes, such as: minikube, docker desktop (only in the case of containers made with docker), microK8s (for local and development but also cloud and production), K3S (lightweight Kubernetes cluster both for local and cloud).
 
 For automatically setting up a kubernetes cluster tools can be used such as; kubeadm (the officially supported tool), kubespray, kops and previously covered KaaS products.<br>
-However to manually set up a kubernetes cluster, here is a good resource ([Kubernetes The Hard Way
-](https://github.com/kelseyhightower/kubernetes-the-hard-way)).
+However to manually set up a kubernetes cluster, here is a good resource ([Kubernetes The Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way)).
 
 #### Minikube - Installing local kubernetes clusters
 Minikube is one of the easiest, most flexible and popular methods to run a Kubernetes cluster, isolated by Virtual Machines (VM) or Containers, run directly on our local workstations. It initializes for us a fully functional, non-production, Kubernetes cluster extremely convenient for learning purposes.
@@ -149,7 +148,7 @@ It is possible to use modules for authentication and authorization, allowing us 
 
 ### Create Kubernetes Objects
 To add objects in cluster use `kubectl apply -f <filename>.yaml`, subsequently `kubectl get <pods/deployments/services>` can be used to view the new running pod/deployment/service.<br>
-The pod can be deleted with `kubectl delete -f <filename>.yaml`. When deleting an object that was responsible for the creation of other objects, those other objects will be deleted too.
+The object can be deleted with `kubectl delete -f <filename>.yaml`. When deleting an object that was responsible for the creation of other objects, those other objects will be deleted too.
 
 To visualize the created objects in detail use `kubectl describe service/deployment/pod name`.
 
