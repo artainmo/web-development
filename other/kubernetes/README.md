@@ -23,7 +23,11 @@
     - [Autoscaling](#Autoscaling)
     - [Helm](#Helm)
 - [Free tutorials](#Free-tutorials)
-  - [Ancient related notes](#Ancient-related-notes) 
+  - [Ancient related notes](#Ancient-related-notes)
+- [Argo CD](#argo-cd)
+  - [Introduction](#Introduction)
+  - [Getting started](#Getting-started)
+- [k3d](#k3d)
 - [Resources](#Resources)
 
 ## edX course - Introduction to Kubernetes
