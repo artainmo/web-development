@@ -477,13 +477,14 @@ This will create a new namespace, where the Argo CD controller and associated ap
 **Access The Argo CD API Server**<br>
 First download the argo CD CLI: `brew install argocd`.
 
-After expose the Argo CD API Server with an external ip by setting its service's type to 'loadbalancer'.<br>
-`kubectl patch svc argocd-server -n <nameNamespace> -p '{"spec": {"type": "LoadBalancer"}}'`
+After expose the Argo CD API Server by forwarding its port so that its server address becomes localhost:8080.<br>
+`kubectl port-forward svc/argocd-server -n argocd 8080:443 &`<br>
+But you can only do that once the argo-cd pods are running. Here is a command to wait until they start running: `kubectl wait pods -n <nameNamespace> --all --for condition=Ready --timeout=600s`.
 
 Now you can login using CLI.<br>
 First get the auto-generated password like this:<br>
-`kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`
-Using the default login 'admin' and prior password you can login like this `argocd login <ARGOCD_SERVER>`.
+`kubectl -n <nameNamespace> get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`.<br>
+Using the default login 'admin' and prior password you can login like this `argocd login localhost:8080 --username admin --password <password>`.
 
 **Create An Application From A Git Repository**<br>
 To create via CLI we first need to specify the namespace we are working on `kubectl config set-context --current --namespace=<nameArgoCdNamespace>`.<br>
