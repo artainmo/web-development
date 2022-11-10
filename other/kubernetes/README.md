@@ -488,8 +488,9 @@ Using the default login 'admin' and prior password you can login like this `argo
 
 **Create An Application From A Git Repository**<br>
 To create via CLI we first need to specify the namespace we are working on `kubectl config set-context --current --namespace=<nameArgoCdNamespace>`.<br>
-Subsequently we can create an app inside that namespace from a repository. Here is an example:<br>
-`argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path guestbook --dest-server https://kubernetes.default.svc --dest-namespace default`
+Subsequently we can create from that namespace an app that performs continuous integration with another repository. Here is an example:<br>
+`argocd app create <nameApp> --repo <gitRepoLink> --path/file <PathInRepoToAppDir/PathToSingleKubernetesManifest> --dest-namespace <namespaceAppWillBeIn> --dest-server --dest-server https://kubernetes.default.svc --directory-recurse`<br>
+[Here](https://argo-cd.readthedocs.io/en/release-1.8/user-guide/commands/argocd_app_create/) is more info about the argocd command. 
 
 The possibility also exists to create an app from the Argo CD UI.
 
