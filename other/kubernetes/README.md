@@ -227,7 +227,7 @@ As soon as the Pod starts on any worker node, the kubelet daemon running on that
 With the property 'ServiceType' we can define an access scope for the service, meaning the service is accessible only from inside the cluster ('ClusterIP' is default value) or from outside ('NodePort') or both from inside and outside ('LoadBalancer').<br>
 If there are external IPs that route to one or more cluster nodes, Kubernetes Services can be exposed on those 'externalIPs'. Traffic that ingresses into the cluster with the external IP (as destination IP), on the Service port, will be routed to one of the Service endpoints. 'externalIPs' are not managed by Kubernetes.
 
-A more direct method of creating a Service is by exposing the previously created Deployment. Like this for example `kubectl expose deployment nameDeployment --name=web-service --type=NodePort`. 
+A more direct method of creating a Service is by exposing the previously created Deployment. Like this for example `kubectl expose deployment <nameDeployment> --name=<serviceName> --type=<ClusterIP/NodePort/LoadBalancer>`. 
 
 #### Liveness and Readiness probe
 <pre>
