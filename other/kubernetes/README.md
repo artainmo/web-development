@@ -23,11 +23,15 @@
     - [Autoscaling](#Autoscaling)
     - [Helm](#Helm)
 - [Free tutorials](#Free-tutorials)
-  - [Ancient related notes](#Ancient-related-notes)
-- [Argo CD](#argo-cd)
-  - [Introduction](#Introduction)
-  - [Getting started](#Getting-started)
-- [k3d](#k3d)
+  - [Ancient related notes and projects...](#Ancient-related-notes-and-projects...)
+  - [Argo CD](#argo-cd)
+    - [Introduction](#Introduction)
+    - [Getting started](#Getting-started)
+      - [Install Argo CD inside kubernetes namespace](#Install-Argo-CD-inside-kubernetes-namespace)
+      - [Access The Argo CD API Server](#Access-The-Argo-CD-API-Server)
+      - [Create An Application From A Git Repository](#Create-An-Application-From-A-Git-Repository)
+      - [Automate synchronization](#Automate-synchronization)
+  - [k3d - launch local kubernetes cluster](#k3d---launch-local-kubernetes-cluster)
 - [Resources](#Resources)
 
 ## edX course - Introduction to Kubernetes
@@ -454,11 +458,14 @@ This will create what we call a 'release' which consists of the chart's associat
 To uninstall a release use `helm uninstall <releaseName>`.
 
 ## Free tutorials
-### Ancient related notes
-https://github.com/artainmo/ft_services/blob/master/notes.txt
+### Ancient related notes and projects...
+[Project ft_services](https://github.com/artainmo/ft_services/)<br>
+[Its related Notes](https://github.com/artainmo/ft_services/blob/master/notes.txt)
 
-## Argo CD
-### Introduction
+Coming soon... The Inception-of-things project?
+
+### Argo CD
+#### Introduction
 **Argo CD** is a declarative, GitOps [continuous delivery](https://github.com/artainmo/WebDevelopment/tree/main/other/DevOps#CICD-pipelines) tool for Kubernetes.<br>
 In computer science **declarative** programming is a style of building programs that expresses logic of computation without talking about its control flow. It may simplify writing parallel programs.<br>
 **GitOps** is a way of implementing [Continuous Deployment](https://github.com/artainmo/WebDevelopment/tree/main/other/DevOps#CICD-pipelines) for applications. It consists of a Git repository that always contains declarative descriptions of the infrastructure currently desired in the production environment and an automated process to make the production environment match the described state in the repository. As a result creating changes in the repository will update the production environment automatically.
@@ -468,13 +475,13 @@ Basically Argo CD facilitates the creation of a [CI/CD pipeline](https://github.
 Argo CD follows the GitOps pattern of using Git repositories for defining the desired application state. In this repository kubernetes objects can be specified using [helm charts](https://github.com/artainmo/WebDevelopment/tree/main/other/kubernetes#Helm), [plain .yaml files](https://github.com/artainmo/WebDevelopment/tree/main/other/kubernetes#Create-Kubernetes-Objects), or other tools. Argo CD automates the deployment of the desired application states in the specified target environments.<br>
 Argo CD is implemented as a [kubernetes controller](https://github.com/artainmo/WebDevelopment/tree/main/other/kubernetes#Kubernetes-Architecture), inside the kubernetes cluster, which continuously monitors running applications and compares the current, live state against the desired target state (as specified in the Git repo). It synchronizes the live state with target state (defined in Git repo). Thus changes made in git repo are automatically mirrored inside the running application.
 
-### Getting started
-#### Install Argo CD inside kubernetes namespace
+#### Getting started
+##### Install Argo CD inside kubernetes namespace
 `kubectl create namespace <nameNamespace>`<br>
 `kubectl apply -n <nameNamespace> -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`<br>
 This will create a new namespace, where the Argo CD controller and associated application will live.
 
-#### Access The Argo CD API Server
+##### Access The Argo CD API Server
 First download the argo CD CLI: `brew install argocd`.
 
 After expose the Argo CD API Server by forwarding its port so that its server address becomes localhost:8080.<br>
@@ -486,10 +493,10 @@ First get the auto-generated password like this:<br>
 `kubectl -n <nameNamespace> get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`.<br>
 Using the default login 'admin' and prior password you can login like this `argocd login localhost:8080 --username admin --password <password>`.
 
-#### Create An Application From A Git Repository
+##### Create An Application From A Git Repository
 To create via CLI we first need to specify the namespace we are working on `kubectl config set-context --current --namespace=<nameArgoCdNamespace>`.<br>
 Subsequently we can create from that namespace an app that performs continuous integration with another repository. Here is an example:<br>
-`argocd app create <nameApp> --repo <gitRepoLink> --path/file <PathInRepoToAppDir/PathToSingleKubernetesManifest> --dest-namespace <namespaceAppWillBeIn> --dest-server https://kubernetes.default.svc --directory-recurse`<br>
+`argocd app create <nameApp> --repo <gitRepoLink> --path/file <PathInRepoToAppDir/PathToSingleKubernetesManifest> --dest-namespace <namespaceAppWillBeIn> --dest-server https://kubernetes.default.svc`<br>
 [Here](https://argo-cd.readthedocs.io/en/release-1.8/user-guide/commands/argocd_app_create/) is more info about the 'argocd create' command.
 
 The possibility also exists to create an app from the Argo CD UI.
@@ -497,7 +504,7 @@ The possibility also exists to create an app from the Argo CD UI.
 Afterwards we can see the app's status like this `argocd app get <nameApp>`.<br>
 The application status is initially in 'OutOfSync' state since the application has yet to be deployed. To sync (deploy) the application, run: `argocd app sync <nameApp>`. This command retrieves the manifests from the repository and performs a kubectl apply of the manifests, meaning it creates the associated kubernetes objects. The app is now running.
 
-#### Automate synchronization
+##### Automate synchronization
 Finally, the main goal of Argo CD is to automatically synchronize the git repo with kubernetes' running app. This is possible using the following commands:<br>
 <pre>
 argocd app set will --sync-policy automated #Once git repo is changed with new push, our running will-app will mirror that.
@@ -505,7 +512,7 @@ argocd app set will --auto-prune --allow-empty #If resources are removed in git 
 argocd app set will --self-heal #If between 'git repo changes' the running app changes (because you removed certain of its resources per accident or for other reasons...) the running app will be reverted (healed) to the lastest git repo's version.
 </pre>
 
-## k3d - launch local kubernetes cluster
+### k3d - launch local kubernetes cluster
 k3d is a lightweight wrapper to run k3s in docker. k3d makes it easy to create single- and multi-node k3s clusters in docker. It is often used for local development on Kubernetes.
 
 Using brew we can install it like this `brew install k3d`.
@@ -515,5 +522,6 @@ Create a new kubernetes cluster with single server node: `k3d cluster create <na
 ## Resources
 [edX - Introduction to Kubernetes](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS158x+1T2022/home)<br>
 [Argo CD - Declarative GitOps CD for Kubernetes](https://argo-cd.readthedocs.io/en/stable/)<br>
+[Argo CD - Automated Sync Policy](https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync)<br>
 [Helm](https://helm.sh/docs/)<br>
 [K3D](https://k3d.io/v5.4.6/)<br>
