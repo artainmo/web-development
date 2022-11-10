@@ -23,7 +23,7 @@
     - [Autoscaling](#Autoscaling)
     - [Helm](#Helm)
 - [Free tutorials](#Free-tutorials)
-  - [Ancient related notes and projects...](#Ancient-related-notes-and-projects...)
+  - [Ancient related notes and projects...](#ancient-related-notes-and-projects)
   - [Argo CD](#argo-cd)
     - [Introduction](#Introduction)
     - [Getting started](#Getting-started)
