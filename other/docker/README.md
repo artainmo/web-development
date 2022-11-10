@@ -6,6 +6,8 @@
   - [Create an image](#Create-an-image)
   - [Docker compose](#Docker-compose)
     - [Use docker compose for NestJS with TypeORM and PostgreSQL](#Use-docker-compose-for-NestJS-with-TypeORM-and-PostgreSQL)
+  - [Docker Hub](#Docker-Hub)
+    - [Tags](#Tags)
 
 # Free tutorials
 ## Basics
@@ -180,3 +182,15 @@ const typeOrmConfig: TypeOrmModuleOptions = {
 
 export = typeOrmConfig
 </pre>
+
+## Docker Hub
+[Docker hub](https://hub.docker.com/) is the leading service for sharing docker container images. It contains the largest library and community for container images. Those container images can be open-source or private. You can create your own images or use an open-source image found in docker-hub's library.
+
+### Tags
+Docker allows storage of images on the Docker Hub repository. A Docker tag provides a unique identity to a Docker image. One image repository can contain multiple versions, distinction is made between those versions using tags.<br>
+With git, we make distinction between repository versions with 'commits', in docker hub we use 'tags' instead.<br>
+
+In Docker, we can tag an image during the build time, like this: `docker build -t <tagName>` or `docker tag <imageId> <nameTag>`. The tag is useful to maintain and be able to track the version of the build when pushing the image on DockerHub.
+
+When pulling an image from docker-hub we can specify a tag, and thus a version of the repository, like this `docker pull <imageName>:<tagName>`. If we do not specify a tag, the latest version will be pulled.<br>
+Similarly in docker file `FROM debian:buster`, here is an example where we use as base image for the dockerfile 'debian' with tag 'buster'.
