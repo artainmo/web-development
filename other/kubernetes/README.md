@@ -469,12 +469,12 @@ Argo CD follows the GitOps pattern of using Git repositories for defining the de
 Argo CD is implemented as a [kubernetes controller](https://github.com/artainmo/WebDevelopment/tree/main/other/kubernetes#Kubernetes-Architecture), inside the kubernetes cluster, which continuously monitors running applications and compares the current, live state against the desired target state (as specified in the Git repo). It synchronizes the live state with target state (defined in Git repo). Thus changes made in git repo are automatically mirrored inside the running application.
 
 ### Getting started
-**Install Argo CD inside kubernetes namespace**<br>
+#### Install Argo CD inside kubernetes namespace
 `kubectl create namespace <nameNamespace>`<br>
 `kubectl apply -n <nameNamespace> -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`<br>
 This will create a new namespace, where the Argo CD controller and associated application will live.
 
-**Access The Argo CD API Server**<br>
+#### Access The Argo CD API Server
 First download the argo CD CLI: `brew install argocd`.
 
 After expose the Argo CD API Server by forwarding its port so that its server address becomes localhost:8080.<br>
@@ -486,25 +486,26 @@ First get the auto-generated password like this:<br>
 `kubectl -n <nameNamespace> get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`.<br>
 Using the default login 'admin' and prior password you can login like this `argocd login localhost:8080 --username admin --password <password>`.
 
-**Create An Application From A Git Repository**<br>
+#### Create An Application From A Git Repository
 To create via CLI we first need to specify the namespace we are working on `kubectl config set-context --current --namespace=<nameArgoCdNamespace>`.<br>
 Subsequently we can create from that namespace an app that performs continuous integration with another repository. Here is an example:<br>
-`argocd app create <nameApp> --repo <gitRepoLink> --path/file <PathInRepoToAppDir/PathToSingleKubernetesManifest> --dest-namespace <namespaceAppWillBeIn> --dest-server --dest-server https://kubernetes.default.svc --directory-recurse`<br>
-[Here](https://argo-cd.readthedocs.io/en/release-1.8/user-guide/commands/argocd_app_create/) is more info about the 'argocd create' command. 
+`argocd app create <nameApp> --repo <gitRepoLink> --path/file <PathInRepoToAppDir/PathToSingleKubernetesManifest> --dest-namespace <namespaceAppWillBeIn> --dest-server https://kubernetes.default.svc --directory-recurse`<br>
+[Here](https://argo-cd.readthedocs.io/en/release-1.8/user-guide/commands/argocd_app_create/) is more info about the 'argocd create' command.
 
 The possibility also exists to create an app from the Argo CD UI.
 
 Afterwards we can see the app's status like this `argocd app get <nameApp>`.<br>
 The application status is initially in 'OutOfSync' state since the application has yet to be deployed. To sync (deploy) the application, run: `argocd app sync <nameApp>`. This command retrieves the manifests from the repository and performs a kubectl apply of the manifests, meaning it creates the associated kubernetes objects. The app is now running.
 
+#### Automate synchronization
 Finally, the main goal of Argo CD is to automatically synchronize the git repo with kubernetes' running app. This is possible using the following commands:<br>
 <pre>
 argocd app set will --sync-policy automated #Once git repo is changed with new push, our running will-app will mirror that.
 argocd app set will --auto-prune --allow-empty #If resources are removed in git repo those resources will also be removed inside our running will-app, even if that means the app becomes empty.
-argocd app set will --self-heal #If between git repo changes the running app changes (because you remove certain of its resources per accident or for other reasons...) the running app will be reverted to the lastest git repo's version.
+argocd app set will --self-heal #If between 'git repo changes' the running app changes (because you removed certain of its resources per accident or for other reasons...) the running app will be reverted (healed) to the lastest git repo's version.
 </pre>
 
-## k3d
+## k3d - launch local kubernetes cluster
 k3d is a lightweight wrapper to run k3s in docker. k3d makes it easy to create single- and multi-node k3s clusters in docker. It is often used for local development on Kubernetes.
 
 Using brew we can install it like this `brew install k3d`.
