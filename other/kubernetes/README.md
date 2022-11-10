@@ -212,6 +212,7 @@ kind: Service
 metadata:
   name: frontend-svc
 spec:
+  type: LoadBalancer
   selector:
     app: frontend
   ports:
@@ -224,7 +225,7 @@ spec:
 In this example, we are creating a frontend-svc Service by selecting all the Pods that have the Label key=app set to value=frontend.<br>
 By default, each Service receives an IP address routable only inside the cluster, known as ClusterIP. The user/client now connects to a Service via its ClusterIP, which forwards traffic to one of the Pods attached to it. A Service provides load balancing by default while selecting the Pods for traffic forwarding.<br>
 As soon as the Pod starts on any worker node, the kubelet daemon running on that node adds a set of environment variables in the Pod for all active Services. For example, if we have an active Service called redis-master, which exposes port 6379, and its ClusterIP is 172.17.0.6, then, on a newly created Pod, we can see the following environment variables: REDIS_MASTER_SERVICE_HOST=172.17.0.6, REDIS_MASTER_SERVICE_PORT=6379, REDIS_MASTER_PORT=tcp://172.17.0.6:6379.<br>
-With the property 'ServiceType' we can define an access scope for the service, meaning the service is accessible only from inside the cluster ('ClusterIP' is default value) or from outside ('NodePort') or both from inside and outside ('LoadBalancer').<br>
+With the property 'type' we can define an access scope for the service, meaning the service is accessible only from inside the cluster ('ClusterIP' is default value) or from outside ('NodePort') or both from inside and outside ('LoadBalancer').<br>
 If there are external IPs that route to one or more cluster nodes, Kubernetes Services can be exposed on those 'externalIPs'. Traffic that ingresses into the cluster with the external IP (as destination IP), on the Service port, will be routed to one of the Service endpoints. 'externalIPs' are not managed by Kubernetes.
 
 A more direct method of creating a Service is by exposing the previously created Deployment. Like this for example `kubectl expose deployment <nameDeployment> --name=<serviceName> --type=<ClusterIP/NodePort/LoadBalancer>`. 
