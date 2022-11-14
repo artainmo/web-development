@@ -21,7 +21,6 @@
     - [Annotations](#Annotations)
     - [Quotas](#Quotas)
     - [Autoscaling](#Autoscaling)
-    - [Helm](#Helm)
 - [Free tutorials](#Free-tutorials)
   - [Ancient related notes and projects...](#ancient-related-notes-and-projects)
   - [Argo CD](#argo-cd)
@@ -440,24 +439,6 @@ Here are the different autoscaler types:
 * Cluster Autoscaler
   * Automatically re-sizes the Kubernetes cluster when there are insufficient resources available for new Pods expecting to be scheduled or when there are underutilized nodes in the cluster.
 
-#### Helm
-Large kubernetes applications can contain lots of kuberneted objects. Deploying those manually one by one can be time consuming.<br>
-A solution would be to bundle the kubernetes application into one repository that can be downloaded in one command. We call such a bundled kubernetes application a **Chart**.
-
-**Helm** is a package manager for Kubernetes, which can install/update/delete those Charts in the Kubernetes cluster.
-
-On macos you can download helm with brew `brew install helm`.<br>
-Once you have Helm ready, you can add a chart repository. Check [Artifact Hub](https://artifacthub.io/) for available Helm chart repositories.<br>
-`helm repo add <nameForChartRepo> <linkToChart>`<br>
-One chart repository can contain multiple charts that you can visualize like this `helm search repo <nameChartRepo>`.<br>
-One specific chart can be visualized like this `helm show chart <nameChart>`.<br>
-Finally install a chart like this:<br>
-`helm repo update                   # Make sure we get the latest list of charts`<br>
-`helm install <nameChart> --generate-name`<br>
-This will create what we call a 'release' which consists of the chart's associated kubernetes objects inside a namespace. Multiple releases can be launched from the same chart.<br>
-`helm list` will display a list of all the deployed releases.<br>
-To uninstall a release use `helm uninstall <releaseName>`.
-
 ## Free tutorials
 ### Ancient related notes and projects...
 [Project ft_services](https://github.com/artainmo/ft_services/)<br>
@@ -518,7 +499,25 @@ k3d is a lightweight wrapper to run k3s in docker. k3d makes it easy to create s
 
 Using brew we can install it like this `brew install k3d`.
 
-Create a new kubernetes cluster with single server node: `k3d cluster create <nameCluster>`. 
+Create a new kubernetes cluster with single server node: `k3d cluster create <nameCluster>`.
+
+#### Helm, Charts, GitLab
+Large kubernetes applications can contain lots of kuberneted objects. Deploying those manually one by one can be time consuming.<br>
+A solution would be to bundle the kubernetes application into one repository that can be downloaded in one command. We call such a bundled kubernetes application a **Chart**.
+
+**Helm** is a package manager for Kubernetes, which can install/update/delete those Charts in the Kubernetes cluster.
+
+On macos you can download helm with brew `brew install helm`.<br>
+Once you have Helm ready, you can add a chart repository. Check [Artifact Hub](https://artifacthub.io/) for available Helm chart repositories.<br>
+`helm repo add <nameForChartRepo> <linkToChart>`<br>
+One chart repository can contain multiple charts that you can visualize like this `helm search repo <nameChartRepo>`.<br>
+One specific chart can be visualized like this `helm show chart <nameChart>`.<br>
+Finally install a chart like this:<br>
+`helm repo update                   # Make sure we get the latest list of charts`<br>
+`helm install <nameChart> --generate-name`<br>
+This will create what we call a 'release' which consists of the chart's associated kubernetes objects inside a namespace. Multiple releases can be launched from the same chart.<br>
+`helm list` will display a list of all the deployed releases.<br>
+To uninstall a release use `helm uninstall <releaseName>`.
 
 ## Resources
 [edX - Introduction to Kubernetes](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS158x+1T2022/home)<br>
