@@ -15,6 +15,8 @@
   - [Monitoring](#Monitoring)
   - [Resiliency](#Resiliency)
   - [CI/CD pipelines](#CICD-pipelines) 
+- [Free tutorials](#Free-tutorials)
+  - [GitLab](#GitLab)
 - [Resources](#Resources)
 
 ## Codecademy course - Introduction to DevOps
@@ -224,7 +226,21 @@ Rapid merges take priority over releasing completed features when using continuo
 
 Here are tools used to form CI/CD pipelines; Gihub Actions, Jenkins, CircleCI.
 
+## Free tutorials
+### GitLab
+GitLab is a single application that covers the whole DevOps lifecycle while allowing collaboration and ease of use. At its core it is a place to store repositories with git version control, however contrary to github it holds a lot of additional features.
+
+Here are some of the features it holds:
+* Manage containers and clusters such as [docker images](https://github.com/artainmo/WebDevelopment/tree/main/other/docker#Basics) or [kubernetes charts](https://github.com/artainmo/WebDevelopment/blob/main/other/kubernetes/README.md#helm).
+* Tools to facilitate the creation of [CI/CD pipelines](#CICD-pipelines).
+* It can [monitor](#monitoring) your code with Prometheus.
+* Like github it also has features such as pull requests, view prior commits...
+* Organize code with for example labels.
+* Project management tools.
+* GitLab also allows the use of third party addons (integrations), making it extensible and providing even more features.<br>
+
+
 ## Resources
 [codecademy - Introduction to DevOps](https://www.codecademy.com/learn/introduction-to-dev-ops)<br>
-
-
+[GitLab - What is GitLab?](https://www.youtube.com/watch?v=MqL6BMOySIQ)<br>
+[LevelUpTuts - What Is GitLab?](https://www.youtube.com/watch?v=gbJUasioKiI)<br>
