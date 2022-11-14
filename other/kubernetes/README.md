@@ -31,6 +31,7 @@
       - [Create An Application From A Git Repository](#Create-An-Application-From-A-Git-Repository)
       - [Automate synchronization](#Automate-synchronization)
   - [k3d - launch local kubernetes cluster](#k3d---launch-local-kubernetes-cluster)
+  - [Helm, Charts, GitLab](#helm-charts-gitlab)
 - [Resources](#Resources)
 
 ## edX course - Introduction to Kubernetes
@@ -501,7 +502,7 @@ Using brew we can install it like this `brew install k3d`.
 
 Create a new kubernetes cluster with single server node: `k3d cluster create <nameCluster>`.
 
-#### Helm, Charts, GitLab
+### Helm, Charts, GitLab
 Large kubernetes applications can contain lots of kuberneted objects. Deploying those manually one by one can be time consuming.<br>
 A solution would be to bundle the kubernetes application into one repository that can be downloaded in one command. We call such a bundled kubernetes application a **Chart**.
 
