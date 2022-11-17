@@ -183,7 +183,7 @@ There are a variety of methods we can use in order to help resolve issues with e
 * We can be on the lookout for news of scheduled outages, vulnerabilities, or cancellations.
 * We can define fallback strategies for our external dependencies. If we detect that a dependency is not working, we might switch to a different dependency, or hide the functionality that depends on the failing service.
 
-To protect from malicious actors, see the 'cybersecurity' course.
+To protect from malicious actors, see the [cybersecurity course](https://github.com/artainmo/WebDevelopment/tree/main/other/cybersecurity).
 
 Some important metrics that indicate a system’s resiliency include:
 * Uptime, or what percentage of the time is our system available.
@@ -224,7 +224,7 @@ It may look like this:
 
 Rapid merges take priority over releasing completed features when using continuous integration, delivery, and deployment. To prevent users from accessing potentially incomplete features, teams can hide them for all (or some) users and then make them available once the feature is complete.
 
-Here are tools used to form CI/CD pipelines; Gihub Actions, Jenkins, CircleCI.
+Here are tools used to form CI/CD pipelines; Gihub Actions, Jenkins, CircleCI, GitLab.
 
 ## Free tutorials
 ### GitLab
@@ -239,8 +239,56 @@ Here are some of the features it holds:
 * Project management tools.
 * GitLab also allows the use of third party addons (integrations), making it extensible and providing even more features.<br>
 
+#### GitLab CI/CD Pipeline
+##### Introduction
+**GitLab CI/CD** includes a subset of GitLab's features that allow DevOps practices such as [continuous integration, continuous delivery, continuous deployment](#CICD-pipelines).<br>
+Thus through a **GitLab pipeline** we can automatically build, test and deploy our software.<br>
+A GitLab pipeline is defined inside a file named '.gitlab-ci.yml' that lives at the root directory of a gitlab project.<br>
+A GitLab pipeline consists of Jobs (describes the tasks that need to be done) and Stages (defines the order in which jobs will be completed). Thus a gitlab pipeline consists of a set of instructions for a program to execute. The program that executes those instructions is called **GitLab Runner**, which can run on local host, VM or docker container.
+
+#### Create Pipeline
+On GitLab project repository, see left page and go to 'CI/CD -> Editor', than create a new pipeline.<br>
+Now a pipeline template has been generated you can edit. Let's look at it and understand it.
+<pre>
+#At top file 'stages' section is defined which defines the order of instructions (aka jobs).
+stages:
+  - build
+  - test
+  - deploy
+
+#Subsequently in file all those jobs will be defined.
+
+ build-job:                                     #This is the name we give to a job.
+  stage: build                                  #Here we define the stage the job is associated with.
+  script:                                       #Here we can define the shell commands that the job executes.
+    - echo "Compiling the code..."
+    - echo "Compile complete."
+
+unit-test-job:
+  stage: test                                   #This job runs in the test stage. It only starts when the job in the build stage completes successfully.
+  script:
+    - echo "Running unit tests..."
+    - echo "Code coverage is 90%"
+
+lint-test-job:
+  stage: test                                   #Multiple jobs can be associated with a particular stage. It can run at the same time as unit-test-job (in parallel).
+  script:
+    - echo "Linting code..."
+    - echo "No lint issues found."
+
+deploy-job:      
+  stage: deploy                                 #This job runs in the deploy stage. It only runs when both jobs in the test stage complete successfully.
+  environment: production                       #Environments describe where code is deployed. Define environments by going on project repository, see left side of page and go to 'Deployments -> Environments'.
+  script:
+    - echo "Deploying application..."
+    - echo "Application successfully deployed."
+</pre>
+
+
 
 ## Resources
 [codecademy - Introduction to DevOps](https://www.codecademy.com/learn/introduction-to-dev-ops)<br>
 [GitLab - What is GitLab?](https://www.youtube.com/watch?v=MqL6BMOySIQ)<br>
 [LevelUpTuts - What Is GitLab?](https://www.youtube.com/watch?v=gbJUasioKiI)<br>
+
+[GitLab CI CD Pipeline Tutorial | Introduction | 2022](https://www.youtube.com/watch?v=mnYbOrj-hLY)<br>
