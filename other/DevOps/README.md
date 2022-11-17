@@ -17,7 +17,7 @@
   - [CI/CD pipelines](#CICD-pipelines) 
 - [Free tutorials](#Free-tutorials)
   - [GitLab](#GitLab)
-    - [GitLab CI/CD Pipeline](#GitLab-CI-CD-Pipeline) 
+    - [GitLab CI/CD Pipeline](#gitlab-cicd-pipeline) 
 - [Resources](#Resources)
 
 ## Codecademy course - Introduction to DevOps
