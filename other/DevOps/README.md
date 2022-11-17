@@ -17,6 +17,7 @@
   - [CI/CD pipelines](#CICD-pipelines) 
 - [Free tutorials](#Free-tutorials)
   - [GitLab](#GitLab)
+    - [GitLab CI/CD Pipeline](#GitLab-CI-CD-Pipeline) 
 - [Resources](#Resources)
 
 ## Codecademy course - Introduction to DevOps
@@ -240,13 +241,11 @@ Here are some of the features it holds:
 * GitLab also allows the use of third party addons (integrations), making it extensible and providing even more features.<br>
 
 #### GitLab CI/CD Pipeline
-##### Introduction
 **GitLab CI/CD** includes a subset of GitLab's features that allow DevOps practices such as [continuous integration, continuous delivery, continuous deployment](#CICD-pipelines).<br>
 Thus through a **GitLab pipeline** we can automatically build, test and deploy our software.<br>
 A GitLab pipeline is defined inside a file named '.gitlab-ci.yml' that lives at the root directory of a gitlab project.<br>
 A GitLab pipeline consists of Jobs (describes the tasks that need to be done) and Stages (defines the order in which jobs will be completed). Thus a gitlab pipeline consists of a set of instructions for a program to execute. The program that executes those instructions is called **GitLab Runner**, which can run on local host, VM or docker container.
 
-#### Create Pipeline
 On GitLab project repository, see left page and go to 'CI/CD -> Editor', than create a new pipeline.<br>
 Now a pipeline template has been generated you can edit. Let's look at it and understand it.
 <pre>
@@ -259,7 +258,7 @@ stages:
 #Subsequently in file all those jobs will be defined.
 
  build-job:                                     #This is the name we give to a job.
-  stage: build                                  #Here we define the stage the job is associated with.
+  stage: build                                  #Here we define the stage the job is associated with, namely build, which runs first.
   script:                                       #Here we can define the shell commands that the job executes.
     - echo "Compiling the code..."
     - echo "Compile complete."
@@ -283,12 +282,25 @@ deploy-job:
     - echo "Deploying application..."
     - echo "Application successfully deployed."
 </pre>
+After committing the file, the pipeline will start running instantly. It will basically perform the jobs on the code inside the repository and notify if a job failure occurs.<br>
 
+When files are generated inside one stage they won't be accessible by the next stages because each stage uses its own workspace environment. To resolve this issue we can define the files we would want to pass to the next stage.
+```
+build-job:       
+  stage: build
+  script:
+    - echo "Compiling the code..."
+    - echo "Compile complete."
+  artifacts:                                    #Defines files generated in this job that should be shared with downstrean jobs. After the pipeline completes, those files can be downloaded to local machine.
+    paths:
+      - <pathToFile>
+```
 
+If we need specific dependencies to run our pipeline we can define an image at top of file. The workspace each stage runs in will pull that docker image. If we need python we can define at top file `image: python` for example.<br>
+We can also define environment variables at top of file to be available in each stage workspace.
 
 ## Resources
 [codecademy - Introduction to DevOps](https://www.codecademy.com/learn/introduction-to-dev-ops)<br>
 [GitLab - What is GitLab?](https://www.youtube.com/watch?v=MqL6BMOySIQ)<br>
 [LevelUpTuts - What Is GitLab?](https://www.youtube.com/watch?v=gbJUasioKiI)<br>
-
 [GitLab CI CD Pipeline Tutorial | Introduction | 2022](https://www.youtube.com/watch?v=mnYbOrj-hLY)<br>
