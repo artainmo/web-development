@@ -17,7 +17,8 @@
   - [CI/CD pipelines](#CICD-pipelines) 
 - [Free tutorials](#Free-tutorials)
   - [GitLab](#GitLab)
-    - [GitLab CI/CD Pipeline](#gitlab-cicd-pipeline) 
+    - [GitLab CI/CD Pipeline](#gitlab-cicd-pipeline)
+    - [GitLab Runner on Kubernetes](#GitLab-Runner-on-Kubernetes)
 - [Resources](#Resources)
 
 ## Codecademy course - Introduction to DevOps
@@ -299,8 +300,38 @@ build-job:
 If we need specific dependencies to run our pipeline we can define an image at top of file. The workspace each stage runs in will pull that docker image. If we need python we can define at top file `image: python` for example.<br>
 We can also define environment variables at top of file to be available in each stage workspace.
 
+Apparently 'GitLab Agents' are able to synchorinize a running application with a repository. Thus they act similar as a 'deploy' job in a GitLab CI/CD pipeline.
+
+#### GitLab Runner on Kubernetes
+'GitLab runner' executes [CI/CD pipeline instructions](#gitlab-cicd-pipeline).<br>
+'[helm](https://github.com/artainmo/WebDevelopment/blob/main/other/kubernetes/README.md#helm)' is a package manager for kubernetes that in this case allows us to install a GitLab runner made for Kubernetes.<br>
+The GitLab runner is made for kubernetes because it uses the 'Kubernetes Executor', which allows each CI/CD pipeline instruction (job) to be run in its own pod, inside chosen namespace, those jobs will be able to use kubectl commands.
+
+```
+helm repo add gitlab https://charts.gitlab.io
+helm install --namespace <KUBERNETES_NAMESPACE_NAME> gitlab-runner -f <CONFIG_VALUES_FILE> gitlab/gitlab-runner
+```
+The <CONFIG_VALUES_FILE> should equal the path towards your 'values.yaml' configuration file. This file contains values that will be passed to the created chart.<br>
+Here we have as required config value 'gitlabUrl'. This value can simply equal 'gitlab.com' if you are not running a private GitLab server.<br>
+Second as required config value we have 'runnerRegistrationToken'. This value can be found in the gitlab repository you want to associate with a GitLab CI/CD pipeline. When on repo, go to (Settings -> CI/CD -> Runners), under 'Specific runners' you can find `Register the runner with this URL: <gitlabUrl>. And this registration token: <runnerRegistrationToken>.`.<br>
+Instead of using a 'values.yaml' file you can start the gitlab-runner like this.
+```
+helm install --namespace <KUBERNETES_NAMESPACE_NAME> gitlab-runner \
+      --set gitlabUrl=<URL>,runnerRegistrationToken=<TOKEN> \
+      gitlab/gitlab-runner
+```
+After the GitLab runner has been created you can visualize it like this.
+```
+helm status gitlab-runner
+kubectl describe pods gitlab-runner --namespace=<KUBERNETES_NAMESPACE>
+```
+On gitlab.com associated project repo see (Settings -> CI/CD -> Runners -> Specific runners -> Available specific runners).
+
+Now that the runner is registered, it should execute the associated repository's [CI/CD pipeline instructions](#gitlab-cicd-pipeline).
+
 ## Resources
 [codecademy - Introduction to DevOps](https://www.codecademy.com/learn/introduction-to-dev-ops)<br>
 [GitLab - What is GitLab?](https://www.youtube.com/watch?v=MqL6BMOySIQ)<br>
 [LevelUpTuts - What Is GitLab?](https://www.youtube.com/watch?v=gbJUasioKiI)<br>
 [GitLab CI CD Pipeline Tutorial | Introduction | 2022](https://www.youtube.com/watch?v=mnYbOrj-hLY)<br>
+[GitLab CI CD | Install and Configure GitLab Runner on Kubernetes with Helm](https://www.youtube.com/watch?v=0Fes86qtBSc)
