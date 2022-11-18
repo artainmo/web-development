@@ -245,7 +245,8 @@ Here are some of the features it holds:
 **GitLab CI/CD** includes a subset of GitLab's features that allow DevOps practices such as [continuous integration, continuous delivery, continuous deployment](#CICD-pipelines).<br>
 Thus through a **GitLab pipeline** we can automatically build, test and deploy our software.<br>
 A GitLab pipeline is defined inside a file named '.gitlab-ci.yml' that lives at the root directory of a gitlab project.<br>
-A GitLab pipeline consists of Jobs (describes the tasks that need to be done) and Stages (defines the order in which jobs will be completed). Thus a gitlab pipeline consists of a set of instructions for a program to execute. The program that executes those instructions is called **GitLab Runner**, which can run on local host, VM or docker container.
+A GitLab pipeline consists of Jobs (describes the tasks that need to be done) and Stages (defines the order in which jobs will be completed). Thus a gitlab pipeline consists of a set of instructions for a program to execute. The program that executes those instructions is called **GitLab Runner**, which can run on local host, VM or docker container.<br>
+The CI/CD pipeline execution is triggered each time a commit pushed on the associated repository. 
 
 On GitLab project repository, see left page and go to 'CI/CD -> Editor', than create a new pipeline.<br>
 Now a pipeline template has been generated you can edit. Let's look at it and understand it.
