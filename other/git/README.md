@@ -146,7 +146,7 @@ Those can even be referenced in pull requests and in other issues and receive ta
 
 The github command line interface (CLI) allows one to interact with issues and pull requests from the terminal instead of the software interface.
 
-Github actions can be used to automate certain tasks, such as using automated tests after a pull request or notify collaborators after a branch merged into the main.
+Github actions can be used to automate certain tasks, such as using automated tests after a pull request or notify collaborators after a branch merged into the main. Github actions allow the creation of a CI/CD pipeline.
 
-An alternative to Github for managing git repositories that contains way more features is [gitlab](https://github.com/artainmo/WebDevelopment/blob/main/other/DevOps/README.md#gitlab).
+An alternative to Github for managing git repositories that contains way more features, especially for DevOps, is [gitlab](https://github.com/artainmo/WebDevelopment/blob/main/other/DevOps/README.md#gitlab).
 
