@@ -73,7 +73,7 @@ switch year {
     print("You're a time traveler!")
 }
 ```
-Another noteworthy ability of the switch statement is its use of multiple values in a single case. These are known as **compound cases**. Here is an example `case "USA", "Mexico", "Canada"`.
+Another noteworthy ability of the switch statement is its use of multiple values in a single case. These are known as **compound cases**. Here is an example `case "USA", "Mexico", "Canada"`.<br>
 The **where** clause allows for additional pattern matching for a given expression. See the example.
 ```
 switch randomNumber {
@@ -87,5 +87,28 @@ switch randomNumber {
 ```
 In this example we declare the variable x which will be a temporary variable holding the randomNumber value and be used in the condition following the 'where' clause.
 
+**Logical operators** such as `&&`, `||`, `!` can be used to define a condition.<br>
+The logical, **&&**, operator evaluates two operands and returns a Boolean result. It returns true only when both operands are true and returns false when at least one operand is false.<br>
+The logical, **||**, operator evaluates two operands and returns a Boolean result. It returns false only when both operands are false and returns true when at least one operand is true.<br>
+The logical, **!**, operator is a prefix operator that negates, or reverses, the Boolean value of its operand. It returns false when the operand is true, and returns true, when the operand is false.
 
+Instead of relying on the compiler to set operator precedence, we can do so ourselves by wrapping a logical expression in parentheses, `()`. The use of parentheses also makes our code easier to read and interpret.
+
+### Loops
+We use **for-in loops** to iterate over a sequence of values, such as Strings (which is a sequence of characters) or ranges (sequence of numbers). To create a range, we use the closed range operator (`...`) with a lower bound number and an upper bound number. For example, a range of `1...3`.<br>
+Here is an example of a for-in-loop:
+```
+for num in 7...9 {
+  print(num)
+}
+// This will print: 7\n8\n9
+```
+for-in loops also give us the flexibility to choose how we want to iterate over a sequence with the stride() function `stride(from: a, to: b, by: c)`. For example `for num in stride(from: 0, to: 6, by: 2) {`.<br>
+If we don't want to use the value in range we can indicate it like this `for _ in 1...15 {`.
+
+The **continue** keyword can be used to skip one loop iteration.<br>
+The **break** keyword can be used to exit the loop before it completes.<br>
+
+Another loop we can use is the **while** loop. This loop allows us to continue iterating for as long as a condition remains true. It looks like this `while <condition> {`.<br>
+They are used when we don’t know how many times we’re looping.
 
