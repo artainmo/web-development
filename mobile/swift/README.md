@@ -22,7 +22,7 @@ Usually in swift we format variable names in camelCase.
 Variables can equal digits and can be used with **arithmetic operators** to calculate such as; + (addition), - (substraction), * (multiplication), / (division), % (modulo, divides and gives remainder).<br>
 Instead of writing `age = age + 1` we can use 'compound assignment operators' and write `age += 1` and this is valid for all arithmetic operators.
 
-If we want to be clear about the kind of value stored in variable we can use **type annotation**. Here are some basic data types; Int (integer number), Double (floating-point number), String (sequence of characters), Bool (true/false values). Here is an example of a variable declaration with type annotation `var artist: String`.<br>
+If we want to be clear about the kind of value stored in variable we can use **type annotation**. Here are some basic data types; Int (integer number), Double (floating-point number), String (sequence of characters), Character, Bool (true/false values). Here is an example of a variable declaration with type annotation `var artist: String`.<br>
 This is useful by throwing warnings or errors if the given value is not of specified type.
 
 **String interpolation** means inserting a variable's value into a string, in swift we do it like this; `"This is the string and here comes the interpolation \(myVariable)"`.
@@ -111,4 +111,22 @@ The **break** keyword can be used to exit the loop before it completes.<br>
 
 Another loop we can use is the **while** loop. This loop allows us to continue iterating for as long as a condition remains true. It looks like this `while <condition> {`.<br>
 They are used when we don’t know how many times we’re looping.
+
+### Arrays & Sets
+In Swift, an array stores values of the same type in an ordered list.<br>
+We can initialize an empty array like this `var name = [Int]()`.<br>
+It is also possible to initialize an array with values `var location: [Double] = [40.7245, -73.9979]`.<br>
+We can use indexes to access specific values in array. Here for example we will access the first one `location[0]`.<br>
+Arrays have the 'count' method which returns the number of elements it contains and can be used like this `location.count`.<br>
+Two arrays can be concatenated like this `array = array1 + array2'. A value can be appended to an array like this `array.append(value)`.<br>
+It is possible to insert a value in a specific location inside an array like this `moon.insert("🌕", at: 0)
+` and remove `moon.remove(at: 4)`.<br>
+We can iterate over an array like this `for item in employees {`.
+
+
+
+
+
+
+
 
