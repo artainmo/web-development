@@ -156,8 +156,8 @@ If we were to set the value of a key to `nil`, the key-value pair would be remov
 In a dictionary we can also use `dictionaryName.isEmpty` and `dictionaryName.count`.<br>
 We can access a dictionnary value `nameDictionnary[nameKey]`. It will return a value of type **optional** because we are not sure if the value exists. To extract a value from an 'optional' we can use `nameDictionnary[nameKey]!` with `!` indicating we are sure a value exists or we can check with an if:
 ```
-if let apple = fruitNames["apple"] {
-  print(apple)
+if let apple = fruitNames["apple"] { //An if-let statement is a Swift conditional that is used to unwrap optional values which can then be assigned to variables
+  print(apple) //The apple variable can only be called inside the if-let statement because it is a temporary variable when stemming from if-let
 } else {
   print("This key does not exist.")
 }
@@ -165,4 +165,16 @@ if let apple = fruitNames["apple"] {
 We can access only the dictionary keys or values by using '.keys' or '.values'.<br>
 We can loop over a dictionary like this `for (key, value) in dictionary {` or `for value in dictionary.values {` or `for key in dictionary.keys {`.<br>
 
+Tuples group together values that are enclosed in parentheses and separated by commas. Unlike any of the previous data types mentioned, tuples can include different types of data.
+```
+var easyAsPie = ("easy as", 3.14)
+var firstValue = easyAsPie.0   // "easy as"
+var secondValue = easyAsPie.1  // 3.14
 
+var easyAsPie = (saying: "easy as", amount: 3.14)
+var firstElementValue = easyAsPie.saying  // "easy as"
+var secondElementValue = easyAsPie.amount // 3.14
+```
+In dictionaries, tuples are used to iterate over key-value pairs such as `for (character, actor) in lionKing1994 {`.
+
+### Functions
