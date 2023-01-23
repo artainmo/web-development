@@ -123,10 +123,18 @@ It is possible to insert a value in a specific location inside an array like thi
 ` and remove `moon.remove(at: 4)`.<br>
 We can iterate over an array like this `for item in employees {`.
 
-
-
-
-
-
-
-
+A set is an unordered collection of unique elements.<br>
+Sets are a great collection type to use when the data we need to store must be unique. For example, we could use a set in real life to store information about employee ID numbers at a company or to store bank account numbers.<br>
+We can initialize an empty set like this `var setName = Set<String>()`.<br>
+It is also possible to initialize a set with values `var setName: Set = [Value1, Value2, Value3]`.<br>
+We can use '.count' to find out how many elements are contained within a set and if we want to find out if our set is empty, we can use the '.isEmpty' property.<br>
+We can insert elements inside a set like this `plantShelf.insert("Graptopetalum")`, because values inside a set are not ordered we don't insert at a specific location.<br>
+If we need to remove an element from a set, we can use '.remove()' like this `setName.remove(Value)`. If we wanted to remove every single element from a set, we could use the '.removeAll()' method.<br>
+If we want to check whether or not an element exists within a set, we can use the '.contains()' method like this `setName.contains(Value)`.<br>
+We can iterate over a set like this `for Value in setName {`.<br>
+The '.intersection()' method returns a set of values that are similar in two sets. We use it like this `var newSet = SetA.intersection(SetB)`.<br>
+Another set operation we can use is '.union()'. This operation creates a set by combining the values of two sets together. We use it like this `var NewSet = SetA.union(SetB)`. We can even 'method chain' like this `var fairyTales = book1.union(book2).union(book3)`.<br>
+The '.symmetricDifference()' operation can be used to find elements that exist in one of the given sets, but not both.<br>
+Another set operation we can use is '.subtracting()'. This method creates a new set of elements by removing the overlapping data of one set from another set.
+  
+It is also possible for a set to contain other sets, same for arrays.
