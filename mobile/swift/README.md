@@ -125,7 +125,7 @@ We can iterate over an array like this `for item in employees {`.
 
 A set is an unordered collection of unique elements.<br>
 Sets are a great collection type to use when the data we need to store must be unique. For example, we could use a set in real life to store information about employee ID numbers at a company or to store bank account numbers.<br>
-We can initialize an empty set like this `var setName = Set<String>()`.<br>
+We can initialize an empty set like this 'var setName = Set\<String\>()'.<br>
 It is also possible to initialize a set with values `var setName: Set = [Value1, Value2, Value3]`.<br>
 We can use '.count' to find out how many elements are contained within a set and if we want to find out if our set is empty, we can use the '.isEmpty' property.<br>
 We can insert elements inside a set like this `plantShelf.insert("Graptopetalum")`, because values inside a set are not ordered we don't insert at a specific location.<br>
@@ -138,3 +138,31 @@ The '.symmetricDifference()' operation can be used to find elements that exist i
 Another set operation we can use is '.subtracting()'. This method creates a new set of elements by removing the overlapping data of one set from another set.
   
 It is also possible for a set to contain other sets, same for arrays.
+  
+### Dictionaries
+A dictionary is an unordered collection of paired data. The paired data, also called element, is commonly referred to as a key-value pair in which a key is a unique identifier for their associated value.<br>
+We can initialize an empty dictionary like this `var dictionaryName = [KeyType: ValueType]()`.<br>
+The syntax to create a populated dictionary looks like this:
+```
+var dictionaryName: [KeyType: ValueType] = [
+  Key1: Value1,
+  Key2: Value2,
+  Key3: Value3
+]
+```
+With 'type inference' the compiler deduces the types. Thus the type does not always have to be manually indicated (and this has implications for all variables), however it is cleaner to do so.<br>
+If we wanted to add a new key-value to a dictionary, we could use the following subscript syntax: `dictionaryName[NewKey] = NewValue` and if we want to change an existing value `dictionaryName[Key] = NewValue`.<br>
+If we were to set the value of a key to `nil`, the key-value pair would be removed from the dictionary. Also we can use `dictionaryName.removeValue(forKey: Key)` and '.removeAll()'.<br>
+In a dictionary we can also use `dictionaryName.isEmpty` and `dictionaryName.count`.<br>
+We can access a dictionnary value `nameDictionnary[nameKey]`. It will return a value of type **optional** because we are not sure if the value exists. To extract a value from an 'optional' we can use `nameDictionnary[nameKey]!` with `!` indicating we are sure a value exists or we can check with an if:
+```
+if let apple = fruitNames["apple"] {
+  print(apple)
+} else {
+  print("This key does not exist.")
+}
+```
+We can access only the dictionary keys or values by using '.keys' or '.values'.<br>
+We can loop over a dictionary like this `for (key, value) in dictionary {` or `for value in dictionary.values {` or `for key in dictionary.keys {`.<br>
+
+
