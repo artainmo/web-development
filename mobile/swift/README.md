@@ -178,3 +178,4 @@ var secondElementValue = easyAsPie.amount // 3.14
 In dictionaries, tuples are used to iterate over key-value pairs such as `for (character, actor) in lionKing1994 {`.
 
 ### Functions
+Swift functions are chunks of reusable code that achieve a certain outcome.
