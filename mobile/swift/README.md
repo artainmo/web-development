@@ -179,3 +179,40 @@ In dictionaries, tuples are used to iterate over key-value pairs such as `for (c
 
 ### Functions
 Swift functions are chunks of reusable code that achieve a certain outcome.
+
+Here is how a function looks like in swift:
+<pre>
+func functionName() -> returnType {
+ // function's task goes here
+} 
+
+functionName() //Here we call the function
+</pre>
+If the function does not return, than 'returnType' equals 'Void' or is ommited.<br>
+
+If we intend for a function to return a value, we must specify that value’s return type in the function definition like this `return 5`. If we want to return multiple values we can return a tuple, array, dictionary...<br>
+It is also possible to return the function's last line of code without using the 'return' keyword, this is called implicit return.
+
+Parameters are defined inside a function as follows `func someFunction(paramName1: paramType1, paramName2: paramType2) -> returnType {` and passed inside function calls like this `findGardenArea(paramName1: paramValue1, paramName2: paramValue2)`.<br>
+It is also possible when using parameters to make distinction between the argumentLabel and parameterName, see here.
+```
+func functionName(argumentLabel parameterName: type) {
+    print(parameterName) // Notice that we use the parameter name in the body of the function
+}
+
+functionName(argumentLabel: value) //But we use the argumentLabel when calling the function
+```
+In practice, you will find that it often makes sense to refer to a parameter by a different name in the body of the function than when calling the function.<br>
+When an `_` is specified ahead of a parameter name in the definition, only the argument value needs to be specified in the function call:
+```
+func funcName(_ paramName: paramType) -> returnType {
+ // function body 
+}
+
+funcName(argument)  // function call does not need to specify the argumentLabel 
+```
+
+
+
+
+
