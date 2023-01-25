@@ -211,6 +211,9 @@ func funcName(_ paramName: paramType) -> returnType {
 
 funcName(argument)  // function call does not need to specify the argumentLabel 
 ```
+**Default parameters** have a real value assigned to a parameter in the function’s definition. A parameter that has a default value does not require an argument passed into it when the function is called because when it is not, the default value will be used. Here is how it can look like `func totalWithTip(total: Double, tip: Double = 0.2) -> Double {`, whereby 'tip' will equal 0.2 if it is not passed as argument when calling.<br>
+A **variadic parameter** is a parameter that accepts zero or more values of a certain type. A variadic parameter is useful for cases in which we may need to pass in more than one value for a single parameter. A variadic parameter is denoted by a name, type, and three consecutive dots ... in the function declaration. It looks like this `func functionName(paramName: paramType...) -> returnType {`. The values passed for a variadic parameter are interpreted as an array of a specific type within the function’s body. It is called like this `avgExchangeRate(numbers: 0.81380, 0.77268, 0.77453, 0.75466, 0.75729, 0.78241)`, whereby 'numbers' is the variadic parameter.
+An **in-out parameter** allows a function to reassign the value of a variable passed in as an argument. Since a function with an inout parameter is expected to change the value of its argument, only variables can be passed in when the function is called, not constants or literals since they can not be altered. It is declared like this `func funcName(parameterName: inout parameterType) -> returnType {`. When a function that utilizes an inout parameter is called, an ampersand, &, must be used directly before the variable name that will act as its argument. This symbol instructs the program that the variable can be modified. It looks like this `batteryInterface(percentage: 12, batteryColor: &currentColor)`.
 
 
 
