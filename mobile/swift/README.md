@@ -11,7 +11,7 @@
   - [Functions](#Functions)
   - [Structures](#Structures)
   - [Classes](#Classes)
-- [Free tutorials]
+- [Free tutorials](#Free-tutorials)
   - [Use Material Design for swift frontend](#Use-Material-Design-for-swift-frontend)
 - [Resources](#Resources)
 
