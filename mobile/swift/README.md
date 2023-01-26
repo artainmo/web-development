@@ -215,7 +215,63 @@ funcName(argument)  // function call does not need to specify the argumentLabel
 A **variadic parameter** is a parameter that accepts zero or more values of a certain type. A variadic parameter is useful for cases in which we may need to pass in more than one value for a single parameter. A variadic parameter is denoted by a name, type, and three consecutive dots ... in the function declaration. It looks like this `func functionName(paramName: paramType...) -> returnType {`. The values passed for a variadic parameter are interpreted as an array of a specific type within the function’s body. It is called like this `avgExchangeRate(numbers: 0.81380, 0.77268, 0.77453, 0.75466, 0.75729, 0.78241)`, whereby 'numbers' is the variadic parameter.
 An **in-out parameter** allows a function to reassign the value of a variable passed in as an argument. Since a function with an inout parameter is expected to change the value of its argument, only variables can be passed in when the function is called, not constants or literals since they can not be altered. It is declared like this `func funcName(parameterName: inout parameterType) -> returnType {`. When a function that utilizes an inout parameter is called, an ampersand, &, must be used directly before the variable name that will act as its argument. This symbol instructs the program that the variable can be modified. It looks like this `batteryInterface(percentage: 12, batteryColor: &currentColor)`.
 
+### Structures
+Structures allow us to create customized data types, transform a complex object into code.
 
+Here’s an example of a struct that models a 'Dog' with 'age' and 'isGood' as properties:
+```
+struct Dog {
+  var age: Int
+  var isGood: Bool
+}
+```
 
+We can give **default property values** to the structure's properties. This means they equal the default value if we don't assign them any.
+```
+struct Dog {
+  var age = 0
+  var isGood = true
+}
+```
 
+To use the struct we have to create an instance of it.
+```
+var eloise = Dog() //Struct instance
+
+print(eloise.age) //Access struct properties
+print(eloise.isGood)
+
+eloise.age = 7 //Reassign struct properties
+eloise.isGood = false
+````
+
+The 'init()' method is special since it doesn’t require the func keyword and gets called upon instance creation. Like other methods it uses the 'self' keyword to reference its struct instance.<br>
+In addition to the init() method, we can also provide our structs with custom methods that instances can call. These instance methods are created like a normal function but within the scope of the structure itself.
+```
+struct Dog {
+  var age : Int
+  var isGood : Bool
+ 
+  init (age: Int, isGood: Bool) {
+    self.age = age
+    self.isGood = isGood
+  }
+  
+  func bark() {
+    print("woof")
+  }
+}
+
+var bucket = Dog(age: 4, isGood: true) //When instanciating we call 'init()'
+bucket.bark() //We can call a method like this
+```
+
+If we want to change properties' values from within a method, the method should be declared with the keyword 'mutating', for example `mutating func birthday() -> Int {`.
+
+Structures form custom data types. It is possible to have a struct inside another struct as a property value.
+
+Structures are 'value types' and not 'reference types', this means when copying one struct onto another, they will exist on different memory spaces, they won't point on the same place in memory space, meaning a change to one of those structs won't reflect on the other struct.
+
+### Classes
+Like structures, classes form custom data types describing complex objects. However classes are 'reference types' instead of 'value types' and they enable what we call 'inheritance'.
 
