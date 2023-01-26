@@ -330,4 +330,3 @@ Swift's IDE is Xcode, it is recommended especially for frontend development beca
 ## Resources
 [Codecademy - Learn Swift](https://www.codecademy.com/learn/learn-swift)<br>
 [Swift Tutorial: Google Material Design Components & User Interface (Swift 2020) - Xcode 11, iOS](https://www.youtube.com/watch?v=odM92k_0_FE)<br>
-[Swift: Build Your First App (2023) - iOS for Beginners](https://www.youtube.com/watch?v=yuo50-TiKgo)
