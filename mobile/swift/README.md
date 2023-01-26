@@ -2,6 +2,16 @@
 
 ## Table of contents
 - [codecademy course - Learn Swift](#codecademy-course---Learn-Swift)
+  - [Introduction](#Introduction)
+  - [Variables](#Variables)
+  - [Conditionals](#Conditionals)
+  - [Loops](#Loops)
+  - [Arrays and Sets](#Arrays-and-Sets) 
+  - [Dictionaries](#Dictionaries)
+  - [Functions](#Functions)
+  - [Structures](#Structures)
+  - [Classes](#Classes)
+- [Resources](#Resources)
 
 ## codecademy course - Learn Swift
 ### Introduction
@@ -112,7 +122,7 @@ The **break** keyword can be used to exit the loop before it completes.<br>
 Another loop we can use is the **while** loop. This loop allows us to continue iterating for as long as a condition remains true. It looks like this `while <condition> {`.<br>
 They are used when we don’t know how many times we’re looping.
 
-### Arrays & Sets
+### Arrays and Sets
 In Swift, an array stores values of the same type in an ordered list.<br>
 We can initialize an empty array like this `var name = [Int]()`.<br>
 It is also possible to initialize an array with values `var location: [Double] = [40.7245, -73.9979]`.<br>
@@ -302,3 +312,5 @@ A subclass can provide its own custom implementation of a property or method tha
 
 Classes are **reference types**. Unlike 'value types', 'reference types' are not copied when they are assigned to a variable or constant, or when they are passed to a function. Rather than a copy, a reference to the same existing instance is used.
 
+## Resources
+[Codecademy - Learn Swift](https://www.codecademy.com/learn/learn-swift)
