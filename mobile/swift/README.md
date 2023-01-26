@@ -275,3 +275,30 @@ Structures are 'value types' and not 'reference types', this means when copying 
 ### Classes
 Like structures, classes form custom data types describing complex objects. However classes are 'reference types' instead of 'value types' and they enable what we call 'inheritance'.
 
+A class looks like this.
+```
+class Student {
+  var name: String
+  var year: Int
+  var gpa: Double
+  var honors: Bool = false //Default property value
+  
+  init(name: String, year: Int, gpa: Double, honors: Bool) { //Init function called at instanciation
+    self.name = name //The self keyword is used to access the instance's properties from within the class
+    self.year = year
+    self.gpa = gpa
+    self.honors = honors
+  }
+}
+
+var bart = Student(name: "Bart Simpson", year: 4, gpa: 0.0, honors: false) //Creating a class instance
+ferris.name = "Ferris Bueller" //Assigning a value to one of the properties
+```
+
+When we define a class, it can **inherit**, meaning it can take on another class’s properties and methods. This is an additional capability that structures don’t offer.<br>
+When one class inherits from another, the new inheriting class is known as a **subclass** and the class it inherits from is known as its **superclass**.<br>
+Here is how we declare an inheritance between two classes `class Subclass: Superclass {`.<br>
+A subclass can provide its own custom implementation of a property or method that is inherited from a superclass. This is known as **overriding**. In such cases we use the 'override' keyword like this `override func withdraw(amount: Double) {`.
+
+Classes are **reference types**. Unlike 'value types', 'reference types' are not copied when they are assigned to a variable or constant, or when they are passed to a function. Rather than a copy, a reference to the same existing instance is used.
+
