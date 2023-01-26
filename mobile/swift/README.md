@@ -11,6 +11,8 @@
   - [Functions](#Functions)
   - [Structures](#Structures)
   - [Classes](#Classes)
+- [Free tutorials]
+  - [Use Material Design for swift frontend](#Use-Material-Design-for-swift-frontend)
 - [Resources](#Resources)
 
 ## codecademy course - Learn Swift
@@ -23,7 +25,10 @@ Single-line-comments look like this `// MyComment` and multi-line `/* MyComment 
 Files for programming in swift have the '.swift' extension.
 
 Xcode is an IDE specially developed by Apple for software on iOS, watchOS, macOS, iPadOS, tvOS.<br>
-However sometimes it is easier to develop swift programs simply in the terminal. You can verify your swift like this `swift --version`, compile `swiftc <filename>.swift` and execute `./<executable>`.
+However sometimes it is easier to develop swift programs simply in the terminal.<br>
+The advantages of Xcode are the propositions of templates when starting a project and the simulation of specific IOS devices when wanting to develop an app on them.
+
+You can verify your swift like this `swift --version`, compile `swiftc <filename>.swift` and execute `./<executable>`.
 
 ### Variables
 Here is an example of how to declare a variable `var score = 0`, that we can later print for example `print(score)`.<br>
@@ -312,5 +317,16 @@ A subclass can provide its own custom implementation of a property or method tha
 
 Classes are **reference types**. Unlike 'value types', 'reference types' are not copied when they are assigned to a variable or constant, or when they are passed to a function. Rather than a copy, a reference to the same existing instance is used.
 
+## Free tutorials
+### Use Material Design for swift frontend
+Material Design is a frontend library developed by google and available for a ton of different programming languages. Here lies the [documentation](https://m2.material.io/develop/ios) for ios and thus swift.<br>
+Material Design contains different [components](https://m2.material.io/components) that can be used in frontend, such as buttons, cards, app bars...
+
+Instead of adding the whole 'Material Design' library which uses a lot of memory space, it is advised to selectively import desired components. You can view how to import a specific one within the [component documentation](https://m2.material.io/components).<br>
+Swift uses the **CocoaPods dependency manager**. Usually CocoaPods is downloaded using default Ruby available on macOS `sudo gem install cocoapods`, for more info find the docs [here](https://cocoapods.org/). Usually one should put the dependencies in a file at project root named 'Podfile' and run `pod install` in this directory.
+
+Swift's IDE is Xcode, it is recommended especially for frontend development because it can simulate IOS products such as specific iphones in the case of mobile development. Xcode will also generate a code template to start your project on.
+
 ## Resources
-[Codecademy - Learn Swift](https://www.codecademy.com/learn/learn-swift)
+[Codecademy - Learn Swift](https://www.codecademy.com/learn/learn-swift)<br>
+[Swift Tutorial: Google Material Design Components & User Interface (Swift 2020) - Xcode 11, iOS](https://www.youtube.com/watch?v=odM92k_0_FE)<br>
