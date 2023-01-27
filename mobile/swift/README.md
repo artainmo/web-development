@@ -44,6 +44,8 @@ This is useful by throwing warnings or errors if the given value is not of speci
 
 **Constants** are variable containing an immutable value, they are used as a safety measure and declared with keyword let, `let variable`.
 
+**Optionals** are variable that may contain a nil value. They are declared with a '?' at end of type. For example a string that could equal nil would be an optional and declared like this `var variable3: String?`.
+
 ### Conditionals
 An **if** statement is used to execute some code when a condition is true, **else if** when prior conditions were false but current one is true, **else** statement is used to execute code if prior conditions were false.
 ```
