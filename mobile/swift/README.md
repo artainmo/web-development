@@ -320,6 +320,9 @@ A subclass can provide its own custom implementation of a property or method tha
 Classes are **reference types**. Unlike 'value types', 'reference types' are not copied when they are assigned to a variable or constant, or when they are passed to a function. Rather than a copy, a reference to the same existing instance is used.
 
 ## Free tutorials
+### Swift frontend
+After generating swift project with xcode, inside a file named 'Assets.xcassets' we can add logos, colors or other default visuals for consistent use in app.
+
 ### Use Material Design for swift frontend
 Material Design is a frontend library developed by google and available for a ton of different programming languages. Here lies the [documentation](https://m2.material.io/develop/ios) for ios and thus swift.<br>
 Material Design contains different [components](https://m2.material.io/components) that can be used in frontend, such as buttons, cards, app bars...
