@@ -354,7 +354,7 @@ With Xcode the frontend can be defined programmatically or via drag and drop (al
 #### UIKit and SwiftUI
 UIKit is the initial and default frontend framework used to create UI interfaces in Swift. Recently a new frontend framework came to market called SwiftUI.
 
-UIKit is foundational to 'Storyboards'. When creating a project with Xcode we have to choose between storyboards, thus UIKit, or SwiftUI.
+UIKit is foundational to 'Storyboards'. When creating a project with Xcode we have to choose between storyboards, thus UIKit, or SwiftUI. However UIKit can also be used for programmatic UI, choosing UIKit does not imperically mean using storyboards.
 
 #### Auto-layout
 Is a contraint-based system that helps us adapt the frontend automatically to all the different screen sizes the app will run on.
