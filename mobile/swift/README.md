@@ -289,6 +289,19 @@ Structures form custom data types. It is possible to have a struct inside anothe
 
 Structures are 'value types' and not 'reference types', this means when copying one struct onto another, they will exist on different memory spaces, they won't point on the same place in memory space, meaning a change to one of those structs won't reflect on the other struct.
 
+'Extensions' allow to add functionality to an existing type. Usually this is done to custom types, thus structures, but it can be done to all data types.<br>
+```
+extension String {
+  func removeWhitespace() -> String {
+    return components(separatedBy: .whitespaces).joined()
+  }
+}
+
+let alphabet = "A B C D"
+print(alphabet.removeWhitespace())
+//output: ABCD
+```
+
 ### Classes
 Like structures, classes form custom data types describing complex objects. However classes are 'reference types' instead of 'value types' and they enable what we call 'inheritance'.
 
@@ -320,17 +333,53 @@ A subclass can provide its own custom implementation of a property or method tha
 Classes are **reference types**. Unlike 'value types', 'reference types' are not copied when they are assigned to a variable or constant, or when they are passed to a function. Rather than a copy, a reference to the same existing instance is used.
 
 ## Free tutorials
+### Xcode
+Xcode is the IDE for writing swift applications for apple products.<br>
+It is unique in its ability to generate a template for a swift project, in its ability to do frontend development via drag and drop and in its ability to simulate the created apps on any apple product. It also corrects a lot of errors in the project from within the IDE.<br>
+Xcode can only be downloaded on a mac.<br>
+Xcode can be used to open a project or playground. Project refers to a swift app and playground to test swift code.
+
+To debug code it can be useful to stop code exectution at one point in the program. In Xcode we can do just that by indicating 'breakpoints' in the code.
+
+With Xcode the frontend can be defined programmatically or via drag and drop (also called 'Storyboard'). 
+
 ### Swift frontend
-#### Drag and drop
+#### UIKit and SwiftUI
+UIKit is the initial and default frontend framework used to create UI interfaces in Swift. Recently a new frontend framework came to market called SwiftUI.
+
+UIKit is foundational to 'Storyboards'. When creating a project with Xcode we have to choose between storyboards, thus UIKit, or SwiftUI.
+
+#### Auto-layout
+Is a contraint-based system that helps us adapt the frontend automatically to all the different screen sizes the app will run on.
+
+#### Storyboard vs programmatic UI
+The advantage of storyboards are the visual layouts they provide, using drag and drop, hiding the code behind it. Because you do not code with storyboards its advantage is ease of use, however it is more difficult to have a precise representation of the app like this. Thus we could conclude storyboards to compromise precision for ease of use.<br>
+Another disadvantage of storyboards is that associated merge conflicts are complicated to resolve and bugs in general.<br>
+Another disadvantage of storyboards is that drag and drop becomes complicated to use for complex frontend apps. Also making changes is more complex with storyboards.<br>
+Thus to conclude storyboards seem to be advantageous for simple frontends and less advantageous for complex frontends.
+
+Programmatic UI is more flexible. It makes it easier to debug, make changes, reuse code. Better suited for complex frontends.
+
+##### Storyboard
+Xcode allows the generation of frontend code via drag and drop using 'Storyboards' which is based on UIKit.
+
+Xcode auto-generates the 'Main.storyboard' file which represents the app's homepage. Also it auto-generates the 'LaunchScreen.storyboard' file which defines the app's launchscreen, which is the page that displays while the app is loading.<br>
+By going on the previously described 'Main.storyboard' or 'LaunchScreen.storyboard' we can create those app pages/screens with drag and drop.<br>
+On 'Main.storyboard' multiple 'pages/screens' can be made via the UI element named 'View Controller'. The homepage the app will launch on is the one page you indicated next to the 'storyboard entry point' arrow. From this page links can be made to the other pages, such as with a menu bar, so that the other pages are accessible too.
+
 After generating swift project with xcode, inside a file named 'Assets.xcassets' we can add logos, colors or other default visuals for consistent use in app. Those will become accessible from everywhere in the application.
 
-Xcode auto-generates the 'Main.storyboard' file which represents the app's homepage. Also it auto-generates the 'LaunchScreen.storyboard' file which defines the app's launchscreen, which is the page that displays while the app is loading.
+When on a '.storyboard' file, to add an UI element we have to click on the top right '+' sign. Each UI element can then be customized via the right column that can be toggled.<br>
+The 'View Controller' element defines a page/screen, all the other UI elements have to be used inside this foundational UI element.<br>
+The 'view' element defines a container.<br>
+Other commonly used elements are UITableView (list of rows), UICollectionView (grid), UITabBar (mobile menu).
 
-Xcode allows the generation of frontend code via drag and drop. By going on the previously described 'Main.storyboard' or 'LaunchScreen.storyboard' we can create those app pages with drag and drop. To add an UI element we have to click on the top right '+' sign. Each UI element can then be customized via the right column that can be toggled.<br>
-We can simulate the app created by clicking on top left play button.<br>
-On 'Main.storyboard' multiple 'pages' can be made via the UI element named 'View Controller'. The homepage the app will launch on is the one page you indicated next to the 'storyboard entry point' arrow. From this page links can be made to the other pages, such as with a menu bar, so that the other pages are accessible too.
+At the bottom right of the page we can access the 'auto-layout' settings, enabling compatibility between different screeen sizes. A constraint consists of setting a UI element a minimal distance to the right, left, top, bottom of the screen/container limits. Those constraints will be based on the UI element an UI element is in, if it is inside a 'View Controller' the contraints will be in relation to that, but if you set it inside a container ('view' element) then the contraints will be in relation to that container.<br>
+Another way to set contraints is to click, hold and drag a line from one element to another element, allowing you to set constraints between those two elements.
 
-#### Prammatic UI
+We can simulate the app created by clicking on top left play button.
+
+##### Prammatic UI
 
 #### Use Material Design for swift frontend
 Material Design is a frontend library developed by google and available for a ton of different programming languages. Here lies the [documentation](https://m2.material.io/develop/ios) for ios and thus swift.<br>
@@ -344,3 +393,4 @@ Swift's IDE is Xcode, it is recommended especially for frontend development beca
 ## Resources
 [Codecademy - Learn Swift](https://www.codecademy.com/learn/learn-swift)<br>
 [Swift Tutorial: Google Material Design Components & User Interface (Swift 2020) - Xcode 11, iOS](https://www.youtube.com/watch?v=odM92k_0_FE)<br>
+[Swift Programming Tutorial | FULL COURSE | Absolute Beginner](https://www.youtube.com/watch?v=CwA1VWP0Ldw)
