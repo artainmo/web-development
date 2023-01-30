@@ -361,23 +361,30 @@ Thus to conclude storyboards seem to be advantageous for simple frontends and le
 Programmatic UI is more flexible. It makes it easier to debug, make changes, reuse code. Better suited for complex frontends.
 
 ##### Storyboard
-Xcode allows the generation of frontend code via drag and drop using 'Storyboards' which is based on UIKit.
+Xcode allows the generation of frontend code via drag and drop using 'Storyboards' which is based on UIKit. Each storyboard has to be connected a file. The drag and drop done in '.storyboard' file will generate code in associated '.swift' file.
 
-Xcode auto-generates the 'Main.storyboard' file which represents the app's homepage. Also it auto-generates the 'LaunchScreen.storyboard' file which defines the app's launchscreen, which is the page that displays while the app is loading.<br>
+Xcode auto-generates the **Main.storyboard** file which represents the app's homepage. Also it auto-generates the **LaunchScreen.storyboard** file which defines the app's launchscreen, which is the page that displays while the app is loading.<br>
 By going on the previously described 'Main.storyboard' or 'LaunchScreen.storyboard' we can create those app pages/screens with drag and drop.<br>
 On 'Main.storyboard' multiple 'pages/screens' can be made via the UI element named 'View Controller'. The homepage the app will launch on is the one page you indicated next to the 'storyboard entry point' arrow. From this page links can be made to the other pages, such as with a menu bar, so that the other pages are accessible too.
 
-After generating swift project with xcode, inside a file named 'Assets.xcassets' we can add logos, colors or other default visuals for consistent use in app. Those will become accessible from everywhere in the application.
+After generating swift project with xcode, inside a file named **Assets.xcassets** we can add logos, colors or other default visuals for consistent use in app. Those will become accessible from everywhere in the application.
 
-When on a '.storyboard' file, to add an UI element we have to click on the top right '+' sign. Each UI element can then be customized via the right column that can be toggled.<br>
+When on a '.storyboard' file, to add an **UI element** we have to click on the top right '+' sign. Each UI element can then be customized via the right column that can be toggled, there you can also define this custom UI element as a class for re-usability.<br>
 The 'View Controller' element defines a page/screen, all the other UI elements have to be used inside this foundational UI element.<br>
 The 'view' element defines a container.<br>
 Other commonly used elements are UITableView (list of rows), UICollectionView (grid), UITabBar (mobile menu).
 
-At the bottom right of the page we can access the 'auto-layout' settings, enabling compatibility between different screeen sizes. A constraint consists of setting a UI element a minimal distance to the right, left, top, bottom of the screen/container limits. Those constraints will be based on the UI element an UI element is in, if it is inside a 'View Controller' the contraints will be in relation to that, but if you set it inside a container ('view' element) then the contraints will be in relation to that container.<br>
+At the bottom right of the page we can access the **auto-layout** settings, enabling compatibility between different screeen sizes. A constraint consists of setting a UI element a minimal distance to the right, left, top, bottom of the screen/container limits. Those constraints will be based on the UI element an UI element is in, if it is inside a 'View Controller' the contraints will be in relation to that, but if you set it inside a container ('view' element) then the contraints will be in relation to that container.<br>
 Another way to set contraints is to click, hold and drag a line from one element to another element, allowing you to set constraints between those two elements.
 
-We can simulate the app created by clicking on top left play button.
+We can **simulate the app** created by clicking on top left play button.
+
+Usually we begin by creating the foundation of frontend app which is the **navigation**.<br>
+For this we use the 'UINavigationController', by selecting screen, going on top of mac screen to 'Editor' -> 'Embed In' -> 'Navigation Controller'. This will create a **navigation-controller** who is connected to that selected screen, on top of that screen you can indicate in the spawned navigation bar its page title. A navigation-controller is a container that will hold all the screens conencted to it, allowing someone using the app to switch between those screeens.<br>
+To create a **link between two screens**, first we need to make sure the first screen is connected to a 'navigation-controller, afterwards one can [hold 'control' while linking top of one screen to the other and create a 'show' segway, subsequently name the segway in right column.](https://youtu.be/CwA1VWP0Ldw?t=15487). Now we can create a button link from screen one to screen two, with screen two automatically having a 'back' button to go back to screen one. For this we have to [go into associated code and create an 'action'](https://youtu.be/CwA1VWP0Ldw?t=15578), which will in code look like a function with '@IBAction' decorator, with 'IB' standing for 'interface builder' and action meaning once someone clicks on button an action will be executed. To delete an action not only the associated code but also 'storyboard' indication has to be removed.
+
+To create a **table view**, which consists of a list of rows, add the UI element named 'Table View'. Afterwards like always you can setup the constraints. Now we need to [set the 'data-source' and 'delegate' both in storyboard and code](https://youtu.be/CwA1VWP0Ldw?t=16144). 'Data-source' refers to the datas that will be contained in table's rows and 'delegate' refers to a function that executes once an action occurs, in the case of tables the delegate function is called each time a 'cell' (also called table row) displays. It is possible to make a click on a row link to another screen via a [delegate method called 'didSelectRowAt'](https://youtu.be/CwA1VWP0Ldw?t=16491). 
+
 
 ##### Prammatic UI
 
