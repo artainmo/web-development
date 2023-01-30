@@ -321,16 +321,18 @@ Classes are **reference types**. Unlike 'value types', 'reference types' are not
 
 ## Free tutorials
 ### Swift frontend
+#### Drag and drop
 After generating swift project with xcode, inside a file named 'Assets.xcassets' we can add logos, colors or other default visuals for consistent use in app. Those will become accessible from everywhere in the application.
 
 Xcode auto-generates the 'Main.storyboard' file which represents the app's homepage. Also it auto-generates the 'LaunchScreen.storyboard' file which defines the app's launchscreen, which is the page that displays while the app is loading.
 
 Xcode allows the generation of frontend code via drag and drop. By going on the previously described 'Main.storyboard' or 'LaunchScreen.storyboard' we can create those app pages with drag and drop. To add an UI element we have to click on the top right '+' sign. Each UI element can then be customized via the right column that can be toggled.<br>
-We can simulate the app created by clicking on top left play button.
+We can simulate the app created by clicking on top left play button.<br>
+On 'Main.storyboard' multiple 'pages' can be made via the UI element named 'View Controller'. The homepage the app will launch on is the one page you indicated next to the 'storyboard entry point' arrow. From this page links can be made to the other pages, such as with a menu bar, so that the other pages are accessible too.
 
+#### Prammatic UI
 
-
-### Use Material Design for swift frontend
+#### Use Material Design for swift frontend
 Material Design is a frontend library developed by google and available for a ton of different programming languages. Here lies the [documentation](https://m2.material.io/develop/ios) for ios and thus swift.<br>
 Material Design contains different [components](https://m2.material.io/components) that can be used in frontend, such as buttons, cards, app bars...
 
