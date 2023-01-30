@@ -386,8 +386,12 @@ To create a **link between two screens**, first we need to make sure the first s
 To create a **table view**, which consists of a list of rows, add the UI element named 'Table View'. Afterwards like always you can setup the constraints. Now we need to [set the 'data-source' and 'delegate' both in storyboard and code](https://youtu.be/CwA1VWP0Ldw?t=16144). 'Data-source' refers to the datas that will be contained in table's rows and 'delegate' refers to a function that executes once an action occurs, in the case of tables the delegate function is called each time a 'cell' (also called table row) displays. It is possible to make a click on a row link to another screen via a [delegate method called 'didSelectRowAt'](https://youtu.be/CwA1VWP0Ldw?t=16491). In the end I had better luck creating a table view with [this tutorial](https://www.youtube.com/watch?v=C36sb5sc6lE). I connected the 'View Controller' the table was in to the wrong class. Each 'View Controller' has to be connected to a class that can be defined in any '.swift' file of working directory as swift has a global scope.<br>
 To populate the table rows with specific data, this data needs to be in an array, see [here](https://youtu.be/CwA1VWP0Ldw?t=16597) how to let the table rows take this array. And see [here](https://youtu.be/CwA1VWP0Ldw?t=17536) how to let each row link to another page and take an object.
 
+[Watch](https://youtu.be/CwA1VWP0Ldw?t=18533) an additional storyboard project tutorial.<br>
+An **action** is a function preceded with '@IBAction' which defines a block of code to be executed after certain events such as button clicks.<br>
+An **outlet** is a variable preceded with '@IBOutlet' which takes as value the UI element you want to make changes on.
 
-##### Prammatic UI
+##### Programmatic UI
+Learn more about programmatic UI in swift via [this video](https://youtu.be/CwA1VWP0Ldw?t=22083) by continuing initial course.
 
 #### Use Material Design for swift frontend
 Material Design is a frontend library developed by google and available for a ton of different programming languages. Here lies the [documentation](https://m2.material.io/develop/ios) for ios and thus swift.<br>
