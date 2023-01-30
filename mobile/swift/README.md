@@ -400,7 +400,7 @@ An **outlet** is a variable preceded with '@IBOutlet' which takes as value the U
 ##### Programmatic UI
 Learn more about programmatic UI in swift via [this video](https://youtu.be/CwA1VWP0Ldw?t=22083) by continuing initial course.
 
-#### Use Material Design for swift frontend
+##### Use Material Design for swift frontend
 Material Design is a frontend library developed by google and available for a ton of different programming languages. Here lies the [documentation](https://m2.material.io/develop/ios) for ios and thus swift.<br>
 Material Design contains different [components](https://m2.material.io/components) that can be used in frontend, such as buttons, cards, app bars...
 
