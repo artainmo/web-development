@@ -397,6 +397,9 @@ To populate the table rows with specific data, this data needs to be in an array
 An **action** is a function preceded with '@IBAction' which defines a block of code to be executed after certain events such as button clicks.<br>
 An **outlet** is a variable preceded with '@IBOutlet' which takes as value the UI element you want to make changes on.
 
+Great [tutorial](https://www.youtube.com/watch?v=U-Y9HJzNhQ0) on how to create a todo list app.<br>
+Each storyboard 'View Controller' represents a screen. It should be connected to a swift class by indicating its class in right column after clicking on it in storyboard. Inside that class 'actions' and 'outlets' can be created to access and interact with the storyboard UI elements. On storyboard when right clicking on 'view controller' we can view all the created 'actions' and 'outlets' we can then connect them to the applicable storyboard UI element.
+
 ##### Programmatic UI
 Learn more about programmatic UI in swift via [this video](https://youtu.be/CwA1VWP0Ldw?t=22083) by continuing initial course.
 
@@ -412,4 +415,5 @@ Swift's IDE is Xcode, it is recommended especially for frontend development beca
 ## Resources
 [Codecademy - Learn Swift](https://www.codecademy.com/learn/learn-swift)<br>
 [Swift Tutorial: Google Material Design Components & User Interface (Swift 2020) - Xcode 11, iOS](https://www.youtube.com/watch?v=odM92k_0_FE)<br>
-[Swift Programming Tutorial | FULL COURSE | Absolute Beginner](https://www.youtube.com/watch?v=CwA1VWP0Ldw)
+[Swift Programming Tutorial | FULL COURSE | Absolute Beginner](https://www.youtube.com/watch?v=CwA1VWP0Ldw)<br>
+[Swift for Beginners: Create To Do List App (2023)](https://www.youtube.com/watch?v=U-Y9HJzNhQ0)
