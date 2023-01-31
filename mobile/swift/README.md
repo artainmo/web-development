@@ -379,7 +379,7 @@ After generating swift project with xcode, inside a file named **Assets.xcassets
 When on a '.storyboard' file, to add an **UI element** we have to click on the top right '+' sign. Each UI element can then be customized via the right column that can be toggled, there you can also define this custom UI element as a class for re-usability.<br>
 The 'View Controller' element defines a page/screen, all the other UI elements have to be used inside this foundational UI element.<br>
 The 'view' element defines a container.<br>
-Other commonly used elements are UITableView (list of rows), UICollectionView (grid), UITabBar (mobile menu).
+Other commonly used elements are UITableView (list of rows), UICollectionView (grid), [UITabBar](https://www.youtube.com/watch?v=cAUgXCCnFNs) (mobile menu).
 
 At the bottom right of the page we can access the **auto-layout** settings, enabling compatibility between different screeen sizes. A constraint consists of setting a UI element a minimal distance to the right, left, top, bottom of the screen/container limits. Those constraints will be based on the UI element an UI element is in, if it is inside a 'View Controller' the contraints will be in relation to that, but if you set it inside a container ('view' element) then the contraints will be in relation to that container.<br>
 Another way to set contraints is to click, hold and drag a line from one element to another element, allowing you to set constraints between those two elements.
