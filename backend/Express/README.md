@@ -7,6 +7,7 @@
 - [Free tutorials](#Free-tutorials)
   - [Setup](#Setup)
   - [Use](#Use)
+- [Resources](#Resources)
 
 ## Codecademy course
 

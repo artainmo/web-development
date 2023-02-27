@@ -10,6 +10,7 @@
   - [Best practices for github repositories](#Best-practices-for-github-repositories)
   - [Collaborating with the github community](#Collaborating-with-the-github-community)
   - [Github features](#Github-features)
+- [Resources](#Resources)
 
 ## CODECADEMY COURSE
 ### Basic git workflow

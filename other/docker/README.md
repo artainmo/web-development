@@ -8,6 +8,7 @@
     - [Use docker compose for NestJS with TypeORM and PostgreSQL](#Use-docker-compose-for-NestJS-with-TypeORM-and-PostgreSQL)
   - [Docker Hub](#Docker-Hub)
     - [Tags](#Tags)
+- [Resources](#Resources)
 
 # Free tutorials
 ## Basics

@@ -29,6 +29,7 @@
     - [Redirect](#Redirect)
     - [Error Handling](#Error-Handling)
   - [Configuration](#Configuration)
+- [Resources](#Resources)
 
 ## CODECADEMY COURSE LEARN RUBY
 ### Introduction

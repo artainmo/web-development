@@ -14,7 +14,7 @@
   - [Additions](#Additions)
     - [Type](#Type)
     - [New features](#New-features)  
-
+- [Resources](#Resources)
 
 
 ## Codecademy course

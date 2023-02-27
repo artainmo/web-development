@@ -6,6 +6,7 @@
   - [REST APIs](#REST-APIs)
   - [How-to-structure-apps](#How-to-structure-apps)
 - [Practical resources for calling backend APIs from the frontend](#Practical-resources-for-calling-backend-APIs-from-the-frontend)
+- [Resources](#Resources)
 
 ## Codecademy course
 

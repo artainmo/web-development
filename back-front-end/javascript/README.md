@@ -26,6 +26,7 @@
   - [Export Import](#EXPORT-IMPORT)
   - [Promises and Synch Await and Fetch and Errors](#PROMISES-and-SYNC-AWAIT-and-FETCH-and-ERRORS)
   - [Javascript inside HTML](#Javascript-inside-HTML)
+- [Resources](#Resources)
 
 ## CODECADEMY COURSE
 ### INTRODUCTION

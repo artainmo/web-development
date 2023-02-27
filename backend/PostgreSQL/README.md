@@ -18,6 +18,7 @@
   - [Setup and psql](#Setup-and-psql)
   - [Basic use](#Basic-use)
   - [Even more](#Even-more)
+- [Resources](#Resources)
 
 ## Codecademy course
 

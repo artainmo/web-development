@@ -9,6 +9,7 @@ Used to style HTML.
   - [Display and positioning](#Display-and-positioning)
   - [Color](#Color)
   - [Typography](#Typography)
+- [Resources](#Resources)
 
 ## Syntax
 CSS declarations contain a property (ex. color) and a value (ex. blue), example `color: blue;`<br>

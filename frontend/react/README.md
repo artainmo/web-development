@@ -19,6 +19,7 @@
   - [Material UI](#MATERIAL-UI)
   - [CSS Modules](#CSS-MODULES)
   - [React with typescript](#REACT-WITH-TYPESCRIPT)
+- [Resources](#Resources)
 
 ## REACT CODECADEMY COURSE
 React is a front-end javascript library developed by facebook that allows the creation of UI components which leads to modular code.<br>

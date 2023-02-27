@@ -9,6 +9,7 @@
   - [Services](#Services)
   - [Routing](#Routing)
 - [Resources](#Resources)
+- [Resources](#Resources)
 
 ## Codecademy course - Learn AngularJS 1.X
 ### Your first app
@@ -20,8 +21,8 @@ The angular workflow:
 2. Indicate the module in view tag attribute ng-app to define the application scope (`<body ng-app="myApp">...</body>`) in index.html for example.
 3. Create a controller in mainController.js for example, controllers are used to manage the app's data.
 <pre>
-app.controller('MainController', ['$scope', function($scope) { 
-  $scope.title = 'fewfwf'; 
+app.controller('MainController', ['$scope', function($scope) {
+  $scope.title = 'fewfwf';
   $scope.promo = "promo"
 }]);
 </pre>
@@ -56,15 +57,15 @@ We can create HTML elements in angular through the use of directives.<br>
 
 For example we can have a file named 'js/directives/appInfo.js' which defines the HTML element like this:
 <pre>
-app.directive('appInfo', function() { 
-  return { 
-    restrict: 'E', 
-    scope: { 
-      info: '=' 
-    }, 
-    templateUrl: 'js/directives/appInfo.html' 
-  }; 
-}); 
+app.directive('appInfo', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      info: '='
+    },
+    templateUrl: 'js/directives/appInfo.html'
+  };
+});
 </pre>
 It returns an object with three attributes:
 * restrict, specifies how the directive will be used in the view. The 'E' means it will be used as a new HTML element.
@@ -73,10 +74,10 @@ It returns an object with three attributes:
 
 Here we use as template URL 'js/directives/appInfo.html' which looks like this:
 ```
-<img class="icon" ng-src="{{ info.icon }}"> 
-<h2 class="title">{{ info.title }}</h2> 
-<p class="developer">{{ info.developer }}</p> 
-<p class="price">{{ info.price | currency }}</p> 
+<img class="icon" ng-src="{{ info.icon }}">
+<h2 class="title">{{ info.title }}</h2>
+<p class="developer">{{ info.developer }}</p>
+<p class="price">{{ info.price | currency }}</p>
 ```
 
 Now we can in the viewer 'index.html' define the created HTML element `<script src="js/directives/appInfo.js"></script>` and use our created element `<app-info info="shutterbugg"></app-info>`.<br>
@@ -92,27 +93,27 @@ The 'link' function should take three inputs;
 
 Here is an example of the link attribute:
 <pre>
-link: function(scope, element, attrs) { 
-  scope.buttonText = "Install", 
-  scope.installed = false, 
- 
-  scope.download = function() { 
-    element.toggleClass('btn-active'); 
-    if(scope.installed) { 
-      scope.buttonText = "Install"; 
-      scope.installed = false; 
-    } else { 
-      scope.buttonText = "Uninstall"; 
-      scope.installed = true; 
-    } 
-  } 
+link: function(scope, element, attrs) {
+  scope.buttonText = "Install",
+  scope.installed = false,
+
+  scope.download = function() {
+    element.toggleClass('btn-active');
+    if(scope.installed) {
+      scope.buttonText = "Install";
+      scope.installed = false;
+    } else {
+      scope.buttonText = "Uninstall";
+      scope.installed = true;
+    }
+  }
 }
 </pre>
 
 And here is how the template URL looks like:
 ```
-<button class="btn btn-active" ng-click="download()"> 
-  {{ buttonText }} 
+<button class="btn btn-active" ng-click="download()">
+  {{ buttonText }}
 </button>
 ```
 
@@ -123,14 +124,14 @@ Services are basically reusable blocks of code with the goal of fetching outside
 
 We can create a service like this:
 <pre>
-app.factory('forecast', ['$http', function($http) { //AngularJS’s built-in $http is used to fetch JSON from the server. 
-  return $http.get('https://content.codecademy.com/courses/ltp4/forecast-api/forecast.json') 
-            .success(function(data) { 
-              return data; 
-            }) 
-            .error(function(err) { 
-              return err; 
-            }); 
+app.factory('forecast', ['$http', function($http) { //AngularJS’s built-in $http is used to fetch JSON from the server.
+  return $http.get('https://content.codecademy.com/courses/ltp4/forecast-api/forecast.json')
+            .success(function(data) {
+              return data;
+            })
+            .error(function(err) {
+              return err;
+            });
 }]);
 </pre>
 
@@ -149,19 +150,19 @@ Angular’s application routes allow to have one index take different templates.
 This is an example of how we config routes in an angular app:
 <pre>
 app.config(function ($routeProvider) { //We use Angular’s $routeProvider to define the application routes
-  $routeProvider 
+  $routeProvider
     .when('/', {                       //We map the URL '/' to to the controller HomeController and the template home.html.
-      controller: 'HomeController', 
-      templateUrl: 'views/home.html' 
-    }) 
+      controller: 'HomeController',
+      templateUrl: 'views/home.html'
+    })
     .when('/photos/:id', {            //':id' is a variable inside the URL.
       controller: 'PhotoController',
       templateUrl: 'views/photo.html'
     })
-    .otherwise({                       //If a user accidentally visits a URL other than '/', we just redirect to '/' 
-      redirectTo: '/' 
-    }); 
-}); 
+    .otherwise({                       //If a user accidentally visits a URL other than '/', we just redirect to '/'
+      redirectTo: '/'
+    });
+});
 </pre>
 In the viewer (index.html), this line of code `<div ng-view></div>` gets replaced by the appropriate template the URL refers to.
 
