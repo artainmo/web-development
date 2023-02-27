@@ -16,6 +16,7 @@
   - [Classes and objects](#Classes-and-objects)
 - [Free tutorials](#Free-tutorials)
   - [Require and include](#Require-and-include)
+- [Resources](#Resources)
 
 ## Codecademy course
 

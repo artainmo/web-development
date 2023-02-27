@@ -9,7 +9,6 @@
   - [Services](#Services)
   - [Routing](#Routing)
 - [Resources](#Resources)
-- [Resources](#Resources)
 
 ## Codecademy course - Learn AngularJS 1.X
 ### Your first app
