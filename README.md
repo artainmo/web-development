@@ -124,21 +124,12 @@ Sinatra is a Ruby framework used to quickly create APIs or the backend of a web-
 
 ### Other
 
-**Git**<br>
-Git is a software that allows you to keep track of changes made to a coding project over time and collaborate.
-
 **DevOps**<br>
 DevOps, is a way of organizing or a culture, that aims at ending the division between development and operations for a faster work-flow. It is an abbreviation of and refers to development and operations.<br>
-The Development team writes an application’s code/features.<br>
-The Operation team creates and maintains the infrastructure that the application runs on.
-
-**Docker**<br>
-Docker is a platform that uses OS-level virtualization allowing easy automation through a script of the building of a specific environment a program necessiates to run on.
-
-**Kubernetes**<br>
-When using microservices, complex applications are composed of small independent processes which communicate with each other through APIs over a network.<br>
-Containers are best suited to deliver microservices by providing fast, portable, isolated virtual environments for applications to run without interference from other running applications.<br>
-Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+The Development team writes an application’s code/features. The Operation team creates and maintains the infrastructure that the application runs on.<br>
+It encompasses technologies such as docker, kubernetes, git, gitlab... Web-apps run on such infrastructures.<br>
+See [here](https://github.com/artainmo/DevOps) its own repo.
 
 **Cybersecurity**<br>
-Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks. The web is one medium that permits such threats.
+Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks. The web is one medium that permits such threats.<br>
+See [here](https://github.com/artainmo/cybersecurity) its own repo.
