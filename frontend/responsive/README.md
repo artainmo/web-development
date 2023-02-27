@@ -1,4 +1,4 @@
-# Responsive web design basics: https://web.dev/responsive-web-design-basics/
+# Responsive web design
 “Responsive web design, responds to the needs of the users and the devices they're using. The layout changes based on the size and capabilities of the device.”<br>
 “Pages optimized for a variety of devices must include a meta viewport tag in the head of the document.”<br>
 “Using the meta viewport value width=device-width instructs the page to match the screen's width in device-independent pixels.”<br>
@@ -8,3 +8,6 @@
 “An image has fixed dimensions and if it is larger than the viewport will cause a scrollbar. A common way to deal with this problem is to give all images a max-width of 100%. This will cause the image to shrink to fit the space it has, should the viewport size be smaller than the image.”<br>
 “Media queries are simple filters that can be applied to CSS styles. They make it easy to change styles based on the types of device rendering the content, or the features of that device, for example width, height, orientation, ability to hover, and whether the device is being used as a touchscreen.”<br>
 “To view your page under different breakpoints: Open DevTools and then turn on Device Mode. This opens in responsive mode by default.”
+
+# Resources
+[Responsive web design basics](https://web.dev/responsive-web-design-basics/)<br>
