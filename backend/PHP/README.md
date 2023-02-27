@@ -38,7 +38,7 @@ Variables are declared with a $ in front, like this `$name_variable`.<br>
 Variables are assigned a value with the `=` operator, they can be used as much as wanted in the code, and during execution the variable gets replaced with the value it holds.<br>
 In PHP usually the snake case is used to declare multiple word variables meaning a _ is used in between each word instead of separating words with a capital first word letter.
 
-Strings are defined between `" "`.<br> 
+Strings are defined between `" "`.<br>
 `"` can be indicated in a string like this `\"` and a new-line like this `\n`.<br>
 Strings can be concatenated with the . operator like this `"string 1" . "string 2"`, the .= operator can be used to concatenate to oneself like this `firstname .= lastname`.<br>
 Other variables can be put inside strings like this `Hello world I am ${name}`.
@@ -100,19 +100,19 @@ To remove a map (key-value-pair) use the function `unset(array[key])` and to add
 
 Ordered arrays can be considered associative arrays whereby ordered numerical keys are given automatically.
 
-Two arrays can be joined together forming one array with all the maps of summed arrays using the + operator. 
+Two arrays can be joined together forming one array with all the maps of summed arrays using the + operator.
 
 Like simple variables, arrays can also be passed as references instead of copies to function parameters, meaning changes to the function parameters will also create changes in the array send into the function as a reference. Because references instead of creating a copy in memory space point to the same memory space.
 
 ### Conditionals
 Like other languages PHP uses as conditionals if, elseif and else.
 <pre>
-if (statement) { 
-  code to be executed if statement is true 
+if (statement) {
+  code to be executed if statement is true
 } elseif (statement) {
-  code to be executed if statement is true 
-} else { 
-  code to be executed if all prior statements were false 
+  code to be executed if statement is true
+} else {
+  code to be executed if all prior statements were false
 }
 </pre>
 
@@ -285,14 +285,14 @@ A class is defined like this in PHP:
 class Beverage {
   #Here properties are defined
   #The keyword public makes the properties accessible not only from inside but also from outside the class
-  public $color, $opacity, $temperature; 
+  public $color, $opacity, $temperature;
 
   function __construct($temperature, $color) { #Constructor is called at object instantiation and is usually used to set its properties
     $this->temperature = $temperature;
     $this->color = $color;
   }
-  
-  function getInfo() 
+
+  function getInfo()
     return "This beverage is $this->temperature and $this->color.";
     #'$this' refers to the object itself and is used to access properties of the class
   }
@@ -313,7 +313,7 @@ The concept of only accessing private properties through methods is commonly ref
 <pre>
 class Pet {
   private $name;
-  
+
   function setName($name) {
     if (gettype($name) === "string") { #setter and getter functions allow for example to do verifications before executing the function's goal
       $this->name = $name;
@@ -322,7 +322,7 @@ class Pet {
       return false;
     }
   }
-  
+
   function getName() {
     return $this->name;
   }
@@ -338,3 +338,6 @@ Because static members in a class can directly be accessible with scope resoluti
 The require/include statement takes all the code that exists in the specified file and copies it into the file that uses the require/include statement like this `require "filePath"`.<br>
 Including files is very useful when you want to include the same PHP, HTML, or text on multiple pages of a website, such as when you want to use the same header and footer on different web pages.<br>
 The include and require statements are identical, except upon failure, require will produce a fatal error and include a warning.<br>
+
+## Resources
+[Codecademy - Learn PHP](https://www.codecademy.com/learn/learn-php) - 25h<br>

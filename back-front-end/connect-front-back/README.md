@@ -2,7 +2,7 @@
 
 ## Table of contents
 - [Codecademy course](#Codecademy-course)
-  - [Rendering and code generation](#Rendering-and-code-generation) 
+  - [Rendering and code generation](#Rendering-and-code-generation)
   - [REST APIs](#REST-APIs)
   - [How-to-structure-apps](#How-to-structure-apps)
 - [Practical resources for calling backend APIs from the frontend](#Practical-resources-for-calling-backend-APIs-from-the-frontend)
@@ -11,7 +11,7 @@
 
 To create a full-stack application, the back-end and front-end have to be connected.<br>
 
-To connect an app together let the front-end, back-end and database run independently (on different servers or ports of the same server) and connect/communicate between each other using APIs. 
+To connect an app together let the front-end, back-end and database run independently (on different servers or ports of the same server) and connect/communicate between each other using APIs.
 
 ### Rendering and code generation
 Rendering is the aspect of web development concerned with translating code into a visual and interactive website.<br>
@@ -91,6 +91,9 @@ In to-do-list project one can better visualize the whole MVC structure and how t
 ## Practical resources for calling backend APIs from the frontend
 
 In javascript:<br>
-https://github.com/artainmo/WebDevelopment/tree/main/back-front-end/javascript#PROMISES-and-SYNC-AWAIT-and-FETCH-and-ERRORS<br>
-https://github.com/artainmo/WebDevelopment/tree/main/back-front-end/javascript#REQUESTS<br>
-https://github.com/artainmo/WebDevelopment/tree/main/backend/NestJS#Call-the-NestJS-API-with-axios<br>
+[artainmo github - Javascript: Promises and Sync-Await and Fetch and Errors](https://github.com/artainmo/WebDevelopment/tree/main/back-front-end/javascript#PROMISES-and-SYNC-AWAIT-and-FETCH-and-ERRORS)<br>
+[artainmo github - JavaScript: Requests](https://github.com/artainmo/WebDevelopment/tree/main/back-front-end/javascript#REQUESTS)<br>
+[artainmo github - NestJS: Call the NestJS API with Axios](https://github.com/artainmo/WebDevelopment/tree/main/backend/NestJS#Call-the-NestJS-API-with-axios)<br>
+
+## Resources
+[Codecademy - Connecting front-end to back-end](https://www.codecademy.com/learn/connecting-front-end-to-back-end) - 2h<br>

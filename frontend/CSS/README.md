@@ -78,7 +78,7 @@ The inline-block value allows to have the next element horizontally next to the 
 ## Color
 color property refers to color of text and backgroud-color to color of background.
 
-Pre-made colors can be used by indicating their name for example, brown, sienna... Here is the list https://developer.mozilla.org/en-US/docs/Web/CSS/color_value 
+Pre-made colors can be used by indicating their name for example, brown, sienna... Here is the list https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 
 Custom colors can be created using hexadecimal, use an online hexadecimal generator for the wanted hexadecimal code.<br>
 Another way to create custom colors is with the RGB system as value use rgb(R, G, B) with a value for red, green and blue between 0-250.<br>
@@ -97,3 +97,6 @@ font-weight controls bold-thin spectrum and can take values: bold, bolder, light
 font-style can be set to normal or italic.<br>
 The text-transform property can be set to uppercase or lowercase.<br>
 Letter-spacing, word-spacing, line-height and text-align can also be described, as value pixels can be used or em which is relative to font.
+
+# Resources
+[Codecademy - Learn CSS](https://www.codecademy.com/learn/learn-css) - 10h<br>

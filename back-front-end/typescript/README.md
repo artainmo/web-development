@@ -14,7 +14,7 @@
   - [Additions](#Additions)
     - [Type](#Type)
     - [New features](#New-features)  
-  
+
 
 
 ## Codecademy course
@@ -180,4 +180,11 @@ Export keyword allows the creation of modules, modules are files that can be imp
 Namespces are used to group code together inside it, and avoids problem of overwriting due to everything being in a global scope in javascript.
 
 Generics are like c++ templates whereby function parameters or classes take a to-be-declared-type, by using it in combination with the extend keyword, you can limit the number of types that can be choosen from.
-  
+
+## Resources
+[Codecademy - Learn Typescript](https://www.codecademy.com/learn/learn-typescript) - 10h<br>
+[Typescript - The Basics](https://www.youtube.com/watch?v=ahCwqrYpIuM) - 12m<br>
+[TypeScript Course for Beginners 2021](https://www.youtube.com/watch?v=BwuLxPH8IDs) - 3h16m<br>
+[TypeScript for React](https://www.youtube.com/watch?v=NjN00cM18Z4) - 51m<br>
+[Typescript full course for beginners](https://www.youtube.com/watch?v=gp5H0Vw39yw) - 1h34m<br>
+[Typescript written complete tutorial](https://www.tutorialspoint.com/typescript/index.htm)<br>

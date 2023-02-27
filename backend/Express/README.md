@@ -37,7 +37,7 @@ Avoiding code replication is usually done by usage of functions.<br>
 Middleware is able to avoid code replication and is code that executes between a server receiving a request and sending a response.<br>
 
 All functions with argument next are middleware functions.
-`app.use((req,res,next)=>{})` app.use can take as first argument a path an array of paths or no path and as second/first argument a callback-function, it is applicable to all HTTP methods but paths can be specified. 
+`app.use((req,res,next)=>{})` app.use can take as first argument a path an array of paths or no path and as second/first argument a callback-function, it is applicable to all HTTP methods but paths can be specified.
 
 If multiple routes are possible for a request the one that comes in the code first will be used.<br>
 Though by calling the next() function at end of middleware function it will execute the next possible middleware function.
@@ -78,3 +78,7 @@ Data is send with JSON (JavaScript Object Notation). <br>
 JSON uses human-readable text to store and transmit data objects consisting of attribute–value pairs and arrays.<br>
 With the above mentionned response and request objects the json method can be used to transform arrays of objects into json.<br>
 To setup an API use .get method of express with as first parameter the api path/url, in the callback function return the JSON content, the JSON content will be accessible for the front-end by fetching the specified path/url.
+
+## Resources
+[Codecademy - Learn Express](https://www.codecademy.com/learn/learn-express) - 4h<br>
+[Node.js and Express.js - Full Course](https://www.youtube.com/watch?v=Oe421EPjeBE) - 8h16m<br>

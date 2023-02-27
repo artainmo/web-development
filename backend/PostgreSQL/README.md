@@ -12,9 +12,9 @@
   	- [Constraints](#Constraints)
   - [Database optimization](#Database-optimization)
   	- [Indexes](#Indexes)
-  	- [Normalization](#Normalization) 
+  	- [Normalization](#Normalization)
 - [Free tutorials](#Free-tutorials)
-  - [Understand](#understand) 
+  - [Understand](#understand)
   - [Setup and psql](#Setup-and-psql)
   - [Basic use](#Basic-use)
   - [Even more](#Even-more)
@@ -27,7 +27,7 @@ Glossary of commonly used SQL commands: https://www.codecademy.com/articles/sql-
 PostgreSQL is a relational database management system, meaning it stores data in tables and makes use of the SQL language.<br>
 PostgreSQL stores information on a dedicated database server instead of on a local file system.<br>
 SQL (Structured Query Language) is a programming language used to communicate with data stored in a relational database management system.<br>
-Other relational databases are mySQL, SQLite, SQL server, Oracle DB....<br> 
+Other relational databases are mySQL, SQLite, SQL server, Oracle DB....<br>
 Because all use SQL or slight variations of it, learning to use one relational database also opens doors to other relational databases.<br>
 Distinction can be made between relational databases with file extensions, PostgreSQL uses .sql as file extension, but also with data types and access to built-in-tables.
 
@@ -84,7 +84,7 @@ Learn more in 'Setup and psql' section.
   END AS 'nameNewColumn'
  FROM tableName;</pre>
  This would create a new column that generates its values based on values from other columns, only in the returned table.
- 
+
 #### Aggregate functions
 
 Aggregates are calculations done on multiple rows of a table.
@@ -264,7 +264,7 @@ If queries are always done with a specific column in descending order, you can i
 `CREATE INDEX indexName ON tableName (columnName DESC);`.
 
 PostgreSQL automatically creates a unique index on any primary key or column with unique constraint in your tables.
-	
+
 Indexes can be clustered or non-clustered. Only one index can be clustered in a table, usually the primary key of a table is set to be the clustered index.<br>
 Cluster indexes allow faster search time in a table by reorganizing the table rows in some way, like a dictionnary would.<br>
 PostgreSQL contrary to other SQL systems does not recluster automatically after, insert, update or delete, thus those commands can run faster but to maintain the cluster index one has to manually call cluster again.<br>
@@ -295,7 +295,7 @@ Another problem with everything in same table would be that maybe we want to add
 
 To restructure tables a new table can be created from columns of an already existing one, followed by removing the copied columns from already existing table.<br>
 <pre>CREATE TABLE newTableName AS
-SELECT distinct columnName1 columnName2 
+SELECT distinct columnName1 columnName2
 FROM tableName;
 
 ALTER TABLE tableName
@@ -324,7 +324,7 @@ On https://postgresapp.com/ you can download the app but also learn how to insta
 
 psql is a terminal-based frontend to PostgreSQL. It enables interactive communication with PostgreSQL databases from the terminal.<br>
 SQL commands can be written and will only be send to the server when a command-terminating-semicolon is reached, a line return does not end the command and thus your command can be written on multiple lines for clarity. If the command got executed without errors the results will be shown.<br>
-When launching psql, next to SQL commands you can start launching psql meta-commands in the terminal, all psql meta-commands start with \.<br> 
+When launching psql, next to SQL commands you can start launching psql meta-commands in the terminal, all psql meta-commands start with \.<br>
 With `\?` you can view the usage guide.<br>
 With `\c databaseName` you can connect to another database and with `\conninfo` view current database.<br>
 With `\l` you can list all databases, by giving it as parameter a database name you can selectively show that database. <br>
@@ -403,7 +403,7 @@ $$ #Here the function starts
 declare
    film_count integer; #Here you can declare variable that will be used
 begin
-   select count(*) 
+   select count(*)
    into film_count #'into' assigns a value to a variable
    from film
    where length between len_from and len_to;   
@@ -414,3 +414,6 @@ $$; #Here the function ends
 
 Creating own datatypes is possible too.
 
+## Resources
+[Codecademy - Design Databases with PostgreSQL](https://www.codecademy.com/learn/paths/design-databases-with-postgresql) - 30h<br>
+[PostgreSQL full course](https://www.youtube.com/watch?v=qw--VYLpxG4) - 4h20m<br>

@@ -23,7 +23,7 @@
     - [Accessing the request object](#Accessing-the-request-object)
     - [Filters](#Filters)
     - [Helpers](#Helpers)
-    - [Halting](#Halting) 
+    - [Halting](#Halting)
     - [Passing](#Passing)
     - [Streaming and websockets](#Streaming-and-websockets)
     - [Redirect](#Redirect)
@@ -49,7 +49,7 @@ For string interpolation set the variable name in between #{}.<br>
 Ruby consists of objects and those contain a variety of methods.<br>
 For example strings contain the length method, which returns the number of characters in a string: `puts "Hello World".length` in console gives 11.<br>
 Other methods on strings are reverse, upcase, downcase, capitalize(first letter uppercase only), [0..4] or [0..-2](take part of string)...<br>
-variable1.method! is the same as variable1 = variable1.method, through the use of '!'. 
+variable1.method! is the same as variable1 = variable1.method, through the use of '!'.
 
 Single-line-comments are indicated with # and multi-line-comments like this:<br>
 <pre>=begin
@@ -218,7 +218,7 @@ A proc is a block saved inside a variable/object that has methods, works like a 
 <pre>
 cube = Proc.new { |x| x ** 3 }
 
-[1, 2, 3].collect!(&cube) # & is used to convert proc into the block it holds 
+[1, 2, 3].collect!(&cube) # & is used to convert proc into the block it holds
 
 cube.call(3) # The call method is used to call the block inside the proc
 </pre>
@@ -266,7 +266,7 @@ class Person
 end
 </pre>
 
-### Modules 
+### Modules
 Modules are similar to classes besides that no instances of them can be made, they are only used to store constant values and methods, they are similar to namespaces or libraries in other languages.<br>
 Modules are declared like this: `module ModuleName end` and its content is called using the scope resolution operator `ModuleName::MethodName`.<br>
 Built-in modules such as Math already exist and do not have to be imported, other modules have to be imported using `require ModuleName` and others can be created by yourself.<br>
@@ -315,11 +315,11 @@ A Gemfile describes the gem dependencies required to execute associated Ruby cod
 <pre>
 source "https://rubygems.org" do #Indicate the rubyGem source of the following gem dependencies
   gem "nokogiri" #Use the gem method to indicate the gem dependencies
-  gem "RedCloth", ">= 4.1.0", "< 4.2.0" #Optionally specify possible versions of the gem 
+  gem "RedCloth", ">= 4.1.0", "< 4.2.0" #Optionally specify possible versions of the gem
 end
 </pre>
 To install all the dependencies from the gemfile launch in terminal `bundle install`.
-    
+
 ## SINATRA FREE TUTORIALS
 ### Introduction Sinatra
 Sinatra is a Ruby framework used to quickly create APIs or the backend of a web-application.
@@ -385,7 +385,7 @@ A route method may return:
 * A string which will represent the response body.
 * An integer which will represent the status code.
 * An array with integer as status code and string as body.
-* An array with integer as status code, a hash containing headers and string as body. 
+* An array with integer as status code, a hash containing headers and string as body.
 * The contents of a file with `send_file filePath` instead of a return statement.
 
 The body must always be a string. If you want to send an object transform it into a json string before sending `require 'json'; object.to_json;`.
@@ -419,7 +419,7 @@ Possibility exists to indicate a status code `halt 401`, a body `halt 'this will
 The keyword 'pass' can be used to go to the next matching route pattern.
 
 #### Streaming and websockets
-The stream keyword can be used to create a method that will return multiple times. This is useful for streaming APIs but also websockets. 
+The stream keyword can be used to create a method that will return multiple times. This is useful for streaming APIs but also websockets.
 
 #### Redirect
 A redirect can be done with the redirect helper method `redirect http://www.google.com/` or to send the user back where he came from `redirect back`.<br>
@@ -467,3 +467,8 @@ end
 Its default value is `./public`, this value can be changed like this `set :public_folder, ./myNewPathExample` and accessed like this `settings.public_folder`.
 
 `:port` determines the port the application will run on.
+
+## Resources
+[Codecademy - Learn Ruby](https://www.codecademy.com/learn/learn-ruby) - 10h<br>
+[Sinatra, GETTING STARTED](http://sinatrarb.com/intro.html)<br>
+[Sinatra, CONFIGURING SETTINGS](http://sinatrarb.com/configuration.html)<br>

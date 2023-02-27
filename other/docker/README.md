@@ -51,7 +51,7 @@ FROM java:8-jdk-alpine #This line tells docker our image will contain the java:8
 
 COPY ./build/libs/nasapicture-0.0.1-SNAPSHOT.war /usr/app/ #This line copies from local machine into container
 
-WORKDIR /usr/app #This sets the following path as root, all following docker commands will be launched starting from this path 
+WORKDIR /usr/app #This sets the following path as root, all following docker commands will be launched starting from this path
 
 EXPOSE 8080 #The EXPOSE instruction indicates the ports on which a container listens for connections
 
@@ -141,7 +141,7 @@ DB_NAME=tododb
 The local-machine-environment-variables will be usable inside the docker-compose.yml file:
 <pre>
 version: '3'
-services: 
+services:
   db:
     image: postgres
     environment: #Set the container-environment-variables without exposing secret keys and let PostgreSQL configure itself
@@ -159,10 +159,10 @@ services:
       - POSTGRES_USER=${DATABASE_USER}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
       - POSTGRES_DB=${DB_NAME}
-    ports: 
+    ports:
       - "8080:8080"
     container_name: nest-todo-app-be
-    depends_on: 
+    depends_on:
       - db # back-ends are always dependent on their database (and frontends are often dependent on their backend)
 </pre>
 
@@ -194,3 +194,10 @@ In Docker, we can tag an image during the build time, like this: `docker build -
 
 When pulling an image from docker-hub we can specify a tag, and thus a version of the repository, like this `docker pull <imageName>:<tagName>`. If we do not specify a tag, the latest version will be pulled.<br>
 Similarly in docker file `FROM debian:buster`, here is an example where we use as base image for the dockerfile 'debian' with tag 'buster'.
+
+## Resources
+[What’s Docker? And how to start with it](https://faun.pub/whats-docker-and-how-to-start-with-it-b13ff51013d0)<br>
+[How to put your Java application into Docker container](https://wkrzywiec.medium.com/how-to-put-your-java-application-into-docker-container-5e0a02acdd6b)<br>
+[Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)<br>
+[How to run database, backend and frontend in a single-click with Docker Compose](https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de)<br>
+[A simple Todo Application with NestJS, TypeORM, PostgreSQL, Swagger, PGadmin4, JWT, and Docker (Part 1)](https://tushar-chy.medium.com/a-simple-todo-application-with-nestjs-typeorm-postgresql-swagger-pgadmin4-jwt-and-docker-caa2742a4295)

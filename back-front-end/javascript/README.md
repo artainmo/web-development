@@ -46,7 +46,7 @@ Arithmetic can be done between number types;<br>
 
 Strings are encapsulated by '' or "" or backtics , if you want to use '' or "" inside string backtics can be used to encapsulate it.<br>
 Using the + operator on strings concatenates them.<br>
-String interpolation brings strings inside other string easily by putting whole string between `` (backticks) and the variables between ${}.<br>
+String interpolation brings strings inside other string easily by putting whole string between \`\` (backticks) and the variables between ${}.<br>
 string objects contain the .length attribute(variable of a class) that returns the length of the string.<br>
 All methods of string objects can be found here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String.
 
@@ -272,7 +272,7 @@ The point of currying is that if you don't provide all the parameters for a func
 A missing parameter function ends up equaling undefined, this could be checked with a single if statement thus I personally do not really understand the utility of currying in javascript.
 
 HOISTING<br>
-JavaScript Hoisting refers to the process whereby the interpreter allocates memory for variable and function declarations prior to execution of the code. 
+JavaScript Hoisting refers to the process whereby the interpreter allocates memory for variable and function declarations prior to execution of the code.
 Declarations that are made using var are initialized with a default value of undefined. Declarations made using let and const are not initialized as part of hoisting.
 
 CONCURRENCY AND EVENT LOOP<br>
@@ -293,7 +293,7 @@ Different tools already in browsers exist to assist in finding memory leaks.
 
 DESIGN PATTERNS<br>
 Benefits of clean code:<br>
-* DRY (Don’t repeat yourself) 
+* DRY (Don’t repeat yourself)
 * Modular
 * Reusable
 * Easier to maintain
@@ -365,7 +365,7 @@ Comparison operators without type coercion; === <== >== !== < ><br>
 Type coercion is not recommended and means for example "0" == false -> true<br>
 Logical operators; && || !(statement)
 
-### EXPORT IMPORT 
+### EXPORT IMPORT
 export as keyword can be used in front of functions/variables that you want to use in another file.<br>
 import keyword must than be used into this other file to import the "exported" functions/variables from the first file.<br>
 You can import all or only certain functions/variables from that file. <br>
@@ -440,3 +440,13 @@ When validating a form, the data is usually initially sanitized, which means tra
 This is usually done by removing outer spaces with `str.trim()` and protecting from HTML and script/javascript injections by making the data equal to HTMLelement.innerHTML which will automatically escape HTML entities.<br>
 Regular expressions can be used to validate data (https://github.com/artainmo/WebDevelopment/tree/main/backend/PHP#Regular-expressions), by validating the prescence of a certain pattern, in javascript the `str.match(regularExpression)` function can be used for this.<br>
 Regular expressions can be used to standardize data too by replacing certain patterns, in javascript `str.replace(regularExpression, replace)` is used for this.
+
+## Resources
+Javascript: The good parts - O'Reilly (Book)<br>
+[Codecademy - Introduction to JavaScript](https://www.codecademy.com/learn/introduction-to-javascript) - 20h<br>
+[Codecademy - Learn Intermediate JavaScript](https://www.codecademy.com/learn/learn-intermediate-javascript) - 10h<br>
+[Javascript full course for beginners to advanced](https://www.youtube.com/watch?v=dOnAC2Rr-6A) - 4h11m<br>
+[Learn JavaScript - Full Course for Beginners](https://www.youtube.com/watch?v=PkZNo7MFNFg) - 3h26m<br>
+[Javascript promises](https://www.youtube.com/watch?v=DHvZLI7Db8E) - 11m<br>
+[JavaScript Async Await](https://www.youtube.com/watch?v=V_Kr9OSfDeU&t=0s) - 7m<br>
+[Fetch API](https://www.youtube.com/watch?v=cuEtnrL9-H0) - 6m<br>

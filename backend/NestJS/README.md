@@ -16,7 +16,7 @@
       - [Additional options](#Additional-options)
     - [TypeORM NestJS](#TypeORM-NestJS)
       - [Integrate typeORM](#Integrate-typeORM)
-      - [Use](#Use) 
+      - [Use](#Use)
   - [Call the NestJS API with axios](#Call-the-NestJS-API-with-axios)
     - [Axios independent of NestJS](#Axios-independent-of-NestJS)
     - [Axios NestJS](#Axios-NestJS)
@@ -24,7 +24,7 @@
     - [Server side](#Server-side)
     - [Client side](#Client-side)
 
-# Free tutorials 
+# Free tutorials
 Nest.js is a Node.js scalable framework built on top of express.js and TypeScript that comes with a strong opinion on how API's should be built.<br>
 Since it is very opinionated it provides a structure, a CLI, and lots of tools that let you create professional APIs fast.
 
@@ -59,17 +59,17 @@ class StudentController {
   getStudents(){
     return "all students";
   }
-  
+
   @Get('/:studentId')
   getStudentById(@Param('studentId') studentId: string) {
     return `student by ${studentId}`;
   }
-  
+
   @Post()
   createStudent(@Body() Body) {
     return `create student with ${JSON.stringify(Body)}`;
   }
-  
+
   @Put('/:studentId')
   updateStudent(@Param('studentId') studentId: string, @Body() Body) {
     return `updated student with ${studentId} and ${JSON.stringify(Body)}`;
@@ -88,7 +88,7 @@ Dependency injection is a design pattern whereby one object supplies dependencie
 Providers are classes that are used to inject dependencies in controllers or other providers.<br>
 Different providers exist, but they usually are able to do the same, distinction is made between them more for structural reasons, they are simply indicated by adding the provider name at end of class name, usually the provider type service is used and would be indicated as `class classNameService`.
 
-`nest -g service serviceName --no-spec`can be used to generate a service boilerplate. 
+`nest -g service serviceName --no-spec`can be used to generate a service boilerplate.
 
 A provider is indicated with the Injectable decorator usually in an providerName.service.ts file:
 <pre>
@@ -108,7 +108,7 @@ import { Student } from 'student.interface';
 @Controller('students')
 class StudentController {
   constructor(private studentService: studentService) {}
-  
+
   @Get()
   async getStudents(): Promise&ltStudent[]&gt;{
     return studentService.findAll();
@@ -194,7 +194,7 @@ export class LoggerMiddleware implements NestMiddleware {
 </pre>
 
 Middleware will be injected inside modules.<br>
-There is no place for middleware in the @Module() decorator. Instead, we set them up using the configure() method of the module class. 
+There is no place for middleware in the @Module() decorator. Instead, we set them up using the configure() method of the module class.
 <pre>
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
@@ -218,7 +218,7 @@ For being more specific in terms of routes:
 * request method can be specified: `.forRoutes({ path: 'cats', method: RequestMethod.GET })`
 * routes can be excluded in .excude()
 * multiple middleware can be specified: `consumer.apply(cors(), helmet(), logger)`
-* Middleware for the whole application is also possible with .use() 
+* Middleware for the whole application is also possible with .use()
 
 ## Database integration with TypeORM
 
@@ -257,7 +257,7 @@ The above created table would be manipulated like this:
 <pre>
 const repository = connection.getRepository(User); //connect to the wanted table/repository, the connection object has to be created with the CreateConnection() function
 
-//Create 
+//Create
 const user = new User(); //Instance of the above created user class, its columns can be filled
 user.firstName = "Timber";
 user.lastName = "Saw";
@@ -276,9 +276,9 @@ const timberToUpdate = await repository.findOne({ firstName: "Timber", lastName:
 timberToUpdate.age = 11;
 repository.save(timberToUpdate);
 
-//Delete 
+//Delete
 const timber = await repository.findOne({ firstName: "Timber", lastName: "Saw" });
-await repository.remove(timber); //The .remove method is able to remove a specific table 
+await repository.remove(timber); //The .remove method is able to remove a specific table
 </pre>
 The above shows basic queries with .find. For more complex .find queries https://orkhan.gitbook.io/typeorm/docs/find-options. QueryBuilder on the other hand allows the creation and execution of SQL queries of almost any complexity.<br>
 QueryBuilder uses similar logic as the SQL CLI.
@@ -842,3 +842,17 @@ export const send: (message: WebsocketGameDto) => void = (message) => {
 In react for example useEffect with [] as second parameter is called only once at mounting of the associated component and its return statement is called at unmounting.<br>
 This can be used to only call socket.emit("joinRoom"), socket.on once at mounting and socket.emit("leaveRoom"), socket.disconnect(only disconnect when sure not to reuse the socket) at unmounting of the component.<br>
 Inside the socket.on callback function a state change can be done to re-render with new response.
+
+## Resources
+[NestJS Crash Course 2021](https://www.youtube.com/watch?v=S0R82Osg-Mk) - 2h15min<br>
+[Chat App With Nest.js + Socket.io in 15 Minutes](https://www.youtube.com/watch?v=7xpLYk4q0Sg) - 13min<br>
+[NestJS Providers with Examples](https://progressivecoder.com/nestjs-providers-with-examples-learn-nestjs-series-part-3/)<br>
+[NestJS Official Documentation](https://docs.nestjs.com)<br>
+[NestJS, TypeORM](https://typeorm.io)<br>
+[NestJS, Database](https://docs.nestjs.com/techniques/database)<br>
+[Axios Official Documentation](https://axios-http.com/docs/intro)<br>
+[NestJS, HTTP module](https://docs.nestjs.com/techniques/http-module)<br>
+[NestJS, Gateways](https://docs.nestjs.com/websockets/gateways)<br>
+[Typed and validated REST API using NestJS](https://www.merixstudio.com/blog/validated-rest-api-nestjs/)<br>
+[Input validation with NestJS](https://dsebastien.medium.com/input-validation-with-nestjs-7184ba81af7e)<br>
+[NestJS, Validation](https://docs.nestjs.com/techniques/validation)<br>

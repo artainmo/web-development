@@ -65,7 +65,7 @@ By comparing changes to the virtual DOM with the actual DOM react only updates i
 ### JSX
 React contains JSX (javascript XML) which is a syntax extension of javascript available in react that resembles HTML, it allows writing HTML-like-code in javascript.<br>
 JSX is not readable by browsers, it has to be compiled to javascript.<br>
-JSX is treated as a javascript expression, thus can be stored in a variable, array, object, be returned... 
+JSX is treated as a javascript expression, thus can be stored in a variable, array, object, be returned...
 
 JSX elements like in HTML can have attributes, those attributes are indicated by a name, followed by an equal sign and a value.<br>
 Multi-line JSX must be between ( ) and all JSX elements must be inside one JSX element this can be the neutral `<div></div>` element.
@@ -121,7 +121,7 @@ this.setState changes a state inside a component but also calls render() so that
 ### COMPONENT LIFECYCLE
 Components can get created, rendered, added to the DOM, updated and removed.<br>
 We make distinction between three lifecycles:<br>
-1. Mounting, when the component is added to the DOM for first time.<br> 
+1. Mounting, when the component is added to the DOM for first time.<br>
 2. Updating, when a component gets updated due to a props or state change.<br>
 3. Unmounting, when a component gets removed from the DOM.
 
@@ -211,9 +211,9 @@ In public directory favicon.ico, logo192.png, logo512.png, files can all be remo
 For `nmp run build` the webpack library is necessary to transform JSX/components into javascript and bundle the whole app into one file; bundle.js (that the browser can run).<br>
 After bundling the application a build directory appears, that is ready for server deployment.<br>
 Distinction can be made between development environment (everything besides the build folder) and production application (build folder). The production application or build folder can deploy the application on a server on its own.<br>
-For server deployment use the following two commands `npm install -g serve` followed by `serve -s build`. 
+For server deployment use the following two commands `npm install -g serve` followed by `serve -s build`.
 
-The google chrome extension "React developer tools" allows for more information on state of application. 
+The google chrome extension "React developer tools" allows for more information on state of application.
 
 ### JSX-FEATURE
 Is a syntax similar to HTML with some differences like;<br>
@@ -246,7 +246,7 @@ Inside components functions can be written that can access the variables inside 
 
 ### STATE
 Is a dynamic form of storage that lives inside of our components, in the end it allows for direct updates of pages (without need to reload).<br>
-React uses a separate DOM representation called the virtualDOM, it compares it to the real DOM with the reconciliation algorithm, to determine if the page has to be updated. 
+React uses a separate DOM representation called the virtualDOM, it compares it to the real DOM with the reconciliation algorithm, to determine if the page has to be updated.
 
 For this use the state hook useState(value) that returns an array with two values, the first one being the value and second a setter function, the setter function can be used after a particular action and is able to change the value, which will directly be updated on the page.
 
@@ -312,3 +312,11 @@ When exporting arrow functions they have to be exported on another line not dire
 Another way to declare is like this `function name(propsInterfaceWithExplicitTypeDeclarations): JSX.Element {}`
 
 useState can be used like this `[var, setVar] = useState<number | null>(null)`, whereby the var variable gets initialize with null and can take a number later on.
+
+## Resources
+[Codecademy - React 101](https://www.codecademy.com/learn/react-101) - 20h<br>
+[Learn React In 30 Minutes](https://www.youtube.com/watch?v=hQAHSlTtcmY) - 27m<br>
+[Learn React in 5min (2020)](https://www.youtube.com/watch?v=MRIMT0xPXFI) - 5m<br>
+[React JS Crash Course 2021](https://www.youtube.com/watch?v=w7ejDZ8SWv8) - 1h48m<br>
+[Material UI React Tutorial](https://www.youtube.com/watch?v=vyJU9efvUtQ) - 42m<br>
+[React Typescript Tutorial](https://www.youtube.com/watch?v=Z5iWr6Srsj8) - 23m<br>

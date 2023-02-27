@@ -3,7 +3,6 @@
 ## Table of contents
 - [Basics](#Basics)
 - [Programming languages and frameworks and libraries](#Programming-languages-and-frameworks-and-libraries)
-- [Learning materials](#Learning-materials)
 
 ## Basics
 **World Wide Web** (www), grouping of all documents on the web accessible through URLs(uniform resource locator)
@@ -141,78 +140,5 @@ DevOps, is a way of organizing or a culture, that aims at ending the division be
 The Development team writes an application’s code/features.<br>
 The Operation team creates and maintains the infrastructure that the application runs on.
 
-**Git**<br>
-Git is a software that allows you to keep track of changes made to a coding project over time.
-
 **Cybersecurity**<br>
 Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks. The web is one medium that permits such threats.
-
-## Learning materials
-! -> consumed as wanted<br>
-| -> partly consumed
-
-**Books**<br>
-Javascript: The good parts - O'Reilly !
-
-**Tutorials**<br>
-https://www.youtube.com/watch?v=ahCwqrYpIuM - Typescript - The Basics - 12m !<br>
-https://www.youtube.com/watch?v=BwuLxPH8IDs - TypeScript Course for Beginners 2021 - 3h16m !<br>
-https://www.youtube.com/watch?v=NjN00cM18Z4 - TypeScript for React - 51m !<br>
-https://www.youtube.com/watch?v=gp5H0Vw39yw - Typescript full course for beginners - 1h34m !<br>
-https://www.tutorialspoint.com/typescript/index.htm - Typescript written complete tutorial !<br>
-
-https://www.youtube.com/watch?v=dOnAC2Rr-6A - Javascript full course for beginners to advanced - 4h11m !<br>
-https://www.youtube.com/watch?v=PkZNo7MFNFg - Learn JavaScript - Full Course for Beginners - 3h26m !<br>
-https://www.youtube.com/watch?v=DHvZLI7Db8E - Javascript promises - 11m !<br>
-https://www.youtube.com/watch?v=V_Kr9OSfDeU&t=0s - JavaScript Async Await - 7m !<br>
-https://www.youtube.com/watch?v=cuEtnrL9-H0 - Fetch API - 6m !<br>
-
-https://www.youtube.com/watch?v=hQAHSlTtcmY - Learn React In 30 Minutes - 27m !<br>
-https://www.youtube.com/watch?v=MRIMT0xPXFI - Learn React in 5min (2020) - 5m !<br>
-https://www.youtube.com/watch?v=w7ejDZ8SWv8 - React JS Crash Course 2021 - 1h48m !<br>
-https://www.youtube.com/watch?v=vyJU9efvUtQ - Material UI React Tutorial - 42m !<br>
-https://www.youtube.com/watch?v=Z5iWr6Srsj8 - React Typescript Tutorial - 23m ! <br>
-
-https://www.youtube.com/watch?v=Oe421EPjeBE - Node.js and Express.js - Full Course - 8h16m !<br>
-
-https://www.youtube.com/watch?v=qw--VYLpxG4 - PostgreSQL full course - 4h20m !<br>
-
-https://www.youtube.com/watch?v=S0R82Osg-Mk - NestJS Crash Course 2021 - 2h15min !<br>
-https://progressivecoder.com/nestjs-providers-with-examples-learn-nestjs-series-part-3/ !<br>
-https://docs.nestjs.com !<br>
-https://typeorm.io !<br>
-https://docs.nestjs.com/techniques/database !<br>
-https://axios-http.com/docs/intro !<br>
-https://docs.nestjs.com/techniques/http-module !<br>
-https://www.youtube.com/watch?v=7xpLYk4q0Sg - Chat App With Nest.js + Socket.io in 15 Minutes - 13min !<br>
-https://docs.nestjs.com/websockets/gateways !<br>
-https://www.merixstudio.com/blog/validated-rest-api-nestjs/ !<br>
-https://dsebastien.medium.com/input-validation-with-nestjs-7184ba81af7e !<br>
-https://docs.nestjs.com/techniques/validation !<br>
-
-https://faun.pub/whats-docker-and-how-to-start-with-it-b13ff51013d0 !<br>
-https://wkrzywiec.medium.com/how-to-put-your-java-application-into-docker-container-5e0a02acdd6b ! <br>
-https://nodejs.org/en/docs/guides/nodejs-docker-webapp/ ! <br>
-https://wkrzywiec.medium.com/how-to-run-database-backend-and-frontend-in-a-single-click-with-docker-compose-4bcda66f6de ! <br>
-https://tushar-chy.medium.com/a-simple-todo-application-with-nestjs-typeorm-postgresql-swagger-pgadmin4-jwt-and-docker-caa2742a4295 !
-
-http://sinatra-org-book.herokuapp.com/ ! <br>
-http://sinatrarb.com/intro.html ! <br>
-http://sinatrarb.com/configuration.html ! <br>
-
-**Courses**<br>
-https://www.codecademy.com/learn/learn-html - 9h !<br>
-https://www.codecademy.com/learn/learn-css - 10h !<br>
-https://www.codecademy.com/learn/introduction-to-javascript - 20h !<br>
-https://www.codecademy.com/learn/learn-intermediate-javascript - 10h !<br>
-https://www.codecademy.com/learn/learn-typescript - 10h !<br>
-https://www.codecademy.com/learn/react-101 - 20h !<br>
-https://www.codecademy.com/learn/learn-node-js - 7h !<br>
-https://www.codecademy.com/learn/learn-express - 4h !<br>
-https://www.codecademy.com/learn/paths/design-databases-with-postgresql - 30h !<br>
-https://www.codecademy.com/learn/connecting-front-end-to-back-end - 2h !<br>
-https://www.codecademy.com/learn/learn-websockets - 2h !<br>
-https://www.codecademy.com/learn/learn-ruby - 10h !<br>
-https://www.codecademy.com/learn/learn-git - 15h !<br>
-https://www.codecademy.com/learn/learn-angularjs - 15h |<br>
-https://www.codecademy.com/learn/learn-php - 25h !<br>

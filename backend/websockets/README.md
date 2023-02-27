@@ -16,3 +16,6 @@ If the handshake is done over HTTPS instead of HTTP, TLS will also be used for t
 
 
 See websocket-chat project to learn how to use the javascript ws package to create websockets.
+
+# Resources
+[Codecademy - Learn Websockets](https://www.codecademy.com/learn/learn-websockets) - 2h<br>

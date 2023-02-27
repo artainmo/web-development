@@ -15,7 +15,7 @@
 ### Basic git workflow
 Git is a software that allows you to keep track of changes made to a coding project over time.<br>
 Git works by recording the changes you make to a project, storing those changes, then allowing you to reference them as needed.<br>
-Git also facilitates coworking and project/task management. 
+Git also facilitates coworking and project/task management.
 
 To turn a directory into a git project, type in terminal in right directory `git init`, this will create a .git directory which will track your project.<br>
 A git project can be viewed as at least three parts:
@@ -150,3 +150,5 @@ Github actions can be used to automate certain tasks, such as using automated te
 
 An alternative to Github for managing git repositories that contains way more features, especially for DevOps, is [gitlab](https://github.com/artainmo/WebDevelopment/blob/main/other/DevOps/README.md#gitlab).
 
+## Resources
+[Codecademy - Learn Git](https://www.codecademy.com/learn/learn-git) - 15h<br>
