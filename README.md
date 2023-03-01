@@ -1,4 +1,4 @@
-# web-development
+# web-developmen
 
 ## Table of contents
 - [Basics](#Basics)
