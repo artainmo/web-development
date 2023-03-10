@@ -104,7 +104,7 @@ Functions can also become parameters of another function and be called inside th
 A scope defines where variables are accessible.<br>
 Blocks group code between {} but also defines scopes.
 
-Glabal variables are variables declared outside of any block and are as a result accessible in all scopes. They are considered bad practice, if still used best to start its name with g_.<br>
+Global variables are variables declared outside of any block and are as a result accessible in all scopes. They are considered bad practice, if still used best to start its name with g_.<br>
 If a variable is declared inside a function it is tied to the scope of that function block and is called local variable.<br>
 let and const declared variables contrary to var, can be limited to an if scope if declared in it, while var would be accessible in whole function scope if declared inside an if scope.
 
@@ -128,7 +128,7 @@ Arrays can contain as element other arrays this is called nested arrays.
 A loop does an action until a condition is met.<br>
 The syntax of for loop goes as follows "for (variable-declaration; condition-check-at-each-round; single-line-action-executed-at-each-round) { actions }", usually used to loop over arrays whereby the declared variable is an index that gets incremented during the single-line-action until it gets to the array length.<br>
 The syntax for a while loop is simply "while (condition-checked-at-each-round) {actions} ".<br>
-The do-while loop does the actions at least one time even if the condition is instantly not met, its syntax goes as follows "do { actions } while (condition)".
+The do-while loop does the actions at least one time even if the condition is instantly not met, its syntax goes as follows "do { actions } while (condition)".<br>
 The break keyword allows to exit a loop.
 
 Iterators are array methods that enable looping over the array.<br>
@@ -323,7 +323,7 @@ typeof keyword is used to receive the current type of a variable.
 
 Objects can also be created which are considered as one variable but contains multiple variables, they work like python dictionnaries.<br>
 Object.freeze(objectname) can be used to make the variables inside the object constant.<br>
-Classes contain variables and methods a constructor also exist that is called at construction and can take parameter values.<br>
+Classes contain variables and methods. A constructor also exist that is called at construction and can take parameter values.<br>
 With extend keyword classes, heritage from another class is possible, to call the parent class contructor use super().
 
 Spread operator consist of ...variable as keyword, it allows to extract the inside of string/array/object.<br>
@@ -370,7 +370,7 @@ Logical operators; && || !(statement)
 export as keyword can be used in front of functions/variables that you want to use in another file.<br>
 import keyword must than be used into this other file to import the "exported" functions/variables from the first file.<br>
 You can import all or only certain functions/variables from that file. <br>
-You can also import as a certain name, meaning the imported functions can only be accesed through this name, avoiding function/variables with duplicate names.
+You can also import as a certain name, meaning the imported functions can only be accesed through this name, avoiding function/variables with duplicate names.<br>
 export default means you only export one element from the module.
 
 ### PROMISES and SYNC AWAIT and FETCH and ERRORS
