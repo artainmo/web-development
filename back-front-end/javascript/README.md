@@ -43,7 +43,7 @@ Different primitive types: number, string, boolean, null, undefined, object, arr
 Arithmetic can be done between number types;<br>
 +, -, /, %, *<br>
 +=, -=, /=, %=, *=,  ++ -- -> operator on self<br>
-++ or --before the variable name executes it before it executes the whole line and after the variable name executes it after executing the whole line.
+++ or -- before the variable name executes it before it executes the whole line and after the variable name executes it after executing the whole line.
 
 Strings are encapsulated by '' or "" or backtics , if you want to use '' or "" inside string backtics can be used to encapsulate it.<br>
 Using the + operator on strings concatenates them.<br>
