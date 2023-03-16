@@ -220,10 +220,9 @@ The google chrome extension "React developer tools" allows for more information 
 Is a syntax similar to HTML with some differences like;<br>
 Javascript code can be implemented by indicating it between { }, if statement can be done with ternary operator herein.<br>
 A name between tags <name /> indicates a component and is thus used to reuse components.<br>
-Those components can take arguments like that <componentName argumentName=argumentValue/>.<br>
+Those components can take arguments like that `<componentName argumentName=argumentValue/>`.<br>
 
 Javascript array method map can be used to loop over all elements/components of an array, to return them all.<br>
-In both JSX and HTML {} can be used to take expressions, for example do an if with a ternary operator.<br>
 
 css can be added inside tags allowing for styling with style= an objects and that can contain variables such as color, backgroundcolor, cursor... Such a css object can be created once and re-used.
 
@@ -261,7 +260,7 @@ Material UI is a framework for react that contains pre-made components.
 
 #### SETUP
 First install the library with `npm install @material-ui/core` after having started a react application.<br>
-In the package.json file dependencies section the material-ui/core library will become visisble.
+In the package.json file dependencies section the material-ui/core library will become visible.
 
 #### USE
 https://material-ui.com/components/box/ -> documentation on all component and their parameters possibilities.
@@ -299,8 +298,8 @@ The MenuIcon must come inside an IconButton, which has to come inside a ToolBar,
 
 ### CSS MODULES
 
-In ft_transcendance project, this was used:
-https://github.com/css-modules/css-modules
+In ft_transcendance project, this was used:<br>
+https://github.com/css-modules/css-modules<br>
 https://coolors.co/2b2d42-8d99ae-f8f32b-ffffff-000000
 
 ### REACT WITH TYPESCRIPT
