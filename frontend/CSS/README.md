@@ -79,13 +79,15 @@ The inline-block value allows to have the next element horizontally next to the 
 ## Color
 color property refers to color of text and backgroud-color to color of background.
 
-Pre-made colors can be used by indicating their name for example, brown, sienna... Here is the list https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+Pre-made colors can be used by indicating their name for example, brown, sienna... Here is the list https://developer.mozilla.org/en-US/docs/Web/CSS/color_value.
 
 Custom colors can be created using hexadecimal, use an online hexadecimal generator for the wanted hexadecimal code.<br>
 Another way to create custom colors is with the RGB system as value use rgb(R, G, B) with a value for red, green and blue between 0-250.<br>
 The HSL or hue-saturation-lightness color scheme is another alternative for custom colors, it consist of the hue value between 0-360 (360degree color circle), the saturation and lightness as percentages, as value use hsl(H, S, L).
 
 Opacity also called alpha can be added onto all custom color representations, with for example rgba(R, G, B, A), hsla(H, S, L, A) (A = 0 - 1) or adding two digits to hexadecimal with 6digits and one digit to hexadecimal with 3digits.
+
+Use a [color palette generator](https://coolors.co/) to find the right color.
 
 ## Typography
 The property font-family can be used to set fonts to text.<br>
