@@ -78,7 +78,7 @@ Comparison operators without type coercion; ===(equal) <==(smaller than or equal
 Type coercion is not recommended and means for example "0" == false -> true<br>
 
 Logical operators can be used to add multiple conditions to one statement.<br>
-Logical operators: &&(and) ||(or) !(statement)(not)<br>
+Logical operators: &&(and) ||(or) !(not)<br>
 () parentheses can be used to make multiple conditions independent of the others and group them.
 
 Short-circuit evaluation consist of "X = Y || Z" whereby X equals Y if it is true and equals Z if Y is false.
@@ -159,7 +159,7 @@ const objects cannot be reassigned new attributes but the existing attributes ar
 To use the object attributes or methods inside an object method use the 'this' keyword like this "this.attributeName" or "this.methodName()".
 
 Private attributes and methods do not exist in Javascript, though it is possible to use the naming convention whereby the attribute/method name starts with '_' to indicate it is intended to be private.<br>
-Attributes that are intended to be private can have set and get methods to set them a value and get their value, javascript has the 'set' and 'get' keyowrds to create those methods. The convention is to have a private attribute like this '_attribute' and set/get method 'set attribute() {}' or 'get attribute() {}', to call those methods object.attribute. Those set and get methods allow making checks before performing the wanted action.<br>
+Attributes that are intended to be private can have set and get methods to set them a value and get their value, javascript has the 'set' and 'get' keywords to create those methods. The convention is to have a private attribute like this '_attribute' and set/get method 'set attribute() {}' or 'get attribute() {}', to call those methods object.attribute. Those set and get methods allow making checks before performing the wanted action.<br>
 
 To make an object reusable we create a factory-function, a factory-function returns an object and can contain parameters that will set attributes inside the returned object if the keys inside the object have the same names as the function parameters (this is called property value shorthand).
 
@@ -175,7 +175,7 @@ When instantiating a class to a variable, the new keyword has to be used with cl
 
 Similarly as with object for private attributes start them with _ and use get/set functions to access them.
 
-Classes can heritate from other classes meaning, it the child class heritates all the parents class's attributes/methods, this can be done with the extends keyword and calling first in constructor of child class the parent constructor with super(args).
+Classes can heritate from other classes, meaning, if the child class heritates all the parents class' attributes/methods, this can be done with the extends keyword and calling first in constructor of child class the parent constructor with super(args).
 
 Static methods are like private methods, they are indicated by the keyword static and are only available inside the class never outside the class.
 
