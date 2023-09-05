@@ -74,7 +74,7 @@ switch statement replaces all the above, its use is only considered good practic
 if, else if and else statements always need a following {} even if only one following line.
 
 Comparison operators can be used inside conditions.<br>
-Comparison operators without type coercion; ===(equal) <==(smaller than or equal) >==(bigger than or equal) !==(not equal) <(smaller than) >(bigger than)<br>
+Comparison operators without type coercion; ===(equal) <= (smaller than or equal) >= (bigger than or equal) !==(not equal) <(smaller than) >(bigger than). <== or >== does not exist...<br>
 Type coercion is not recommended and means for example "0" == false -> true<br>
 
 Logical operators can be used to add multiple conditions to one statement.<br>
