@@ -127,6 +127,7 @@ Arrays can contain as element other arrays this is called nested arrays.
 ### LOOPS and ITERATORS
 A loop does an action until a condition is met.<br>
 The syntax of for loop goes as follows "for (variable-declaration; condition-check-at-each-round; single-line-action-executed-at-each-round) { actions }", usually used to loop over arrays whereby the declared variable is an index that gets incremented during the single-line-action until it gets to the array length.<br>
+You can also use "for (score of scores) { console.log(score) }" to directly get each element from one array. Or "for (i in scores) { console.log(scores[i]) }" to directly get the key for each array element.<br>
 The syntax for a while loop is simply "while (condition-checked-at-each-round) {actions} ".<br>
 The do-while loop does the actions at least one time even if the condition is instantly not met, its syntax goes as follows "do { actions } while (condition)".<br>
 The break keyword allows to exit a loop.
