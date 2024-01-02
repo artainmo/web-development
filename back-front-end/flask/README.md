@@ -8,7 +8,7 @@
 
 ## Codecademy course
 ### Introduction
-Flask is a web micro framework. It allows the creation of a web application. It uses templates to add python into HTML.
+Flask is a popular Python framework for developing web applications. Classified as a microframework, it comes with minimal built-in components and requirements, making it easy to get started and flexible to use. At the same time, Flask is by no means limited in its ability to produce a fully featured app. Rather, it is designed to be easily extensible.
 
 The front-end is the part of the webpage a visitor can see and interact with. At its core the frontend is composed of Javascript, CSS, HTML.<br>
 Front-end development is also called client-side development. Referring to the vistor's browser who requested the webpage.<br>
@@ -21,6 +21,37 @@ You don’t need to reinvent the wheel to create a robust back-end. Instead, mos
 
 HTTP stands for Hypertext Transfer Protocol and is used to structure requests and responses over the internet. HTTP requires data to be transferred from one point to another over the network. The transfer of resources happens using TCP (Transmission Control Protocol). In viewing a webpage TCP manages the channels between the browser and the server.<br>
 HTTPS stands for HTTP Secure and allows you to encrypt data that you send and receive. HTTPS is important to use when passing sensitive or personal information to and from websites. However, it is up to the businesses maintaining the servers to set it up. In order to support HTTPS, the business must apply for a certificate from a Certificate Authority.
+
+Here is an example of how to create a simple flask app on localhost:5000.
+```
+from flask import Flask
+
+app = Flask(__name__) #Flask takes as input name of app. Here we gave '__name__' which is a special python variable referring to file name.
+
+@app.route('/') #This is a decorator indicating the associated function to be triggered when '/' endpoint of router is called.
+@app.route('/home') #You can paste multiple endpoints/decorators on same function
+def home(): #This function that binds to a path/endpoint is called a 'view' function.
+    return 'Hello, World!' #This will be the content inside the HTTP response
+```
+
+We can also return HTML to be rendered on a webpage from a view function.
+```
+@app.route('/')
+@app.route('/home')
+def home():
+    return '''
+    <h1>Hello, World!</h1>
+    <p>My first paragraph.</p>
+    <a href="https://www.codecademy.com">CODECADEMY</a>
+    '''
+```
+
+To bind view functions to a series of URLs (also called dynamic URLs) we use variable rules.
+```
+@app.route('/orders/<user_name>/<int:order_id>') #<user_name> accepts any text and <int:order_id> only positive ints. This means the view function binds to an infinite amount of URLs.
+def orders(user_name, order_id): #user_name and order_id are defined in the URL and can be used inside the view function
+    return f'<p>Fetching order #{order_id} for {user_name}.</p>'
+```
 
 ## Resources
 [codecademy - Learn Flask](https://www.codecademy.com/learn/learn-flask)
