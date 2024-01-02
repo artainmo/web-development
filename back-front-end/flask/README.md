@@ -3,6 +3,7 @@
 ## Table of contents
 - [Codecademy course](#Codecademy-course)
   - [Introduction](#Introduction)
+  - [Jinja2 Templates and Forms](#Jinja2-Templates-and-Forms)
 - [Resources](#Resources)
 
 
@@ -54,6 +55,13 @@ def orders(user_name, order_id): #user_name and order_id are defined in the URL 
 ```
 
 ### Jinja2 Templates and Forms
+When you navigate through a website you may notice that many of the pages on the site have a similar look and feel. This aspect of a website can be achieved with the use of templates. Here the term template refers to an HTML file that can represent multiple web pages with the same structure and functionality.
+
+Flask uses the Jinja2 template engine to render HTML files that include application variables and control structures.<br>
+Having routes return full web pages as strings is not a realistic way to build our site. Containing our HTML in files is the standard and more organized approach to structuring our web app.<br>
+To work with files, which we will call templates, we use the Flask function `render_template(file.html)`. Used in the return statement, this function takes a template file name as an argument and returns the content to send to the client. It uses the Jinja2 template engine to generate HTML using the template file as blueprint.<br>
+After the filename argument in render_template() we can add keyword arguments to be used as variables within the template. To add more than one variable separate each assignment with a comma. We can pass strings, integers, lists, dictionaries or any other objects to our templates. To access the variables in our templates we need to use the expression delimiter: {{ }}.
+
 
 ## Resources
 [codecademy - Learn Flask](https://www.codecademy.com/learn/learn-flask)
