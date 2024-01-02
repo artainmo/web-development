@@ -53,5 +53,7 @@ def orders(user_name, order_id): #user_name and order_id are defined in the URL 
     return f'<p>Fetching order #{order_id} for {user_name}.</p>'
 ```
 
+### Jinja2 Templates and Forms
+
 ## Resources
 [codecademy - Learn Flask](https://www.codecademy.com/learn/learn-flask)
