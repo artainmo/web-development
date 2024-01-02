@@ -91,7 +91,8 @@ This is a framework for webdevelopment written in the general-purpose programmin
 It uses a default MVC structure and uses multiple web/programming conventions, it enables rapid deployment and is widely used.
 
 **Flask**<br>
-Flask is a micro web framework written in Python. It still contains useful features while being quick and easy to use. Contrarily to the python web framework Django, flask is usually used for simple applications.
+Flask is a popular Python framework for developing web applications. Classified as a microframework, it comes with minimal built-in components and requirements, making it easy to get started and flexible to use. At the same time, Flask is by no means limited in its ability to produce a fully featured app. Rather, it is designed to be easily extensible.<br>
+Contrarily to the python web framework Django, flask is usually used for simple applications.
 
 ### Frontend
 **HTML & CSS**<br>
