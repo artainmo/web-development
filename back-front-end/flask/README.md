@@ -3,7 +3,8 @@
 ## Table of contents
 - [Codecademy course](#Codecademy-course)
   - [Introduction](#Introduction)
-  - [Jinja2 Templates and Forms](#Jinja2-Templates-and-Forms)
+  - [Jinja2 Templates](#Jinja2-Templates)
+  - [Forms](#Forms)
 - [Resources](#Resources)
 
 
@@ -53,6 +54,8 @@ To bind view functions to a series of URLs (also called dynamic URLs) we use var
 def orders(user_name, order_id): #user_name and order_id are defined in the URL and can be used inside the view function
     return f'<p>Fetching order #{order_id} for {user_name}.</p>'
 ```
+
+A virtual environment is necessary to develop Flask apps locally. A virtual environment will be an isolated environment containing all the flask dependencies and their versions as required by flask. The following command can be used to generate a virtual python environment `python3 -m venv myapp`. This will generate folder you can enter. Subsequently you will need to activate the virtual environment with `source bin/activate` (on mac). You can exit the virtual environment with `deactivate` command. Now you can create an app.py file that runs a flask server. Launch it with `flask run` and see it on 'localhost:5000'.
 
 ### Jinja2 Templates
 When you navigate through a website you may notice that many of the pages on the site have a similar look and feel. This aspect of a website can be achieved with the use of templates. Here the term template refers to an HTML file that can represent multiple web pages with the same structure and functionality.
@@ -145,6 +148,8 @@ class MyForm(FlaskForm):
 ```
 This simple class will enable the creation of a form with a text field and a submit button. Access to the fields of this form class is done through the attributes, my_textfield and my_submit. The StringField and SubmitField classes are the same as <input type=text... and <input type=submit... respectively.<br>
 ```
+app.config['SECRET_KEY'] = 'mysecret' #Necessary on server side to handle CSRF protection.
+
 @app.route("/")
 def my_route():
     flask_form = MyForm()
