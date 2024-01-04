@@ -118,5 +118,62 @@ When submitting a form through a website, the form data is sent as a HTTP POST r
 By default flask routes only handle GET requests. However, routes can handle POST requests if it is specified in the methods argument of the route() decorator like such `@app.route("/", methods=["GET", "POST"])`.<br>
 Flask provides access to the data in the request through the 'request' object, that needs to be imported `from flask import request`. When data is sent via a form submission it can be accessed using the form attribute of the request object. The form attribute is a dictionary with the form’s field names as the keys and the associated data as the values. Use it like this for example `request.form["my_text"]`.
 
+As sites get larger and their file structure becomes more complex the paths of Flask routes may change. In this case paths that are hard coded into the navigation elements such as hyperlinks and forms may break. Flask addresses the challenge of expanding file structures with url_for(). The function url_for() takes a route’s function name as an argument and returns the associated URL path.<br>
+Given the following Flask route declaration:
+```
+@app.route('/')
+def index:
+```
+These two hyperlinks below are identical:
+```
+<a href="/">Index Link</a>
+
+<a href="{{ url_for('index') }}">Index Link</a>
+```
+To pass variables from the template to the app, keyword arguments can be added to url_for(). They will be sent as arguments attached to the URL. It can be accessed the same way as if it was added onto the path manually. For example `<a href="{{ url_for('index', flask_var=template_var) }}">Index Link</a>`.
+
+Flask provides an alternative to web forms by creating a form class in the application, implementing the fields in the template and handling the data back in the application.<br>
+A Flask form class inherits from the class FlaskForm and includes attributes for every field:
+```
+from flask import Flask, render_template
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+
+class MyForm(FlaskForm):
+    my_textfield = StringField("TextLabel")
+    my_submit = SubmitField("SubmitName")
+```
+This simple class will enable the creation of a form with a text field and a submit button. Access to the fields of this form class is done through the attributes, my_textfield and my_submit. The StringField and SubmitField classes are the same as <input type=text... and <input type=submit... respectively.<br>
+```
+@app.route("/")
+def my_route():
+    flask_form = MyForm()
+    return render_template("my_template", template_form=flask_form)
+```
+The class form needs to be send via render_template as a template variable to the template.<br>
+Creating a form in the template is done by accessing attributes of the form passed to the template.
+```
+<form action="/" method="post">
+    {{ template_form.hidden_tag() }} #While not visible in the form, this field handles the necessary tasks to protect from CSRF.
+    {{ template_form.my_textfield.label }}
+    {{ template_form.my_textfield() }}
+    {{ template_form.my_submit() }}
+</form>
+```
+Once a form is submitted, the data is sent back to the server through a POST request. Using our FlaskForm class, data is now accessible through the form instance in the Flask app. The data can be directly accessed by using the data attribute associated with each field in the class. For example `form_data = flask_form.my_textfield.data`.<br>
+Validation is when form fields must contain data or a certain format of data in order to move forward with submission. We enable validation in our form class using the 'validators' parameter in the form field definitions.
+```
+from wtforms.validators import DataRequired
+
+my_textfield = StringField("TextLabel", validators=[DataRequired()]) #This validator will make sure the fields are not empty at submission.
+```
+In app to verify if called route needs to handle a submitted form the `my_form.validate_on_submit()` can be used inside an if-statement. It will return true when there is a POST request and all form validators are satisfied.
+
+FLaskWTF also contains other form fields, such as TextAreaField, BooleanField, RadioField...
+
+Besides rendering templates from our routes, it can be important to move from one route to another. This is the role of the function `redirect("url_string")`.<br>
+Consider the case where we create our form in one route, but after the form submission we want the user to end up in another route. While we can set the action attribute in the HTML <form> tag go to any path, 'redirect()' is the best option to move from one route to another.<br>
+Once again, to avoid possible URL string pitfalls, we can utilize 'url_for()' within 'redirect()' like this for example `redirect(url_for("new_route", _external=True, _scheme='https'))`. The keyword arguments _external=True and _scheme='https' ensure that the URL we redirect to is a secure HTTPS address and not an insecure HTTP address.
+
 ## Resources
 [codecademy - Learn Flask](https://www.codecademy.com/learn/learn-flask)
