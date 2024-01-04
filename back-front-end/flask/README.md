@@ -54,7 +54,7 @@ def orders(user_name, order_id): #user_name and order_id are defined in the URL 
     return f'<p>Fetching order #{order_id} for {user_name}.</p>'
 ```
 
-### Jinja2 Templates and Forms
+### Jinja2 Templates
 When you navigate through a website you may notice that many of the pages on the site have a similar look and feel. This aspect of a website can be achieved with the use of templates. Here the term template refers to an HTML file that can represent multiple web pages with the same structure and functionality.
 
 Flask uses the Jinja2 template engine to render HTML files that include application variables and control structures.<br>
@@ -110,6 +110,13 @@ The following code in 'index.html' extends 'base.html' to insert its reusable co
     {% endfor %}
 {% endblock %}
 ```
+
+### Forms
+Forms allow us to gather information from the website user.
+
+When submitting a form through a website, the form data is sent as a HTTP POST request, meaning we send data to the server.<br>
+By default flask routes only handle GET requests. However, routes can handle POST requests if it is specified in the methods argument of the route() decorator like such `@app.route("/", methods=["GET", "POST"])`.<br>
+Flask provides access to the data in the request through the 'request' object, that needs to be imported `from flask import request`. When data is sent via a form submission it can be accessed using the form attribute of the request object. The form attribute is a dictionary with the form’s field names as the keys and the associated data as the values. Use it like this for example `request.form["my_text"]`.
 
 ## Resources
 [codecademy - Learn Flask](https://www.codecademy.com/learn/learn-flask)
