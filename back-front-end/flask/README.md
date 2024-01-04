@@ -59,9 +59,57 @@ When you navigate through a website you may notice that many of the pages on the
 
 Flask uses the Jinja2 template engine to render HTML files that include application variables and control structures.<br>
 Having routes return full web pages as strings is not a realistic way to build our site. Containing our HTML in files is the standard and more organized approach to structuring our web app.<br>
-To work with files, which we will call templates, we use the Flask function `render_template(file.html)`. Used in the return statement, this function takes a template file name as an argument and returns the content to send to the client. It uses the Jinja2 template engine to generate HTML using the template file as blueprint.<br>
-After the filename argument in render_template() we can add keyword arguments to be used as variables within the template. To add more than one variable separate each assignment with a comma. We can pass strings, integers, lists, dictionaries or any other objects to our templates. To access the variables in our templates we need to use the expression delimiter: {{ }}.
+To work with files, which we will call templates, we use the Flask function `render_template(file.html)`. Used in the return statement, this function takes a template file name as an argument and returns the content to send to the client. It searches for the file in the directory 'templates'. It uses the Jinja2 template engine to generate HTML using the template file as blueprint.<br>
+After the filename argument in render_template() we can add keyword arguments to be used as variables within the template. For example `render_template("index.html", grocery_list=items)`. To add more than one variable separate each assignment with a comma. We can pass strings, integers, lists, dictionaries or any other objects to our templates. To access the variables in our templates we need to use the expression delimiter: {{ }}.
 
+Filters are used by the template engine to act on template variables. To use them simply follow the variable with the filter name inside the delimiter and separate them with the | character as such `{{ variable | filter_name }}`.<br>
+The filter 'title' acts on a string variable and capitalizes the first letter in every word.<br>
+The 'default' filter takes an argument that displays text if the template variable isn't viable. For example `{{ no_template_variable | default("I am not from a variable.") }}`.<br>
+A lot of other filters exist.<br>
+
+If/else statements can also be used inside templates. Using if statements in a template happens inside a statement delimiter block: {% %}.
+```
+{% if template_number < 20 %}
+  <p>{{ template_number }} is less than 20.</p> 
+{% elif template_number > 20 %}
+   <p>{{ template_number }} is greater than 20.</p> 
+{% else %}
+   <p>{{ template_number }} is equal to 20.</p> 
+{% endif %}
+```
+
+Using the same statement delimiter block as if statements {% %}, for loops step through a range of numbers, lists and dictionaries.
+```
+{% for x in range(3) %}
+  <li>{{ x }}</li>
+{% endfor %}
+```
+
+A website's navigation bar is found on multiple web pages. Inheritance can be used to make a template reusable. This would allow one 'navigation bar' template to take the content of the 'web pages'.<br>
+For example the following code in file 'base.html' is reusable:
+```
+<!DOCTYPE html>
+<html>
+  <body>
+    <div>Navigation bar: <a href="/">Recipes</a> | <a href="/about">About</a></div>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
+```
+'block-content/endblock' is used to indicate where the content of other templates will be inserted.<br>
+The following code in 'index.html' extends 'base.html' to insert its reusable code above 'block content' and under 'endblock'.
+```
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Cooking By Myself</h1>
+    <p>Welcome to my cookbook. These are recipes I like.</p>
+    {% for id, name in template_recipes.items() %}
+      <p><a href="/recipe/{{ id }}">{{ name | title }}</a></p>
+    {% endfor %}
+{% endblock %}
+```
 
 ## Resources
 [codecademy - Learn Flask](https://www.codecademy.com/learn/learn-flask)
