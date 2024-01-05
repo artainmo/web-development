@@ -180,5 +180,44 @@ Besides rendering templates from our routes, it can be important to move from on
 Consider the case where we create our form in one route, but after the form submission we want the user to end up in another route. While we can set the action attribute in the HTML <form> tag go to any path, 'redirect()' is the best option to move from one route to another.<br>
 Once again, to avoid possible URL string pitfalls, we can utilize 'url_for()' within 'redirect()' like this for example `redirect(url_for("new_route", _external=True, _scheme='https'))`. The keyword arguments _external=True and _scheme='https' ensure that the URL we redirect to is a secure HTTPS address and not an insecure HTTP address.
 
+### Databases in Flask
+Flask-SQLAlchemy is an extension for Flask that supports the use of a Python SQL Toolkit called SQLAlchemy.
+```
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///myDB.db' #Location of application database
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #Stop receiving notifications for database changes
+db = SQLAlchemy(app) #Create SQLAlchemy object and bind it to our app
+```
+
+Using the SQLAlchemy object we can create database SQL tables.
+```
+#declaring the Book model/table
+class Book(db.Model):
+    id = db.Column(db.Integer, primary_key = True) #Primary key column, automatically generated IDs
+    title = db.Column(db.String(80), index = True, unique = True) #'index', when true, makes column searchable by its values
+    author_surname = db.Column(db.String(80), index = True, unique = False) #'unique', when true, allows similar values across rows in column
+    month = db.Column(db.String(20), index = True, unique = False) 
+    year = db.Column(db.Integer, index = True, unique = False)
+    
+    #Get a nice printout for Book objects
+    def __repr__(self):
+        return "{} in: {},{}".format(self.title, self.month,self.year)
+```
+
+Often times in real-world applications we will have entities that are somehow related. Students take courses, customers buy products, and users comment on posts.<br>
+In SQLAlchemy we can declare a relationship with a field initialized with the 'db.relationship()' method.<br>
+A foreign key is a field (or collection of fields) in one table that refers to the primary key in another table. We can create one like this for example `book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
+`. Similar to the primary key, a foreign key is just another column in our model with unique entries.<br>
+In a one-to-many relationship of tables, one table must initialize the relationship and the other the foreign key.
+
+From within the application file. After all the models have been specified the database is initialized by adding `db.create_all()` to the main program. The command is written after all the defined models. The result of db.create_all() is that the database schema is created representing our declared models. After running the command, you should see your database file in the path and with the name you set in the SQLALCHEMY_DATABASE_URI configuration field.
+
+Thanks to the ORM, creating database entries is the same as creating Python objects. For example `r1 = Reader(id = 342, name = 'Ann', surname = 'Adams', email = 'ann.adams@example.com')`. We interact with database entries in the way we interact with Python objects. In case we want to access a specific attribute or column, we do it in the same way we would access attributes of Python objects for example `print("My first reader:", r1.name)`.
+
+
+
 ## Resources
 [codecademy - Learn Flask](https://www.codecademy.com/learn/learn-flask)
