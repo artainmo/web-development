@@ -5,6 +5,7 @@
   - [Introduction](#Introduction)
   - [Jinja2 Templates](#Jinja2-Templates)
   - [Forms](#Forms)
+  - [Databases in Flask](#Databases-in-Flask)
 - [Resources](#Resources)
 
 
