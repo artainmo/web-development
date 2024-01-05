@@ -217,7 +217,28 @@ From within the application file. After all the models have been specified the d
 
 Thanks to the ORM, creating database entries is the same as creating Python objects. For example `r1 = Reader(id = 342, name = 'Ann', surname = 'Adams', email = 'ann.adams@example.com')`. We interact with database entries in the way we interact with Python objects. In case we want to access a specific attribute or column, we do it in the same way we would access attributes of Python objects for example `print("My first reader:", r1.name)`.
 
+To get all entries from a model called TableName we run `TableName.query.all()`. Often you know the primary key (unique identifier) value of entries you want to fetch. To get an entry with some primary key value ID from model TableName you run: `TableName.query.get(ID)`.<br>
+In a one-to-many relationship you can fetch the multiple related table entries with for example `reviews_123 = Reader.query.get(123).reviews.all()` and the one related table entry with `reviewer_111 = Review.query.get(111).reviewer`.
 
+To filter a query, SQLAlchemy provides the '.filter()' method.<br>
+For example, to select books from a specific year from the Book table we use the following command: `Book.query.filter(Book.year == 2020).all()`.<br>
+Other methods can be used after '.query', such as '.count()' that counts the number of fetched entries or '.first()' that returns only the first result.<br>
+For more advanced querying options check the SQLAlchemy Core + ORM documentation.
+
+A set of operations such as addition, removal, or updating database entries is called a database transaction. A database session consists of one or more transactions. The act of committing ends a transaction by saving the transactions permanently to the database. In contrast, rollback rejects the pending transactions and changes are not permanently saved in the database.<br>
+An entry is added to a session with the 'add()' method. The changes in a session are permanently written to a database when '.commit()' is executed. When only changing a value inside an already existing entry, '.add()' is not necessary anymore, but '.commit()' still is. 
+```
+db.session.add(new_reader1)
+new_reader1.name = 'Alfred'
+try:
+    db.session.commit()
+except:
+    db.session.rollback()
+```
+
+We remove entries with for example the following command `db.session.delete(Reader.query.get(753))`.
+
+The server from a route can automatically return an error code and message if a database entry is not found like this for example `review = Review.query.filter_by(id=review_id).first_or_404(description="Error: Not found")`.
 
 ## Resources
 [codecademy - Learn Flask](https://www.codecademy.com/learn/learn-flask)
