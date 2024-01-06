@@ -6,6 +6,7 @@
   - [Jinja2 Templates](#Jinja2-Templates)
   - [Forms](#Forms)
   - [Databases in Flask](#Databases-in-Flask)
+  - [Accounts and Authentification](#Accounts-and-Authentification)
 - [Resources](#Resources)
 
 
@@ -240,6 +241,12 @@ except:
 We remove entries with for example the following command `db.session.delete(Reader.query.get(753))`.
 
 The server from a route can automatically return an error code and message if a database entry is not found like this for example `review = Review.query.filter_by(id=review_id).first_or_404(description="Error: Not found")`.
+
+### Accounts and Authentification
+An important rule of application development is to never store sensitive user data as plain text. Hashing is the process of taking text input and creating a new sequence of characters out of it that cannot be easily reverse-engineered. When we hash user passwords, we can store the hashed format rather than the original plain text passwords. If a hack were to occur, the hackers would not be able to exploit the stolen information without knowing the hashing function that was used to encrypt the data.<br>
+`generate_password_hash('pass123')` takes a string as an argument and returns a hash of the string.<br>
+`check_password_hash(hashed_password, 'pass123')` takes two arguments: the hashed string and a new string which we are checking the hash against. It returns a boolean indicating if the string was a match to the hash.<br>
+You can import those functions like this `from werkzeug.security import generate_password_hash, check_password_hash`.
 
 ## Resources
 [codecademy - Learn Flask](https://www.codecademy.com/learn/learn-flask)
