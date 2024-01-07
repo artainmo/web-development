@@ -257,7 +257,7 @@ Deployment consists of moving a local website to hosting it on a publicly access
 Most developers utilize platform-as-a-servive (PAAS) to deploy their web app instead of building their own web servers. A PAAS is an online platform which is designed to be able to easily run, scale and manage your web application. The most popular and beginner friendly PAAS is Heroku.
 
 When we think about deployment, we need to think in terms of two environments:
-* Development environment: Your local development server where you run your app on localhost and make changes / develop new features
+* Development environment: Your local development server where you run your app on localhost and make changes / develop new features.
 * Production environment: The publicly accessible web server where the finished version of your app is running (in this case, Heroku’s Platform as a Service).
 
 The Heroku command line interface (CLI) is a software application that runs in your command line and is able to assist you in uploading the code in your development environment to the Heroku production environment.
