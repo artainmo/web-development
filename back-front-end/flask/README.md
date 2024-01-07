@@ -249,7 +249,9 @@ An important rule of application development is to never store sensitive user da
 You can import those functions like this `from werkzeug.security import generate_password_hash, check_password_hash`.
 
 Authentification is the process of verifying that an individual has permission to perform an action.<br>
-`LoginManager()` can be used to access various view function decorators for automating actions related to accounts and authentification. For example if an authorization error occurs on an HTTP request of a certain route that contains the decorator '@login_manager.unauthorized_handler', a redirection will automatically occur to the 'unauthorized' route.
+`LoginManager()` can be used to access various view function decorators for automating actions related to accounts and authentification. For example if an authorization error occurs on an HTTP request of a certain route that contains the decorator '@login_manager.unauthorized_handler', a redirection will automatically occur to the 'unauthorized' route. We can also use the decorator '@login_required' to ensure a user who is not logged in has no access to the route the decorator is used on.
+
+...
 
 ## Resources
 [codecademy - Learn Flask](https://www.codecademy.com/learn/learn-flask)
