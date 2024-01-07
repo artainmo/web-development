@@ -180,7 +180,7 @@ In app to verify if called route needs to handle a submitted form the `my_form.v
 FLaskWTF also contains other form fields, such as TextAreaField, BooleanField, RadioField...
 
 Besides rendering templates from our routes, it can be important to move from one route to another. This is the role of the function `redirect("url_string")`.<br>
-Consider the case where we create our form in one route, but after the form submission we want the user to end up in another route. While we can set the action attribute in the HTML <form> tag go to any path, 'redirect()' is the best option to move from one route to another.<br>
+Consider the case where we create our form in one route, but after the form submission we want the user to end up in another route. While we can set the action attribute in the HTML \<form\> tag go to any path, 'redirect()' is the best option to move from one route to another.<br>
 Once again, to avoid possible URL string pitfalls, we can utilize 'url_for()' within 'redirect()' like this for example `redirect(url_for("new_route", _external=True, _scheme='https'))`. The keyword arguments _external=True and _scheme='https' ensure that the URL we redirect to is a secure HTTPS address and not an insecure HTTP address.
 
 ### Databases in Flask
