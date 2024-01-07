@@ -248,5 +248,8 @@ An important rule of application development is to never store sensitive user da
 `check_password_hash(hashed_password, 'pass123')` takes two arguments: the hashed string and a new string which we are checking the hash against. It returns a boolean indicating if the string was a match to the hash.<br>
 You can import those functions like this `from werkzeug.security import generate_password_hash, check_password_hash`.
 
+Authentification is the process of verifying that an individual has permission to perform an action.<br>
+`LoginManager()` can be used to access various view function decorators for automating actions related to accounts and authentification. For example if an authorization error occurs on an HTTP request of a certain route that contains the decorator '@login_manager.unauthorized_handler', a redirection will automatically occur to the 'unauthorized' route.
+
 ## Resources
 [codecademy - Learn Flask](https://www.codecademy.com/learn/learn-flask)
