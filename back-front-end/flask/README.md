@@ -98,7 +98,7 @@ For example the following code in file 'base.html' is reusable:
 <html>
   <body>
     <div>Navigation bar: <a href="/">Recipes</a> | <a href="/about">About</a></div>
-    {% block content %}
+    {% block base %}
     {% endblock %}
   </body>
 </html>
@@ -108,7 +108,7 @@ The following code in 'index.html' extends 'base.html' to insert its reusable co
 ```
 {% extends "base.html" %}
 
-{% block content %}
+{% block base %}
     <h1>Cooking By Myself</h1>
     <p>Welcome to my cookbook. These are recipes I like.</p>
     {% for id, name in template_recipes.items() %}
