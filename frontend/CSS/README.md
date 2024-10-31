@@ -23,7 +23,7 @@ In the header element of an HTML file, style element can be created which will c
 ## Selector
 Type selectors refer to HTML tags, multiple can be used on one selector and the universal type selector `(*)` refers to all the tags.<br>
 CSS classes can also be made, HTML elements must use the class attribute to use them, CSS classes have a type selector = .name.<br>
-CSS ids can also be made those are classes that each only style one HTML element by using the id attribute, their type selector = #name.<br>
+CSS ids can also be made those are classes that each only style one HTML element by using the id attribute, their type selector = \#name.<br>
 You can also create selectors based on HTML element attributes, if an element contains an attribute ([attribute]) or if an element contains an attribute that is-equal-to/contains a value ([attribute*=value]) or an element containing a tag/type and attribute (type[attribute]).<br>
 To target an HTML element of a particular type with a particular class create a selector with type.className.<br>
 Descendants are child elements a parent element can style its child elements with a class attribute and selector .className descendantType or without a class attribute parentType childType.<br>
